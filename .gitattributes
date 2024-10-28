@@ -1,0 +1,2 @@
+# Exclude the docs folder from language statistics
+docs/** linguist-generated=true

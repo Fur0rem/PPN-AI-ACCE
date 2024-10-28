@@ -1,0 +1,29 @@
+Language: Cpp
+UseTab: Always
+TabWidth: 4
+IndentWidth: 4
+BasedOnStyle: LLVM
+PointerAlignment: Left
+SpaceAfterCStyleCast: false
+BreakBeforeBraces: Custom
+AlignArrayOfStructures: None
+AllowShortLambdasOnASingleLine: None
+BraceWrapping:
+  AfterStruct: false
+  AfterUnion: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterExternBlock: false
+  BeforeElse: true
+ColumnLimit: 140
+IndentCaseLabels: true
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+AlignConsecutiveMacros: true
+IndentPPDirectives: AfterHash
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+BinPackArguments: false
+SortIncludes: true
