@@ -30,6 +30,7 @@ Done/To do:
 ├── bin             # Contains the compiled files (including the tests and benchmarks)
 ├── docs            # Contains the documentation
 ├── nanobench
+├── experiments     # Contains several experiments using pre-made frameworks we did not related to the main project
 ├── src             # Contains the source code
 │   └── x.cpp
 ├── tests           # Contains the tests source code
