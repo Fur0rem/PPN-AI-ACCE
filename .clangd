@@ -1,6 +1,0 @@
----
-
-CompileFlags:
-  Add:
-    - "-I/home/pierre/Desktop/Saclay/S7/PPN/PPN-AICE/nanobench/src/include"
-

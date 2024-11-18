@@ -1,5 +1,5 @@
 #define ANKERL_NANOBENCH_IMPLEMENT
-#include <nanobench.h>
+#include "../nanobench/src/include/nanobench.h"
 
 int func_to_benchmark(int left, int right) {
 	return left + right;
