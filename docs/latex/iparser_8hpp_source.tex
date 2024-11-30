@@ -1,0 +1,34 @@
+\doxysection{iparser.\+hpp}
+\hypertarget{iparser_8hpp_source}{}\label{iparser_8hpp_source}\index{src/parsing/iparser.hpp@{src/parsing/iparser.hpp}}
+\mbox{\hyperlink{iparser_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ IPARSER\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ IPARSER\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIParser}{IParser}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ parse\_from\_string(std::string\&\ input)\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<double>\ parse\_from\_file(std::string\&\ filename)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::ifstream\ file(filename);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::string\ input;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ str))\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ input\ +=\ str;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parse\_from\_string(input);}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIParser}{\string~IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classIParser}{IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IPARSER\_HPP}}
+
+\end{DoxyCode}

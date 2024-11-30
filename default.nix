@@ -9,5 +9,6 @@ pkgs.clangStdenv.mkDerivation {
     re2
     gtest
     doxygen
+    nasm
   ];
 }

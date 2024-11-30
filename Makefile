@@ -1,7 +1,7 @@
 # --- Compilers, tools, and flags ---
 CC := g++
 
-DEBUG_FLAGS := -O0 -g -Wall -Wextra -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer
+DEBUG_FLAGS := -Og -g -Wall -Wextra -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer
 RELEASE_FLAGS := -O4
 
 GTEST_LINK_FLAGS := -lgtest -lgtest_main -pthread
@@ -27,26 +27,24 @@ clean:
 bin_dir:
 	mkdir -p bin
 
-
-
 # --- Main executable ---
-%.o : src/%.cpp | bin_dir 
+# FIXME: les .cpp du parsing sont dans des sous-dossiers, et ça cause des soucis
+rawbinary_parser.o: src/parsing/rawbinary_parser.cpp src/parsing/rawbinary_parser.hpp src/parsing/iparser.hpp | bin_dir
+	$(CC) $(DEBUG_FLAGS) -c $< -o bin/$@
+
+
+%.o: src/%.cpp | bin_dir
 	$(CC) $(RELEASE_FLAGS) $< -c -o bin/$@
 
 main: main.o | bin_dir
 	$(CC) $(RELEASE_FLAGS) $(addprefix bin/, $^) -o bin/$@
 
-
-
 # --- Tests ---
-test_dummy:
-test_%: tests/%.cpp | bin_dir
-	$(CC) $(DEBUG_FLAGS) $(TEST_FLAGS) $< -o bin/$@
+test_rawbinary_parser: rawbinary_parser.o
+	$(CC) $(DEBUG_FLAGS) $(TEST_FLAGS) tests/rawbinary_parser.cpp bin/rawbinary_parser.o -o bin/test_rawbinary_parser
 
-check: test_dummy
-	$(foreach test2run, $^, ./bin/$(test2run);)
-
-
+check: test_rawbinary_parser
+	./bin/test_rawbinary_parser
 
 # --- Benchmarking ---
 benchmark_dummy:
@@ -55,8 +53,6 @@ benchmark_%: benchmarks/%.cpp | bin_dir
 
 benchmark: benchmark_dummy
 	$(foreach bench2run, $^, -./bin/$(bench2run);)
-
-
 
 # --- Documentation ---
 docs: Doxyfile src/*
