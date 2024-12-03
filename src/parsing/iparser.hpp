@@ -1,27 +1,25 @@
 /**
  * @file src/parsing/iparser.hpp
- * An interface class for parsing assembly instructions into an input for a neural network.
+ * The header for an interface class for parsing assembly instructions into an input for a neural network.
  */
 
 #ifndef IPARSER_HPP
 #define IPARSER_HPP
 
+#include <array>
+#include <cassert>
 #include <fstream>
 #include <string>
 #include <vector>
 
+constexpr size_t MAX_TOKENS_NN = 2000; // TODO: Replace it when we fixed a size of the input for the neural network
+constexpr double NO_MORE_VALUE = 0.0;
+
 class IParser {
   public:
 	virtual std::vector<double> parse_from_string(std::string& input) = 0;
-	std::vector<double> parse_from_file(std::string& filename) {
-		std::ifstream file(filename);
-		std::string str;
-		std::string input;
-		while (std::getline(file, str)) {
-			input += str;
-		}
-		return parse_from_string(input);
-	}
+	std::vector<double> parse_from_file(std::string& filename);
+	static std::array<double, MAX_TOKENS_NN> into_neural_network_input(std::vector<double>& parsed);
 
 	virtual ~IParser() = default;
 

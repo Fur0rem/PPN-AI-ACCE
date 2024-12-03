@@ -29,9 +29,11 @@ bin_dir:
 
 # --- Main executable ---
 # FIXME: les .cpp du parsing sont dans des sous-dossiers, et ça cause des soucis
-rawbinary_parser.o: src/parsing/rawbinary_parser.cpp src/parsing/rawbinary_parser.hpp src/parsing/iparser.hpp | bin_dir
+iparser.o: src/parsing/iparser.cpp src/parsing/iparser.hpp | bin_dir
 	$(CC) $(DEBUG_FLAGS) -c $< -o bin/$@
 
+rawbinary_parser.o: src/parsing/rawbinary_parser.cpp src/parsing/rawbinary_parser.hpp src/parsing/iparser.hpp | bin_dir
+	$(CC) $(DEBUG_FLAGS) -c $< -o bin/$@
 
 %.o: src/%.cpp | bin_dir
 	$(CC) $(RELEASE_FLAGS) $< -c -o bin/$@
@@ -40,11 +42,14 @@ main: main.o | bin_dir
 	$(CC) $(RELEASE_FLAGS) $(addprefix bin/, $^) -o bin/$@
 
 # --- Tests ---
+test_iparser: iparser.o
+	$(CC) $(DEBUG_FLAGS) $(TEST_FLAGS) tests/iparser.cpp bin/iparser.o -o bin/test_iparser
+
 test_rawbinary_parser: rawbinary_parser.o
 	$(CC) $(DEBUG_FLAGS) $(TEST_FLAGS) tests/rawbinary_parser.cpp bin/rawbinary_parser.o -o bin/test_rawbinary_parser
 
-check: test_rawbinary_parser
-	./bin/test_rawbinary_parser
+check: test_rawbinary_parser test_iparser | bin_dir
+	$(foreach test2run, $^, ./bin/$(test2run);)
 
 # --- Benchmarking ---
 benchmark_dummy:
