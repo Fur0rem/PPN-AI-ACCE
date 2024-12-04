@@ -1,5 +1,5 @@
 /**
- * @file src/parsing/iparser.hpp
+ * @file include/parsing/iparser.hpp
  * The header for an interface class for parsing assembly instructions into an input for a neural network.
  */
 
@@ -7,8 +7,6 @@
 #define IPARSER_HPP
 
 #include <array>
-#include <cassert>
-#include <fstream>
 #include <string>
 #include <vector>
 

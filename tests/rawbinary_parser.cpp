@@ -1,10 +1,10 @@
 /**
- * @file tests/raw_binary_parser.cpp
+ * @file tests/rawbinary_parser.cpp
  * Used to test the assembly parser that converts it to raw binary directly.
  * All tests expected results are taken from https://defuse.ca/online-x86-assembler.htm#disassembly in x64 mode.
  */
 
-#include "../src/parsing/rawbinary_parser.hpp"
+#include "parsing/rawbinary_parser.hpp"
 #include <cstdint>
 #include <gtest/gtest.h>
 #include <string>

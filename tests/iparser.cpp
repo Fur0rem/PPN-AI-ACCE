@@ -4,7 +4,7 @@
  * All tests expected results are taken from https://defuse.ca/online-x86-assembler.htm#disassembly in x64 mode.
  */
 
-#include "../src/parsing/iparser.hpp"
+#include "parsing/iparser.hpp"
 #include <gtest/gtest.h>
 #include <vector>
 

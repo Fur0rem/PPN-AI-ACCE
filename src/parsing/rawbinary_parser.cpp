@@ -1,6 +1,7 @@
-#include "rawbinary_parser.hpp"
+#include "parsing/rawbinary_parser.hpp"
 #include <cstdint>
 #include <cstdio>
+#include <fstream>
 #include <iostream>
 #include <vector>
 

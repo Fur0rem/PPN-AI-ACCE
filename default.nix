@@ -10,5 +10,6 @@ pkgs.clangStdenv.mkDerivation {
     gtest
     doxygen
     nasm
+    cmake
   ];
 }

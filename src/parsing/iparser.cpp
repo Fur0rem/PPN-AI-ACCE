@@ -3,7 +3,8 @@
  * Implementation of the IParser interface class.
  */
 
-#include "iparser.hpp"
+#include "parsing/iparser.hpp"
+#include <cassert>
 #include <cstdlib>
 #include <fstream>
 #include <string>
