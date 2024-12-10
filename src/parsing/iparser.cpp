@@ -16,6 +16,7 @@ std::vector<double> IParser::parse_from_file(std::string& filename) {
 	std::string input;
 	while (std::getline(file, str)) {
 		input += str;
+		input += "\n";
 	}
 	return parse_from_string(input);
 }
