@@ -36,6 +36,8 @@ int main(){
 
     Eigen::VectorXf ouput_reseau = reseau1.feedForward(input); 
 
+    
+
 
     ////////////////////////////////////////////////
 
@@ -45,7 +47,43 @@ int main(){
     // Print the vector with the format
     std::cout << ouput_reseau.format(CleanFormat) << std::endl;
 
+
+    std::cout <<"This is the weights of the 2nd layer \n";
+    // std::cout <<reseau1.net[2].getWeights()<<"\n";
+
+    std::cout<<"this is the unformated output "<<ouput_reseau<<"\n"; 
+
+
+
+    // Eigen::VectorXf thetarget(1);
+    // thetarget(0) = 4.0f; 
+
+
+    // reseau1.backward(thetarget); 
+
+
+    // Eigen::MatrixXf targetMatrix(1, 1);
+    // targetMatrix(0, 0) = 4.0f;
+
+    // Eigen::VectorXf thetarget = targetMatrix.col(0); // Or targetMatrix.row(0).transpose()
+    // reseau1.backward(thetarget);
+
+    Eigen::VectorXf targets(1); 
+    targets(0) = 4.0f; // Set the target value
+
+    // Debugging dimensions
+    std::cout << "Target dimensions: " << targets.rows() << " x " << targets.cols() << std::endl;
+
+    // Call backward
+    reseau1.backward(targets);
+
     return 0;
+
+
+    
+
+    
+
     ////////////////////////////////////////////////
 
     // std::cout <<"this is the output of the network " <<ouput_reseau<<std::endl;

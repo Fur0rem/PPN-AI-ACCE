@@ -16,6 +16,11 @@ inline float ReLu(float x){
    else return x;  
 }
 
+inline float DeReLu(float x){
+   if(x<=0) return 0; 
+   else return 1;  
+}
+
 
 // inline Eigen::VectorXf ReLu_vec(Eigen::VectorXf input){
 //     for (float &element : input) {
@@ -27,6 +32,15 @@ inline float ReLu(float x){
 inline Eigen::VectorXf ReLu_vec(Eigen::VectorXf input) {
     for (float &element : input) {
         element = ReLu(element); // Apply ReLu and store the result
+    }
+    return input; // 
+}
+
+
+
+inline Eigen::VectorXf DeReLu_vec(Eigen::VectorXf input) {
+    for (float &element : input) {
+        element = DeReLu(element); // Apply ReLu and store the result
     }
     return input; // 
 }

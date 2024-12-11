@@ -49,10 +49,14 @@
         Layer l5 = Layer(16,1);
 
         net.push_back(l5); 
-        
-        
+
+        // Layer l6 =Layer(1 ,1);
+        // net.push_back(l6); 
+
 
     }
+
+
 
 
      
@@ -70,21 +74,80 @@
         // Eigen::VectorXf output = Weights_ * inputs + Bias_;
         // Eigen::VectorXf  output ; 
         Eigen::VectorXf  output = net[0].feedForward(inputs); 
-        std::cout<<"We are in the loop \n"; 
+        // std::cout<<"We are in the loop \n"; 
+
+        std::cout << "Net feedForward: Initial layer output size = " << output.size() << "\n";
 
 
         for (int i =1 ; i<net.size() ;i++){
+            std::cout << "Net feedForward: Layer " << i << ", input size = " << output.size() << "\n";
             // Eigen::VectorXf  output = net.feedForward(inputs);
 
-            std::cout<<"We are in the poop \n"; 
-            std::cout<<"here is output:\n"<<output.size()<< " \n"; 
+            // std::cout<<"We are in the poop \n"; 
+            // std::cout<<"here is output:\n"<<output.size()<< " \n"; 
+            assert(net[i].Weights_.cols() == output.size() && "Layer input size does not match the previous layer output size.");            
             
             output = net[i].feedForward(output);
+
+
+            std::cout << "Net feedForward: Layer " << i << ", output size = " << output.size() << "\n";
+            // net[i].
 
 
         }
         return output;
     }
+
+
+	//FIXME 
+    void Net::backward (const Eigen::VectorXf& targets){
+
+        std::cout << "Target dimensions: " << targets.rows() << " x " << targets.cols() << std::endl;
+        std::cout << "Output layer dimensions: " << net.back().Weights_.rows() << " x " << net.back().Weights_.cols() << std::endl;
+
+
+
+
+        int N = net.size()-1; 
+
+        // net[net.size()-1].set_error_last_layer(targets); 
+        /*We calculate the error for the last layer this one is special */
+        net[N].set_error_last_layer(targets); 
+
+        /*We calculate the gradient of the weights */
+        Eigen::MatrixXf deltaW = net[N].weight_delta(net[N-1].activation_output_); 
+        /*WEIGHT UPDATE */
+        net[N].Weights_ = net[N].Weights_ - 0.01* deltaW; 
+
+
+        /*we calculate gradient of bias */
+        Eigen::VectorXf deltab = net[N].bias_delta(); 
+        /*BIAS UPDATE */
+        net[N].Bias_ = net[N].Bias_ - 0.01* deltab; 
+
+        /*loop for the rest of the weights */
+        for( int i =N-1 ; i>1 ; i--){
+            net[i].set_error(net[i+1].Z_outpout_ ,net[i+1].Weights_ ); 
+
+            Eigen::VectorXf dW =  net[i].weight_delta(net[i-1].activation_output_);
+            net[i].Weights_ = net[i].Weights_ - 0.01*dW; 
+
+
+            Eigen::VectorXf dB =  net[i].bias_delta(); 
+            net[i].Bias_ = net[i].Bias_ - 0.01*dB; 
+
+            std::cout << "Backward pass: Layer " << i << ", error_ size = " << net[i].error_.size() << "\n";
+
+
+        }
+
+
+    }
+
+
+
+
+
 
 
 

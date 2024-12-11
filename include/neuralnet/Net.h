@@ -19,6 +19,9 @@ public:
     // Net 
     // Eigen::Vector3f feedForward(const Eigen::Vector3f &inputs;); /*give us the ouput*/
     Eigen::VectorXf feedForward(const Eigen::VectorXf& inputs);
+    void backward (const Eigen::VectorXf& targets);
+
+
 
     // void feedForward(const Eigen::VectorXf& Loss);
 
@@ -27,7 +30,7 @@ public:
                                                         //  during a backpropagation */
     // std::vector<float> getWeights() const;
 
-private:
+// private:
 
     // Layer Layers[]; /*our */
     
