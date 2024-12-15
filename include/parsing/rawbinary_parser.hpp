@@ -2,6 +2,7 @@
 #define RAWBINARY_PARSER_HPP
 
 #include "iparser.hpp"
+#include <string>
 #include <vector>
 
 class RawBinaryParser : public IParser {
@@ -11,4 +12,4 @@ class RawBinaryParser : public IParser {
 	std::vector<double> parse_from_string(std::string& input) override;
 };
 
-#endif // RAW_BINARY_PARSER_HPP
+#endif // RAWBINARY_PARSER_HPP

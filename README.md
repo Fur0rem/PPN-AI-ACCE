@@ -2,27 +2,29 @@
 Link : https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator
 
 # Current status of the project
-Currently nothing has been done yet, just the base git structure of the project has been set up.
 Done/To do:
 - [x] Set up the project
+- [x] Add parsing of the assembly code
+- [] Get data to train the AI model
 - [] Implement the AI model
 
 # Dependencies
-- C++20
-- Makefile
+- C++17
+- CMake
 - GTest
 - clang-format and clang-tidy
 - Doxygen (if you want to generate the documentation)
 - nanobench (already included in the project as a submodule)
 
 # How to run the project
-- Clone the repository
-- Now there are 3 targets in the Makefile:
-    - `make main` to compile the main file
-    - `make check` to compile and run the tests
-    - `make benchmarks` to compile and run the benchmarks
-    - `make clean` to clean the project
-- Run the target you want to run
+- Clone the repository with submodules: `git clone --recurse-submodules
+- Build it with CMake:
+    - `mkdir build`
+    - `cd build`
+    - `cmake ..`
+    - `make`
+- Now you can run the tests with `make check`
+
 
 # Project structure
 ```
@@ -35,7 +37,7 @@ Done/To do:
 │   └── x.cpp
 ├── tests           # Contains the tests source code
 │   └── x.cpp
-├── Makefile        # To compile the project
+├── CMakeLists.txt        # To compile the project
 ├── default.nix     # Nix file to create a development environment
 ├── Doxyfile        # Doxygen configuration file
 └── .clang files    # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd

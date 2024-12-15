@@ -1,7 +1,7 @@
 /**
  * @file tests/rawbinary_parser.cpp
  * Used to test the assembly parser that converts it to raw binary directly.
- * All tests expected results are taken from https://defuse.ca/online-x86-assembler.htm#disassembly in x64 mode.
+ * All tests expected results are checked by ndisasm using -b 64 flag.
  */
 
 #include "parsing/rawbinary_parser.hpp"
@@ -18,6 +18,18 @@ std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
 		}
 	}
 	return result;
+}
+
+void binary_to_hexadecimal(std::vector<double>& binary) {
+	// print it
+	for (size_t i = 0; i < binary.size(); i += 8) {
+		uint8_t byte = 0;
+		for (int j = 0; j < 8; j++) {
+			byte |= static_cast<uint8_t>(binary[i + j]) << (7 - j);
+		}
+		printf("%02X ", byte);
+	}
+	printf("\n");
 }
 
 TEST(RawBinary_Parser, Single_Instruction) {
@@ -52,19 +64,26 @@ TEST(RawBinary_Parser, Memory) {
 
 TEST(RawBinary_Parser, Loops) {
 	std::string instructions = "mov rax, 0;\n"
-							   "mov r8, rbx;\n"
-							   "mov r9, 0;\n"
+							   "mov rbx, rax;\n"
+							   "mov rcx, 0;\n"
 							   "loop:;\n"
-							   "cmp r8, r9;\n"
+							   "cmp rbx, rcx;\n"
 							   "je end;\n"
-							   "mov r10, [rdi + r9*8];\n"
-							   "mov r11, [rsi + r9*8];\n"
-							   "imul r10, r11;\n"
-							   "add rax, r10;\n"
-							   "inc r9;\n"
+							   "mov rdx, [rdi + rcx*8];\n"
+							   "mov rsi, [rsi + rcx*8];\n"
+							   "imul rdx, rsi;\n"
+							   "add rax, rdx;\n"
+							   "inc rcx;\n"
 							   "jmp loop;\n"
 							   "end:;\n"
 							   "ret;\n";
+
+	std::vector<double> expected = binary_from_hexadecimal({
+		0xB8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0xC3, 0xB9, 0x00, 0x00, 0x00, 0x00, 0x48, 0x39, 0xCB, 0x74, 0x14, 0x48, 0x8B,
+		0x14, 0xCF, 0x48, 0x8B, 0x34, 0xCE, 0x48, 0x0F, 0xAF, 0xD6, 0x04, 0x80, 0x1D, 0x04, 0x8F, 0xFC, 0x1E, 0xBE, 0x7C, 0x03,
+	});
+	std::vector<double> result = RawBinaryParser().parse_from_string(instructions);
+	EXPECT_EQ(result, expected);
 }
 
 TEST(RawBinary_Parser, SIMD_Instruction) {

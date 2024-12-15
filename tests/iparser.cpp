@@ -1,10 +1,11 @@
 /**
  * @file tests/iparser.cpp
- * Used to test the assembly parser that converts it to raw binary directly.
- * All tests expected results are taken from https://defuse.ca/online-x86-assembler.htm#disassembly in x64 mode.
+ * Used to test that it correctly fills in the neural network input.
  */
 
 #include "parsing/iparser.hpp"
+#include <algorithm>
+#include <array>
 #include <gtest/gtest.h>
 #include <vector>
 
