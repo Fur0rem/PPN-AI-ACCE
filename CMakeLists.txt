@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Compiler flags
 set(DEBUG_FLAGS -Og -g -Wall -Wextra -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer)
-set(RELEASE_FLAGS -O4)
+set(RELEASE_FLAGS -O3)
 set(TEST_FLAGS --coverage -s -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer)
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include)
 set(BENCHMARK_FLAGS -lm ${NANOBENCH_LINK_FLAGS})
@@ -65,6 +65,11 @@ add_executable(benchmark_dummy ${CMAKE_SOURCE_DIR}/benchmarks/dummy.cpp)
 target_link_libraries(benchmark_dummy nanobench)
 target_compile_options(benchmark_dummy PRIVATE ${RELEASE_FLAGS})
 target_link_options(benchmark_dummy PRIVATE ${BENCHMARK_FLAGS})
+
+add_executable(benchmark_vec_add ${CMAKE_SOURCE_DIR}/benchmarks/vec_add.cpp)
+target_link_libraries(benchmark_vec_add nanobench)
+target_compile_options(benchmark_vec_add PRIVATE ${RELEASE_FLAGS} -mavx2)
+target_link_options(benchmark_vec_add PRIVATE ${BENCHMARK_FLAGS})
 
 # Add custom targets
 add_custom_target(check 
