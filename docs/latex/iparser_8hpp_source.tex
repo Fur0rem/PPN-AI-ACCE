@@ -8,23 +8,27 @@
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <array>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MAX\_TOKENS\_NN\ =\ 2000;\ \textcolor{comment}{//\ TODO:\ Replace\ it\ when\ we\ fixed\ a\ size\ of\ the\ input\ for\ the\ neural\ network}}
-\DoxyCodeLine{00014\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ NO\_MORE\_VALUE\ =\ 0.0;}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIParser}{IParser}}\ \{}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ parse\_from\_string(std::string\&\ input)\ =\ 0;}
-\DoxyCodeLine{00019\ \ \ \ \ std::vector<double>\ parse\_from\_file(std::string\&\ filename);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ std::array<double,\ MAX\_TOKENS\_NN>\ into\_neural\_network\_input(std::vector<double>\&\ parsed);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIParser}{\string~IParser}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classIParser}{IParser}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MAX\_TOKENS\_NN\ =\ 2000;\ \textcolor{comment}{//\ TODO:\ Replace\ it\ when\ we\ fixed\ a\ size\ of\ the\ input\ for\ the\ neural\ network}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ NO\_MORE\_VALUE\ =\ 0.0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIParser}{IParser}}\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ parse\_from\_string(std::string\&\ input);}
+\DoxyCodeLine{00020\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ parse\_from\_file(std::string\&\ filename);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ std::array<double,\ MAX\_TOKENS\_NN>\ into\_neural\_network\_input(std::vector<double>\&\ parsed);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIParser}{\string~IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ parse\_out(std::string\&\ input)\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ parse\_in(std::string\&\ input)\ =\ 0;}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IPARSER\_HPP}}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classIParser}{IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IPARSER\_HPP}}
 
 \end{DoxyCode}

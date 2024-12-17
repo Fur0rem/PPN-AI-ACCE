@@ -8,9 +8,14 @@
 #include <cstdlib>
 #include <fstream>
 #include <string>
+#include <tuple>
 #include <vector>
 
-std::vector<double> IParser::parse_from_file(std::string& filename) {
+std::tuple<std::vector<double>, std::vector<double>> IParser::parse_from_string(std::string& input) {
+	return {parse_in(input), parse_out(input)};
+}
+
+std::tuple<std::vector<double>, std::vector<double>> IParser::parse_from_file(std::string& filename) {
 	std::ifstream file(filename);
 	std::string str;
 	std::string input;

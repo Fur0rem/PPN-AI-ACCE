@@ -24,13 +24,13 @@ TEST(BinaryWithSplit_Parser, Single_Instruction) {
 	std::string instruction = "add eax, ebx";
 	std::vector<double> expected = binary_from_hexadecimal({0x01, 0xD8});
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_from_string(instruction);
+	std::vector<double> result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = "add eax, 0x1234";
 	expected = binary_from_hexadecimal({0x05, 0x34, 0x12, 0x00, 0x00});
 	expected.push_back(0.5);
-	result = BinaryWithSplitParser().parse_from_string(instruction);
+	result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 }
 
@@ -53,7 +53,7 @@ TEST(BinaryWithSplit_Parser, Multiple_Instructions) {
 	expected.push_back(0.5);
 	expected.insert(expected.end(), inst4.begin(), inst4.end());
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_from_string(instructions);
+	std::vector<double> result = BinaryWithSplitParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 }
 
@@ -61,7 +61,7 @@ TEST(BinaryWithSplit_Parser, Memory) {
 	std::string instruction = "mov eax, [ebx * 8 + ecx]";
 	std::vector<double> expected = binary_from_hexadecimal({0x67, 0x8B, 0x04, 0xD9});
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_from_string(instruction);
+	std::vector<double> result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 }
 
@@ -86,12 +86,12 @@ TEST(BinaryWithSplit_Parser, SIMD_Instruction) {
 	std::string instruction = "movdqa xmm0, xmm1";
 	std::vector<double> expected = binary_from_hexadecimal({0x66, 0x0F, 0x6F, 0xC1});
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_from_string(instruction);
+	std::vector<double> result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = "movdqa xmm0, [eax];";
 	expected = binary_from_hexadecimal({0x67, 0x66, 0x0F, 0x6F, 0x00});
 	expected.push_back(0.5);
-	result = BinaryWithSplitParser().parse_from_string(instruction);
+	result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 }

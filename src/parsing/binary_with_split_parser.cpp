@@ -8,8 +8,40 @@
 #include <string>
 #include <vector>
 
-std::vector<double> BinaryWithSplitParser::parse_from_string(std::string& input) {
+std::vector<double> BinaryWithSplitParser::parse_out(std::string& input) {
+	std::string substring = "";
+
+	// finding first line break
+	size_t found = input.find_first_of("\n");
+
+	if (found == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string");
+	}
+	substring = input.substr(0, found);
+
+	found = substring.find("Cycles");
+
+	if (found == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string");
+	}
+
+	size_t col_pos = substring.find_first_of(":", found);
+
+	if (col_pos == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string");
+	}
+
+	substring = substring.substr(col_pos + 1, substring.length());
+
+	double cycles = std::stod(substring);
+
+	return {cycles};
+}
+
+// TODO make it so that input isn't modified
+std::vector<double> BinaryWithSplitParser::parse_in(std::string& input_ref) {
 	// Convert it to raw binary but split each instruction with a 0.5
+	std::string input = input_ref;
 	std::vector<double> result;
 
 	// Split the input string into instructions

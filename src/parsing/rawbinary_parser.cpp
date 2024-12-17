@@ -5,9 +5,40 @@
 #include <iostream>
 #include <vector>
 
-std::vector<double> RawBinaryParser::parse_from_string(std::string& input) {
-	// Create a command that will call nasm to assemble the input string
+std::vector<double> RawBinaryParser::parse_out(std::string& input) {
+	std::string substring = "";
 
+	// finding first line break
+	size_t found = input.find_first_of("\n");
+
+	if (found == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string1");
+	}
+	substring = input.substr(0, found);
+
+	found = substring.find("Cycles");
+
+	if (found == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string2");
+	}
+
+	size_t col_pos = substring.find_first_of(":", found);
+
+	if (col_pos == std::string::npos) {
+		throw std::runtime_error("Failed to assemble the input string3");
+	}
+
+	substring = substring.substr(col_pos + 1, substring.length());
+
+	double cycles = std::stod(substring);
+
+	return {cycles};
+}
+
+// TODO make it so that input isn't modified
+std::vector<double> RawBinaryParser::parse_in(std::string& input_ref) {
+	// Create a command that will call nasm to assemble the input string
+	std::string input = input_ref;
 	// Add BITS 64 to the input string to assemble it as a 64-bit binary
 	input = "BITS 64\n" + input;
 	std::string command = "echo '" + input + "' > /tmp/input.asm && nasm -f bin /tmp/input.asm -o /tmp/input.bin";
