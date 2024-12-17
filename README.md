@@ -30,6 +30,7 @@ Done/To do:
 ```
 ├── benchmarks      # Contains the benchmarks source code
 ├── bin             # Contains the compiled files (including the tests and benchmarks)
+├── dataset         # Contains the training data
 ├── docs            # Contains the documentation
 ├── nanobench
 ├── experiments     # Contains several experiments using pre-made frameworks we did not related to the main project
