@@ -26,6 +26,7 @@ add_executable(main
     ${CMAKE_SOURCE_DIR}/src/parsing/iparser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/rawbinary_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/binary_with_split_parser.cpp
+    ${CMAKE_SOURCE_DIR}/src/dataset/dataset.cpp
 )
 target_link_libraries(main)
 
