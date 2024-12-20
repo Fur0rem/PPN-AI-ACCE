@@ -91,7 +91,7 @@ float NeuralNetwork::get_total_loss(std::vector<std::vector<float>> inputs, std:
 	for (size_t i = 0; i < inputs.size(); i++) {
 		loss += mean_squared_error(this->get_prediction(inputs[i]), targets[i]);
 	}
-	return loss / inputs.size();
+	return loss / static_cast<float>(inputs.size());
 }
 
 void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,

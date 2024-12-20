@@ -10,14 +10,17 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
+def hash(x : int) -> int:
+    return x ^ (x << 13) ^ (x >> 17) ^ (x << 5) % 50
+
 def char_target(c : chr) -> int:
     if c == ' ':
         return 0
-    return ord(c) - ord('A') + 1
+    return hash(ord(c) - ord('A') + 1)
 
 MIN_STR_LEN = 20
 MAX_STR_LEN = 200
-MAX_CHAR_TARGET = char_target('z')
+MAX_CHAR_TARGET = 50
 
 def random_string() :
     length = random.randint(MIN_STR_LEN, MAX_STR_LEN)
@@ -80,7 +83,7 @@ train_dataset = torch.utils.data.TensorDataset(inputs, targets)
 train_loader = DataLoader(dataset=train_dataset, batch_size=4, shuffle=True)
 
 # Hyperparameters
-num_epochs = 200
+num_epochs = 300
 learning_rate = 0.01
 
 # Define loss function and optimizer
@@ -115,7 +118,7 @@ for epoch in range(num_epochs):
         min_loss = loss.item()
         best_model = model.state_dict()
     
-    print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.6f}')
+    print(f'Epoch {epoch+1}, Loss: {loss.item()/500000:.6f}')
 
 print("Finished training the model.")
 # Restore the best model and save it
