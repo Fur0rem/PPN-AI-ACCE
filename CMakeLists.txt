@@ -8,13 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Compiler flags
 set(DEBUG_FLAGS -Og -g -Wall -Wextra -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer)
 set(RELEASE_FLAGS -O3)
-set(TEST_FLAGS --coverage -s -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer)
+set(TEST_FLAGS --coverage -s -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer)
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include)
 set(BENCHMARK_FLAGS -lm ${NANOBENCH_LINK_FLAGS})
 
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/nanobench/src/include)
+
+# Add the Eigen library
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+include_directories(${EIGEN3_INCLUDE_DIR})
 
 # Add the nanobench library
 add_library(nanobench STATIC ${CMAKE_SOURCE_DIR}/nanobench/src/test/app/nanobench.cpp)
@@ -26,7 +30,9 @@ add_executable(main
     ${CMAKE_SOURCE_DIR}/src/parsing/iparser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/rawbinary_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/binary_with_split_parser.cpp
-    ${CMAKE_SOURCE_DIR}/src/dataset/dataset.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
 )
 target_link_libraries(main)
 
@@ -61,14 +67,16 @@ target_compile_options(test_binary_with_split_parser PRIVATE ${DEBUG_FLAGS})
 target_link_options(test_binary_with_split_parser PRIVATE ${TEST_FLAGS})
 add_test(NAME test_binary_with_split_parser COMMAND test_binary_with_split_parser)
 
-add_executable(test_xor_parser
-    ${CMAKE_SOURCE_DIR}/tests/xor_parser.cpp 
-    ${CMAKE_SOURCE_DIR}/src/parsing/xor_parser.cpp
+add_executable(test_recognises_xor 
+    ${CMAKE_SOURCE_DIR}/tests/recognises_xor.cpp 
+    ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
 )
-target_link_libraries(test_xor_parser PUBLIC GTest::GTest GTest::Main)
-target_compile_options(test_xor_parser PRIVATE ${DEBUG_FLAGS})
-target_link_options(test_xor_parser PRIVATE ${TEST_FLAGS})
-add_test(NAME test_xor_parser COMMAND test_xor_parser)
+target_link_libraries(test_recognises_xor PUBLIC GTest::GTest GTest::Main)
+target_compile_options(test_recognises_xor PRIVATE ${DEBUG_FLAGS})
+target_link_options(test_recognises_xor PRIVATE ${TEST_FLAGS})
+add_test(NAME test_recognises_xor COMMAND test_recognises_xor)
 
 # Add the benchmark executable
 add_executable(benchmark_dummy ${CMAKE_SOURCE_DIR}/benchmarks/dummy.cpp)
@@ -84,7 +92,7 @@ target_link_options(benchmark_vec_add PRIVATE ${BENCHMARK_FLAGS})
 # Add custom targets
 add_custom_target(check 
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
-    DEPENDS test_iparser test_rawbinary_parser test_binary_with_split_parser test_xor_parser
+    DEPENDS test_iparser test_rawbinary_parser test_binary_with_split_parser
 )
 add_custom_target(benchmark COMMAND ${CMAKE_BINARY_DIR}/benchmark_dummy)
 
@@ -104,5 +112,4 @@ file(WRITE ${CMAKE_BINARY_DIR}/cmake_clean.cmake
     "endforeach()\n"
 )
 
-# Enable testing
 enable_testing()

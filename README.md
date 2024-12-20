@@ -6,7 +6,7 @@ Done/To do:
 - [x] Set up the project
 - [x] Add parsing of the assembly code
 - [] Get data to train the AI model
-- [] Implement the AI model
+- [x] Implement the AI model
 
 # Dependencies
 - C++17
@@ -15,6 +15,7 @@ Done/To do:
 - clang-format and clang-tidy
 - Doxygen (if you want to generate the documentation)
 - nanobench (already included in the project as a submodule)
+- eigen
 
 # How to run the project
 - Clone the repository with submodules: `git clone --recurse-submodules
@@ -28,17 +29,20 @@ Done/To do:
 
 # Project structure
 ```
-├── benchmarks      # Contains the benchmarks source code
+├── benchmarks      # Contains the benchmarks to generate the data
+│   └── op.cpp
 ├── bin             # Contains the compiled files (including the tests and benchmarks)
 ├── dataset         # Contains the training data
 ├── docs            # Contains the documentation
-├── nanobench
+├── nanobench       # Contains the nanobench submodule
 ├── experiments     # Contains several experiments using pre-made frameworks we did not related to the main project
+├── include         # Contains the header files
+│   └── x.hpp
 ├── src             # Contains the source code
 │   └── x.cpp
 ├── tests           # Contains the tests source code
-│   └── x.cpp
-├── CMakeLists.txt        # To compile the project
+│   └── test_x.cpp
+├── CMakeLists.txt  # To compile the project
 ├── default.nix     # Nix file to create a development environment
 ├── Doxyfile        # Doxygen configuration file
 └── .clang files    # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd

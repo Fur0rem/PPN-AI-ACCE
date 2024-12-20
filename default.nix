@@ -11,5 +11,6 @@ pkgs.clangStdenv.mkDerivation {
     doxygen
     nasm
     cmake
+    eigen
   ];
 }
