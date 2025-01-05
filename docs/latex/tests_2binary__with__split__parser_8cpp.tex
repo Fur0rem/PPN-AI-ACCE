@@ -1,5 +1,10 @@
 \doxysection{tests/binary\+\_\+with\+\_\+split\+\_\+parser.cpp File Reference}
 \hypertarget{tests_2binary__with__split__parser_8cpp}{}\label{tests_2binary__with__split__parser_8cpp}\index{tests/binary\_with\_split\_parser.cpp@{tests/binary\_with\_split\_parser.cpp}}
+
+
+Used to test the assembly parser that converts it to raw binary but split each instruction with a 0.\+5. It assumes the rawbinary\+\_\+parser is working correctly.  
+
+
 {\ttfamily \#include "{}parsing/binary\+\_\+with\+\_\+split\+\_\+parser.\+hpp"{}}\newline
 {\ttfamily \#include $<$cstdint$>$}\newline
 {\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
@@ -29,6 +34,8 @@ std\+::vector$<$ double $>$ \mbox{\hyperlink{tests_2binary__with__split__parser_
 
 \doxysubsection{Detailed Description}
 Used to test the assembly parser that converts it to raw binary but split each instruction with a 0.\+5. It assumes the rawbinary\+\_\+parser is working correctly. 
+
+
 
 \doxysubsection{Function Documentation}
 \Hypertarget{tests_2binary__with__split__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e}\label{tests_2binary__with__split__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e} 

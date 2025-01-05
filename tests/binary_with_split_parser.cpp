@@ -1,6 +1,6 @@
 /**
  * @file tests/binary_with_split_parser.cpp
- * Used to test the assembly parser that converts it to raw binary but split each instruction with a 0.5.
+ * @brief Used to test the assembly parser that converts it to raw binary but split each instruction with a 0.5.
  * It assumes the rawbinary_parser is working correctly.
  */
 

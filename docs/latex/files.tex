@@ -2,7 +2,7 @@
 Here is a list of all documented files with brief descriptions\+:\begin{DoxyCompactList}
 \item\contentsline{section}{benchmarks/\mbox{\hyperlink{benchmarks_2dummy_8cpp}{dummy.\+cpp}} \\*Dummy benchmark as a template for new benchmarks }{\pageref{benchmarks_2dummy_8cpp}}{}
 \item\contentsline{section}{benchmarks/\mbox{\hyperlink{vec__add_8cpp}{vec\+\_\+add.\+cpp}} \\*Benchmark for vector addition using SIMD instructions }{\pageref{vec__add_8cpp}}{}
-\item\contentsline{section}{include/dataset/\mbox{\hyperlink{dataset_8hpp_source}{dataset.\+hpp}} }{\pageref{dataset_8hpp_source}}{}
+\item\contentsline{section}{include/dataset/\mbox{\hyperlink{dataset_8hpp}{dataset.\+hpp}} \\*Class representing a dataset (inputs and outputs) }{\pageref{dataset_8hpp}}{}
 \item\contentsline{section}{include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}} \\*Header for the activation functions used in the neural network }{\pageref{activation__functions_8hpp}}{}
 \item\contentsline{section}{include/neural\+\_\+network/\mbox{\hyperlink{layer_8hpp}{layer.\+hpp}} \\*The header file for a neural network layer }{\pageref{layer_8hpp}}{}
 \item\contentsline{section}{include/neural\+\_\+network/\mbox{\hyperlink{neural__network_8hpp}{neural\+\_\+network.\+hpp}} \\*The header file for the neural network }{\pageref{neural__network_8hpp}}{}
@@ -11,14 +11,18 @@ Here is a list of all documented files with brief descriptions\+:\begin{DoxyComp
 \item\contentsline{section}{include/parsing/\mbox{\hyperlink{rawbinary__parser_8hpp}{rawbinary\+\_\+parser.\+hpp}} \\*The header for a parser to convert assembly into a neural network input by just taking the binary values }{\pageref{rawbinary__parser_8hpp}}{}
 \item\contentsline{section}{include/parsing/\mbox{\hyperlink{xor__parser_8hpp}{xor\+\_\+parser.\+hpp}} \\*The header for a parser of xor data for a neural network }{\pageref{xor__parser_8hpp}}{}
 \item\contentsline{section}{src/\mbox{\hyperlink{main_8cpp}{main.\+cpp}} }{\pageref{main_8cpp}}{}
+\item\contentsline{section}{src/dataset/\mbox{\hyperlink{dataset_8cpp}{dataset.\+cpp}} \\*Implementation of the \doxylink{classDataset}{Dataset} class }{\pageref{dataset_8cpp}}{}
+\item\contentsline{section}{src/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8cpp}{activation\+\_\+functions.\+cpp}} \\*\+: Implementation of activation functions for neural networks }{\pageref{activation__functions_8cpp}}{}
+\item\contentsline{section}{src/neural\+\_\+network/\mbox{\hyperlink{layer_8cpp}{layer.\+cpp}} \\*Implementation of the \doxylink{classLayer}{Layer} class }{\pageref{layer_8cpp}}{}
+\item\contentsline{section}{src/neural\+\_\+network/\mbox{\hyperlink{neural__network_8cpp}{neural\+\_\+network.\+cpp}} \\*Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class }{\pageref{neural__network_8cpp}}{}
 \item\contentsline{section}{src/parsing/\mbox{\hyperlink{src_2parsing_2binary__with__split__parser_8cpp}{binary\+\_\+with\+\_\+split\+\_\+parser.\+cpp}} \\*Implementation of the \doxylink{classBinaryWithSplitParser}{Binary\+With\+Split\+Parser} class }{\pageref{src_2parsing_2binary__with__split__parser_8cpp}}{}
 \item\contentsline{section}{src/parsing/\mbox{\hyperlink{src_2parsing_2iparser_8cpp}{iparser.\+cpp}} \\*Implementation of the \doxylink{classIParser}{IParser} interface class }{\pageref{src_2parsing_2iparser_8cpp}}{}
 \item\contentsline{section}{src/parsing/\mbox{\hyperlink{src_2parsing_2rawbinary__parser_8cpp}{rawbinary\+\_\+parser.\+cpp}} \\*Implementation of the \doxylink{classRawBinaryParser}{Raw\+Binary\+Parser} class }{\pageref{src_2parsing_2rawbinary__parser_8cpp}}{}
 \item\contentsline{section}{src/parsing/\mbox{\hyperlink{src_2parsing_2xor__parser_8cpp}{xor\+\_\+parser.\+cpp}} \\*Implementation of the \doxylink{classXORParser}{XORParser} class }{\pageref{src_2parsing_2xor__parser_8cpp}}{}
-\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2binary__with__split__parser_8cpp}{binary\+\_\+with\+\_\+split\+\_\+parser.\+cpp}} }{\pageref{tests_2binary__with__split__parser_8cpp}}{}
+\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2binary__with__split__parser_8cpp}{binary\+\_\+with\+\_\+split\+\_\+parser.\+cpp}} \\*Used to test the assembly parser that converts it to raw binary but split each instruction with a 0.\+5. It assumes the rawbinary\+\_\+parser is working correctly }{\pageref{tests_2binary__with__split__parser_8cpp}}{}
 \item\contentsline{section}{tests/\mbox{\hyperlink{tests_2dummy_8cpp}{dummy.\+cpp}} \\*Dummy test used as a template for new tests }{\pageref{tests_2dummy_8cpp}}{}
-\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2iparser_8cpp}{iparser.\+cpp}} }{\pageref{tests_2iparser_8cpp}}{}
-\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2rawbinary__parser_8cpp}{rawbinary\+\_\+parser.\+cpp}} }{\pageref{tests_2rawbinary__parser_8cpp}}{}
-\item\contentsline{section}{tests/\mbox{\hyperlink{recognises__xor_8cpp}{recognises\+\_\+xor.\+cpp}} }{\pageref{recognises__xor_8cpp}}{}
-\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2xor__parser_8cpp}{xor\+\_\+parser.\+cpp}} }{\pageref{tests_2xor__parser_8cpp}}{}
+\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2iparser_8cpp}{iparser.\+cpp}} \\*Used to test that it correctly fills in the neural network input }{\pageref{tests_2iparser_8cpp}}{}
+\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2rawbinary__parser_8cpp}{rawbinary\+\_\+parser.\+cpp}} \\*Used to test the assembly parser that converts it to raw binary directly. All tests expected results are checked by ndisasm using -\/b 64 flag }{\pageref{tests_2rawbinary__parser_8cpp}}{}
+\item\contentsline{section}{tests/\mbox{\hyperlink{recognises__xor_8cpp}{recognises\+\_\+xor.\+cpp}} \\*Used to test the neural network implementation on xor example }{\pageref{recognises__xor_8cpp}}{}
+\item\contentsline{section}{tests/\mbox{\hyperlink{tests_2xor__parser_8cpp}{xor\+\_\+parser.\+cpp}} \\*Used to test the XOR parser for the neural network }{\pageref{tests_2xor__parser_8cpp}}{}
 \end{DoxyCompactList}

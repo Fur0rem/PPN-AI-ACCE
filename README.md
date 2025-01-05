@@ -47,4 +47,5 @@ Done/To do:
 ├── Doxyfile        # Doxygen configuration file
 └── .clang files    # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd
 ```
-The project will automatically format, test and generate the documentation when committing with the .git/hooks/pre-commit file.
+
+Move the pre-commit.sh file to .git/hooks/pre-commit to make the project automatically format, test and generate the documentation when committing.

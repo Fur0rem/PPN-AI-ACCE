@@ -1,6 +1,6 @@
 /**
  * @file tests/xor_parser.cpp
- * Used to test the XOR parser for the neural network
+ * @brief Used to test the XOR parser for the neural network
  */
 
 #include <string>

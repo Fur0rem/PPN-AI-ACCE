@@ -1,6 +1,6 @@
 /**
  * @file tests/rawbinary_parser.cpp
- * Used to test the assembly parser that converts it to raw binary directly.
+ * @brief Used to test the assembly parser that converts it to raw binary directly.
  * All tests expected results are checked by ndisasm using -b 64 flag.
  */
 

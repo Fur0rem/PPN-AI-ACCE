@@ -1,0 +1,70 @@
+\doxysection{src/neural\+\_\+network/neural\+\_\+network.cpp File Reference}
+\hypertarget{neural__network_8cpp}{}\label{neural__network_8cpp}\index{src/neural\_network/neural\_network.cpp@{src/neural\_network/neural\_network.cpp}}
+
+
+Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class.  
+
+
+{\ttfamily \#include "{}neural\+\_\+network/neural\+\_\+network.\+hpp"{}}\newline
+{\ttfamily \#include "{}neural\+\_\+network/activation\+\_\+functions.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{neural__network_8cpp_a26901c3d559f74e1e1a3868cb5372614}{mean\+\_\+squared\+\_\+error}} (std\+::vector$<$ float $>$ output, std\+::vector$<$ float $>$ targets)
+\begin{DoxyCompactList}\small\item\em Calculate the mean squared error. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{neural__network_8cpp_a08e6f7aa78b4eee77c25cc5084ebe37b}{mean\+\_\+absolute\+\_\+error}} (std\+::vector$<$ float $>$ output, std\+::vector$<$ float $>$ targets)
+\begin{DoxyCompactList}\small\item\em Calculate the mean absolute error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{neural__network_8cpp_a08e6f7aa78b4eee77c25cc5084ebe37b}\label{neural__network_8cpp_a08e6f7aa78b4eee77c25cc5084ebe37b} 
+\index{neural\_network.cpp@{neural\_network.cpp}!mean\_absolute\_error@{mean\_absolute\_error}}
+\index{mean\_absolute\_error@{mean\_absolute\_error}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{mean\_absolute\_error()}{mean\_absolute\_error()}}
+{\footnotesize\ttfamily float mean\+\_\+absolute\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{output,  }\item[{std\+::vector$<$ float $>$}]{targets }\end{DoxyParamCaption})}
+
+
+
+Calculate the mean absolute error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The output of the network \\
+\hline
+{\em targets} & The target output of the network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean absolute error 
+\end{DoxyReturn}
+\Hypertarget{neural__network_8cpp_a26901c3d559f74e1e1a3868cb5372614}\label{neural__network_8cpp_a26901c3d559f74e1e1a3868cb5372614} 
+\index{neural\_network.cpp@{neural\_network.cpp}!mean\_squared\_error@{mean\_squared\_error}}
+\index{mean\_squared\_error@{mean\_squared\_error}!neural\_network.cpp@{neural\_network.cpp}}
+\doxysubsubsection{\texorpdfstring{mean\_squared\_error()}{mean\_squared\_error()}}
+{\footnotesize\ttfamily float mean\+\_\+squared\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{output,  }\item[{std\+::vector$<$ float $>$}]{targets }\end{DoxyParamCaption})}
+
+
+
+Calculate the mean squared error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & The output of the network \\
+\hline
+{\em targets} & The target output of the network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mean squared error 
+\end{DoxyReturn}

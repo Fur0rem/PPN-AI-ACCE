@@ -1,6 +1,6 @@
 /**
  * @file tests/iparser.cpp
- * Used to test that it correctly fills in the neural network input.
+ * @brief Used to test that it correctly fills in the neural network input.
  */
 
 #include "parsing/iparser.hpp"

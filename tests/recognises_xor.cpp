@@ -1,6 +1,6 @@
 /**
  * @file tests/recognises_xor.cpp
- * Used to test the neural network implementation on xor example.
+ * @brief Used to test the neural network implementation on xor example.
  */
 
 #include "neural_network/neural_network.hpp"
