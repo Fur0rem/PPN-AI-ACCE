@@ -9,6 +9,9 @@
 #include <gtest/gtest.h>
 #include <vector>
 
+/**
+ * @brief Test to check if IParser can correctly fill in the neural network input
+ */
 TEST(IParser, Into_Neural_Network_Input) {
 	std::vector<double> parsed = {0, 1, 0, 1, 1, 0, 1, 0};
 	std::array<double, MAX_TOKENS_NN> expected = {(7.0 + 1.0) / static_cast<double>(MAX_TOKENS_NN), 0, 1, 0, 1, 1, 0, 1, 0};
@@ -19,6 +22,9 @@ TEST(IParser, Into_Neural_Network_Input) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if IParser can correctly fill in the neural network input with an empty vector
+ */
 TEST(IParser, Into_Neural_Network_Input_Zero) {
 	std::vector<double> parsed = {};
 	std::array<double, MAX_TOKENS_NN> expected;
@@ -28,6 +34,9 @@ TEST(IParser, Into_Neural_Network_Input_Zero) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if IParser can correctly fill in the neural network input with the maximum number of tokens
+ */
 TEST(IParser, Into_Neural_Network_Input_Max_Tokens) {
 	std::vector<double> parsed(MAX_TOKENS_NN - 1, 0);
 	std::array<double, MAX_TOKENS_NN> expected{};

@@ -1,0 +1,68 @@
+\doxysection{Dataset Class Reference}
+\hypertarget{classDataset}{}\label{classDataset}\index{Dataset@{Dataset}}
+
+
+Class representing a dataset (inputs and outputs)  
+
+
+
+
+{\ttfamily \#include $<$dataset.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDataset_afaff94b9d3332fb22947c2f9270bcd60}{Dataset}} (\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}parser, std\+::string dir\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classDataset}{Dataset} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ \mbox{\hyperlink{classDataset_ae39e0751b7fa079edb57f642f12b88f0}{get\+\_\+data}} (double proportion)
+\begin{DoxyCompactList}\small\item\em Get the data from the dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a dataset (inputs and outputs) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDataset_afaff94b9d3332fb22947c2f9270bcd60}\label{classDataset_afaff94b9d3332fb22947c2f9270bcd60} 
+\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}}
+{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}}]{parser,  }\item[{std\+::string}]{dir\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classDataset}{Dataset} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parser} & The parser used to parse the data \\
+\hline
+{\em dir\+\_\+path} & The path to the directory containing the data \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDataset_ae39e0751b7fa079edb57f642f12b88f0}\label{classDataset_ae39e0751b7fa079edb57f642f12b88f0} 
+\index{Dataset@{Dataset}!get\_data@{get\_data}}
+\index{get\_data@{get\_data}!Dataset@{Dataset}}
+\doxysubsubsection{\texorpdfstring{get\_data()}{get\_data()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ Dataset\+::get\+\_\+data (\begin{DoxyParamCaption}\item[{double}]{proportion }\end{DoxyParamCaption})}
+
+
+
+Get the data from the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em proportion} & The proportion of the dataset used as training data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of pairs containing the input and output data 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dataset/dataset.\+hpp\item 
+src/dataset/dataset.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+\doxysection{layer.\+hpp}
+\hypertarget{layer_8hpp_source}{}\label{layer_8hpp_source}\index{include/neural\_network/layer.hpp@{include/neural\_network/layer.hpp}}
+\mbox{\hyperlink{layer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LAYER\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LAYER\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLayer}{Layer}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}{Layer}}(\textcolor{keywordtype}{int}\ input\_size,\ \textcolor{keywordtype}{int}\ output\_size);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_ab74288f699a9765caa9cef07616103a8}{feed\_forward}}(Eigen::MatrixXf\&\ input);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_afadf0f02441ae751fe4d77711d45aec3}{back\_propagate}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ error,\ \textcolor{keywordtype}{float}\ learning\_rate,\ Eigen::MatrixXf\&\ next\_values);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ Eigen::MatrixXf\ m\_weights;\ }
+\DoxyCodeLine{00041\ \ \ \ \ Eigen::MatrixXf\ m\_biases;\ \ }
+\DoxyCodeLine{00042\ \ \ \ \ Eigen::MatrixXf\ m\_values;\ \ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}};\ }
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LAYER\_HPP}}
+
+\end{DoxyCode}

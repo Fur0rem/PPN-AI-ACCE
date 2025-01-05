@@ -1,28 +1,146 @@
 \doxysection{IParser Class Reference}
 \hypertarget{classIParser}{}\label{classIParser}\index{IParser@{IParser}}
+
+
+Interface for parsing and transforming assembly instructions into an input for a neural network.  
+
+
+
+
+{\ttfamily \#include $<$iparser.\+hpp$>$}
+
+Inheritance diagram for IParser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classIParser}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}\label{classIParser_afa8abc420f6f8ee06c81556a5ffb368b} 
-std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ {\bfseries parse\+\_\+from\+\_\+string} (std\+::string \&input)
-\item 
-\Hypertarget{classIParser_a8a6ab76c1315808c75eb82523967254a}\label{classIParser_a8a6ab76c1315808c75eb82523967254a} 
-std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ {\bfseries parse\+\_\+from\+\_\+file} (std\+::string \&filename)
-\item 
-\Hypertarget{classIParser_a869fb79d358cf823b2e4d8976c4e7496}\label{classIParser_a869fb79d358cf823b2e4d8976c4e7496} 
-virtual std\+::vector$<$ double $>$ {\bfseries parse\+\_\+out} (std\+::string \&input)=0
-\item 
-\Hypertarget{classIParser_ad877cca85a9a49a165d1c5a45901850f}\label{classIParser_ad877cca85a9a49a165d1c5a45901850f} 
-virtual std\+::vector$<$ double $>$ {\bfseries parse\+\_\+in} (std\+::string \&input)=0
-\end{DoxyCompactItemize}
+std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}{parse\+\_\+from\+\_\+string}} (std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Parse a string into a combination of input and output for the neural network. \end{DoxyCompactList}\item 
+std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classIParser_a8a6ab76c1315808c75eb82523967254a}{parse\+\_\+from\+\_\+file}} (std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Parse a file into a combination of input and output for the neural network. \end{DoxyCompactList}\item 
+\Hypertarget{classIParser_a8d9dee322c0e6a77a8d23dce38f9515a}\label{classIParser_a8d9dee322c0e6a77a8d23dce38f9515a} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IParser} ()=default
+\begin{DoxyCompactList}\small\item\em destructor for the \doxylink{classIParser}{IParser} class \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{classIParser_a869fb79d358cf823b2e4d8976c4e7496}{parse\+\_\+out}} (std\+::string \&input)=0
+\begin{DoxyCompactList}\small\item\em Parse the output of the neural network into a vector of doubles. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{classIParser_ad877cca85a9a49a165d1c5a45901850f}{parse\+\_\+in}} (std\+::string \&input)=0
+\begin{DoxyCompactList}\small\item\em Parse the input of the neural network into a vector of doubles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classIParser_afce9bc78d531b9763c7687068e7d77e9}\label{classIParser_afce9bc78d531b9763c7687068e7d77e9} 
-static std\+::array$<$ double, MAX\+\_\+\+TOKENS\+\_\+\+NN $>$ {\bfseries into\+\_\+neural\+\_\+network\+\_\+input} (std\+::vector$<$ double $>$ \&parsed)
-\end{DoxyCompactItemize}
+static std\+::array$<$ double, \mbox{\hyperlink{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}{MAX\+\_\+\+TOKENS\+\_\+\+NN}} $>$ \mbox{\hyperlink{classIParser_a4889e50b2d0cce8ebbfddb3c47087003}{into\+\_\+neural\+\_\+network\+\_\+input}} (std\+::vector$<$ double $>$ \&parsed)
+\begin{DoxyCompactList}\small\item\em Convert a vector of parsed values into an input for the neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Interface for parsing and transforming assembly instructions into an input for a neural network. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIParser_a4889e50b2d0cce8ebbfddb3c47087003}\label{classIParser_a4889e50b2d0cce8ebbfddb3c47087003} 
+\index{IParser@{IParser}!into\_neural\_network\_input@{into\_neural\_network\_input}}
+\index{into\_neural\_network\_input@{into\_neural\_network\_input}!IParser@{IParser}}
+\doxysubsubsection{\texorpdfstring{into\_neural\_network\_input()}{into\_neural\_network\_input()}}
+{\footnotesize\ttfamily std\+::array$<$ double, \mbox{\hyperlink{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}{MAX\+\_\+\+TOKENS\+\_\+\+NN}} $>$ IParser\+::into\+\_\+neural\+\_\+network\+\_\+input (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{parsed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert a vector of parsed values into an input for the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parsed} & The vector of parsed values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of doubles representing the input for the neural network 
+\end{DoxyReturn}
+\Hypertarget{classIParser_a8a6ab76c1315808c75eb82523967254a}\label{classIParser_a8a6ab76c1315808c75eb82523967254a} 
+\index{IParser@{IParser}!parse\_from\_file@{parse\_from\_file}}
+\index{parse\_from\_file@{parse\_from\_file}!IParser@{IParser}}
+\doxysubsubsection{\texorpdfstring{parse\_from\_file()}{parse\_from\_file()}}
+{\footnotesize\ttfamily std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ IParser\+::parse\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Parse a file into a combination of input and output for the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing a vector of inputs and a vector of outputs 
+\end{DoxyReturn}
+\Hypertarget{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}\label{classIParser_afa8abc420f6f8ee06c81556a5ffb368b} 
+\index{IParser@{IParser}!parse\_from\_string@{parse\_from\_string}}
+\index{parse\_from\_string@{parse\_from\_string}!IParser@{IParser}}
+\doxysubsubsection{\texorpdfstring{parse\_from\_string()}{parse\_from\_string()}}
+{\footnotesize\ttfamily std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ IParser\+::parse\+\_\+from\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Parse a string into a combination of input and output for the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing a vector of inputs and a vector of outputs 
+\end{DoxyReturn}
+\Hypertarget{classIParser_ad877cca85a9a49a165d1c5a45901850f}\label{classIParser_ad877cca85a9a49a165d1c5a45901850f} 
+\index{IParser@{IParser}!parse\_in@{parse\_in}}
+\index{parse\_in@{parse\_in}!IParser@{IParser}}
+\doxysubsubsection{\texorpdfstring{parse\_in()}{parse\_in()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ double $>$ IParser\+::parse\+\_\+in (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Parse the input of the neural network into a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of doubles representing the input of the neural network 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classBinaryWithSplitParser_a45f16f28089a202aefe913bc789dd0e7}{Binary\+With\+Split\+Parser}}, \mbox{\hyperlink{classRawBinaryParser_a4774fac036c772e4a5b72c108ddbf40e}{Raw\+Binary\+Parser}}, and \mbox{\hyperlink{classXORParser_a234a6469b0d601504767657bfd554b2c}{XORParser}}.
+
+\Hypertarget{classIParser_a869fb79d358cf823b2e4d8976c4e7496}\label{classIParser_a869fb79d358cf823b2e4d8976c4e7496} 
+\index{IParser@{IParser}!parse\_out@{parse\_out}}
+\index{parse\_out@{parse\_out}!IParser@{IParser}}
+\doxysubsubsection{\texorpdfstring{parse\_out()}{parse\_out()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ double $>$ IParser\+::parse\+\_\+out (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Parse the output of the neural network into a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of doubles representing the output of the neural network 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classBinaryWithSplitParser_a9667c01c95f058ee80fcbb0ed63d2ef7}{Binary\+With\+Split\+Parser}}, \mbox{\hyperlink{classRawBinaryParser_a4ee74ea584efa99fbb07e5da263ef664}{Raw\+Binary\+Parser}}, and \mbox{\hyperlink{classXORParser_aee106b1c0e986107501ac907c9ddef85}{XORParser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/parsing/\mbox{\hyperlink{iparser_8hpp}{iparser.\+hpp}}\end{DoxyCompactItemize}
+include/parsing/\mbox{\hyperlink{iparser_8hpp}{iparser.\+hpp}}\item 
+src/parsing/\mbox{\hyperlink{src_2parsing_2iparser_8cpp}{iparser.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,99 @@
+\doxysection{benchmarks/vec\+\_\+add.cpp File Reference}
+\hypertarget{vec__add_8cpp}{}\label{vec__add_8cpp}\index{benchmarks/vec\_add.cpp@{benchmarks/vec\_add.cpp}}
+
+
+Benchmark for vector addition using SIMD instructions.  
+
+
+{\ttfamily \#include "{}../nanobench/src/include/nanobench.\+h"{}}\newline
+{\ttfamily \#include $<$immintrin.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{vec__add_8cpp_ac55582c73612eae3129a2346642a9043}\label{vec__add_8cpp_ac55582c73612eae3129a2346642a9043} 
+\#define {\bfseries ANKERL\+\_\+\+NANOBENCH\+\_\+\+IMPLEMENT}
+\begin{DoxyCompactList}\small\item\em Needed to use nanobench. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a3fa46f78b886ae7a687124fc28a96705}\label{vec__add_8cpp_a3fa46f78b886ae7a687124fc28a96705} 
+\#define {\bfseries STRINGIFY1}(s)~\#s
+\begin{DoxyCompactList}\small\item\em Helper macro to stringify a value. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e}\label{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e} 
+\#define {\bfseries STRINGIFY2}(s)~\mbox{\hyperlink{vec__add_8cpp_a3fa46f78b886ae7a687124fc28a96705}{STRINGIFY1}}(s)
+\begin{DoxyCompactList}\small\item\em Helper macro to stringify a value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vec__add_8cpp_a78a6fb618f17a055f6a7cf429926861d}{LABEL}}(name,  code)
+\begin{DoxyCompactList}\small\item\em Add a label before and after the code to be able to find it in the assembly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{vec__add_8cpp_ae20b116e3c84a8c006d9605e5b13eea3}\label{vec__add_8cpp_ae20b116e3c84a8c006d9605e5b13eea3} 
+void {\bfseries initialize\+\_\+arrays} ()
+\begin{DoxyCompactList}\small\item\em Initialize the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_adcc5f4fe0d3eda24e76b4e0cf3e79213}\label{vec__add_8cpp_adcc5f4fe0d3eda24e76b4e0cf3e79213} 
+void {\bfseries vec\+\_\+add\+\_\+f32\+\_\+no\+\_\+smid} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of single precision floating point numbers without SIMD instructions. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a936f2a5ab1b5b4356c5e2cbc7cc360a6}\label{vec__add_8cpp_a936f2a5ab1b5b4356c5e2cbc7cc360a6} 
+void {\bfseries vec\+\_\+add\+\_\+f32\+\_\+simd128} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of single precision floating point numbers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_af44c3bc4a03dca813ea172d22ce224f8}\label{vec__add_8cpp_af44c3bc4a03dca813ea172d22ce224f8} 
+void {\bfseries vec\+\_\+add\+\_\+f32\+\_\+simd256} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of single precision floating point numbers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_ad10e34cebb49e5a1264320e2b359a9e2}\label{vec__add_8cpp_ad10e34cebb49e5a1264320e2b359a9e2} 
+void {\bfseries vec\+\_\+add\+\_\+f64\+\_\+no\+\_\+smid} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of double precision floating point numbers without SIMD instructions. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_afc567498053be5ce3cde23d2ecbf9634}\label{vec__add_8cpp_afc567498053be5ce3cde23d2ecbf9634} 
+void {\bfseries vec\+\_\+add\+\_\+f64\+\_\+simd128} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of double precision floating point numbers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a263db5fe448a47fe4645756c8f248005}\label{vec__add_8cpp_a263db5fe448a47fe4645756c8f248005} 
+void {\bfseries vec\+\_\+add\+\_\+f64\+\_\+simd256} ()
+\begin{DoxyCompactList}\small\item\em Add two arrays of double precision floating point numbers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{vec__add_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for vector addition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1024
+\begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a012767f4964361f81e52c378ae806f3b}\label{vec__add_8cpp_a012767f4964361f81e52c378ae806f3b} 
+float {\bfseries f32a} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}\label{vec__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47} 
+float {\bfseries f32b} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}\label{vec__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504} 
+float {\bfseries f32c} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2}\label{vec__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2} 
+double {\bfseries f64a} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1}\label{vec__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1} 
+double {\bfseries f64b} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{vec__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2}\label{vec__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2} 
+double {\bfseries f64c} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for vector addition using SIMD instructions. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{vec__add_8cpp_a78a6fb618f17a055f6a7cf429926861d}\label{vec__add_8cpp_a78a6fb618f17a055f6a7cf429926861d} 
+\index{vec\_add.cpp@{vec\_add.cpp}!LABEL@{LABEL}}
+\index{LABEL@{LABEL}!vec\_add.cpp@{vec\_add.cpp}}
+\doxysubsubsection{\texorpdfstring{LABEL}{LABEL}}
+{\footnotesize\ttfamily \#define LABEL(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{code }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\mbox{\hyperlink{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e}{STRINGIFY2}}(name\#\#\_start:)\ :\ :\ :\ \textcolor{stringliteral}{"{}memory"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ code;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\mbox{\hyperlink{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e}{STRINGIFY2}}(name\#\#\_end:)\ :\ :\ :\ \textcolor{stringliteral}{"{}memory"{}});}
+
+\end{DoxyCode}
+
+
+Add a label before and after the code to be able to find it in the assembly. 
+

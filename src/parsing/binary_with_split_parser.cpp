@@ -1,3 +1,8 @@
+/**
+ * @file src/parsing/binary_with_split_parser.cpp
+ * @brief Implementation of the BinaryWithSplitParser class
+ */
+
 #include "parsing/binary_with_split_parser.hpp"
 #include <cstdint>
 #include <cstdio>
@@ -38,7 +43,6 @@ std::vector<double> BinaryWithSplitParser::parse_out(std::string& input) {
 	return {cycles};
 }
 
-// TODO make it so that input isn't modified
 std::vector<double> BinaryWithSplitParser::parse_in(std::string& input_ref) {
 	// Convert it to raw binary but split each instruction with a 0.5
 	std::string input = input_ref;

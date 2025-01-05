@@ -1,5 +1,5 @@
 /**
- * @file tests/recongises_xor.cpp
+ * @file tests/recognises_xor.cpp
  * Used to test the neural network implementation on xor example.
  */
 
@@ -7,6 +7,9 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
+/**
+ * @brief Test to check if the neural network can recognise the xor function
+ */
 TEST(NeuralNetwork, Xor) {
 	// Creating neural network
 	// 2 input neurons, 3 hidden neurons and 1 output neuron

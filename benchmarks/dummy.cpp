@@ -1,3 +1,8 @@
+/**
+ * @file benchmarks/dummy.cpp
+ * @brief Dummy benchmark as a template for new benchmarks
+ */
+
 #define ANKERL_NANOBENCH_IMPLEMENT
 #include "../nanobench/src/include/nanobench.h"
 

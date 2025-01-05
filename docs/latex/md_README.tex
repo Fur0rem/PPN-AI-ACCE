@@ -1,0 +1,50 @@
+\chapter{Repository for the course PPN (Projet de Programmation Numérique)\+: AI-\/\+ACCE (AI based Assembly Code Cycles Estimator)}
+\hypertarget{md_README}{}\label{md_README}\index{Repository for the course PPN (Projet de Programmation Numérique): AI-\/ACCE (AI based Assembly Code Cycles Estimator)@{Repository for the course PPN (Projet de Programmation Numérique): AI-\/ACCE (AI based Assembly Code Cycles Estimator)}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+Link \+: \href{https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html\#ai-acce-ai-based-assembly-code-cycles-estimator}{\texttt{ https\+://academic.\+liparad.\+uvsq.\+fr/m1chps/ppn/projets.\+html\#ai-\/acce-\/ai-\/based-\/assembly-\/code-\/cycles-\/estimator}}\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Current status of the project}{Current status of the project}}\label{md_README_autotoc_md1}
+Done/\+To do\+:
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} Set up the project
+\item \mbox{[}x\mbox{]} Add parsing of the assembly code
+\item \mbox{[}\mbox{]} Get data to train the AI model
+\item \mbox{[}x\mbox{]} Implement the AI model
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item C++17
+\item CMake
+\item GTest
+\item clang-\/format and clang-\/tidy
+\item Doxygen (if you want to generate the documentation)
+\item nanobench (already included in the project as a submodule)
+\item eigen
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{How to run the project}{How to run the project}}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Clone the repository with submodules\+: {\ttfamily git clone -\/-\/recurse-\/submodules}
+\item {\ttfamily Build it with CMake\+: -\/}mkdir build{\ttfamily  -\/}cd build{\ttfamily  -\/}cmake ..{\ttfamily  -\/}make{\ttfamily }
+\item {\ttfamily Now you can run the tests with}make check\`{}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Project structure}{Project structure}}\label{md_README_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├──\ benchmarks\ \ \ \ \ \ \#\ Contains\ the\ benchmarks\ to\ generate\ the\ data}
+\DoxyCodeLine{│\ \ \ └──\ op.cpp}
+\DoxyCodeLine{├──\ bin\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ compiled\ files\ (including\ the\ tests\ and\ benchmarks)}
+\DoxyCodeLine{├──\ dataset\ \ \ \ \ \ \ \ \ \#\ Contains\ the\ training\ data}
+\DoxyCodeLine{├──\ docs\ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ documentation}
+\DoxyCodeLine{├──\ nanobench\ \ \ \ \ \ \ \#\ Contains\ the\ nanobench\ submodule}
+\DoxyCodeLine{├──\ experiments\ \ \ \ \ \#\ Contains\ several\ experiments\ using\ pre-\/made\ frameworks\ we\ did\ not\ related\ to\ the\ main\ project}
+\DoxyCodeLine{├──\ include\ \ \ \ \ \ \ \ \ \#\ Contains\ the\ header\ files}
+\DoxyCodeLine{│\ \ \ └──\ x.hpp}
+\DoxyCodeLine{├──\ src\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ source\ code}
+\DoxyCodeLine{│\ \ \ └──\ x.cpp}
+\DoxyCodeLine{├──\ tests\ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ tests\ source\ code}
+\DoxyCodeLine{│\ \ \ └──\ test\_x.cpp}
+\DoxyCodeLine{├──\ CMakeLists.txt\ \ \#\ To\ compile\ the\ project}
+\DoxyCodeLine{├──\ default.nix\ \ \ \ \ \#\ Nix\ file\ to\ create\ a\ development\ environment}
+\DoxyCodeLine{├──\ Doxyfile\ \ \ \ \ \ \ \ \#\ Doxygen\ configuration\ file}
+\DoxyCodeLine{└──\ .clang\ files\ \ \ \ \#\ Contains\ the\ clang\ files\ for\ formatting\ and\ linting\ like\ .clang-\/format,\ .clang-\/tidy\ and\ .clangd}
+
+\end{DoxyCode}
+ The project will automatically format, test and generate the documentation when committing with the .git/hooks/pre-\/commit file. 

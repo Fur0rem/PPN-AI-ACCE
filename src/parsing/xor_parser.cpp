@@ -1,3 +1,8 @@
+/**
+ * @file src/parsing/xor_parser.cpp
+ * @brief Implementation of the XORParser class
+ */
+
 #include <fstream>
 #include <iostream>
 #include <tuple>

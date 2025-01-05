@@ -10,6 +10,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief Convert a hexadecimal vector to a binary vector
+ * @param hex The hexadecimal vector
+ * @return The binary vector
+ */
 std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
 	std::vector<double> result;
 	for (uint8_t byte : hex) {
@@ -20,6 +25,9 @@ std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
 	return result;
 }
 
+/**
+ * @brief Test to check if the parser can convert a single instruction to binary
+ */
 TEST(BinaryWithSplit_Parser, Single_Instruction) {
 	std::string instruction = "add eax, ebx";
 	std::vector<double> expected = binary_from_hexadecimal({0x01, 0xD8});
@@ -34,6 +42,9 @@ TEST(BinaryWithSplit_Parser, Single_Instruction) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can convert multiple instructions to binary
+ */
 TEST(BinaryWithSplit_Parser, Multiple_Instructions) {
 	std::string instructions = "imul eax, ebx;\n"
 							   "imul ecx, edx;\n"
@@ -57,6 +68,9 @@ TEST(BinaryWithSplit_Parser, Multiple_Instructions) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can parse instructions with memory access
+ */
 TEST(BinaryWithSplit_Parser, Memory) {
 	std::string instruction = "mov eax, [ebx * 8 + ecx]";
 	std::vector<double> expected = binary_from_hexadecimal({0x67, 0x8B, 0x04, 0xD9});
@@ -65,6 +79,9 @@ TEST(BinaryWithSplit_Parser, Memory) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can parse loops
+ */
 TEST(BinaryWithSplit_Parser, Loops) {
 	std::string instructions = "mov rax, 0;\n"
 							   "mov r8, rbx;\n"
@@ -82,6 +99,9 @@ TEST(BinaryWithSplit_Parser, Loops) {
 							   "ret;\n";
 }
 
+/**
+ * @brief Test to check if the parser can parse SIMD instructions
+ */
 TEST(BinaryWithSplit_Parser, SIMD_Instruction) {
 	std::string instruction = "movdqa xmm0, xmm1";
 	std::vector<double> expected = binary_from_hexadecimal({0x66, 0x0F, 0x6F, 0xC1});

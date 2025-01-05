@@ -10,6 +10,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief Convert a hexadecimal vector to a binary vector
+ * @param hex The hexadecimal vector
+ * @return The binary vector
+ */
 std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
 	std::vector<double> result;
 	for (uint8_t byte : hex) {
@@ -20,8 +25,11 @@ std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
 	return result;
 }
 
+/**
+ * @brief Convert a binary vector to a hexadecimal vector and prints it
+ * @param binary The binary vector
+ */
 void binary_to_hexadecimal(std::vector<double>& binary) {
-	// print it
 	for (size_t i = 0; i < binary.size(); i += 8) {
 		uint8_t byte = 0;
 		for (int j = 0; j < 8; j++) {
@@ -32,6 +40,9 @@ void binary_to_hexadecimal(std::vector<double>& binary) {
 	printf("\n");
 }
 
+/**
+ * @brief Test to check if the parser can convert a single instruction to binary
+ */
 TEST(RawBinary_Parser, Single_Instruction) {
 	std::string instruction = "add eax, ebx";
 	std::vector<double> expected = binary_from_hexadecimal({0x01, 0xD8});
@@ -44,6 +55,9 @@ TEST(RawBinary_Parser, Single_Instruction) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can convert multiple instructions to binary
+ */
 TEST(RawBinary_Parser, Multiple_Instructions) {
 	std::string instructions = ";; Cycles : 1002\n"
 							   "imul eax, ebx;\n"
@@ -60,6 +74,9 @@ TEST(RawBinary_Parser, Multiple_Instructions) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can parse the header with the number of cycles
+ */
 TEST(RawBinary_Parser_Out, Multiple_Instructions) {
 	std::string instructions = ";; Cycles : 1002\n"
 							   "imul eax, ebx;\n"
@@ -77,6 +94,9 @@ TEST(RawBinary_Parser_Out, Multiple_Instructions) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can parse instructions with memory access
+ */
 TEST(RawBinary_Parser, Memory) {
 	std::string instruction = "mov eax, [ebx * 8 + ecx]";
 	std::vector<double> expected = binary_from_hexadecimal({0x67, 0x8B, 0x04, 0xD9});
@@ -84,6 +104,9 @@ TEST(RawBinary_Parser, Memory) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the parser can parse loop instructions
+ */
 TEST(RawBinary_Parser, Loops) {
 	std::string instructions = ";; Cycles : 2488957\n"
 							   "mov rax, 0;\n"
@@ -107,12 +130,11 @@ TEST(RawBinary_Parser, Loops) {
 	});
 	std::vector<double> result = RawBinaryParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
-
-	// expected = {2488957};
-	// result = RawBinaryParser().parse_out(instructions);
-	// EXPECT_EQ(0, 0);
 }
 
+/**
+ * @brief Test to check if the parser can parse SIMD instructions
+ */
 TEST(RawBinary_Parser, SIMD_Instruction) {
 	std::string instruction = "movdqa xmm0, xmm1";
 	std::vector<double> expected = binary_from_hexadecimal({0x66, 0x0F, 0x6F, 0xC1});

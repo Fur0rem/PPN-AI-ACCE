@@ -1,12 +1,18 @@
-#include <iostream>
+/**
+ * @file tests/xor_parser.cpp
+ * Used to test the XOR parser for the neural network
+ */
+
 #include <string>
-#include <tuple>
 #include <vector>
 
 #include <gtest/gtest.h>
 
 #include "parsing/xor_parser.hpp"
 
+/**
+ * @brief Test to check if the XOR parser can correctly parse the input
+ */
 TEST(XORParser, XORParseIn) {
 	XORParser parser{};
 	std::string input = "0 0 0\n";
@@ -30,6 +36,9 @@ TEST(XORParser, XORParseIn) {
 	EXPECT_EQ(result, expected);
 }
 
+/**
+ * @brief Test to check if the XOR parser can correctly parse the output
+ */
 TEST(XORParser, XORParseOut) {
 	XORParser parser{};
 	std::string input = "0 0 0\n";

@@ -6,7 +6,8 @@
 #include <cstdlib>
 #include <iostream>
 
-/** The main function.
+/**
+ * @brief The main function.
  * @return The exit status of the program.
  */
 int main() {

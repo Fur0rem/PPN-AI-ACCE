@@ -1,8 +1,13 @@
 { pkgs ? import <nixpkgs> {} }:
 
-pkgs.clangStdenv.mkDerivation {
+let pythonEnv = pkgs.python3.withPackages (ps: with ps; [
+  matplotlib
+]);
+in 
+pkgs.stdenv.mkDerivation {
   name = "my-env";
   nativeBuildInputs = with pkgs; [
+    pythonEnv
     clang-tools
     gcc
     coreutils-prefixed
@@ -12,5 +17,6 @@ pkgs.clangStdenv.mkDerivation {
     nasm
     cmake
     eigen
+    texliveFull
   ];
 }

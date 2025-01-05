@@ -1,6 +1,6 @@
 /**
  * @file src/parsing/iparser.cpp
- * Implementation of the IParser interface class.
+ * @brief Implementation of the IParser interface class.
  */
 
 #include "parsing/iparser.hpp"

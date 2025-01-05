@@ -1,5 +1,10 @@
 \doxysection{include/parsing/iparser.hpp File Reference}
 \hypertarget{iparser_8hpp}{}\label{iparser_8hpp}\index{include/parsing/iparser.hpp@{include/parsing/iparser.hpp}}
+
+
+The header for an interface class for parsing and transforming assembly instructions into an input for a neural network.  
+
+
 {\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$tuple$>$}\newline
@@ -8,17 +13,18 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classIParser}{IParser}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Interface for parsing and transforming assembly instructions into an input for a neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}\label{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37} 
 constexpr size\+\_\+t {\bfseries MAX\+\_\+\+TOKENS\+\_\+\+NN} = 2000
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum number of tokens for the neural network. \end{DoxyCompactList}\item 
 \Hypertarget{iparser_8hpp_a84e92db2ecca96cc2a0a0b52e641b741}\label{iparser_8hpp_a84e92db2ecca96cc2a0a0b52e641b741} 
 constexpr double {\bfseries NO\+\_\+\+MORE\+\_\+\+VALUE} = 0.\+0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Filler value for the neural network input. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The header for an interface class for parsing assembly instructions into an input for a neural network. 
+The header for an interface class for parsing and transforming assembly instructions into an input for a neural network. 
+

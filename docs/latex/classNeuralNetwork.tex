@@ -1,0 +1,113 @@
+\doxysection{Neural\+Network Class Reference}
+\hypertarget{classNeuralNetwork}{}\label{classNeuralNetwork}\index{NeuralNetwork@{NeuralNetwork}}
+
+
+Class representing a neural network.  
+
+
+
+
+{\ttfamily \#include $<$neural\+\_\+network.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a}{Neural\+Network}} (std\+::vector$<$ int $>$ \&topology, float learning\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classNeuralNetwork}{Neural\+Network} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a}{train}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&targets, int nb\+\_\+epochs, std\+::string \&\&logging\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em Train the neural network. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21}{get\+\_\+prediction}} (std\+::vector$<$ float $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Get the prediction of the network. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb}{get\+\_\+total\+\_\+loss}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ targets)
+\begin{DoxyCompactList}\small\item\em Get the total loss of the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a neural network. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a}\label{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a} 
+\index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}}
+{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{topology,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classNeuralNetwork}{Neural\+Network} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topology} & The number of neurons in each layer \\
+\hline
+{\em learning\+\_\+rate} & The learning rate of the network \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21}\label{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_prediction@{get\_prediction}}
+\index{get\_prediction@{get\_prediction}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_prediction()}{get\_prediction()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Neural\+Network\+::get\+\_\+prediction (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Get the prediction of the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The input to the network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The prediction of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb}\label{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_total\_loss@{get\_total\_loss}}
+\index{get\_total\_loss@{get\_total\_loss}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_total\_loss()}{get\_total\_loss()}}
+{\footnotesize\ttfamily float Neural\+Network\+::get\+\_\+total\+\_\+loss (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{targets }\end{DoxyParamCaption})}
+
+
+
+Get the total loss of the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total loss of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a}\label{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a} 
+\index{NeuralNetwork@{NeuralNetwork}!train@{train}}
+\index{train@{train}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily void Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{targets,  }\item[{int}]{nb\+\_\+epochs,  }\item[{std\+::string \&\&}]{logging\+\_\+filename }\end{DoxyParamCaption})}
+
+
+
+Train the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+{\em nb\+\_\+epochs} & The number of epochs to train for \\
+\hline
+{\em logging\+\_\+filename} & The name of the file to log the loss to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{neural__network_8hpp}{neural\+\_\+network.\+hpp}}\item 
+src/neural\+\_\+network/neural\+\_\+network.\+cpp\end{DoxyCompactItemize}

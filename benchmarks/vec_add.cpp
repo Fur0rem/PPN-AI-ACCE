@@ -1,23 +1,34 @@
-#define ANKERL_NANOBENCH_IMPLEMENT
+/**
+ * @file benchmarks/vec_add.cpp
+ * @brief Benchmark for vector addition using SIMD instructions
+ */
+
+#define ANKERL_NANOBENCH_IMPLEMENT ///< Needed to use nanobench
 #include "../nanobench/src/include/nanobench.h"
 #include <immintrin.h>
 
-// Add name_start and name_end to the benchmark name using asm labels
-#define STRINGIFY1(s) #s
-#define STRINGIFY2(s) STRINGIFY1(s)
+#define STRINGIFY1(s) #s			///< Helper macro to stringify a value
+#define STRINGIFY2(s) STRINGIFY1(s) ///< Helper macro to stringify a value
+
+/**
+ * @brief Add a label before and after the code to be able to find it in the assembly
+ */
 #define LABEL(name, code)                                                                                                                  \
 	asm volatile(STRINGIFY2(name##_start:) : : : "memory");                                                                                \
 	code;                                                                                                                                  \
 	asm volatile(STRINGIFY2(name##_end:) : : : "memory");
 
-constexpr int N = 1024;
-alignas(256) float f32a[N];
-alignas(256) float f32b[N];
-alignas(256) float f32c[N];
-alignas(256) double f64a[N];
-alignas(256) double f64b[N];
-alignas(256) double f64c[N];
+constexpr int N = 1024;		 ///< Size of the arrays
+alignas(256) float f32a[N];	 ///< Array of single precision floating point numbers
+alignas(256) float f32b[N];	 ///< Array of single precision floating point numbers
+alignas(256) float f32c[N];	 ///< Array of single precision floating point numbers
+alignas(256) double f64a[N]; ///< Array of double precision floating point numbers
+alignas(256) double f64b[N]; ///< Array of double precision floating point numbers
+alignas(256) double f64c[N]; ///< Array of double precision floating point numbers
 
+/**
+ * @brief Initialize the arrays
+ */
 void initialize_arrays() {
 	for (int i = 0; i < N; ++i) {
 		f32a[i] = 1.0f;
@@ -29,6 +40,9 @@ void initialize_arrays() {
 	}
 }
 
+/**
+ * @brief Add two arrays of single precision floating point numbers without SIMD instructions
+ */
 void vec_add_f32_no_smid() {
 	LABEL(vec_add_f32_no_smid,
 		  asm volatile("movq $0, %%rcx\n"
@@ -45,6 +59,9 @@ void vec_add_f32_no_smid() {
 					   : "xmm0", "xmm1", "rcx"));
 }
 
+/**
+ * @brief Add two arrays of single precision floating point numbers using SIMD instructions with 128 bits registers
+ */
 void vec_add_f32_simd128() {
 	LABEL(vec_add_f32_simd128,
 		  asm volatile("movq $0, %%rcx\n"
@@ -61,6 +78,9 @@ void vec_add_f32_simd128() {
 					   : "xmm0", "xmm1", "rcx"));
 }
 
+/**
+ * @brief Add two arrays of single precision floating point numbers using SIMD instructions with 256 bits registers
+ */
 void vec_add_f32_simd256() {
 	LABEL(vec_add_f32_simd256,
 		  asm volatile("movq $0, %%rcx\n"
@@ -77,6 +97,9 @@ void vec_add_f32_simd256() {
 					   : "ymm0", "ymm1", "rcx"));
 }
 
+/**
+ * @brief Add two arrays of double precision floating point numbers without SIMD instructions
+ */
 void vec_add_f64_no_smid() {
 	LABEL(vec_add_f64_no_smid,
 		  asm volatile("movq $0, %%rcx\n"
@@ -93,6 +116,9 @@ void vec_add_f64_no_smid() {
 					   : "xmm0", "xmm1", "rcx"));
 }
 
+/**
+ * @brief Add two arrays of double precision floating point numbers using SIMD instructions with 128 bits registers
+ */
 void vec_add_f64_simd128() {
 	LABEL(vec_add_f64_simd128,
 		  asm volatile("movq $0, %%rcx\n"
@@ -109,6 +135,9 @@ void vec_add_f64_simd128() {
 					   : "xmm0", "xmm1", "rcx"));
 }
 
+/**
+ * @brief Add two arrays of double precision floating point numbers using SIMD instructions with 256 bits registers
+ */
 void vec_add_f64_simd256() {
 	LABEL(vec_add_f64_simd256,
 		  asm volatile("movq $0, %%rcx\n"
@@ -125,6 +154,9 @@ void vec_add_f64_simd256() {
 					   : "ymm0", "ymm1", "rcx"));
 }
 
+/**
+ * @brief Run the benchmarks for vector addition
+ */
 int main() {
 	initialize_arrays();
 	std::ostringstream oss;

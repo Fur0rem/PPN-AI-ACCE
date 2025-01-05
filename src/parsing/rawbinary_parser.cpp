@@ -1,3 +1,8 @@
+/**
+ * @file src/parsing/rawbinary_parser.cpp
+ * @brief Implementation of the RawBinaryParser class
+ */
+
 #include "parsing/rawbinary_parser.hpp"
 #include <cstdint>
 #include <cstdio>
@@ -35,7 +40,6 @@ std::vector<double> RawBinaryParser::parse_out(std::string& input) {
 	return {cycles};
 }
 
-// TODO make it so that input isn't modified
 std::vector<double> RawBinaryParser::parse_in(std::string& input_ref) {
 	// Create a command that will call nasm to assemble the input string
 	std::string input = input_ref;
