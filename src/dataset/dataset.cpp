@@ -1,5 +1,10 @@
-#include <Eigen/Dense>
+/**
+ * @file src/dataset/dataset.cpp
+ * @brief Implementation of the Dataset class
+ */
+
 #include <algorithm>
+#include <eigen3/Eigen/Dense>
 #include <filesystem>
 #include <iostream>
 #include <numeric>
@@ -8,10 +13,10 @@
 #include <vector>
 
 #include "dataset/dataset.hpp"
-#include "neuralnet/Net.h"
+#include "neural_network/neural_network.hpp"
 #include "parsing/iparser.hpp"
 
-auto rng = std::default_random_engine{};
+auto rng = std::default_random_engine{}; ///< Random number generator
 
 Dataset::Dataset(IParser* parser, std::string dir_path) {
 	m_dir_path = dir_path;

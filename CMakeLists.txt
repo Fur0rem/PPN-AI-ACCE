@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Compiler flags
-set(DEBUG_FLAGS -Og -g -Wall -Wextra -fsanitize=address -fsanitize=undefined -fsanitize=leak -fno-omit-frame-pointer)
+set(SANITIZER_LIB -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer -fsanitize=undefined)
+set(DEBUG_FLAGS -Og -g -Wall -Wextra ${SANITIZER_LIB})
 set(RELEASE_FLAGS -O3)
-set(TEST_FLAGS --coverage -s -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer)
+set(TEST_FLAGS --coverage ${SANITIZER_LIB})
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include)
 set(BENCHMARK_FLAGS -lm ${NANOBENCH_LINK_FLAGS})
 
@@ -45,8 +46,8 @@ add_executable(test_iparser
     ${CMAKE_SOURCE_DIR}/src/parsing/iparser.cpp
 )
 target_link_libraries(test_iparser PUBLIC GTest::GTest GTest::Main)
-target_compile_options(test_iparser PRIVATE ${DEBUG_FLAGS})
-target_link_options(test_iparser PRIVATE ${TEST_FLAGS})
+target_compile_options(test_iparser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
+target_link_options(test_iparser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
 add_test(NAME test_iparser COMMAND test_iparser)
 
 add_executable(test_rawbinary_parser 
@@ -54,8 +55,8 @@ add_executable(test_rawbinary_parser
     ${CMAKE_SOURCE_DIR}/src/parsing/rawbinary_parser.cpp
 )
 target_link_libraries(test_rawbinary_parser PUBLIC GTest::GTest GTest::Main)
-target_compile_options(test_rawbinary_parser PRIVATE ${DEBUG_FLAGS})
-target_link_options(test_rawbinary_parser PRIVATE ${TEST_FLAGS})
+target_compile_options(test_rawbinary_parser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
+target_link_options(test_rawbinary_parser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
 add_test(NAME test_rawbinary_parser COMMAND test_rawbinary_parser)
 
 add_executable(test_binary_with_split_parser 
@@ -63,8 +64,8 @@ add_executable(test_binary_with_split_parser
     ${CMAKE_SOURCE_DIR}/src/parsing/binary_with_split_parser.cpp
 )
 target_link_libraries(test_binary_with_split_parser PUBLIC GTest::GTest GTest::Main)
-target_compile_options(test_binary_with_split_parser PRIVATE ${DEBUG_FLAGS})
-target_link_options(test_binary_with_split_parser PRIVATE ${TEST_FLAGS})
+target_compile_options(test_binary_with_split_parser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
+target_link_options(test_binary_with_split_parser PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
 add_test(NAME test_binary_with_split_parser COMMAND test_binary_with_split_parser)
 
 add_executable(test_recognises_xor 
@@ -74,8 +75,8 @@ add_executable(test_recognises_xor
     ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
 )
 target_link_libraries(test_recognises_xor PUBLIC GTest::GTest GTest::Main)
-target_compile_options(test_recognises_xor PRIVATE ${DEBUG_FLAGS})
-target_link_options(test_recognises_xor PRIVATE ${TEST_FLAGS})
+target_compile_options(test_recognises_xor PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
+target_link_options(test_recognises_xor PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
 add_test(NAME test_recognises_xor COMMAND test_recognises_xor)
 
 # Add the benchmark executable

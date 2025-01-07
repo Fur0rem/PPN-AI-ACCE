@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feed_5fforward_0',['feed_forward',['../classLayer.html#ab74288f699a9765caa9cef07616103a8',1,'Layer']]]
+  ['get_5fdata_0',['get_data',['../classDataset.html#ae39e0751b7fa079edb57f642f12b88f0',1,'Dataset']]]
 ];
