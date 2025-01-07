@@ -1,3 +1,8 @@
+/**
+ * @file src/neural_network/neural_network.cpp
+ * @brief Implementation of the NeuralNetwork class
+ */
+
 #include "neural_network/neural_network.hpp"
 #include "neural_network/activation_functions.hpp"
 #include <cstdlib>
@@ -7,6 +12,12 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief Calculate the mean squared error
+ * @param output The output of the network
+ * @param targets The target output of the network
+ * @return The mean squared error
+ */
 float mean_squared_error(std::vector<float> output, std::vector<float> targets) {
 	float loss = 0;
 	for (size_t i = 0; i < targets.size(); i++) {
@@ -15,6 +26,12 @@ float mean_squared_error(std::vector<float> output, std::vector<float> targets) 
 	return loss / static_cast<float>(targets.size());
 }
 
+/**
+ * @brief Calculate the mean absolute error
+ * @param output The output of the network
+ * @param targets The target output of the network
+ * @return The mean absolute error
+ */
 float mean_absolute_error(std::vector<float> output, std::vector<float> targets) {
 	float loss = 0;
 	for (size_t i = 0; i < targets.size(); i++) {

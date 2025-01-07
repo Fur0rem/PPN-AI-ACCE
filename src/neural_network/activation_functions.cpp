@@ -1,3 +1,8 @@
+/**
+ * @file: src/neural_network/activation_functions.cpp
+ * @brief: Implementation of activation functions for neural networks
+ */
+
 #include "neural_network/activation_functions.hpp"
 #include <cmath>
 #include <eigen3/Eigen/Dense>

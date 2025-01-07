@@ -1,3 +1,8 @@
+/**
+ * @file src/neural_network/layer.cpp
+ * @brief Implementation of the Layer class
+ */
+
 #include "neural_network/layer.hpp"
 #include "neural_network/activation_functions.hpp"
 #include <eigen3/Eigen/Dense>
