@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../vec__add_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vec_add.cpp']]]
+  ['initialize_5farrays_0',['initialize_arrays',['../vec__add_8cpp.html#ae20b116e3c84a8c006d9605e5b13eea3',1,'vec_add.cpp']]],
+  ['into_5fneural_5fnetwork_5finput_1',['into_neural_network_input',['../classIParser.html#a4889e50b2d0cce8ebbfddb3c47087003',1,'IParser']]]
 ];

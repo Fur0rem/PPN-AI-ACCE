@@ -1,36 +1,98 @@
 \doxysection{Layer Class Reference}
 \hypertarget{classLayer}{}\label{classLayer}\index{Layer@{Layer}}
+
+
+Class representing a neural network layer.  
+
+
+
+
+{\ttfamily \#include $<$layer.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}\label{classLayer_a83989eec29e9cc5eb47e1d902c93b48e} 
-{\bfseries Layer} (int input\+\_\+size, int output\+\_\+size)
-\item 
-\Hypertarget{classLayer_ab74288f699a9765caa9cef07616103a8}\label{classLayer_ab74288f699a9765caa9cef07616103a8} 
-Eigen\+::\+Matrix\+Xf {\bfseries feed\+\_\+forward} (Eigen\+::\+Matrix\+Xf \&input)
-\item 
-\Hypertarget{classLayer_afadf0f02441ae751fe4d77711d45aec3}\label{classLayer_afadf0f02441ae751fe4d77711d45aec3} 
-Eigen\+::\+Matrix\+Xf {\bfseries back\+\_\+propagate} (const Eigen\+::\+Matrix\+Xf \&error, float learning\+\_\+rate, Eigen\+::\+Matrix\+Xf \&next\+\_\+values)
-\item 
-\Hypertarget{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}\label{classLayer_a83989eec29e9cc5eb47e1d902c93b48e} 
-{\bfseries Layer} (int input\+\_\+size, int output\+\_\+size)
-\item 
-\Hypertarget{classLayer_ab74288f699a9765caa9cef07616103a8}\label{classLayer_ab74288f699a9765caa9cef07616103a8} 
-Eigen\+::\+Matrix\+Xf {\bfseries feed\+\_\+forward} (Eigen\+::\+Matrix\+Xf \&input)
-\item 
-\Hypertarget{classLayer_afadf0f02441ae751fe4d77711d45aec3}\label{classLayer_afadf0f02441ae751fe4d77711d45aec3} 
-Eigen\+::\+Matrix\+Xf {\bfseries back\+\_\+propagate} (const Eigen\+::\+Matrix\+Xf \&error, float learning\+\_\+rate, Eigen\+::\+Matrix\+Xf \&next\+\_\+values)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}{Layer}} (int input\+\_\+size, int output\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classLayer}{Layer} object. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classLayer_ab74288f699a9765caa9cef07616103a8}{feed\+\_\+forward}} (Eigen\+::\+Matrix\+Xf \&input)
+\begin{DoxyCompactList}\small\item\em Feed forward the input through the layer. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classLayer_afadf0f02441ae751fe4d77711d45aec3}{back\+\_\+propagate}} (const Eigen\+::\+Matrix\+Xf \&error, float learning\+\_\+rate, Eigen\+::\+Matrix\+Xf \&next\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Back propagate the error through the layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classLayer_a30ee3831609021f6aa068d05a347f34a}\label{classLayer_a30ee3831609021f6aa068d05a347f34a} 
-class {\bfseries Neural\+Network}
-\end{DoxyCompactItemize}
+\Hypertarget{classLayer_add5ae7e3cfc7cb4e23b8df4fb36e2d20}\label{classLayer_add5ae7e3cfc7cb4e23b8df4fb36e2d20} 
+class \mbox{\hyperlink{classLayer_add5ae7e3cfc7cb4e23b8df4fb36e2d20}{Neural\+Network}}
+\begin{DoxyCompactList}\small\item\em Allow the neural network to access the private members. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a neural network layer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}\label{classLayer_a83989eec29e9cc5eb47e1d902c93b48e} 
+\index{Layer@{Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!Layer@{Layer}}
+\doxysubsubsection{\texorpdfstring{Layer()}{Layer()}}
+{\footnotesize\ttfamily Layer\+::\+Layer (\begin{DoxyParamCaption}\item[{int}]{input\+\_\+size,  }\item[{int}]{output\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classLayer}{Layer} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+size} & The size of the input the layer takes in \\
+\hline
+{\em output\+\_\+size} & The size of the output the layer produces \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLayer_afadf0f02441ae751fe4d77711d45aec3}\label{classLayer_afadf0f02441ae751fe4d77711d45aec3} 
+\index{Layer@{Layer}!back\_propagate@{back\_propagate}}
+\index{back\_propagate@{back\_propagate}!Layer@{Layer}}
+\doxysubsubsection{\texorpdfstring{back\_propagate()}{back\_propagate()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Layer\+::back\+\_\+propagate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{error,  }\item[{float}]{learning\+\_\+rate,  }\item[{Eigen\+::\+Matrix\+Xf \&}]{next\+\_\+values }\end{DoxyParamCaption})}
+
+
+
+Back propagate the error through the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & The error to back propagate \\
+\hline
+{\em learning\+\_\+rate} & The learning rate of the network \\
+\hline
+{\em next\+\_\+values} & The values of the next layer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The error to back propagate to the previous layer 
+\end{DoxyReturn}
+\Hypertarget{classLayer_ab74288f699a9765caa9cef07616103a8}\label{classLayer_ab74288f699a9765caa9cef07616103a8} 
+\index{Layer@{Layer}!feed\_forward@{feed\_forward}}
+\index{feed\_forward@{feed\_forward}!Layer@{Layer}}
+\doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Layer\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Feed forward the input through the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The input to the layer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the layer 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/neural\+\_\+network/layer.\+hpp\item 
-include/neural\+\_\+network/neural\+\_\+network.\+hpp\item 
-src/neural\+\_\+network/layer.\+cpp\end{DoxyCompactItemize}
+include/neural\+\_\+network/\mbox{\hyperlink{layer_8hpp}{layer.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{layer_8cpp}{layer.\+cpp}}\end{DoxyCompactItemize}

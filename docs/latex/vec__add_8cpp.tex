@@ -17,7 +17,7 @@ Benchmark for vector addition using SIMD instructions.
 \#define {\bfseries STRINGIFY1}(s)~\#s
 \begin{DoxyCompactList}\small\item\em Helper macro to stringify a value. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e}\label{vec__add_8cpp_ad04412286d8b7705ebd7a741aca2c28e} 
-\#define {\bfseries STRINGIFY2}(s)~\mbox{\hyperlink{vec__add_8cpp_a3fa46f78b886ae7a687124fc28a96705}{STRINGIFY1}}(s)
+\#define {\bfseries STRINGIFY2}(s)~STRINGIFY1(s)
 \begin{DoxyCompactList}\small\item\em Helper macro to stringify a value. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{vec__add_8cpp_a78a6fb618f17a055f6a7cf429926861d}{LABEL}}(name,  code)
 \begin{DoxyCompactList}\small\item\em Add a label before and after the code to be able to find it in the assembly. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -55,22 +55,22 @@ int {\bfseries main} ()
 constexpr int {\bfseries N} = 1024
 \begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_a012767f4964361f81e52c378ae806f3b}\label{vec__add_8cpp_a012767f4964361f81e52c378ae806f3b} 
-float {\bfseries f32a} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+float {\bfseries f32a} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}\label{vec__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47} 
-float {\bfseries f32b} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+float {\bfseries f32b} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}\label{vec__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504} 
-float {\bfseries f32c} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+float {\bfseries f32c} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2}\label{vec__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2} 
-double {\bfseries f64a} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+double {\bfseries f64a} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1}\label{vec__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1} 
-double {\bfseries f64b} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+double {\bfseries f64b} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
 \Hypertarget{vec__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2}\label{vec__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2} 
-double {\bfseries f64c} \mbox{[}\mbox{\hyperlink{vec__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+double {\bfseries f64c} \mbox{[}N\mbox{]}
 \begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 

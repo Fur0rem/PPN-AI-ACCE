@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['initialize_5farrays_0',['initialize_arrays',['../vec__add_8cpp.html#ae20b116e3c84a8c006d9605e5b13eea3',1,'vec_add.cpp']]],
-  ['into_5fneural_5fnetwork_5finput_1',['into_neural_network_input',['../classIParser.html#a4889e50b2d0cce8ebbfddb3c47087003',1,'IParser']]]
+  ['get_5fdata_0',['get_data',['../classDataset.html#ae39e0751b7fa079edb57f642f12b88f0',1,'Dataset']]],
+  ['get_5fprediction_1',['get_prediction',['../classNeuralNetwork.html#ab49565a6d89816ebf8b03c483e3dfb21',1,'NeuralNetwork']]],
+  ['get_5ftotal_5floss_2',['get_total_loss',['../classNeuralNetwork.html#af1a50518446dfaf61e76041bad614eeb',1,'NeuralNetwork']]]
 ];

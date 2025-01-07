@@ -90,6 +90,11 @@ target_link_libraries(benchmark_vec_add nanobench)
 target_compile_options(benchmark_vec_add PRIVATE ${RELEASE_FLAGS} -mavx2)
 target_link_options(benchmark_vec_add PRIVATE ${BENCHMARK_FLAGS})
 
+add_executable(benchmark_mat_mul ${CMAKE_SOURCE_DIR}/benchmarks/array_copy.cpp)
+target_link_libraries(benchmark_mat_mul nanobench)
+target_compile_options(benchmark_mat_mul PRIVATE ${RELEASE_FLAGS} -mavx2)
+target_link_options(benchmark_mat_mul PRIVATE ${BENCHMARK_FLAGS})
+
 # Add custom targets
 add_custom_target(check 
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
