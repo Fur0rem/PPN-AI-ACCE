@@ -136,7 +136,7 @@ void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<s
 	}
 
 	// Training the neural network
-	const int nb_points_to_plot = nb_epochs / 1000;
+	const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
 	for (int i = 0; i < nb_epochs; i++) {
 		for (size_t j = 0; j < inputs.size(); j++) {
 			this->feed_forward(input_vectors[j]);
@@ -144,6 +144,10 @@ void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<s
 		}
 		// Logging the loss
 		if (i % nb_points_to_plot == 0) {
+			std::cout << "Epoch: " << i << ", Loss: " << this->get_total_loss(inputs, targets) << '\n';
+			for (size_t j = 0; j < inputs.size(); j++) {
+				std::cout << "Prediction output: " << this->get_prediction(inputs[j])[0] << ", Target output: " << targets[j][0] << '\n';
+			}
 			log_file << "Epoch: " << i << ", Loss: " << this->get_total_loss(inputs, targets) << '\n';
 		}
 	}

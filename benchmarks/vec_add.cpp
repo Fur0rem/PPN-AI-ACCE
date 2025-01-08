@@ -43,8 +43,8 @@ void initialize_arrays() {
 /**
  * @brief Add two arrays of single precision floating point numbers without SIMD instructions
  */
-void vec_add_f32_no_smid() {
-	LABEL(vec_add_f32_no_smid,
+void vec_add_f32_no_simd() {
+	LABEL(vec_add_f32_no_simd,
 		  asm volatile("movq $0, %%rcx\n"
 					   "1:\n"
 					   "movss (%0, %%rcx, 4), %%xmm0\n"
@@ -100,8 +100,8 @@ void vec_add_f32_simd256() {
 /**
  * @brief Add two arrays of double precision floating point numbers without SIMD instructions
  */
-void vec_add_f64_no_smid() {
-	LABEL(vec_add_f64_no_smid,
+void vec_add_f64_no_simd() {
+	LABEL(vec_add_f64_no_simd,
 		  asm volatile("movq $0, %%rcx\n"
 					   "1:\n"
 					   "movsd (%0, %%rcx, 8), %%xmm0\n"
@@ -164,10 +164,10 @@ int main() {
 					  .minEpochIterations(1000)
 					  .performanceCounters(true)
 					  .output(&oss)
-					  .run("vec_add_f32_no_smid", vec_add_f32_no_smid)
+					  .run("vec_add_f32_no_simd", vec_add_f32_no_simd)
 					  .run("vec_add_f32_simd128", vec_add_f32_simd128)
 					  .run("vec_add_f32_simd256", vec_add_f32_simd256)
-					  .run("vec_add_f64_no_smid", vec_add_f64_no_smid)
+					  .run("vec_add_f64_no_simd", vec_add_f64_no_simd)
 					  .run("vec_add_f64_simd128", vec_add_f64_simd128)
 					  .run("vec_add_f64_simd256", vec_add_f64_simd256)
 					  .results();

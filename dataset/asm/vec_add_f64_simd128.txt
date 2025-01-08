@@ -1,0 +1,14 @@
+;; Cycles: 639
+
+_Z19vec_add_f64_simd128v:
+    mov    edi, 0x400
+    xor    rcx, rcx
+.loop:
+    movapd xmm0, [rax + rcx]
+    movapd xmm1, [rdx + rcx]
+    addpd  xmm0, xmm1
+    movapd [rsi + rcx], xmm0
+    add    rcx, 0x10
+    cmp    rcx, rdi
+    jl     .loop
+    ret

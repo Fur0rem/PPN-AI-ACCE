@@ -1,0 +1,12 @@
+;; Cycles: 39
+
+_Z16f32_copy_simd256v:
+    mov    esi, 0x400
+    xor    rcx, rcx
+.loop:
+    vmovaps ymm0, [rax + rcx]
+    vmovaps [rdx + rcx], ymm0
+    add    rcx, 0x20
+    cmp    rcx, 0x400
+    jl     .loop
+    ret

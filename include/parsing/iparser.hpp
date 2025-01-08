@@ -12,6 +12,7 @@
 #include <vector>
 
 constexpr size_t MAX_TOKENS_NN = 2000; ///< Maximum number of tokens for the neural network
+constexpr float MAX_CYCLES = 10000.0;  ///< Maximum number of cycles as an output for the neural network
 constexpr double NO_MORE_VALUE = 0.0;  ///< Filler value for the neural network input
 
 /**

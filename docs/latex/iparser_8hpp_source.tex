@@ -12,26 +12,27 @@
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}{MAX\_TOKENS\_NN}}\ =\ 2000;\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{iparser_8hpp_a84e92db2ecca96cc2a0a0b52e641b741}{NO\_MORE\_VALUE}}\ =\ 0.0;\ \ }
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIParser}{IParser}}\ \{}
-\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ \mbox{\hyperlink{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}{parse\_from\_string}}(std::string\&\ input);}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00034\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ \mbox{\hyperlink{classIParser_a8a6ab76c1315808c75eb82523967254a}{parse\_from\_file}}(std::string\&\ filename);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ std::array<double,\ MAX\_TOKENS\_NN>\ \mbox{\hyperlink{classIParser_a4889e50b2d0cce8ebbfddb3c47087003}{into\_neural\_network\_input}}(std::vector<double>\&\ parsed);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIParser_a8d9dee322c0e6a77a8d23dce38f9515a}{\string~IParser}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{classIParser_a869fb79d358cf823b2e4d8976c4e7496}{parse\_out}}(std::string\&\ input)\ =\ 0;}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{classIParser_ad877cca85a9a49a165d1c5a45901850f}{parse\_in}}(std::string\&\ input)\ =\ 0;}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classIParser}{IParser}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00064\ \};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IPARSER\_HPP}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{iparser_8hpp_a87fd18e17edcd3b78d02d63325c798ba}{MAX\_CYCLES}}\ =\ 10000.0;\ \ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{iparser_8hpp_a84e92db2ecca96cc2a0a0b52e641b741}{NO\_MORE\_VALUE}}\ =\ 0.0;\ \ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIParser}{IParser}}\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ \mbox{\hyperlink{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}{parse\_from\_string}}(std::string\&\ input);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::tuple<std::vector<double>,\ std::vector<double>>\ \mbox{\hyperlink{classIParser_a8a6ab76c1315808c75eb82523967254a}{parse\_from\_file}}(std::string\&\ filename);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ std::array<double,\ MAX\_TOKENS\_NN>\ \mbox{\hyperlink{classIParser_a4889e50b2d0cce8ebbfddb3c47087003}{into\_neural\_network\_input}}(std::vector<double>\&\ parsed);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIParser_a8d9dee322c0e6a77a8d23dce38f9515a}{\string~IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{classIParser_a869fb79d358cf823b2e4d8976c4e7496}{parse\_out}}(std::string\&\ input)\ =\ 0;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<double>\ \mbox{\hyperlink{classIParser_ad877cca85a9a49a165d1c5a45901850f}{parse\_in}}(std::string\&\ input)\ =\ 0;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classIParser}{IParser}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IPARSER\_HPP}}
 
 \end{DoxyCode}

@@ -1,0 +1,14 @@
+;; Cycles: 281
+
+_Z19vec_add_f32_simd256v:
+    mov    edi, 0x400
+    xor    rcx, rcx
+.loop:
+    vmovaps ymm0, [rax + rcx * 4]
+    vmovaps ymm1, [rdx + rcx * 4]
+    vaddps  ymm0, ymm0, ymm1
+    vmovaps [rsi + rcx * 4], ymm0
+    add    rcx, 0x8
+    cmp    rcx, rdi
+    jl     .loop
+    ret

@@ -53,6 +53,23 @@ std::vector<double> BinaryWithSplitParser::parse_in(std::string& input_ref) {
 	std::string current_instruction;
 	for (char c : input) {
 		if (c == '\n') {
+			// printf("current_instruction : %s\n", current_instruction.c_str());
+			if (current_instruction == "BITS 64") {
+				current_instruction.clear();
+				continue;
+			}
+			if (current_instruction[0] == ';') {
+				current_instruction.clear();
+				continue;
+			}
+			// if it's a label
+			if (current_instruction[current_instruction.size() - 1] == ':') {
+				current_instruction.clear();
+				continue;
+			}
+			if (current_instruction.empty()) {
+				continue;
+			}
 			instructions.push_back(current_instruction);
 			current_instruction.clear();
 		}
@@ -70,6 +87,7 @@ std::vector<double> BinaryWithSplitParser::parse_in(std::string& input_ref) {
 
 		// Add BITS 64 to the input string to assemble it as a 64-bit binary
 		std::string full_instruction = "BITS 64\n" + instruction;
+		std::cout << "instruction : " << full_instruction << std::endl;
 		std::string command = "echo '" + full_instruction + "' > /tmp/input.asm && nasm -f bin /tmp/input.asm -o /tmp/input.bin";
 		int cmd_res = system(command.c_str());
 		if (cmd_res != 0) {
@@ -95,12 +113,15 @@ std::vector<double> BinaryWithSplitParser::parse_in(std::string& input_ref) {
 		}
 		pclose(xxd_pipe);
 
+		std::cout << hex << std::endl;
+
 		// pop the newline in the end
 		hex.pop_back();
 
 		// Convert the hexadecimal string into a vec of uint8_t (pair of 2 hex characters)
 		std::vector<uint8_t> hex_bytes;
 		for (size_t i = 0; i < hex.size(); i += 2) {
+			std::cout << hex.substr(i, 2) << std::endl;
 			uint8_t byte = std::stoi(hex.substr(i, 2), nullptr, 16);
 			hex_bytes.push_back(byte);
 		}

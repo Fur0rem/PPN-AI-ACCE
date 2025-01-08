@@ -1,0 +1,12 @@
+;; Cycles: 157
+
+_Z16u64_copy_no_simdv:
+    mov    edi, 0x400
+    xor    rcx, rcx
+.loop:
+    mov    rax, [rdx + rcx * 8]
+    mov    [rsi + rcx * 8], rax
+    add    rcx, 1
+    cmp    rcx, rdi
+    jl     .loop
+    ret

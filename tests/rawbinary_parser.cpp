@@ -5,6 +5,7 @@
  */
 
 #include "parsing/rawbinary_parser.hpp"
+#include "parsing/iparser.hpp"
 #include <cstdint>
 #include <gtest/gtest.h>
 #include <string>
@@ -69,7 +70,7 @@ TEST(RawBinary_Parser, Multiple_Instructions) {
 	std::vector<double> result = RawBinaryParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 
-	expected = {1002};
+	expected = {1002.0 / MAX_CYCLES};
 	result = RawBinaryParser().parse_out(instructions);
 	EXPECT_EQ(result, expected);
 }
@@ -85,12 +86,8 @@ TEST(RawBinary_Parser_Out, Multiple_Instructions) {
 							   "ret;\n";
 
 	std::vector<double> expected;
-	expected.push_back(1002);
+	expected.push_back(1002.0 / MAX_CYCLES);
 	std::vector<double> result = RawBinaryParser().parse_out(instructions);
-	EXPECT_EQ(result, expected);
-
-	expected = {1002};
-	result = RawBinaryParser().parse_out(instructions);
 	EXPECT_EQ(result, expected);
 }
 

@@ -1,0 +1,12 @@
+;; Cycles: 540
+
+_Z16f32_copy_no_simdv:
+    mov    esi, 0x400
+    xor    rcx, rcx
+.loop:
+    movss  xmm0, [rax + rcx * 4]
+    movss  [rdx + rcx * 4], xmm0
+    add    rcx, 1
+    cmp    rcx, rsi
+    jl     .loop
+    ret

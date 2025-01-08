@@ -7,6 +7,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <tuple>
 #include <vector>
@@ -27,6 +28,8 @@ std::tuple<std::vector<double>, std::vector<double>> IParser::parse_from_file(st
 }
 
 std::array<double, MAX_TOKENS_NN> IParser::into_neural_network_input(std::vector<double>& parsed) {
+	std::cout << parsed.size() << std::endl;
+
 	assert(parsed.size() + 1 <= MAX_TOKENS_NN);
 	std::array<double, MAX_TOKENS_NN> result;
 	result[0] = static_cast<double>(parsed.size()) / static_cast<double>(MAX_TOKENS_NN);

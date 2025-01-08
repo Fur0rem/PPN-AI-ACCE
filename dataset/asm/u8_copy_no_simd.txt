@@ -1,0 +1,12 @@
+;; Cycles: 2092
+
+_Z15u8_copy_no_simdv:
+    mov    edi, 0x400
+    xor    rcx, rcx
+.loop:
+    mov    al, [rdx + rcx]
+    mov    [rsi + rcx], al
+    add    rcx, 1
+    cmp    rcx, rdi
+    jl     .loop
+    ret

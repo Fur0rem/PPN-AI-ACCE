@@ -37,7 +37,7 @@ std::vector<double> RawBinaryParser::parse_out(std::string& input) {
 
 	double cycles = std::stod(substring);
 
-	return {cycles};
+	return {cycles / MAX_CYCLES};
 }
 
 std::vector<double> RawBinaryParser::parse_in(std::string& input_ref) {
