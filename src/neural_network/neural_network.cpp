@@ -188,11 +188,13 @@ void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<s
 		}
 		// Logging the loss
 		if (i % nb_points_to_plot == 0) {
-			std::cout << "Epoch: " << i << ", Loss: " << this->get_total_loss(train_input_vectors, train_target_vectors) << '\n';
+			float training_loss = this->get_total_loss(train_input_vectors, train_target_vectors);
+			float validation_loss = this->get_total_loss(validation_input_vectors, validation_target_vectors);
+			std::cout << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << '\n';
 			for (size_t j = 0; j < inputs.size(); j++) {
 				std::cout << "Prediction output: " << this->get_prediction(inputs[j])[0] << ", Target output: " << targets[j][0] << '\n';
 			}
-			log_file << "Epoch: " << i << ", Loss: " << this->get_total_loss(train_input_vectors, train_target_vectors) << '\n';
+			log_file << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << '\n';
 		}
 	}
 }
