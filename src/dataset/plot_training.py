@@ -35,8 +35,9 @@ if Y_AXIS_LOG:
 
 plt.xlabel("Number of Epochs")
 plt.ylabel("Loss")
-plt.plot(epoch_evol, loss_evol)
-plt.plot(epoch_evol, valid_evol)
+plt.plot(epoch_evol, loss_evol, label="training loss")
+plt.plot(epoch_evol, valid_evol, label="validation loss")
+plt.legend()
 
 filename = filepath.split(".")[0]
 plt.savefig(filename + ".svg")
