@@ -23,7 +23,7 @@ TEST(NeuralNetwork, Xor) {
 	int nb_epochs = 100000;
 	std::cout << "Training the neural network" << '\n';
 
-	nn.train(target_inputs, target_outputs, nb_epochs, "xor.log");
+	nn.train(target_inputs, target_outputs, nb_epochs, 0.8, "xor.log");
 
 	std::cout << "Training complete" << '\n';
 

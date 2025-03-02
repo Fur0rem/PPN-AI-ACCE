@@ -45,10 +45,11 @@ class NeuralNetwork {
 	 * @param inputs The input data
 	 * @param targets The target output data
 	 * @param nb_epochs The number of epochs to train for
+	 * @param input_ratio the ratio of inputs to be used as training data, the rest will be used as validation data
 	 * @param logging_filename The name of the file to log the loss to
 	 */
 	void train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,
-			   std::string&& logging_filename);
+			   float input_ratio, std::string&& logging_filename);
 
 	/**
 	 * @brief Get the prediction of the network

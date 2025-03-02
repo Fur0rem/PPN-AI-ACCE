@@ -52,7 +52,7 @@ void NeuralNetwork::feed_forward(const Eigen::VectorXf& input) {
 	if (input.size() != m_topology[0]) {
 		throw std::invalid_argument("Input size does not match the number of weights.");
 	}
-
+ 
 	Eigen::MatrixXf values2(1, input.size());
 	for (long i = 0; i < input.size(); i++) {
 		values2(0, i) = input[i];
@@ -112,35 +112,56 @@ float NeuralNetwork::get_total_loss(std::vector<std::vector<float>> inputs, std:
 }
 
 void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,
-						  std::string&& logging_filename) {
+						  float input_ratio, std::string&& logging_filename) {
 	// Open the file for logging
 	std::ofstream log_file;
 	log_file.open(logging_filename);
 
+	size_t const train_size = (size_t) (inputs.size() * input_ratio);
+	size_t const validation_size = inputs.size() - train_size;
+
 	// Convert the inputs and targets to Eigen::VectorXf
-	std::vector<Eigen::VectorXf> input_vectors(inputs.size());
-	std::vector<Eigen::VectorXf> target_vectors(targets.size());
-	for (size_t i = 0; i < inputs.size(); i++) {
+	std::vector<Eigen::VectorXf> train_input_vectors(train_size);
+	std::vector<Eigen::VectorXf> validation_input_vectors(validation_size);
+	std::vector<Eigen::VectorXf> train_target_vectors(train_size);
+	std::vector<Eigen::VectorXf> validation_target_vectors(validation_size);
+	for (size_t i = 0; i < train_size; i++) {
 		Eigen::VectorXf input(inputs[i].size());
 		for (size_t j = 0; j < inputs[i].size(); j++) {
 			input[j] = inputs[i][j];
 		}
-		input_vectors[i] = input;
+		train_input_vectors[i] = input;
 	}
-	for (size_t i = 0; i < targets.size(); i++) {
+	for (size_t i = 0; i < validation_size; i++) {
+		size_t index = i + train_size;
+		Eigen::VectorXf input(inputs[index].size());
+		for (size_t j = 0; j < inputs[index].size(); j++) {
+			input[j] = inputs[index][j];
+		}
+		validation_input_vectors[i] = input;
+	}
+	for (size_t i = 0; i < train_size; i++) {
 		Eigen::VectorXf target(targets[i].size());
 		for (size_t j = 0; j < targets[i].size(); j++) {
 			target[j] = targets[i][j];
 		}
-		target_vectors[i] = target;
+		train_target_vectors[i] = target;
+	}
+	for (size_t i = 0; i < validation_size; i++) {
+		size_t index = i + train_size;
+		Eigen::VectorXf target(targets[index].size());
+		for (size_t j = 0; j < targets[index].size(); j++) {
+			target[j] = targets[index][j];
+		}
+		validation_target_vectors[i] = target;
 	}
 
 	// Training the neural network
 	const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
 	for (int i = 0; i < nb_epochs; i++) {
-		for (size_t j = 0; j < inputs.size(); j++) {
-			this->feed_forward(input_vectors[j]);
-			this->back_propagate(target_vectors[j]);
+		for (size_t j = 0; j < train_size; j++) {
+			this->feed_forward(train_input_vectors[j]);
+			this->back_propagate(train_target_vectors[j]);
 		}
 		// Logging the loss
 		if (i % nb_points_to_plot == 0) {
