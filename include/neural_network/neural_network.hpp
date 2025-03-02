@@ -57,6 +57,7 @@ class NeuralNetwork {
 	 * @return The prediction of the network
 	 */
 	std::vector<float> get_prediction(std::vector<float>& input);
+	Eigen::VectorXf get_prediction(Eigen::VectorXf& input);
 
 	/**
 	 * @brief Get the total loss of the network
@@ -65,6 +66,7 @@ class NeuralNetwork {
 	 * @return The total loss of the network
 	 */
 	float get_total_loss(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> targets);
+	float get_total_loss(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets);
 };
 
 #endif // NEURAL_NETWORK_HPP

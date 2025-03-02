@@ -26,6 +26,15 @@ float mean_squared_error(std::vector<float> output, std::vector<float> targets) 
 	return loss / static_cast<float>(targets.size());
 }
 
+float mean_squared_error(Eigen::VectorXf output, Eigen::VectorXf targets) {
+	// TODO
+	float loss = 0;
+	for (int i = 0; i < targets.size(); i++) {
+		loss += (output(i) - targets(i)) * (output(i) - targets(i));
+	}
+	return loss;
+}
+
 /**
  * @brief Calculate the mean absolute error
  * @param output The output of the network
@@ -103,7 +112,21 @@ std::vector<float> NeuralNetwork::get_prediction(std::vector<float>& input) {
 	return output_vector;
 }
 
+Eigen::VectorXf NeuralNetwork::get_prediction(Eigen::VectorXf& input) {
+	feed_forward(input);
+	Eigen::VectorXf output = m_last_values;
+	return output;
+}
+
 float NeuralNetwork::get_total_loss(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> targets) {
+	float loss = 0;
+	for (size_t i = 0; i < inputs.size(); i++) {
+		loss += mean_squared_error(this->get_prediction(inputs[i]), targets[i]);
+	}
+	return loss / static_cast<float>(inputs.size());
+}
+
+float NeuralNetwork::get_total_loss(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets) {
 	float loss = 0;
 	for (size_t i = 0; i < inputs.size(); i++) {
 		loss += mean_squared_error(this->get_prediction(inputs[i]), targets[i]);
@@ -165,11 +188,11 @@ void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<s
 		}
 		// Logging the loss
 		if (i % nb_points_to_plot == 0) {
-			std::cout << "Epoch: " << i << ", Loss: " << this->get_total_loss(inputs, targets) << '\n';
+			std::cout << "Epoch: " << i << ", Loss: " << this->get_total_loss(train_input_vectors, train_target_vectors) << '\n';
 			for (size_t j = 0; j < inputs.size(); j++) {
 				std::cout << "Prediction output: " << this->get_prediction(inputs[j])[0] << ", Target output: " << targets[j][0] << '\n';
 			}
-			log_file << "Epoch: " << i << ", Loss: " << this->get_total_loss(inputs, targets) << '\n';
+			log_file << "Epoch: " << i << ", Loss: " << this->get_total_loss(train_input_vectors, train_target_vectors) << '\n';
 		}
 	}
 }

@@ -52,7 +52,7 @@ int main() {
 		target_outputs.push_back(output_vec);
 	}
 
-	nn.train(target_inputs, target_outputs, nb_epochs, 0.8, "asm_training.log");
+	nn.train(target_inputs, target_outputs, nb_epochs, 1.0, "asm_training.log");
 
 	std::cout << "Training complete" << '\n';
 
