@@ -67,6 +67,9 @@ class NeuralNetwork {
 	 */
 	float get_total_loss(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> targets);
 	float get_total_loss(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets);
+
+	float get_accuracy(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets);
+
 };
 
 #endif // NEURAL_NETWORK_HPP

@@ -21,18 +21,17 @@
 float mean_squared_error(std::vector<float> output, std::vector<float> targets) {
 	float loss = 0;
 	for (size_t i = 0; i < targets.size(); i++) {
-		loss += (output[i] - targets[i]) * (output[i] - targets[i]);
+		loss += (output[i] - targets[i]) * (output[i] - targets[i]) / targets[i];
 	}
 	return loss / static_cast<float>(targets.size());
 }
 
 float mean_squared_error(Eigen::VectorXf output, Eigen::VectorXf targets) {
-	// TODO
 	float loss = 0;
 	for (int i = 0; i < targets.size(); i++) {
-		loss += (output(i) - targets(i)) * (output(i) - targets(i));
+		loss += (output(i) - targets(i)) * (output(i) - targets(i)) / targets(i);
 	}
-	return loss;
+	return loss / static_cast<float>(targets.size());
 }
 
 /**
@@ -45,6 +44,14 @@ float mean_absolute_error(std::vector<float> output, std::vector<float> targets)
 	float loss = 0;
 	for (size_t i = 0; i < targets.size(); i++) {
 		loss += std::abs(output[i] - targets[i]);
+	}
+	return loss / static_cast<float>(targets.size());
+}
+
+float mean_absolute_error(Eigen::VectorXf output, Eigen::VectorXf targets) {
+	float loss = 0;
+	for (int i = 0; i < targets.size(); i++) {
+		loss += std::abs( (output(i) - targets(i)) / targets(i) );
 	}
 	return loss / static_cast<float>(targets.size());
 }
@@ -134,6 +141,14 @@ float NeuralNetwork::get_total_loss(std::vector<Eigen::VectorXf> inputs, std::ve
 	return loss / static_cast<float>(inputs.size());
 }
 
+float NeuralNetwork::get_accuracy(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets) {
+	float loss = 0;
+	for (size_t i = 0; i < inputs.size(); i++) {
+		loss += mean_absolute_error(this->get_prediction(inputs[i]), targets[i]);
+	}
+	return 1.0 - (loss / static_cast<float>(inputs.size()));
+}
+
 void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,
 						  float input_ratio, std::string&& logging_filename) {
 	// Open the file for logging
@@ -190,11 +205,13 @@ void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<s
 		if (i % nb_points_to_plot == 0) {
 			float training_loss = this->get_total_loss(train_input_vectors, train_target_vectors);
 			float validation_loss = this->get_total_loss(validation_input_vectors, validation_target_vectors);
-			std::cout << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << '\n';
+			float training_acc = this->get_accuracy(train_input_vectors, train_target_vectors);
+			float validation_acc = this->get_accuracy(validation_input_vectors, validation_target_vectors);
+			std::cout << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << ", Training Acc: " << training_acc << ", Validation Acc: " << validation_acc << '\n';
 			for (size_t j = 0; j < inputs.size(); j++) {
 				std::cout << "Prediction output: " << this->get_prediction(inputs[j])[0] << ", Target output: " << targets[j][0] << '\n';
 			}
-			log_file << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << '\n';
+			log_file << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << ", Training Acc: " << training_acc << ", Validation Acc: " << validation_acc << '\n';
 		}
 	}
 }
