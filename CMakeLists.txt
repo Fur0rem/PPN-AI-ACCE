@@ -30,6 +30,8 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/parsing/asm_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/binary_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/binary_with_split_parser.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/hexadecimal_parser.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/hexadecimal_with_split_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/xor_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
@@ -60,6 +62,8 @@ set(TESTS
     asm_parser
     binary_with_split_parser
     binary_parser
+    hexadecimal_parser
+    hexadecimal_with_split_parser
     xor_parser
     recognises_xor
 )

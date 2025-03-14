@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xorparser_0',['XORParser',['../classXORParser.html',1,'']]]
+  ['sha256context_0',['Sha256Context',['../structSha256Context.html',1,'']]]
 ];

@@ -27,7 +27,6 @@ class BinaryParser : public IParser {
 
 	/**
 	 * @brief Parses a binary representation of assembly code into a vector of 0's and 1's according to its binary representation,
-	 * splitting each instruction with a 0.5
 	 * @param input The binary code to parse
 	 * @return A vector of doubles representing the input of the neural network
 	 */

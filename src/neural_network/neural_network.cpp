@@ -43,8 +43,6 @@ double squared_error(const Eigen::VectorXf* output, const Eigen::VectorXf* targe
 	assert(targets->size() == 1); // We only have one output (the number of cycles)
 	double target = (*targets)[0] * MAX_CYCLES;
 	double prediction = (*output)[0] * MAX_CYCLES;
-	std::cout << "Target: " << target << ", Prediction: " << prediction << ", Error: " << (target - prediction) * (target - prediction)
-			  << '\n';
 	return (target - prediction) * (target - prediction);
 }
 
@@ -84,6 +82,8 @@ double relative_absolute_error(const Eigen::VectorXf* output, const Eigen::Vecto
 	assert(targets->size() == 1); // We only have one output (the number of cycles)
 	double target = (*targets)[0] * MAX_CYCLES;
 	double prediction = (*output)[0] * MAX_CYCLES;
+	std::cout << "Target : " << target << ", Prediction : " << prediction
+			  << ", Error : " << std::abs(target - prediction) / std::max(1.0, std::max(target, prediction)) << '\n';
 	return std::abs(target - prediction) / std::max(1.0, std::max(target, prediction));
 }
 
@@ -291,11 +291,11 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float input_ratio, st
 			log_file << stream.str();
 
 			// Print all the values predicted
-			for (auto [input, target] : dataset.get_data(1.0)) {
-				auto output = this->get_prediction(&input);
-				log_file << "Input: " << input.transpose() << ", Prediction: " << output.transpose() << ", Target: " << target.transpose()
-						 << '\n';
-			}
+			// for (auto [input, target] : dataset.get_data(1.0)) {
+			// 	auto output = this->get_prediction(&input);
+			// 	log_file << "Input: " << input.transpose() << ", Prediction: " << output.transpose() << ", Target: " << target.transpose()
+			// 			 << '\n';
+			// }
 		}
 	}
 

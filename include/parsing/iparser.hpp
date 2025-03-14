@@ -13,7 +13,7 @@
 
 constexpr size_t MAX_TOKENS_NN = 11000; ///< Maximum number of tokens for the neural network
 constexpr float MAX_CYCLES = 4e5;		///< Maximum number of cycles as an output for the neural network
-constexpr double NO_MORE_VALUE = 0.0;	///< Filler value for the neural network input
+constexpr double NO_MORE_VALUE = -1.0;	///< Filler value for the neural network input
 
 /**
  * @brief Interface for parsing and transforming assembly instructions into an input for a neural network

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['iparser_0',['IParser',['../classIParser.html',1,'']]]
+  ['hexadecimalparser_0',['HexadecimalParser',['../classHexadecimalParser.html',1,'']]],
+  ['hexadecimalwithsplitparser_1',['HexadecimalWithSplitParser',['../classHexadecimalWithSplitParser.html',1,'']]]
 ];
