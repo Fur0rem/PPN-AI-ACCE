@@ -1,0 +1,25 @@
+;; Cycles : 42
+
+48 c7 c0 60 42 42 00
+48 c7 c2 20 43 42 00
+c4 e2 7d 19 05 f1 78
+01 00
+c4 e2 7d 19 1d f0 78
+01 00
+c5 fd 5a 10
+c5 f8 52 d2
+c5 fc 5a d2
+c5 ed 59 0a
+c5 f5 59 ca
+c5 f5 59 c0
+c5 f5 59 c0
+c5 f5 59 cb
+c4 e2 7d 19 1d cf 78
+01 00
+c5 f5 58 cb
+c5 fd 5c c1
+c5 fd 59 c2
+c5 fd 29 00
+c5 f8 77
+c3
+0f 1f 00

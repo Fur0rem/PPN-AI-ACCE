@@ -1,0 +1,115 @@
+\doxysection{benchmarks/crypto.cpp File Reference}
+\hypertarget{crypto_8cpp}{}\label{crypto_8cpp}\index{benchmarks/crypto.cpp@{benchmarks/crypto.cpp}}
+
+
+Benchmark for cryptographic functions.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSha256Context}{Sha256\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{crypto_8cpp_aa554f63b1bff923e477da72974a8ca9a}\label{crypto_8cpp_aa554f63b1bff923e477da72974a8ca9a} 
+\#define {\bfseries ROTLEFT}(a,  b)~(((a) $<$$<$ (b)) \texorpdfstring{$\vert$}{|} ((a) $>$$>$ (32 -\/ (b))))
+\item 
+\Hypertarget{crypto_8cpp_a3f24e956e9863a34a6f07be0b06b093a}\label{crypto_8cpp_a3f24e956e9863a34a6f07be0b06b093a} 
+\#define {\bfseries ROTRIGHT}(a,  b)~(((a) $>$$>$ (b)) \texorpdfstring{$\vert$}{|} ((a) $<$$<$ (32 -\/ (b))))
+\item 
+\Hypertarget{crypto_8cpp_a0ed6c9c714485592a8c317a8ad91c83b}\label{crypto_8cpp_a0ed6c9c714485592a8c317a8ad91c83b} 
+\#define {\bfseries CH}(x,  y,  z)~(((x) \& (y)) \texorpdfstring{$^\wedge$}{\string^} (\texorpdfstring{$\sim$}{\string~}(x) \& (z)))
+\item 
+\Hypertarget{crypto_8cpp_ae2f6c7a0b4fdb15387259356b16854c9}\label{crypto_8cpp_ae2f6c7a0b4fdb15387259356b16854c9} 
+\#define {\bfseries MAJ}(x,  y,  z)~(((x) \& (y)) \texorpdfstring{$^\wedge$}{\string^} ((x) \& (z)) \texorpdfstring{$^\wedge$}{\string^} ((y) \& (z)))
+\item 
+\Hypertarget{crypto_8cpp_ac0ae633634f25ba56304236388a04290}\label{crypto_8cpp_ac0ae633634f25ba56304236388a04290} 
+\#define {\bfseries EP0}(x)~(ROTRIGHT(x, 2) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 13) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 22))
+\item 
+\Hypertarget{crypto_8cpp_a0438f3b09eae5f53b75f5d76f9724880}\label{crypto_8cpp_a0438f3b09eae5f53b75f5d76f9724880} 
+\#define {\bfseries EP1}(x)~(ROTRIGHT(x, 6) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 11) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 25))
+\item 
+\Hypertarget{crypto_8cpp_a2f0da11cf6577ba2dd4aea7685d0268e}\label{crypto_8cpp_a2f0da11cf6577ba2dd4aea7685d0268e} 
+\#define {\bfseries SIG0}(x)~(ROTRIGHT(x, 7) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 18) \texorpdfstring{$^\wedge$}{\string^} ((x) $>$$>$ 3))
+\item 
+\Hypertarget{crypto_8cpp_a865de5131d1e990ca62d66220a527d2c}\label{crypto_8cpp_a865de5131d1e990ca62d66220a527d2c} 
+\#define {\bfseries SIG1}(x)~(ROTRIGHT(x, 17) \texorpdfstring{$^\wedge$}{\string^} ROTRIGHT(x, 19) \texorpdfstring{$^\wedge$}{\string^} ((x) $>$$>$ 10))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{crypto_8cpp_ae20b116e3c84a8c006d9605e5b13eea3}\label{crypto_8cpp_ae20b116e3c84a8c006d9605e5b13eea3} 
+void {\bfseries initialize\+\_\+arrays} ()
+\item 
+\Hypertarget{crypto_8cpp_ac49a9d896119a9a311efa1bac0c35385}\label{crypto_8cpp_ac49a9d896119a9a311efa1bac0c35385} 
+{\bfseries BENCHMARK\+\_\+\+FN} (sha256\+\_\+transform, \{(\{ int m\mbox{[}64\mbox{]};int i, j;for(i=0, j=0;i$<$ 16;++i, j+=4) \{ m\mbox{[}i\mbox{]}=(arr\mbox{[}j\mbox{]}$<$$<$ 24)\texorpdfstring{$\vert$}{|}(arr\mbox{[}j+1\mbox{]}$<$$<$ 16)\texorpdfstring{$\vert$}{|}(arr\mbox{[}j+2\mbox{]}$<$$<$ 8)\texorpdfstring{$\vert$}{|}(arr\mbox{[}j+3\mbox{]});\} for(;i$<$ 64;++i) \{ m\mbox{[}i\mbox{]}=SIG1(m\mbox{[}i -\/ 2\mbox{]})+m\mbox{[}i -\/ 7\mbox{]}+SIG0(m\mbox{[}i -\/ 15\mbox{]})+m\mbox{[}i -\/ 16\mbox{]};\} int a=ctx.\+state\mbox{[}0\mbox{]};int b=ctx.\+state\mbox{[}1\mbox{]};int c=ctx.\+state\mbox{[}2\mbox{]};int d=ctx.\+state\mbox{[}3\mbox{]};int e=ctx.\+state\mbox{[}4\mbox{]};int f=ctx.\+state\mbox{[}5\mbox{]};int g=ctx.\+state\mbox{[}6\mbox{]};int h=ctx.\+state\mbox{[}7\mbox{]};for(i=0;i$<$ 64;++i) \{ int t1=h+EP1(e)+CH(e, f, g)+K\mbox{[}i\mbox{]}+m\mbox{[}i\mbox{]};int t2=EP0(a)+MAJ(a, b, c);h=g;g=f;f=e;e=d+t1;d=c;c=b;b=a;a=t1+t2;\} ctx.\+state\mbox{[}0\mbox{]}+=a;ctx.\+state\mbox{[}1\mbox{]}+=b;ctx.\+state\mbox{[}2\mbox{]}+=c;ctx.\+state\mbox{[}3\mbox{]}+=d;ctx.\+state\mbox{[}4\mbox{]}+=e;ctx.\+state\mbox{[}5\mbox{]}+=f;ctx.\+state\mbox{[}6\mbox{]}+=g;ctx.\+state\mbox{[}7\mbox{]}+=h;\});\}) BENCHMARK\+\_\+\+FN(sha256\+\_\+init
+\item 
+\Hypertarget{crypto_8cpp_ac2feba67514f436978cae1684b109751}\label{crypto_8cpp_ac2feba67514f436978cae1684b109751} 
+{\bfseries for} (int i=0;i$<$ 64;i++)
+\item 
+\Hypertarget{crypto_8cpp_ad6251bcc6ecac086643f342b06dfdbf6}\label{crypto_8cpp_ad6251bcc6ecac086643f342b06dfdbf6} 
+{\bfseries BENCHMARK\+\_\+\+FN} (sha526\+\_\+update, \{ int i;for(i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};++i) \{ ctx.\+data\mbox{[}ctx.\+datalen\mbox{]}=arr\mbox{[}i\mbox{]};ctx.\+datalen++;if(ctx.\+datalen==64) \{ ctx.\+bitlen+=512;ctx.\+datalen=0;\} \} \}) BENCHMARK\+\_\+\+FN(sha256\+\_\+final
+\item 
+\Hypertarget{crypto_8cpp_ad8df2cd593f24e47471b3452cd6bc00e}\label{crypto_8cpp_ad8df2cd593f24e47471b3452cd6bc00e} 
+{\bfseries if} (ctx.\+datalen$<$ 56)
+\item 
+\Hypertarget{crypto_8cpp_a87543714ce579e2afb25326b34c84a99}\label{crypto_8cpp_a87543714ce579e2afb25326b34c84a99} 
+{\bfseries while} (i$<$ 64)
+\item 
+\Hypertarget{crypto_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{crypto_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{crypto_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{crypto_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1024
+\item 
+\Hypertarget{crypto_8cpp_aa5df0efc3aef8b61da4ec12e83be7b66}\label{crypto_8cpp_aa5df0efc3aef8b61da4ec12e83be7b66} 
+uint8\+\_\+t {\bfseries arr} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array to hash. \end{DoxyCompactList}\item 
+\Hypertarget{crypto_8cpp_a59d51bc139b21b49cd7af72232785a0f}\label{crypto_8cpp_a59d51bc139b21b49cd7af72232785a0f} 
+uint8\+\_\+t {\bfseries arr\+\_\+hashed} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of hashed values. \end{DoxyCompactList}\item 
+\Hypertarget{crypto_8cpp_aae0fea59ffd94c16360eaa640373d3f6}\label{crypto_8cpp_aae0fea59ffd94c16360eaa640373d3f6} 
+\mbox{\hyperlink{structSha256Context}{Sha256\+Context}} {\bfseries ctx}
+\item 
+\Hypertarget{crypto_8cpp_a84c2b1a965a6d7b3864655e78032a9dc}\label{crypto_8cpp_a84c2b1a965a6d7b3864655e78032a9dc} 
+ctx {\bfseries bitlen} = 0
+\item 
+\Hypertarget{crypto_8cpp_a3a933983031ce17b9827ebc9ca60fb92}\label{crypto_8cpp_a3a933983031ce17b9827ebc9ca60fb92} 
+ctx {\bfseries state} \mbox{[}0\mbox{]} = 0x6a09e667
+\item 
+\Hypertarget{crypto_8cpp_a7e98b8a17c0aad30ba64d47b74e2a6c1}\label{crypto_8cpp_a7e98b8a17c0aad30ba64d47b74e2a6c1} 
+{\bfseries i} = ctx.\+datalen
+\item 
+\mbox{\hyperlink{crypto_8cpp_a0544c3fe466e421738dae463968b70ba}{else}}
+\item 
+\Hypertarget{crypto_8cpp_ae66cb3254c4cb8ba4fe0f61cf48e8aee}\label{crypto_8cpp_ae66cb3254c4cb8ba4fe0f61cf48e8aee} 
+ctx {\bfseries data} \mbox{[}63\mbox{]} = ctx.\+bitlen
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for cryptographic functions. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{crypto_8cpp_a0544c3fe466e421738dae463968b70ba}\label{crypto_8cpp_a0544c3fe466e421738dae463968b70ba} 
+\index{crypto.cpp@{crypto.cpp}!else@{else}}
+\index{else@{else}!crypto.cpp@{crypto.cpp}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ctx.data[i++]\ =\ 0x80}
+
+\end{DoxyCode}

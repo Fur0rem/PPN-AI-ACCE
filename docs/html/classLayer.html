@@ -90,9 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83989eec29e9cc5eb47e1d902c93b48e" id="r_a83989eec29e9cc5eb47e1d902c93b48e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83989eec29e9cc5eb47e1d902c93b48e">Layer</a> (int input_size, int output_size)</td></tr>
 <tr class="memdesc:a83989eec29e9cc5eb47e1d902c93b48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classLayer.html" title="Class representing a neural network layer.">Layer</a> object.  <br /></td></tr>
 <tr class="separator:a83989eec29e9cc5eb47e1d902c93b48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab74288f699a9765caa9cef07616103a8" id="r_ab74288f699a9765caa9cef07616103a8"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab74288f699a9765caa9cef07616103a8">feed_forward</a> (Eigen::MatrixXf &amp;input)</td></tr>
-<tr class="memdesc:ab74288f699a9765caa9cef07616103a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feed forward the input through the layer.  <br /></td></tr>
-<tr class="separator:ab74288f699a9765caa9cef07616103a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ac99698eec41bf03826b7cfc64ed16" id="r_a81ac99698eec41bf03826b7cfc64ed16"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81ac99698eec41bf03826b7cfc64ed16">feed_forward</a> (Eigen::MatrixXf *input)</td></tr>
+<tr class="memdesc:a81ac99698eec41bf03826b7cfc64ed16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feed forward the input through the layer.  <br /></td></tr>
+<tr class="separator:a81ac99698eec41bf03826b7cfc64ed16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afadf0f02441ae751fe4d77711d45aec3" id="r_afadf0f02441ae751fe4d77711d45aec3"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afadf0f02441ae751fe4d77711d45aec3">back_propagate</a> (const Eigen::MatrixXf &amp;error, float learning_rate, Eigen::MatrixXf &amp;next_values)</td></tr>
 <tr class="memdesc:afadf0f02441ae751fe4d77711d45aec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Back propagate the error through the layer.  <br /></td></tr>
 <tr class="separator:afadf0f02441ae751fe4d77711d45aec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,8 +175,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad
 
 </div>
 </div>
-<a id="ab74288f699a9765caa9cef07616103a8" name="ab74288f699a9765caa9cef07616103a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab74288f699a9765caa9cef07616103a8">&#9670;&#160;</a></span>feed_forward()</h2>
+<a id="a81ac99698eec41bf03826b7cfc64ed16" name="a81ac99698eec41bf03826b7cfc64ed16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ac99698eec41bf03826b7cfc64ed16">&#9670;&#160;</a></span>feed_forward()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +184,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad
         <tr>
           <td class="memname">Eigen::MatrixXf Layer::feed_forward </td>
           <td>(</td>
-          <td class="paramtype">Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype">Eigen::MatrixXf *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

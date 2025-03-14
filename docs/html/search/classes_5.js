@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rawbinaryparser_0',['RawBinaryParser',['../classRawBinaryParser.html',1,'']]]
+  ['neuralnetwork_0',['NeuralNetwork',['../classNeuralNetwork.html',1,'']]]
 ];

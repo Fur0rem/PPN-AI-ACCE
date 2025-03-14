@@ -1,0 +1,51 @@
+;; Cycles : 22648
+
+41 b9 08 00 00 00
+49 c7 c0 20 85 60 00
+31 c0
+c5 fd 6f 15 89 d0 01
+00
+c4 41 79 6e c1
+41 b9 01 00 00 00
+48 c7 c7 20 91 5e 00
+48 c7 c6 c0 9c 48 00
+c4 c1 79 6e f9
+41 b9 02 00 00 00
+c4 42 7d 58 c0
+48 c7 c1 c0 a8 46 00
+c4 c1 79 6e f1
+41 b9 03 00 00 00
+48 c7 c2 c0 b4 44 00
+c4 e2 7d 58 ff
+c4 c1 79 6e e9
+41 b9 04 00 00 00
+c4 e2 7d 58 f6
+c4 c1 79 6e e1
+41 b9 05 00 00 00
+c4 e2 7d 58 ed
+c4 c1 79 6e d9
+c4 e2 7d 58 e4
+c4 e2 7d 58 db
+0f 1f 00
+c5 fd 6f c2
+48 83 c0 20
+c4 c1 6d fe d0
+c5 fd fe cf
+c5 fc 5b c9
+c4 a1 7c 11 4c 00 e0
+c5 fd fe ce
+c5 fc 5b c9
+c5 fc 11 4c 38 e0
+c5 fd fe cd
+c5 fc 5b c9
+c5 fc 11 4c 30 e0
+c5 fd fe cc
+c5 fd fe c3
+c5 fc 5b c9
+c5 fc 5b c0
+c5 fc 11 4c 08 e0
+c5 fc 11 44 10 e0
+48 3d 00 f4 01 00
+75 a4
+c5 f8 77
+c3

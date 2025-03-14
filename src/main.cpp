@@ -5,8 +5,9 @@
 
 #include "dataset/dataset.hpp"
 #include "neural_network/neural_network.hpp"
+#include "parsing/asm_parser.hpp"
+#include "parsing/binary_parser.hpp"
 #include "parsing/binary_with_split_parser.hpp"
-#include "parsing/rawbinary_parser.hpp"
 #include "parsing/xor_parser.hpp"
 #include <cstdlib>
 #include <iostream>
@@ -18,48 +19,32 @@
  */
 int main() {
 	// Creating neural network
-	std::vector<int> topology = {
+	std::vector<size_t> topology = {
 		MAX_TOKENS_NN,
-		3000,
-		2000,
-		500,
+		15000,
+		5000,
 		1,
 	};
 	NeuralNetwork nn(topology, 0.2);
 	std::cout << "Neural network created" << '\n';
 
-	// Dataset dataset = Dataset(new XORParser(), "dataset/xor");
-	Dataset dataset = Dataset(new RawBinaryParser(), "dataset/asm");
-	std::cout << "Dataset loaded" << '\n';
+	Dataset dataset = Dataset(new BinaryParser(), "dataset/bench_bins_small", topology);
+	// Dataset dataset = Dataset(new AsmParser(), "dataset/asm", topology);
+	// std::cout << "Dataset loaded" << '\n';
 
 	int nb_epochs = 1000;
 	std::cout << "Training the neural network" << '\n';
 
-	auto data = dataset.get_data(1.0);
-	std::vector<std::vector<float>> target_inputs;
-	std::vector<std::vector<float>> target_outputs;
-	for (auto [input, output] : data) {
-		// turn Eigen::VectorXf into std::vector<float>
-		std::vector<float> input_vec;
-		std::vector<float> output_vec;
-		for (int i = 0; i < input.size(); i++) {
-			input_vec.push_back(input(i));
-		}
-		for (int i = 0; i < output.size(); i++) {
-			output_vec.push_back(output(i));
-		}
-		target_inputs.push_back(input_vec);
-		target_outputs.push_back(output_vec);
-	}
-
-	nn.train(target_inputs, target_outputs, nb_epochs, 0.8, "asm_training.log");
+	nn.train(dataset, nb_epochs, 0.75, "training_results/binary_training.log");
 
 	std::cout << "Training complete" << '\n';
 
 	// Testing the neural network
-	for (std::vector<float> input : target_inputs) {
-		std::vector<float> output = nn.get_prediction(input);
+	for (auto [input, target] : dataset.get_data(1.0)) {
+		auto output = nn.get_prediction(&input);
+		std::cout << "Prediction : " << output[0] << ", Target : " << target[0] << '\n';
 	}
 
-	std::cout << "Total loss : " << nn.get_total_loss(target_inputs, target_outputs) << '\n';
+	auto [in, out] = nn.convert_data_for_loss(dataset);
+	std::cout << "Total loss : " << nn.get_loss_mrse(in, out) << '\n';
 }

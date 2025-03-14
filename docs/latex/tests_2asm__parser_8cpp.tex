@@ -1,0 +1,79 @@
+\doxysection{tests/asm\+\_\+parser.cpp File Reference}
+\hypertarget{tests_2asm__parser_8cpp}{}\label{tests_2asm__parser_8cpp}\index{tests/asm\_parser.cpp@{tests/asm\_parser.cpp}}
+
+
+Used to test the assembly parser that converts it to raw binary directly. All tests expected results are checked by ndisasm using -\/b 64 flag.  
+
+
+{\ttfamily \#include "{}parsing/asm\+\_\+parser.\+hpp"{}}\newline
+{\ttfamily \#include "{}parsing/iparser.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{tests_2asm__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e}{binary\+\_\+from\+\_\+hexadecimal}} (std\+::vector$<$ uint8\+\_\+t $>$ \&\&hex)
+\begin{DoxyCompactList}\small\item\em Convert a hexadecimal vector to a binary vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tests_2asm__parser_8cpp_a3579fc9548f21c9ef58f7f17e2b2e17d}{binary\+\_\+to\+\_\+hexadecimal}} (std\+::vector$<$ double $>$ \&binary)
+\begin{DoxyCompactList}\small\item\em Convert a binary vector to a hexadecimal vector and prints it. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_a47d395d6ca1d9437e95216392892e789}\label{tests_2asm__parser_8cpp_a47d395d6ca1d9437e95216392892e789} 
+{\bfseries TEST} (asm\+\_\+parser, Single\+\_\+\+Instruction)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can convert a single instruction to binary. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_acc895fde66902eeab5e3acb2d912132b}\label{tests_2asm__parser_8cpp_acc895fde66902eeab5e3acb2d912132b} 
+{\bfseries TEST} (asm\+\_\+parser, Multiple\+\_\+\+Instructions)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can convert multiple instructions to binary. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_a05b0afb6a60d70e8fc9584eabdbe9a0b}\label{tests_2asm__parser_8cpp_a05b0afb6a60d70e8fc9584eabdbe9a0b} 
+{\bfseries TEST} (asm\+\_\+parser\+\_\+out, Multiple\+\_\+\+Instructions)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can parse the header with the number of cycles. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_a8289e6698e8ba1c8cdaa7844105829f1}\label{tests_2asm__parser_8cpp_a8289e6698e8ba1c8cdaa7844105829f1} 
+{\bfseries TEST} (asm\+\_\+parser, Memory)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can parse instructions with memory access. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_ad222fe77910f3371a860d72c7455824d}\label{tests_2asm__parser_8cpp_ad222fe77910f3371a860d72c7455824d} 
+{\bfseries TEST} (asm\+\_\+parser, Loops)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can parse loop instructions. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2asm__parser_8cpp_a6859bf7bd0a66dc7df68211e9c35baab}\label{tests_2asm__parser_8cpp_a6859bf7bd0a66dc7df68211e9c35baab} 
+{\bfseries TEST} (asm\+\_\+parser, SIMD\+\_\+\+Instruction)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can parse SIMD instructions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used to test the assembly parser that converts it to raw binary directly. All tests expected results are checked by ndisasm using -\/b 64 flag. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tests_2asm__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e}\label{tests_2asm__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e} 
+\index{asm\_parser.cpp@{asm\_parser.cpp}!binary\_from\_hexadecimal@{binary\_from\_hexadecimal}}
+\index{binary\_from\_hexadecimal@{binary\_from\_hexadecimal}!asm\_parser.cpp@{asm\_parser.cpp}}
+\doxysubsubsection{\texorpdfstring{binary\_from\_hexadecimal()}{binary\_from\_hexadecimal()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ binary\+\_\+from\+\_\+hexadecimal (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&\&}]{hex }\end{DoxyParamCaption})}
+
+
+
+Convert a hexadecimal vector to a binary vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hex} & The hexadecimal vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The binary vector 
+\end{DoxyReturn}
+\Hypertarget{tests_2asm__parser_8cpp_a3579fc9548f21c9ef58f7f17e2b2e17d}\label{tests_2asm__parser_8cpp_a3579fc9548f21c9ef58f7f17e2b2e17d} 
+\index{asm\_parser.cpp@{asm\_parser.cpp}!binary\_to\_hexadecimal@{binary\_to\_hexadecimal}}
+\index{binary\_to\_hexadecimal@{binary\_to\_hexadecimal}!asm\_parser.cpp@{asm\_parser.cpp}}
+\doxysubsubsection{\texorpdfstring{binary\_to\_hexadecimal()}{binary\_to\_hexadecimal()}}
+{\footnotesize\ttfamily void binary\+\_\+to\+\_\+hexadecimal (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{binary }\end{DoxyParamCaption})}
+
+
+
+Convert a binary vector to a hexadecimal vector and prints it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary} & The binary vector \\
+\hline
+\end{DoxyParams}

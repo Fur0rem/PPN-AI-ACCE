@@ -1,0 +1,50 @@
+\doxysection{benchmarks/codelet\+\_\+c\+\_\+k\+\_\+means\+\_\+line109.cpp File Reference}
+\hypertarget{codelet__c__k__means__line109_8cpp}{}\label{codelet__c__k__means__line109_8cpp}\index{benchmarks/codelet\_c\_k\_means\_line109.cpp@{benchmarks/codelet\_c\_k\_means\_line109.cpp}}
+
+
+Benchmark for k-\/means clustering.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{codelet__c__k__means__line109_8cpp_a16cb3df1f6624c70d81ffce3de031a57}{BENCHMARK\+\_\+\+FN}} (codelet\+\_\+c\+\_\+k\+\_\+means\+\_\+line109, \{ for(int i=0;i$<$ K;i++) \{ for(int j=0;j$<$ M;j++) \{ c\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}=(counts\mbox{[}i\mbox{]} ? c1\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}/counts\mbox{[}i\mbox{]} \+:c1\mbox{[}i\mbox{]}\mbox{[}j\mbox{]});\} \} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Perform the k-\/means clustering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__c__k__means__line109_8cpp_a77a9b787be0b9b24ab6b55aade3eeeaf}\label{codelet__c__k__means__line109_8cpp_a77a9b787be0b9b24ab6b55aade3eeeaf} 
+constexpr int {\bfseries K} = 16
+\item 
+\Hypertarget{codelet__c__k__means__line109_8cpp_a4cae62bfeb75660c6b01301758e44afc}\label{codelet__c__k__means__line109_8cpp_a4cae62bfeb75660c6b01301758e44afc} 
+constexpr int {\bfseries M} = 16
+\item 
+\Hypertarget{codelet__c__k__means__line109_8cpp_a62fcb0159aee0ea9558d9e2adaeb72c5}\label{codelet__c__k__means__line109_8cpp_a62fcb0159aee0ea9558d9e2adaeb72c5} 
+double {\bfseries c} \mbox{[}K\mbox{]}\mbox{[}M\mbox{]}
+\item 
+\Hypertarget{codelet__c__k__means__line109_8cpp_a7929ccb85b5b09d995f4f86a2a149f6b}\label{codelet__c__k__means__line109_8cpp_a7929ccb85b5b09d995f4f86a2a149f6b} 
+int {\bfseries counts} \mbox{[}K\mbox{]}
+\item 
+\Hypertarget{codelet__c__k__means__line109_8cpp_a4dac5a46e85e94dea9701b62c2abfa63}\label{codelet__c__k__means__line109_8cpp_a4dac5a46e85e94dea9701b62c2abfa63} 
+double {\bfseries c1} \mbox{[}K\mbox{]}\mbox{[}M\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for k-\/means clustering. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{codelet__c__k__means__line109_8cpp_a16cb3df1f6624c70d81ffce3de031a57}\label{codelet__c__k__means__line109_8cpp_a16cb3df1f6624c70d81ffce3de031a57} 
+\index{codelet\_c\_k\_means\_line109.cpp@{codelet\_c\_k\_means\_line109.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!codelet\_c\_k\_means\_line109.cpp@{codelet\_c\_k\_means\_line109.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{codelet\+\_\+c\+\_\+k\+\_\+means\+\_\+line109}]{,  }\item[{\{ for(int i=0;i$<$ K;i++) \{ for(int j=0;j$<$ M;j++) \{ c\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}=(counts\mbox{[}i\mbox{]} ? c1\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}/counts\mbox{[}i\mbox{]} \+:c1\mbox{[}i\mbox{]}\mbox{[}j\mbox{]});\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform the k-\/means clustering. 
+
+Run the benchmarks for codelet\+\_\+c\+\_\+k\+\_\+means\+\_\+line109 

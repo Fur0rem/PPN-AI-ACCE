@@ -86,24 +86,45 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a186da1c794773dadf7eeebcc6d9d5d3a" id="r_a186da1c794773dadf7eeebcc6d9d5d3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a186da1c794773dadf7eeebcc6d9d5d3a">NeuralNetwork</a> (std::vector&lt; int &gt; &amp;topology, float learning_rate)</td></tr>
-<tr class="memdesc:a186da1c794773dadf7eeebcc6d9d5d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> object.  <br /></td></tr>
-<tr class="separator:a186da1c794773dadf7eeebcc6d9d5d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0611d8da04a2528263084fbe37c048a" id="r_ae0611d8da04a2528263084fbe37c048a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0611d8da04a2528263084fbe37c048a">train</a> (std::vector&lt; std::vector&lt; float &gt; &gt; &amp;inputs, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;targets, int nb_epochs, std::string &amp;&amp;logging_filename)</td></tr>
-<tr class="memdesc:ae0611d8da04a2528263084fbe37c048a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
-<tr class="separator:ae0611d8da04a2528263084fbe37c048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab49565a6d89816ebf8b03c483e3dfb21" id="r_ab49565a6d89816ebf8b03c483e3dfb21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab49565a6d89816ebf8b03c483e3dfb21">get_prediction</a> (std::vector&lt; float &gt; &amp;input)</td></tr>
-<tr class="memdesc:ab49565a6d89816ebf8b03c483e3dfb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the prediction of the network.  <br /></td></tr>
-<tr class="separator:ab49565a6d89816ebf8b03c483e3dfb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1a50518446dfaf61e76041bad614eeb" id="r_af1a50518446dfaf61e76041bad614eeb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1a50518446dfaf61e76041bad614eeb">get_total_loss</a> (std::vector&lt; std::vector&lt; float &gt; &gt; inputs, std::vector&lt; std::vector&lt; float &gt; &gt; targets)</td></tr>
-<tr class="memdesc:af1a50518446dfaf61e76041bad614eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total loss of the network.  <br /></td></tr>
-<tr class="separator:af1a50518446dfaf61e76041bad614eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb4f0b976e5b19487960b73dcf6a074f" id="r_acb4f0b976e5b19487960b73dcf6a074f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb4f0b976e5b19487960b73dcf6a074f">NeuralNetwork</a> (std::vector&lt; size_t &gt; &amp;topology, float learning_rate)</td></tr>
+<tr class="memdesc:acb4f0b976e5b19487960b73dcf6a074f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> object.  <br /></td></tr>
+<tr class="separator:acb4f0b976e5b19487960b73dcf6a074f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340db828ce1b7689a71c8c6a0296b857" id="r_a340db828ce1b7689a71c8c6a0296b857"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340db828ce1b7689a71c8c6a0296b857">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float input_ratio, std::string &amp;&amp;logging_filename)</td></tr>
+<tr class="memdesc:a340db828ce1b7689a71c8c6a0296b857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
+<tr class="separator:a340db828ce1b7689a71c8c6a0296b857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26155d14e8c97c786614843494397d16" id="r_a26155d14e8c97c786614843494397d16"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26155d14e8c97c786614843494397d16">get_prediction</a> (const Eigen::VectorXf *input)</td></tr>
+<tr class="memdesc:a26155d14e8c97c786614843494397d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the prediction of the network.  <br /></td></tr>
+<tr class="separator:a26155d14e8c97c786614843494397d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1308079bed0cc76d6995c120bad0284" id="r_af1308079bed0cc76d6995c120bad0284"><td class="memItemLeft" align="right" valign="top"><a id="af1308079bed0cc76d6995c120bad0284" name="af1308079bed0cc76d6995c120bad0284"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_prediction</b> (const std::vector&lt; float &gt; &amp;input)</td></tr>
+<tr class="separator:af1308079bed0cc76d6995c120bad0284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc488c9cff4768932aa59aed9bca51ad" id="r_adc488c9cff4768932aa59aed9bca51ad"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::VectorXf * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc488c9cff4768932aa59aed9bca51ad">convert_data_for_loss</a> (std::vector&lt; std::vector&lt; float &gt; &gt; &amp;inputs, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;targets)</td></tr>
+<tr class="memdesc:adc488c9cff4768932aa59aed9bca51ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert input data and target data to correct format to compute loss and accuracy.  <br /></td></tr>
+<tr class="separator:adc488c9cff4768932aa59aed9bca51ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8b9fe32d14612fde5e30d836d82be7" id="r_a6e8b9fe32d14612fde5e30d836d82be7"><td class="memItemLeft" align="right" valign="top"><a id="a6e8b9fe32d14612fde5e30d836d82be7" name="a6e8b9fe32d14612fde5e30d836d82be7"></a>
+std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::VectorXf * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>convert_data_for_loss</b> (std::vector&lt; Eigen::VectorXf &gt; &amp;inputs, std::vector&lt; Eigen::VectorXf &gt; &amp;targets)</td></tr>
+<tr class="separator:a6e8b9fe32d14612fde5e30d836d82be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113881945d8ac4d5d41273f502799290" id="r_a113881945d8ac4d5d41273f502799290"><td class="memItemLeft" align="right" valign="top"><a id="a113881945d8ac4d5d41273f502799290" name="a113881945d8ac4d5d41273f502799290"></a>
+std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::VectorXf * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>convert_data_for_loss</b> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset)</td></tr>
+<tr class="separator:a113881945d8ac4d5d41273f502799290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53ea5f84afa590cf055589428656f51" id="r_ae53ea5f84afa590cf055589428656f51"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae53ea5f84afa590cf055589428656f51">get_loss_mrse</a> (std::vector&lt; Eigen::VectorXf * &gt; &amp;inputs, std::vector&lt; Eigen::VectorXf * &gt; &amp;targets)</td></tr>
+<tr class="memdesc:ae53ea5f84afa590cf055589428656f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the loss of the network, uses mean relative squared error.  <br /></td></tr>
+<tr class="separator:ae53ea5f84afa590cf055589428656f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a8d1a7969418a4a590571eda60da9da" id="r_a1a8d1a7969418a4a590571eda60da9da"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a8d1a7969418a4a590571eda60da9da">get_loss_mse</a> (std::vector&lt; Eigen::VectorXf * &gt; &amp;inputs, std::vector&lt; Eigen::VectorXf * &gt; &amp;targets)</td></tr>
+<tr class="memdesc:a1a8d1a7969418a4a590571eda60da9da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the loss of the network, uses mean squared error.  <br /></td></tr>
+<tr class="separator:a1a8d1a7969418a4a590571eda60da9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54933c2dc406e688db245dbf2cd1a394" id="r_a54933c2dc406e688db245dbf2cd1a394"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54933c2dc406e688db245dbf2cd1a394">get_acc_mae</a> (std::vector&lt; Eigen::VectorXf * &gt; &amp;inputs, std::vector&lt; Eigen::VectorXf * &gt; &amp;targets)</td></tr>
+<tr class="memdesc:a54933c2dc406e688db245dbf2cd1a394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the accuracy of the network, uses mean absolute error.  <br /></td></tr>
+<tr class="separator:a54933c2dc406e688db245dbf2cd1a394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7981465ca1672b313015c9cc1628fa04" id="r_a7981465ca1672b313015c9cc1628fa04"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7981465ca1672b313015c9cc1628fa04">get_acc_mrae</a> (std::vector&lt; Eigen::VectorXf * &gt; &amp;inputs, std::vector&lt; Eigen::VectorXf * &gt; &amp;targets)</td></tr>
+<tr class="memdesc:a7981465ca1672b313015c9cc1628fa04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the accuracy of the network, uses mean relative absolute error.  <br /></td></tr>
+<tr class="separator:a7981465ca1672b313015c9cc1628fa04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class representing a neural network. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a186da1c794773dadf7eeebcc6d9d5d3a" name="a186da1c794773dadf7eeebcc6d9d5d3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a186da1c794773dadf7eeebcc6d9d5d3a">&#9670;&#160;</a></span>NeuralNetwork()</h2>
+<a id="acb4f0b976e5b19487960b73dcf6a074f" name="acb4f0b976e5b19487960b73dcf6a074f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb4f0b976e5b19487960b73dcf6a074f">&#9670;&#160;</a></span>NeuralNetwork()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +132,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">NeuralNetwork::NeuralNetwork </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>topology</em>, </span></td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>topology</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -133,16 +154,170 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab49565a6d89816ebf8b03c483e3dfb21" name="ab49565a6d89816ebf8b03c483e3dfb21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab49565a6d89816ebf8b03c483e3dfb21">&#9670;&#160;</a></span>get_prediction()</h2>
+<a id="adc488c9cff4768932aa59aed9bca51ad" name="adc488c9cff4768932aa59aed9bca51ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc488c9cff4768932aa59aed9bca51ad">&#9670;&#160;</a></span>convert_data_for_loss()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; float &gt; NeuralNetwork::get_prediction </td>
+          <td class="memname">std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::VectorXf * &gt; &gt; NeuralNetwork::convert_data_for_loss </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; float &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert input data and target data to correct format to compute loss and accuracy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
+    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The loss of the network </dd></dl>
+
+</div>
+</div>
+<a id="a54933c2dc406e688db245dbf2cd1a394" name="a54933c2dc406e688db245dbf2cd1a394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54933c2dc406e688db245dbf2cd1a394">&#9670;&#160;</a></span>get_acc_mae()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NeuralNetwork::get_acc_mae </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the accuracy of the network, uses mean absolute error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
+    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The accuracy of the network </dd></dl>
+
+</div>
+</div>
+<a id="a7981465ca1672b313015c9cc1628fa04" name="a7981465ca1672b313015c9cc1628fa04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7981465ca1672b313015c9cc1628fa04">&#9670;&#160;</a></span>get_acc_mrae()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NeuralNetwork::get_acc_mrae </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the accuracy of the network, uses mean relative absolute error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
+    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The accuracy of the network </dd></dl>
+
+</div>
+</div>
+<a id="ae53ea5f84afa590cf055589428656f51" name="ae53ea5f84afa590cf055589428656f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53ea5f84afa590cf055589428656f51">&#9670;&#160;</a></span>get_loss_mrse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NeuralNetwork::get_loss_mrse </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the loss of the network, uses mean relative squared error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
+    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The loss of the network </dd></dl>
+
+</div>
+</div>
+<a id="a1a8d1a7969418a4a590571eda60da9da" name="a1a8d1a7969418a4a590571eda60da9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a8d1a7969418a4a590571eda60da9da">&#9670;&#160;</a></span>get_loss_mse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NeuralNetwork::get_loss_mse </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Eigen::VectorXf * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the loss of the network, uses mean squared error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
+    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a26155d14e8c97c786614843494397d16" name="a26155d14e8c97c786614843494397d16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26155d14e8c97c786614843494397d16">&#9670;&#160;</a></span>get_prediction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXf NeuralNetwork::get_prediction </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -159,39 +334,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af1a50518446dfaf61e76041bad614eeb" name="af1a50518446dfaf61e76041bad614eeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1a50518446dfaf61e76041bad614eeb">&#9670;&#160;</a></span>get_total_loss()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float NeuralNetwork::get_total_loss </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the total loss of the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inputs</td><td>The input data </td></tr>
-    <tr><td class="paramname">targets</td><td>The target output data </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The total loss of the network </dd></dl>
-
-</div>
-</div>
-<a id="ae0611d8da04a2528263084fbe37c048a" name="ae0611d8da04a2528263084fbe37c048a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0611d8da04a2528263084fbe37c048a">&#9670;&#160;</a></span>train()</h2>
+<a id="a340db828ce1b7689a71c8c6a0296b857" name="a340db828ce1b7689a71c8c6a0296b857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340db828ce1b7689a71c8c6a0296b857">&#9670;&#160;</a></span>train()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,17 +343,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void NeuralNetwork::train </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em>, </span></td>
+          <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nb_epochs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>input_ratio</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -225,6 +369,7 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">inputs</td><td>The input data </td></tr>
     <tr><td class="paramname">targets</td><td>The target output data </td></tr>
     <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for </td></tr>
+    <tr><td class="paramname">input_ratio</td><td>the ratio of inputs to be used as training data, the rest will be used as validation data </td></tr>
     <tr><td class="paramname">logging_filename</td><td>The name of the file to log the loss to </td></tr>
   </table>
   </dd>

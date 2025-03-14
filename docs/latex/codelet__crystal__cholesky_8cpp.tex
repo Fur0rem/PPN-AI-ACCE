@@ -1,0 +1,52 @@
+\doxysection{benchmarks/codelet\+\_\+crystal\+\_\+cholesky.cpp File Reference}
+\hypertarget{codelet__crystal__cholesky_8cpp}{}\label{codelet__crystal__cholesky_8cpp}\index{benchmarks/codelet\_crystal\_cholesky.cpp@{benchmarks/codelet\_crystal\_cholesky.cpp}}
+
+
+Crystal Cholesky benchmark for a loop.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a514c2a3bf8fd27618b2cb6cc2a783178}\label{codelet__crystal__cholesky_8cpp_a514c2a3bf8fd27618b2cb6cc2a783178} 
+{\bfseries BENCHMARK\+\_\+\+FN} (codelet\+\_\+crystal\+\_\+cholesky\+\_\+line29\+\_\+loop\+\_\+0, \{ for(int i=1;i$<$=NB\+\_\+\+SLIP -\/ 1;i+=1) \{ a\mbox{[}i\mbox{]}\mbox{[}0\mbox{]}=a\mbox{[}i\mbox{]}\mbox{[}0\mbox{]}/a\mbox{[}0\mbox{]}\mbox{[}0\mbox{]};\} \}) BENCHMARK\+\_\+\+FN(codelet\+\_\+crystal\+\_\+cholesky\+\_\+line29\+\_\+loop\+\_\+1
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a10eef58097788bc3cc33ec99c36a118d}\label{codelet__crystal__cholesky_8cpp_a10eef58097788bc3cc33ec99c36a118d} 
+{\bfseries for} (int i=1;i$<$=NB\+\_\+\+SLIP -\/ 1 -\/ lu\+\_\+frige\+\_\+1;i+=2)
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a202b18c853c4131807430d43ba30fddf}\label{codelet__crystal__cholesky_8cpp_a202b18c853c4131807430d43ba30fddf} 
+{\bfseries BENCHMARK\+\_\+\+FN} (codelet\+\_\+crystal\+\_\+div\+\_\+line43\+\_\+loop, \{ for(int n=0;n$<$=NB\+\_\+\+SLIP -\/ 1;n+=1) \{ sgn\mbox{[}n\mbox{]}=1.\+0;rate\+\_\+fact\mbox{[}n\mbox{]}=0.\+9+0.\+2 \texorpdfstring{$\ast$}{*}n/100;\} \}) double bor\+\_\+array\mbox{[}NB\+\_\+\+SLIP\mbox{]}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a25a910e8aa5eabe37124d3612018ae07}\label{codelet__crystal__cholesky_8cpp_a25a910e8aa5eabe37124d3612018ae07} 
+{\bfseries BENCHMARK\+\_\+\+FN} (codelet\+\_\+crystal\+\_\+div\+\_\+line49\+\_\+loop, \{ for(int n=0;n$<$=NB\+\_\+\+SLIP -\/ 1;n+=1) \{ bor\+\_\+array\mbox{[}n\mbox{]}=1/(slip\+\_\+rate\mbox{[}n\mbox{]} \texorpdfstring{$\ast$}{*}sgn\mbox{[}n\mbox{]}+rate\+\_\+offset);\} \}) double dtcdgd\mbox{[}NB\+\_\+\+SLIP\mbox{]}\mbox{[}NB\+\_\+\+SLIP\mbox{]}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a5aa3b8c2ae4ccf6e1fb147b1361505db}\label{codelet__crystal__cholesky_8cpp_a5aa3b8c2ae4ccf6e1fb147b1361505db} 
+{\bfseries BENCHMARK\+\_\+\+FN} (codelet\+\_\+crystal\+\_\+div\+\_\+line61\+\_\+loop, \{ for(int n=0;n$<$=NB\+\_\+\+SLIP -\/ 1;n+=1) \{ bor\+\_\+array\mbox{[}n\mbox{]}=1/dtcdgd\mbox{[}n\mbox{]}\mbox{[}n\mbox{]};\} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for codelet\+\_\+crystal\+\_\+cholesky. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a0f54d1062d8135dad7b8118c8e221444}\label{codelet__crystal__cholesky_8cpp_a0f54d1062d8135dad7b8118c8e221444} 
+constexpr int {\bfseries NB\+\_\+\+SLIP} = 100
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a4d1bd04d8e71c18fb98edb2986f08cb7}\label{codelet__crystal__cholesky_8cpp_a4d1bd04d8e71c18fb98edb2986f08cb7} 
+double {\bfseries a} \mbox{[}NB\+\_\+\+SLIP\mbox{]}\mbox{[}NB\+\_\+\+SLIP\mbox{]} = \{5.\+0\}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a2e7fac5bca36a368a98db74784f6d396}\label{codelet__crystal__cholesky_8cpp_a2e7fac5bca36a368a98db74784f6d396} 
+double {\bfseries sgn} \mbox{[}NB\+\_\+\+SLIP\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a52d3e1f8eb146652a7572191a2c3e3e3}\label{codelet__crystal__cholesky_8cpp_a52d3e1f8eb146652a7572191a2c3e3e3} 
+double {\bfseries rate\+\_\+fact} \mbox{[}NB\+\_\+\+SLIP\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a0e86bc33680c40b9597084489e6f8b3a}\label{codelet__crystal__cholesky_8cpp_a0e86bc33680c40b9597084489e6f8b3a} 
+double {\bfseries slip\+\_\+rate} \mbox{[}NB\+\_\+\+SLIP\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__crystal__cholesky_8cpp_a77488c7038904b676c476f2a79bf89b1}\label{codelet__crystal__cholesky_8cpp_a77488c7038904b676c476f2a79bf89b1} 
+double {\bfseries rate\+\_\+offset} = 0.\+000001
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Crystal Cholesky benchmark for a loop. 
+

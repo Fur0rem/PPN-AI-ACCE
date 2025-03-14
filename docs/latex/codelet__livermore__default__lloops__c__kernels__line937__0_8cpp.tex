@@ -1,0 +1,58 @@
+\doxysection{benchmarks/codelet\+\_\+livermore\+\_\+default\+\_\+lloops\+\_\+c\+\_\+kernels\+\_\+line937\+\_\+0.cpp File Reference}
+\hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp}{}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp}\index{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line937\_0.cpp@{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line937\_0.cpp}}
+
+
+Benchmark extracted from the Livermore loops codelet.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a603175875c8ee497de55672a085e1730}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a603175875c8ee497de55672a085e1730} 
+{\bfseries BENCHMARK\+\_\+\+FN} (lloops\+\_\+c\+\_\+kernels\+\_\+line937\+\_\+loop\+\_\+c\+\_\+0\+\_\+c, \{ int \+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+=kx;int \+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+=ky;\{ for(\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+=1;\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+$<$ 3;\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+++) \{ for(\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+=1;\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+$<$ inner\+\_\+loops;\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+++) \{ du1\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}=u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\++1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]} -\/ u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+ -\/ 1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]};du2\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}=u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\++1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]} -\/ u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+ -\/ 1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]};du3\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}=u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\++1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]} -\/ u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+ -\/ 1\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]};u1\mbox{[}nl2\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}=u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}1\mbox{]} \texorpdfstring{$\ast$}{*}du1\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}2\mbox{]} \texorpdfstring{$\ast$}{*}du2\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}3\mbox{]} \texorpdfstring{$\ast$}{*}du3\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}34\mbox{]} \texorpdfstring{$\ast$}{*}(u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\++1\mbox{]} -\/ 2.\+0 \texorpdfstring{$\ast$}{*}u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+u1\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+ -\/ 1\mbox{]});u2\mbox{[}nl2\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}=u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}4\mbox{]} \texorpdfstring{$\ast$}{*}du1\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}5\mbox{]} \texorpdfstring{$\ast$}{*}du2\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}6\mbox{]} \texorpdfstring{$\ast$}{*}du3\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}34\mbox{]} \texorpdfstring{$\ast$}{*}(u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\++1\mbox{]} -\/ 2.\+0 \texorpdfstring{$\ast$}{*}u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+u2\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+ -\/ 1\mbox{]});u3\mbox{[}nl2\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}=u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}7\mbox{]} \texorpdfstring{$\ast$}{*}du1\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}8\mbox{]} \texorpdfstring{$\ast$}{*}du2\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}9\mbox{]} \texorpdfstring{$\ast$}{*}du3\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}+xtra\mbox{[}34\mbox{]} \texorpdfstring{$\ast$}{*}(u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\++1\mbox{]} -\/ 2.\+0 \texorpdfstring{$\ast$}{*}u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+\mbox{]}+u3\mbox{[}nl1\mbox{]}\mbox{[}\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+ -\/ 1\mbox{]});\} \} \} kx=\+\_\+\+\_\+kx\+\_\+0\+\_\+\+\_\+;ky=\+\_\+\+\_\+ky\+\_\+1\+\_\+\+\_\+;\}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for lloops\+\_\+c\+\_\+kernels\+\_\+line937\+\_\+loop\+\_\+c\+\_\+0\+\_\+c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_aa520d3fb74052d54e1d5adb9a26369ef}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_aa520d3fb74052d54e1d5adb9a26369ef} 
+long {\bfseries kx} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a42e374de81ef54f040c7464c6d106010}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a42e374de81ef54f040c7464c6d106010} 
+long {\bfseries ky} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_afd7f567f1c49a6b08240599913001f4c}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_afd7f567f1c49a6b08240599913001f4c} 
+long {\bfseries inner\+\_\+loops} = 100
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a247b7c3ff4ae9dc258c3c6746b4f79bd}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a247b7c3ff4ae9dc258c3c6746b4f79bd} 
+double {\bfseries du1} \mbox{[}101\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a8a27227914724fef61990f51475d1fdb}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a8a27227914724fef61990f51475d1fdb} 
+double {\bfseries u1} \mbox{[}2\mbox{]}\mbox{[}101\mbox{]}\mbox{[}5\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_ac07172ad377636d7a2c256ed57e93cf3}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_ac07172ad377636d7a2c256ed57e93cf3} 
+long {\bfseries nl1} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a8e5696b6926593ddbd8eabf06513eb3a}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a8e5696b6926593ddbd8eabf06513eb3a} 
+double {\bfseries du2} \mbox{[}101\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a81218d8d7fd7e4c9d33f4d17cf66bd32}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a81218d8d7fd7e4c9d33f4d17cf66bd32} 
+double {\bfseries u2} \mbox{[}2\mbox{]}\mbox{[}101\mbox{]}\mbox{[}5\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a7af11dd851c585914bde6777e56307af}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a7af11dd851c585914bde6777e56307af} 
+double {\bfseries du3} \mbox{[}101\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a7c33c85f572a4a8b54974069613af4a4}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a7c33c85f572a4a8b54974069613af4a4} 
+double {\bfseries u3} \mbox{[}2\mbox{]}\mbox{[}101\mbox{]}\mbox{[}5\mbox{]}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a88d1209c44c6845945aee8be1cee06c9}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a88d1209c44c6845945aee8be1cee06c9} 
+long {\bfseries nl2} = 1
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a757981566a96092cf9cd7620985685a1}\label{codelet__livermore__default__lloops__c__kernels__line937__0_8cpp_a757981566a96092cf9cd7620985685a1} 
+double {\bfseries xtra} \mbox{[}40\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark extracted from the Livermore loops codelet. 
+

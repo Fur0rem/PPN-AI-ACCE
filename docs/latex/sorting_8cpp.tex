@@ -1,0 +1,29 @@
+\doxysection{benchmarks/sorting.cpp File Reference}
+\hypertarget{sorting_8cpp}{}\label{sorting_8cpp}\index{benchmarks/sorting.cpp@{benchmarks/sorting.cpp}}
+
+
+Benchmark for sorting algorithms.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sorting_8cpp_adc63e5d95e5c09b69c7f9e590fd93908}\label{sorting_8cpp_adc63e5d95e5c09b69c7f9e590fd93908} 
+{\bfseries BENCHMARK\+\_\+\+FN} (init\+\_\+arrays, \{ srand(time(nullptr));for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ arr\mbox{[}i\mbox{]}=(double) rand()/RAND\+\_\+\+MAX;\} \}) BENCHMARK\+\_\+\+FN(bubble\+\_\+sort
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sorting_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{sorting_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 2048
+\begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{sorting_8cpp_a4b0bcd470bbfd1c35eb7114ff77f79f2}\label{sorting_8cpp_a4b0bcd470bbfd1c35eb7114ff77f79f2} 
+double {\bfseries arr} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers to sort. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for sorting algorithms. 
+

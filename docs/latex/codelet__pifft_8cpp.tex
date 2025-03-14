@@ -1,0 +1,49 @@
+\doxysection{benchmarks/codelet\+\_\+pifft.cpp File Reference}
+\hypertarget{codelet__pifft_8cpp}{}\label{codelet__pifft_8cpp}\index{benchmarks/codelet\_pifft.cpp@{benchmarks/codelet\_pifft.cpp}}
+
+
+Benchmark for pifft.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__pifft_8cpp_a5663be92d77a0e730b3f8dddaf707bd8}\label{codelet__pifft_8cpp_a5663be92d77a0e730b3f8dddaf707bd8} 
+{\bfseries BENCHMARK\+\_\+\+FN} (codelet\+\_\+pifft, \{ for(int j=2;j$<$=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}} -\/ shift;j+=1) \{ double x=in1\mbox{[}j+shift\mbox{]}+dradix \texorpdfstring{$\ast$}{*}carry+0.\+5;int ix=(int)(d1\+\_\+in2 \texorpdfstring{$\ast$}{*}x);carry=(int)(x -\/ din2 \texorpdfstring{$\ast$}{*}ix);out\mbox{[}j\mbox{]}=ix;\} \}) void init()
+\item 
+\Hypertarget{codelet__pifft_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{codelet__pifft_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for pifft. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__pifft_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{codelet__pifft_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1048578
+\item 
+\Hypertarget{codelet__pifft_8cpp_afd8d704fff636cf0234e92c1eade927c}\label{codelet__pifft_8cpp_afd8d704fff636cf0234e92c1eade927c} 
+int {\bfseries shift} = 1
+\item 
+\Hypertarget{codelet__pifft_8cpp_a29d3ad5b9882b7df983ab2e1908e9209}\label{codelet__pifft_8cpp_a29d3ad5b9882b7df983ab2e1908e9209} 
+volatile double \texorpdfstring{$\ast$}{*} {\bfseries in1}
+\item 
+\Hypertarget{codelet__pifft_8cpp_a54fc5aab6235e226400f68097c5f4d8c}\label{codelet__pifft_8cpp_a54fc5aab6235e226400f68097c5f4d8c} 
+volatile double \texorpdfstring{$\ast$}{*} {\bfseries out}
+\item 
+\Hypertarget{codelet__pifft_8cpp_a6b92ed1e81bdd31e8c9f0f6ef3eca18b}\label{codelet__pifft_8cpp_a6b92ed1e81bdd31e8c9f0f6ef3eca18b} 
+double {\bfseries dradix} = 10000.\+000000
+\item 
+\Hypertarget{codelet__pifft_8cpp_ac33dd0ad72380ad7b52434992811c5a7}\label{codelet__pifft_8cpp_ac33dd0ad72380ad7b52434992811c5a7} 
+int {\bfseries carry} = 148470
+\item 
+\Hypertarget{codelet__pifft_8cpp_afa289f831a51d0b1c12e1b3adf54d345}\label{codelet__pifft_8cpp_afa289f831a51d0b1c12e1b3adf54d345} 
+double {\bfseries d1\+\_\+in2} = 0.\+000001
+\item 
+\Hypertarget{codelet__pifft_8cpp_a2cdcfd934ea3585ee8e6b88afe02254f}\label{codelet__pifft_8cpp_a2cdcfd934ea3585ee8e6b88afe02254f} 
+double {\bfseries din2} = 1048576.\+000000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for pifft. 
+

@@ -12,25 +12,42 @@ Class representing a neural network.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a}{Neural\+Network}} (std\+::vector$<$ int $>$ \&topology, float learning\+\_\+rate)
+\mbox{\hyperlink{classNeuralNetwork_acb4f0b976e5b19487960b73dcf6a074f}{Neural\+Network}} (std\+::vector$<$ size\+\_\+t $>$ \&topology, float learning\+\_\+rate)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classNeuralNetwork}{Neural\+Network} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a}{train}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&targets, int nb\+\_\+epochs, std\+::string \&\&logging\+\_\+filename)
+void \mbox{\hyperlink{classNeuralNetwork_a340db828ce1b7689a71c8c6a0296b857}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, float input\+\_\+ratio, std\+::string \&\&logging\+\_\+filename)
 \begin{DoxyCompactList}\small\item\em Train the neural network. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21}{get\+\_\+prediction}} (std\+::vector$<$ float $>$ \&input)
+Eigen\+::\+Vector\+Xf \mbox{\hyperlink{classNeuralNetwork_a26155d14e8c97c786614843494397d16}{get\+\_\+prediction}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}input)
 \begin{DoxyCompactList}\small\item\em Get the prediction of the network. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb}{get\+\_\+total\+\_\+loss}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ targets)
-\begin{DoxyCompactList}\small\item\em Get the total loss of the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{classNeuralNetwork_af1308079bed0cc76d6995c120bad0284}\label{classNeuralNetwork_af1308079bed0cc76d6995c120bad0284} 
+std\+::vector$<$ float $>$ {\bfseries get\+\_\+prediction} (const std\+::vector$<$ float $>$ \&input)
+\item 
+std\+::pair$<$ std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ $>$ \mbox{\hyperlink{classNeuralNetwork_adc488c9cff4768932aa59aed9bca51ad}{convert\+\_\+data\+\_\+for\+\_\+loss}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Convert input data and target data to correct format to compute loss and accuracy. \end{DoxyCompactList}\item 
+\Hypertarget{classNeuralNetwork_a6e8b9fe32d14612fde5e30d836d82be7}\label{classNeuralNetwork_a6e8b9fe32d14612fde5e30d836d82be7} 
+std\+::pair$<$ std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries convert\+\_\+data\+\_\+for\+\_\+loss} (std\+::vector$<$ Eigen\+::\+Vector\+Xf $>$ \&inputs, std\+::vector$<$ Eigen\+::\+Vector\+Xf $>$ \&targets)
+\item 
+\Hypertarget{classNeuralNetwork_a113881945d8ac4d5d41273f502799290}\label{classNeuralNetwork_a113881945d8ac4d5d41273f502799290} 
+std\+::pair$<$ std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries convert\+\_\+data\+\_\+for\+\_\+loss} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset)
+\item 
+double \mbox{\hyperlink{classNeuralNetwork_ae53ea5f84afa590cf055589428656f51}{get\+\_\+loss\+\_\+mrse}} (std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&inputs, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Get the loss of the network, uses mean relative squared error. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classNeuralNetwork_a1a8d1a7969418a4a590571eda60da9da}{get\+\_\+loss\+\_\+mse}} (std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&inputs, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Get the loss of the network, uses mean squared error. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classNeuralNetwork_a54933c2dc406e688db245dbf2cd1a394}{get\+\_\+acc\+\_\+mae}} (std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&inputs, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Get the accuracy of the network, uses mean absolute error. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classNeuralNetwork_a7981465ca1672b313015c9cc1628fa04}{get\+\_\+acc\+\_\+mrae}} (std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&inputs, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Get the accuracy of the network, uses mean relative absolute error. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class representing a neural network. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a}\label{classNeuralNetwork_a186da1c794773dadf7eeebcc6d9d5d3a} 
+\Hypertarget{classNeuralNetwork_acb4f0b976e5b19487960b73dcf6a074f}\label{classNeuralNetwork_acb4f0b976e5b19487960b73dcf6a074f} 
 \index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}}
-{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{topology,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
 
 
 
@@ -46,11 +63,108 @@ Construct a new \doxylink{classNeuralNetwork}{Neural\+Network} object.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21}\label{classNeuralNetwork_ab49565a6d89816ebf8b03c483e3dfb21} 
+\Hypertarget{classNeuralNetwork_adc488c9cff4768932aa59aed9bca51ad}\label{classNeuralNetwork_adc488c9cff4768932aa59aed9bca51ad} 
+\index{NeuralNetwork@{NeuralNetwork}!convert\_data\_for\_loss@{convert\_data\_for\_loss}}
+\index{convert\_data\_for\_loss@{convert\_data\_for\_loss}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{convert\_data\_for\_loss()}{convert\_data\_for\_loss()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$, std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ $>$ Neural\+Network\+::convert\+\_\+data\+\_\+for\+\_\+loss (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Convert input data and target data to correct format to compute loss and accuracy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loss of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_a54933c2dc406e688db245dbf2cd1a394}\label{classNeuralNetwork_a54933c2dc406e688db245dbf2cd1a394} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mae@{get\_acc\_mae}}
+\index{get\_acc\_mae@{get\_acc\_mae}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_acc\_mae()}{get\_acc\_mae()}}
+{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+acc\+\_\+mae (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{inputs,  }\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Get the accuracy of the network, uses mean absolute error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The accuracy of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_a7981465ca1672b313015c9cc1628fa04}\label{classNeuralNetwork_a7981465ca1672b313015c9cc1628fa04} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mrae@{get\_acc\_mrae}}
+\index{get\_acc\_mrae@{get\_acc\_mrae}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_acc\_mrae()}{get\_acc\_mrae()}}
+{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+acc\+\_\+mrae (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{inputs,  }\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Get the accuracy of the network, uses mean relative absolute error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The accuracy of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_ae53ea5f84afa590cf055589428656f51}\label{classNeuralNetwork_ae53ea5f84afa590cf055589428656f51} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mrse@{get\_loss\_mrse}}
+\index{get\_loss\_mrse@{get\_loss\_mrse}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_loss\_mrse()}{get\_loss\_mrse()}}
+{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+loss\+\_\+mrse (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{inputs,  }\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Get the loss of the network, uses mean relative squared error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loss of the network 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_a1a8d1a7969418a4a590571eda60da9da}\label{classNeuralNetwork_a1a8d1a7969418a4a590571eda60da9da} 
+\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mse@{get\_loss\_mse}}
+\index{get\_loss\_mse@{get\_loss\_mse}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{get\_loss\_mse()}{get\_loss\_mse()}}
+{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+loss\+\_\+mse (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{inputs,  }\item[{std\+::vector$<$ Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Get the loss of the network, uses mean squared error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & The input data \\
+\hline
+{\em targets} & The target output data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classNeuralNetwork_a26155d14e8c97c786614843494397d16}\label{classNeuralNetwork_a26155d14e8c97c786614843494397d16} 
 \index{NeuralNetwork@{NeuralNetwork}!get\_prediction@{get\_prediction}}
 \index{get\_prediction@{get\_prediction}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{get\_prediction()}{get\_prediction()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Neural\+Network\+::get\+\_\+prediction (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Vector\+Xf Neural\+Network\+::get\+\_\+prediction (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{input }\end{DoxyParamCaption})}
 
 
 
@@ -64,31 +178,11 @@ Get the prediction of the network.
 \begin{DoxyReturn}{Returns}
 The prediction of the network 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb}\label{classNeuralNetwork_af1a50518446dfaf61e76041bad614eeb} 
-\index{NeuralNetwork@{NeuralNetwork}!get\_total\_loss@{get\_total\_loss}}
-\index{get\_total\_loss@{get\_total\_loss}!NeuralNetwork@{NeuralNetwork}}
-\doxysubsubsection{\texorpdfstring{get\_total\_loss()}{get\_total\_loss()}}
-{\footnotesize\ttfamily float Neural\+Network\+::get\+\_\+total\+\_\+loss (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{targets }\end{DoxyParamCaption})}
-
-
-
-Get the total loss of the network. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em inputs} & The input data \\
-\hline
-{\em targets} & The target output data \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The total loss of the network 
-\end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a}\label{classNeuralNetwork_ae0611d8da04a2528263084fbe37c048a} 
+\Hypertarget{classNeuralNetwork_a340db828ce1b7689a71c8c6a0296b857}\label{classNeuralNetwork_a340db828ce1b7689a71c8c6a0296b857} 
 \index{NeuralNetwork@{NeuralNetwork}!train@{train}}
 \index{train@{train}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily void Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \&}]{targets,  }\item[{int}]{nb\+\_\+epochs,  }\item[{std\+::string \&\&}]{logging\+\_\+filename }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{float}]{input\+\_\+ratio,  }\item[{std\+::string \&\&}]{logging\+\_\+filename }\end{DoxyParamCaption})}
 
 
 
@@ -101,6 +195,8 @@ Train the neural network.
 {\em targets} & The target output data \\
 \hline
 {\em nb\+\_\+epochs} & The number of epochs to train for \\
+\hline
+{\em input\+\_\+ratio} & the ratio of inputs to be used as training data, the rest will be used as validation data \\
 \hline
 {\em logging\+\_\+filename} & The name of the file to log the loss to \\
 \hline

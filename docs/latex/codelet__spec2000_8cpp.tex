@@ -1,0 +1,82 @@
+\doxysection{benchmarks/codelet\+\_\+spec2000.cpp File Reference}
+\hypertarget{codelet__spec2000_8cpp}{}\label{codelet__spec2000_8cpp}\index{benchmarks/codelet\_spec2000.cpp@{benchmarks/codelet\_spec2000.cpp}}
+
+
+Benchmark extracted from the codelet of the SPEC2000 benchmark.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a05611f6d73be2bd5db091d0ccd3c2f8e}\label{codelet__spec2000_8cpp_a05611f6d73be2bd5db091d0ccd3c2f8e} 
+{\bfseries BENCHMARK\+\_\+\+FN} (vpr\+\_\+stats\+\_\+routing\+\_\+line88, \{ float av\+\_\+occ=0.\+000000;int max\+\_\+occ=-\/1;for(int i=1;i$<$=NX;i+=1) \{ max\+\_\+occ=(chanx\+\_\+occ\mbox{[}i\mbox{]}\mbox{[}J\mbox{]} $>$ max\+\_\+occ ? chanx\+\_\+occ\mbox{[}i\mbox{]}\mbox{[}J\mbox{]} \+:max\+\_\+occ);av\+\_\+occ+=chanx\+\_\+occ\mbox{[}i\mbox{]}\mbox{[}J\mbox{]};\} av\+\_\+occ=av\+\_\+occ/NX;result=av\+\_\+occ;result\+\_\+int=max\+\_\+occ;\}) const expr int NUMF1S
+\item 
+\Hypertarget{codelet__spec2000_8cpp_add2c875849c6cd7e8926aded1e91d7db}\label{codelet__spec2000_8cpp_add2c875849c6cd7e8926aded1e91d7db} 
+{\bfseries BENCHMARK\+\_\+\+FN} (scanner\+\_\+c\+\_\+init\+\_\+td\+\_\+line819\+\_\+loop, \{ for(int i=0;i$<$=NUMF1S -\/ 1;i+=1) \{ for(int j=START;j$<$=NUMF2S -\/ 1;j+=1) \{ tds\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}=0.\+0;\} \} \}) const expr int ARCHNODES
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ad6b2fafaa260452d26988db166c6ac49}\label{codelet__spec2000_8cpp_ad6b2fafaa260452d26988db166c6ac49} 
+{\bfseries BENCHMARK\+\_\+\+FN} (quake\+\_\+c\+\_\+main\+\_\+line452\+\_\+loop, \{ for(int i=0;i$<$=ARCHNODES -\/ 1;i+=1) \{ for(int j=0;j$<$=2;j+=1) \{ disp\mbox{[}1\mbox{]}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}=0.\+0;\} \} \}) typedef struct
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ac0ce10152e30493b292e7c03a4e5c721}\label{codelet__spec2000_8cpp_ac0ce10152e30493b292e7c03a4e5c721} 
+{\bfseries BENCHMARK\+\_\+\+FN} (quake\+\_\+c\+\_\+main\+\_\+line461\+\_\+loop, \{ for(int i=0;i$<$=ARCHNODES -\/ 1;i+=1) \{ for(int j=0;j$<$=2;j+=1) \{ disp\mbox{[}1\mbox{]}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \texorpdfstring{$\ast$}{*}=-\/EXC.\+dt \texorpdfstring{$\ast$}{*}EXC.\+dt;\} \} \}) volatile double m\mbox{[}ARCHNODES\mbox{]}\mbox{[}3\mbox{]}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a41555bd61bc6860b988be476d2d4da09}\label{codelet__spec2000_8cpp_a41555bd61bc6860b988be476d2d4da09} 
+{\bfseries BENCHMARK\+\_\+\+FN} (quake\+\_\+c\+\_\+main\+\_\+line473\+\_\+loop, \{ for(int i=0;i$<$=ARCHNODES -\/ 1;i+=1) \{ for(int j=0;j$<$=2;j+=1) \{ disp\mbox{[}1\mbox{]}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}=disp\mbox{[}1\mbox{]}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}/(m\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}+EXC.\+dt/2.\+0 \texorpdfstring{$\ast$}{*}c\mbox{[}i\mbox{]}\mbox{[}j\mbox{]});\} \} \}) const expr int ARCHMATRIXLEN
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ae55dc446380913afd8392c04fc38928c}\label{codelet__spec2000_8cpp_ae55dc446380913afd8392c04fc38928c} 
+{\bfseries BENCHMARK\+\_\+\+FN} (quake\+\_\+c\+\_\+mem\+\_\+init\+\_\+line1508\+\_\+loop, \{ for(int i=0;i$<$=ARCHMATRIXLEN -\/ 1;i+=1) \{ for(int j=0;j$<$=2;j+=1) \{ for(int kk=0;kk$<$=2;kk+=1) \{ k\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}\mbox{[}kk\mbox{]}=0.\+0;\} \} \} \}) void init\+\_\+arrays()
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{codelet__spec2000_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for stencil\+\_\+c\+\_\+main\+\_\+line259\+\_\+loop\+\_\+c\+\_\+0\+\_\+c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_acfcd088f6d058849eeba5001d482b695}\label{codelet__spec2000_8cpp_acfcd088f6d058849eeba5001d482b695} 
+constexpr int {\bfseries NX} = 184
+\item 
+\Hypertarget{codelet__spec2000_8cpp_aaf42a54a334b15f3ffea6393ffdf0792}\label{codelet__spec2000_8cpp_aaf42a54a334b15f3ffea6393ffdf0792} 
+constexpr int {\bfseries J} = 92
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ae9755015e546fda02aabd758675e7068}\label{codelet__spec2000_8cpp_ae9755015e546fda02aabd758675e7068} 
+int {\bfseries chanx\+\_\+occ} \mbox{[}NX+1\mbox{]}\mbox{[}J+1\mbox{]}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a82e6a617c74b7372735d068d7c9e1cf7}\label{codelet__spec2000_8cpp_a82e6a617c74b7372735d068d7c9e1cf7} 
+volatile float {\bfseries result}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a9395f2f96cd90237c738ad83bf374afe}\label{codelet__spec2000_8cpp_a9395f2f96cd90237c738ad83bf374afe} 
+volatile int {\bfseries result\+\_\+int}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a8900b188843a5de5e2f3b399fe0796a0}\label{codelet__spec2000_8cpp_a8900b188843a5de5e2f3b399fe0796a0} 
+constexpr int {\bfseries START} = 1
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a5ff2c69aa0e6ae92038d57ab0b75969d}\label{codelet__spec2000_8cpp_a5ff2c69aa0e6ae92038d57ab0b75969d} 
+constexpr int {\bfseries NUMF2S} = 3
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a9f8aea2fecd63632f79d646e2fdb7fe3}\label{codelet__spec2000_8cpp_a9f8aea2fecd63632f79d646e2fdb7fe3} 
+volatile double {\bfseries tds} \mbox{[}NUMF1S\mbox{]}\mbox{[}NUMF2S\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a0526a8c0a0e5f51253261dba07d0d0b7}\label{codelet__spec2000_8cpp_a0526a8c0a0e5f51253261dba07d0d0b7} 
+volatile double {\bfseries disp} \mbox{[}2\mbox{]}\mbox{[}ARCHNODES\mbox{]}\mbox{[}3\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_ae21778c5f31508733328cc97b889667d}\label{codelet__spec2000_8cpp_ae21778c5f31508733328cc97b889667d} 
+{\bfseries Excitation}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a5a49d6e23eb90516f36c7d25f36c6bde}\label{codelet__spec2000_8cpp_a5a49d6e23eb90516f36c7d25f36c6bde} 
+constexpr double {\bfseries EXC\+\_\+\+DT} = 0.\+002400
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a7658eada29720c9665c551c6a642175c}\label{codelet__spec2000_8cpp_a7658eada29720c9665c551c6a642175c} 
+constexpr Excitation {\bfseries EXC} = \{EXC\+\_\+\+DT, 0.\+0, 0.\+0\}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a389df0a32cc40fa73ae97637f93a3828}\label{codelet__spec2000_8cpp_a389df0a32cc40fa73ae97637f93a3828} 
+volatile double {\bfseries c} \mbox{[}ARCHNODES\mbox{]}\mbox{[}3\mbox{]} = \{0.\+0\}
+\item 
+\Hypertarget{codelet__spec2000_8cpp_a26cebaecd0a06ecc8e5b749fc58c59de}\label{codelet__spec2000_8cpp_a26cebaecd0a06ecc8e5b749fc58c59de} 
+volatile double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries k}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark extracted from the codelet of the SPEC2000 benchmark. 
+

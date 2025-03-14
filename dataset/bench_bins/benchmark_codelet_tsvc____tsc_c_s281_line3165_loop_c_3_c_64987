@@ -1,0 +1,70 @@
+;; Cycles : 64987
+
+49 c7 c0 60 25 70 00
+48 c7 c0 60 31 6e 00
+48 c7 c6 60 3d 6c 00
+c5 fa 10 05 cb b5 01
+00
+49 8d 90 e0 f3 01 00
+4c 89 c1
+66 0f 1f 84 00 00 00
+00 00
+c5 fa 10 08
+c5 f2 59 0e
+48 89 d7
+48 83 c0 20
+c5 f2 58 4a 1c
+48 83 c6 20
+48 83 ea 20
+48 83 c1 20
+c5 f2 5c d0
+c5 fa 11 48 e0
+c5 fa 10 48 e4
+c5 f2 59 4e e4
+c5 fa 11 51 e0
+c5 f2 58 4a 38
+c5 f2 5c d0
+c5 fa 11 48 e4
+c5 fa 10 48 e8
+c5 f2 59 4e e8
+c5 fa 11 51 e4
+c5 f2 58 4a 34
+c5 f2 5c d0
+c5 fa 11 48 e8
+c5 fa 10 48 ec
+c5 f2 59 4e ec
+c5 fa 11 51 e8
+c5 f2 58 4a 30
+c5 f2 5c d0
+c5 fa 11 48 ec
+c5 fa 10 48 f0
+c5 f2 59 4e f0
+c5 fa 11 51 ec
+c5 f2 58 4a 2c
+c5 f2 5c d0
+c5 fa 11 48 f0
+c5 fa 10 48 f4
+c5 f2 59 4e f4
+c5 fa 11 51 f0
+c5 f2 58 4a 28
+c5 f2 5c d0
+c5 fa 11 48 f4
+c5 fa 10 48 f8
+c5 f2 59 4e f8
+c5 fa 11 51 f4
+c5 f2 58 4a 24
+c5 f2 5c d0
+c5 fa 11 48 f8
+c5 fa 10 48 fc
+c5 f2 59 4e fc
+c5 fa 11 51 f8
+c5 f2 58 4a 20
+c5 f2 5c d0
+c5 fa 11 48 fc
+c5 fa 11 51 fc
+49 39 f8
+0f 85 fe fe ff ff
+48 c7 c0 00 91 5a 00
+c5 fa 11 08
+c3
+66 90

@@ -32,3 +32,25 @@ float deriv_relu(float x) {
 		return 1;
 	}
 }
+
+float leaky_relu(float x) {
+	if (x <= 0) {
+		return 0.05 * x;
+	}
+	else {
+		return x;
+	}
+}
+
+float deriv_leaky_relu(float x) {
+	if (x <= 0) {
+		return 0.05;
+	}
+	else {
+		return 1;
+	}
+}
+
+float deriv_tanh(float x) {
+	return 1 - x * x;
+}

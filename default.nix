@@ -18,5 +18,6 @@ pkgs.stdenv.mkDerivation {
     cmake
     eigen
     texliveFull
+    openssl
   ];
 }

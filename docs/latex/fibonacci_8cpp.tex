@@ -1,0 +1,78 @@
+\doxysection{benchmarks/fibonacci.cpp File Reference}
+\hypertarget{fibonacci_8cpp}{}\label{fibonacci_8cpp}\index{benchmarks/fibonacci.cpp@{benchmarks/fibonacci.cpp}}
+
+
+Benchmark for Fibonacci.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fibonacci_8cpp_a6b545ae3fce2c22a77cd74e70276ae2f}{BENCHMARK\+\_\+\+FN}} (fib\+\_\+iter, \{ int a=0;int b=1;int c;for(int i=2;i$<$=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ c=a+b;a=b;b=c;\} \mbox{\hyperlink{fibonacci_8cpp_a200f41b6943dc57d92b4111b8fcb8be0}{fib\+\_\+result}}=b;\}) BENCHMARK\+\_\+\+FN(fib\+\_\+float\+\_\+slow\+\_\+exp
+\begin{DoxyCompactList}\small\item\em Compute the Nth Fibonacci number using an iterative algorithm. \end{DoxyCompactList}\item 
+\Hypertarget{fibonacci_8cpp_a31cd916b50e2c6c7a34a246a88f7c369}\label{fibonacci_8cpp_a31cd916b50e2c6c7a34a246a88f7c369} 
+{\bfseries for} (int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++)
+\item 
+\mbox{\hyperlink{fibonacci_8cpp_ad0ba1e00f5fb7ab6000486d9f34c3e25}{BENCHMARK\+\_\+\+FN}} (fib\+\_\+float\+\_\+fast\+\_\+exp, \{ float phi=(1+sqrt(5))/2;float psi=(1 -\/ sqrt(5))/2;float phi\+\_\+N=pow(phi, \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}});float psi\+\_\+N=pow(psi, \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}});float fib=(phi\+\_\+N -\/ psi\+\_\+N)/sqrt(5);\mbox{\hyperlink{fibonacci_8cpp_ae578f7f0604430b30c0b94b16ed49546}{fib\+\_\+float\+\_\+result}}=fib;\}) BENCHMARK\+\_\+\+FN(fib\+\_\+recursive
+\begin{DoxyCompactList}\small\item\em Compute the Nth Fibonacci number using floating point numbers and a fast exponential algorithm. \end{DoxyCompactList}\item 
+\Hypertarget{fibonacci_8cpp_a660b13b42ba0d450119a8e730a150fbb}\label{fibonacci_8cpp_a660b13b42ba0d450119a8e730a150fbb} 
+asm {\bfseries volatile} ("{}mov \%\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}, \%\%eax\textbackslash{}n"{} "{}cmp \$1, \%\%eax\textbackslash{}n"{} "{}jle fib\+\_\+recursive\+\_\+asm\+\_\+end\textbackslash{}n"{} "{}mov \$0, \%\%ebx\textbackslash{}n"{} "{}mov \$1, \%\%ecx\textbackslash{}n"{} "{}mov \$2, \%\%edx\textbackslash{}n"{} "{}fib\+\_\+recursive\+\_\+asm\+\_\+loop\+:\textbackslash{}n"{} "{}cmp \%\%eax, \%\%edx\textbackslash{}n"{} "{}jge fib\+\_\+recursive\+\_\+asm\+\_\+end\+\_\+loop\textbackslash{}n"{} "{}add \%\%ecx, \%\%ebx\textbackslash{}n"{} "{}mov \%\%ebx, \%\%ecx\textbackslash{}n"{} "{}mov \%\%edx, \%\%ebx\textbackslash{}n"{} "{}inc \%\%edx\textbackslash{}n"{} "{}jmp fib\+\_\+recursive\+\_\+asm\+\_\+loop\textbackslash{}n"{} "{}fib\+\_\+recursive\+\_\+asm\+\_\+end\+\_\+loop\+:\textbackslash{}n"{} "{}mov \%\%ecx, \%\mbox{[}result\mbox{]}\textbackslash{}n"{} "{}fib\+\_\+recursive\+\_\+asm\+\_\+end\+:\textbackslash{}n"{} \+:\mbox{[}result\mbox{]} "{}=r"{}(result) \+:\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}eax"{}, "{}ebx"{}, "{}ecx"{}, "{}edx"{})
+\item 
+\Hypertarget{fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{fibonacci_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for fibonacci. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fibonacci_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{fibonacci_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 35
+\begin{DoxyCompactList}\small\item\em The Fibonacci number to compute. \end{DoxyCompactList}\item 
+\Hypertarget{fibonacci_8cpp_a200f41b6943dc57d92b4111b8fcb8be0}\label{fibonacci_8cpp_a200f41b6943dc57d92b4111b8fcb8be0} 
+volatile int {\bfseries fib\+\_\+result} = result
+\begin{DoxyCompactList}\small\item\em The result of the Fibonacci computation. \end{DoxyCompactList}\item 
+\Hypertarget{fibonacci_8cpp_ae578f7f0604430b30c0b94b16ed49546}\label{fibonacci_8cpp_ae578f7f0604430b30c0b94b16ed49546} 
+volatile float {\bfseries fib\+\_\+float\+\_\+result} = fib
+\begin{DoxyCompactList}\small\item\em The result of the Fibonacci computation. \end{DoxyCompactList}\item 
+\Hypertarget{fibonacci_8cpp_aace8e2df2e07a1def1b869e5511bc602}\label{fibonacci_8cpp_aace8e2df2e07a1def1b869e5511bc602} 
+float {\bfseries psi} = (1 -\/ sqrt(5)) / 2
+\item 
+\Hypertarget{fibonacci_8cpp_a738ace27df00a3b47fb9120ef027f0b4}\label{fibonacci_8cpp_a738ace27df00a3b47fb9120ef027f0b4} 
+float {\bfseries phi\+\_\+N} = 1.\+0
+\item 
+\Hypertarget{fibonacci_8cpp_a70417f67c7c11f978fa52fd9b7668376}\label{fibonacci_8cpp_a70417f67c7c11f978fa52fd9b7668376} 
+float {\bfseries psi\+\_\+N} = 1.\+0
+\item 
+\Hypertarget{fibonacci_8cpp_af39b45ce97b1d9f7961d9bd6292bb3ed}\label{fibonacci_8cpp_af39b45ce97b1d9f7961d9bd6292bb3ed} 
+float {\bfseries fib} = (phi\+\_\+N -\/ psi\+\_\+N) / sqrt(5)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for Fibonacci. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fibonacci_8cpp_ad0ba1e00f5fb7ab6000486d9f34c3e25}\label{fibonacci_8cpp_ad0ba1e00f5fb7ab6000486d9f34c3e25} 
+\index{fibonacci.cpp@{fibonacci.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!fibonacci.cpp@{fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{fib\+\_\+float\+\_\+fast\+\_\+exp}]{,  }\item[{\{ float phi=(1+sqrt(5))/2;float psi=(1 -\/ sqrt(5))/2;float phi\+\_\+N=pow(phi, \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}});float psi\+\_\+N=pow(psi, \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}});float fib=(phi\+\_\+N -\/ psi\+\_\+N)/sqrt(5);\mbox{\hyperlink{fibonacci_8cpp_ae578f7f0604430b30c0b94b16ed49546}{fib\+\_\+float\+\_\+result}}=fib;\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Compute the Nth Fibonacci number using floating point numbers and a fast exponential algorithm. 
+
+Compute the Nth Fibonacci number using a recursive algorithm \Hypertarget{fibonacci_8cpp_a6b545ae3fce2c22a77cd74e70276ae2f}\label{fibonacci_8cpp_a6b545ae3fce2c22a77cd74e70276ae2f} 
+\index{fibonacci.cpp@{fibonacci.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!fibonacci.cpp@{fibonacci.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{fib\+\_\+iter}]{,  }\item[{\{ int a=0;int b=1;int c;for(int i=2;i$<$=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ c=a+b;a=b;b=c;\} \mbox{\hyperlink{fibonacci_8cpp_a200f41b6943dc57d92b4111b8fcb8be0}{fib\+\_\+result}}=b;\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Compute the Nth Fibonacci number using an iterative algorithm. 
+
+Compute the Nth Fibonacci number using floating point numbers and a slow exponential algorithm 

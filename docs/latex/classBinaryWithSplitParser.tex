@@ -2,7 +2,7 @@
 \hypertarget{classBinaryWithSplitParser}{}\label{classBinaryWithSplitParser}\index{BinaryWithSplitParser@{BinaryWithSplitParser}}
 
 
-A parser to convert assembly into a neural network input by splitting each instruction with a 0.\+5.  
+A parser to convert binary into a neural network input by splitting each instruction with a 0.\+5.  
 
 
 
@@ -25,7 +25,7 @@ Inheritance diagram for Binary\+With\+Split\+Parser\+:\begin{figure}[H]
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Binary\+With\+Split\+Parser} () override=default
 \begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classBinaryWithSplitParser}{Binary\+With\+Split\+Parser} object. \end{DoxyCompactList}\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{classBinaryWithSplitParser_a45f16f28089a202aefe913bc789dd0e7}{parse\+\_\+in}} (std\+::string \&input) override
-\begin{DoxyCompactList}\small\item\em Parses an assembly code into a vector of 0\textquotesingle{}s and 1\textquotesingle{}s according to its binary representation, splitting each instruction with a 0.\+5. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Parses a binary representation of assembly code into a vector of 0\textquotesingle{}s and 1\textquotesingle{}s according to its binary representation, splitting each instruction with a 0.\+5. \end{DoxyCompactList}\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{classBinaryWithSplitParser_a9667c01c95f058ee80fcbb0ed63d2ef7}{parse\+\_\+out}} (std\+::string \&input) override
 \begin{DoxyCompactList}\small\item\em Parse the time taken for the code to run using a header in the first line Cycles\+: (number) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIParser}{IParser}}}
@@ -41,12 +41,12 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IParser} ()=default
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classIParser}{IParser}}}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::array$<$ double, \mbox{\hyperlink{iparser_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}{MAX\+\_\+\+TOKENS\+\_\+\+NN}} $>$ \mbox{\hyperlink{classIParser_a4889e50b2d0cce8ebbfddb3c47087003}{into\+\_\+neural\+\_\+network\+\_\+input}} (std\+::vector$<$ double $>$ \&parsed)
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classIParser_a3424417a355d3afd80bbcc37e5ab495c}{into\+\_\+neural\+\_\+network\+\_\+input}} (std\+::vector$<$ double $>$ \&parsed, std\+::vector$<$ size\+\_\+t $>$ \&topology)
 \begin{DoxyCompactList}\small\item\em Convert a vector of parsed values into an input for the neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A parser to convert assembly into a neural network input by splitting each instruction with a 0.\+5. 
+A parser to convert binary into a neural network input by splitting each instruction with a 0.\+5. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classBinaryWithSplitParser_a45f16f28089a202aefe913bc789dd0e7}\label{classBinaryWithSplitParser_a45f16f28089a202aefe913bc789dd0e7} 
@@ -57,11 +57,11 @@ A parser to convert assembly into a neural network input by splitting each instr
 
 
 
-Parses an assembly code into a vector of 0\textquotesingle{}s and 1\textquotesingle{}s according to its binary representation, splitting each instruction with a 0.\+5. 
+Parses a binary representation of assembly code into a vector of 0\textquotesingle{}s and 1\textquotesingle{}s according to its binary representation, splitting each instruction with a 0.\+5. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em input} & The assembly code to parse \\
+{\em input} & The binary code to parse \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

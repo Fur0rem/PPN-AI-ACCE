@@ -1,0 +1,49 @@
+;; Cycles : 40045
+
+48 c7 c7 40 6d 64 00
+48 c7 c0 60 31 6e 00
+48 c7 c2 60 3d 6c 00
+48 c7 c1 60 25 70 00
+c5 fa 10 2f
+c5 fd 6f 25 48 c8 01
+00
+48 8d b0 00 f4 01 00
+90
+c5 f8 28 c5
+48 83 c0 20
+48 83 c2 20
+48 83 c1 20
+c5 fa 10 48 e4
+c5 fa 10 58 f4
+c5 f2 59 72 e4
+c5 fa 10 68 fc
+c5 fa 10 48 e8
+c5 62 59 42 f4
+c5 f2 59 52 e8
+c5 fa 10 58 f8
+c5 fa 10 48 ec
+c5 d2 59 6a fc
+c5 f2 59 7a ec
+c5 fa 10 48 f0
+c5 e2 59 5a f8
+c5 f8 14 c6
+c5 f2 59 4a f0
+c5 e8 14 d7
+c5 e0 14 dd
+c5 f8 16 c2
+c4 e2 5d 36 52 e0
+c4 c1 70 14 c8
+c5 f0 16 cb
+c4 e3 7d 18 c1 01
+c4 e2 5d 36 48 e0
+c5 f4 59 ca
+c5 fc 58 c1
+c5 fc 11 41 e0
+48 39 f0
+0f 85 69 ff ff ff
+48 c7 c0 18 c0 42 00
+c5 fa 11 2f
+c5 fa 11 28
+c5 f8 77
+c3
+66 0f 1f 44 00 00

@@ -1,0 +1,37 @@
+;; Cycles : 28025
+
+b9 08 00 00 00
+48 c7 c0 60 25 70 00
+c5 fd 6f 1d 4c ec 01
+00
+c5 f9 6e e9
+b9 d3 4d 62 10
+c5 f9 6e e1
+48 8d 90 00 f4 01 00
+c4 e2 7d 58 ed
+c4 e2 7d 58 e4
+66 0f 1f 44 00 00
+c5 fd 6f cb
+48 83 c0 20
+c5 e5 fe dd
+c5 fd 72 f1 03
+c5 fd fa c1
+c4 e2 7d 28 d4
+c5 f5 73 d0 20
+c4 e2 75 28 cc
+c5 fd 70 d2 f5
+c4 e3 6d 02 d1 aa
+c5 ed 72 e2 0b
+c5 f5 72 f2 05
+c5 f5 fa ca
+c5 f5 72 f1 02
+c5 f5 fe ca
+c5 f5 72 f1 08
+c5 fd fa c1
+c5 fc 5b c0
+c5 fc 11 40 e0
+48 39 c2
+75 a3
+c5 f8 77
+c3
+0f 1f 80 00 00 00 00

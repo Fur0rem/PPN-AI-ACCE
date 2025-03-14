@@ -86,9 +86,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afaff94b9d3332fb22947c2f9270bcd60" id="r_afaff94b9d3332fb22947c2f9270bcd60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaff94b9d3332fb22947c2f9270bcd60">Dataset</a> (<a class="el" href="classIParser.html">IParser</a> *parser, std::string dir_path)</td></tr>
-<tr class="memdesc:afaff94b9d3332fb22947c2f9270bcd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataset.html" title="Class representing a dataset (inputs and outputs)">Dataset</a> object.  <br /></td></tr>
-<tr class="separator:afaff94b9d3332fb22947c2f9270bcd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b11978a8a76f6e53b651d65f5513e0" id="r_ad7b11978a8a76f6e53b651d65f5513e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7b11978a8a76f6e53b651d65f5513e0">Dataset</a> (<a class="el" href="classIParser.html">IParser</a> *parser, std::string dir_path, std::vector&lt; size_t &gt; &amp;topology)</td></tr>
+<tr class="memdesc:ad7b11978a8a76f6e53b651d65f5513e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataset.html" title="Class representing a dataset (inputs and outputs)">Dataset</a> object.  <br /></td></tr>
+<tr class="separator:ad7b11978a8a76f6e53b651d65f5513e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a091a7ce42fb69d1a19edcd218ce459" id="r_a5a091a7ce42fb69d1a19edcd218ce459"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a091a7ce42fb69d1a19edcd218ce459">Dataset</a> (std::vector&lt; std::vector&lt; float &gt; &gt; target_inputs, std::vector&lt; std::vector&lt; float &gt; &gt; target_outputs, std::vector&lt; size_t &gt; &amp;topology)</td></tr>
+<tr class="memdesc:a5a091a7ce42fb69d1a19edcd218ce459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classDataset.html" title="Class representing a dataset (inputs and outputs)">Dataset</a> object from already parsed data.  <br /></td></tr>
+<tr class="separator:a5a091a7ce42fb69d1a19edcd218ce459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae39e0751b7fa079edb57f642f12b88f0" id="r_ae39e0751b7fa079edb57f642f12b88f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; Eigen::VectorXf, Eigen::VectorXf &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae39e0751b7fa079edb57f642f12b88f0">get_data</a> (double proportion)</td></tr>
 <tr class="memdesc:ae39e0751b7fa079edb57f642f12b88f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data from the dataset.  <br /></td></tr>
 <tr class="separator:ae39e0751b7fa079edb57f642f12b88f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,8 +99,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class representing a dataset (inputs and outputs) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afaff94b9d3332fb22947c2f9270bcd60" name="afaff94b9d3332fb22947c2f9270bcd60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaff94b9d3332fb22947c2f9270bcd60">&#9670;&#160;</a></span>Dataset()</h2>
+<a id="ad7b11978a8a76f6e53b651d65f5513e0" name="ad7b11978a8a76f6e53b651d65f5513e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b11978a8a76f6e53b651d65f5513e0">&#9670;&#160;</a></span>Dataset() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,7 +113,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>dir_path</em></span>&#160;)</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>dir_path</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>topology</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -120,6 +128,43 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">parser</td><td>The parser used to parse the data </td></tr>
     <tr><td class="paramname">dir_path</td><td>The path to the directory containing the data </td></tr>
+    <tr><td class="paramname">topology</td><td>The topology of the neural network </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a091a7ce42fb69d1a19edcd218ce459" name="a5a091a7ce42fb69d1a19edcd218ce459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a091a7ce42fb69d1a19edcd218ce459">&#9670;&#160;</a></span>Dataset() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dataset::Dataset </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>target_inputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>target_outputs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>topology</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classDataset.html" title="Class representing a dataset (inputs and outputs)">Dataset</a> object from already parsed data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_inputs</td><td>The inputs of the dataset </td></tr>
+    <tr><td class="paramname">target_outputs</td><td>The outputs of the dataset </td></tr>
+    <tr><td class="paramname">topology</td><td>The topology of the neural network </td></tr>
   </table>
   </dd>
 </dl>

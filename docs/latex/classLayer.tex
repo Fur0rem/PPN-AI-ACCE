@@ -14,7 +14,7 @@ Class representing a neural network layer.
 \item 
 \mbox{\hyperlink{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}{Layer}} (int input\+\_\+size, int output\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classLayer}{Layer} object. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classLayer_ab74288f699a9765caa9cef07616103a8}{feed\+\_\+forward}} (Eigen\+::\+Matrix\+Xf \&input)
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classLayer_a81ac99698eec41bf03826b7cfc64ed16}{feed\+\_\+forward}} (Eigen\+::\+Matrix\+Xf \texorpdfstring{$\ast$}{*}input)
 \begin{DoxyCompactList}\small\item\em Feed forward the input through the layer. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classLayer_afadf0f02441ae751fe4d77711d45aec3}{back\+\_\+propagate}} (const Eigen\+::\+Matrix\+Xf \&error, float learning\+\_\+rate, Eigen\+::\+Matrix\+Xf \&next\+\_\+values)
 \begin{DoxyCompactList}\small\item\em Back propagate the error through the layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -72,11 +72,11 @@ Back propagate the error through the layer.
 \begin{DoxyReturn}{Returns}
 The error to back propagate to the previous layer 
 \end{DoxyReturn}
-\Hypertarget{classLayer_ab74288f699a9765caa9cef07616103a8}\label{classLayer_ab74288f699a9765caa9cef07616103a8} 
+\Hypertarget{classLayer_a81ac99698eec41bf03826b7cfc64ed16}\label{classLayer_a81ac99698eec41bf03826b7cfc64ed16} 
 \index{Layer@{Layer}!feed\_forward@{feed\_forward}}
 \index{feed\_forward@{feed\_forward}!Layer@{Layer}}
 \doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Layer\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Layer\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xf \texorpdfstring{$\ast$}{*}}]{input }\end{DoxyParamCaption})}
 
 
 

@@ -1,0 +1,43 @@
+\doxysection{benchmarks/codelet\+\_\+livermore\+\_\+default\+\_\+lloops\+\_\+c\+\_\+kernels\+\_\+line1444\+\_\+0.cpp File Reference}
+\hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp}{}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp}\index{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line1444\_0.cpp@{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line1444\_0.cpp}}
+
+
+Benchmark extracted from the Livermore loops codelet.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a9584c54ffce0d804d6f1cf390ccb60d4}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a9584c54ffce0d804d6f1cf390ccb60d4} 
+{\bfseries BENCHMARK\+\_\+\+FN} (lloops\+\_\+c\+\_\+kernels\+\_\+line1444\+\_\+loop\+\_\+c\+\_\+0\+\_\+c, \{ int \+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+=k;int \+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+=i;int \+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+=j;\{ for(\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+=0;\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+$<$ 25;\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+++) \{ for(\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+=0;\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+$<$ 25;\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+++) \{ for(\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+=0;\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+$<$ inner\+\_\+loops;\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+++) \{ px\mbox{[}\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+\mbox{]}+=vy\mbox{[}\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+\mbox{]} \texorpdfstring{$\ast$}{*}cx\mbox{[}\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+\mbox{]}\mbox{[}\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+\mbox{]};\} \} \} \} k=\+\_\+\+\_\+k\+\_\+0\+\_\+\+\_\+;i=\+\_\+\+\_\+i\+\_\+1\+\_\+\+\_\+;j=\+\_\+\+\_\+j\+\_\+2\+\_\+\+\_\+;\}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for lloops\+\_\+c\+\_\+kernels\+\_\+line1444\+\_\+loop\+\_\+c\+\_\+0\+\_\+c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a166d56cfd4c4c4d27db0bd3cd0fe81d9}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a166d56cfd4c4c4d27db0bd3cd0fe81d9} 
+long {\bfseries k} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a139066bd9e344a8daae82c5ca919fffe}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a139066bd9e344a8daae82c5ca919fffe} 
+long {\bfseries i} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a7113d77fc628f14d4e7d1262969c613e}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a7113d77fc628f14d4e7d1262969c613e} 
+long {\bfseries j} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_afd7f567f1c49a6b08240599913001f4c}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_afd7f567f1c49a6b08240599913001f4c} 
+long {\bfseries inner\+\_\+loops} = 101
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_afb4cbaea811801d4a4bb30f1b7e76f53}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_afb4cbaea811801d4a4bb30f1b7e76f53} 
+double {\bfseries px} \mbox{[}101\mbox{]}\mbox{[}25\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a9c731b5ccc1c1b1a49483af3a0a16cb3}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a9c731b5ccc1c1b1a49483af3a0a16cb3} 
+double {\bfseries vy} \mbox{[}25\mbox{]}\mbox{[}101\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a339a775401f29460c4276463a2677766}\label{codelet__livermore__default__lloops__c__kernels__line1444__0_8cpp_a339a775401f29460c4276463a2677766} 
+double {\bfseries cx} \mbox{[}101\mbox{]}\mbox{[}25\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark extracted from the Livermore loops codelet. 
+

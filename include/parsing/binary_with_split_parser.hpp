@@ -1,6 +1,6 @@
 /**
  * @file include/parsing/binary_with_split_parser.hpp
- * @brief The header for a parser to convert assembly into a neural network input by splitting each instruction with a 0.5
+ * @brief The header for a parser to convert binary into a neural network input by splitting each instruction with a 0.5
  */
 
 #ifndef BINARY_WITH_SPLIT_PARSER_HPP
@@ -11,7 +11,7 @@
 #include <vector>
 
 /**
- * @brief A parser to convert assembly into a neural network input by splitting each instruction with a 0.5
+ * @brief A parser to convert binary into a neural network input by splitting each instruction with a 0.5
  */
 class BinaryWithSplitParser : public IParser {
   public:
@@ -26,9 +26,9 @@ class BinaryWithSplitParser : public IParser {
 	~BinaryWithSplitParser() override = default;
 
 	/**
-	 * @brief Parses an assembly code into a vector of 0's and 1's according to its binary representation,
+	 * @brief Parses a binary representation of assembly code into a vector of 0's and 1's according to its binary representation,
 	 * splitting each instruction with a 0.5
-	 * @param input The assembly code to parse
+	 * @param input The binary code to parse
 	 * @return A vector of doubles representing the input of the neural network
 	 */
 	std::vector<double> parse_in(std::string& input) override;

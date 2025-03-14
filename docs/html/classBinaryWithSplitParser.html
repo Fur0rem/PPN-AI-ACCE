@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A parser to convert assembly into a neural network input by splitting each instruction with a 0.5.  
+<p>A parser to convert binary into a neural network input by splitting each instruction with a 0.5.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="binary__with__split__parser_8hpp_source.html">binary_with_split_parser.hpp</a>&gt;</code></p>
@@ -97,14 +97,14 @@ Inheritance diagram for BinaryWithSplitParser:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a66b43a97c643dbf393bdda9469e7cd90" id="r_a66b43a97c643dbf393bdda9469e7cd90"><td class="memItemLeft" align="right" valign="top"><a id="a66b43a97c643dbf393bdda9469e7cd90" name="a66b43a97c643dbf393bdda9469e7cd90"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BinaryWithSplitParser</b> ()=default</td></tr>
-<tr class="memdesc:a66b43a97c643dbf393bdda9469e7cd90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBinaryWithSplitParser.html" title="A parser to convert assembly into a neural network input by splitting each instruction with a 0....">BinaryWithSplitParser</a> object. <br /></td></tr>
+<tr class="memdesc:a66b43a97c643dbf393bdda9469e7cd90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBinaryWithSplitParser.html" title="A parser to convert binary into a neural network input by splitting each instruction with a 0....">BinaryWithSplitParser</a> object. <br /></td></tr>
 <tr class="separator:a66b43a97c643dbf393bdda9469e7cd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed803e26bfbd8f44366ba133f27b84a4" id="r_aed803e26bfbd8f44366ba133f27b84a4"><td class="memItemLeft" align="right" valign="top"><a id="aed803e26bfbd8f44366ba133f27b84a4" name="aed803e26bfbd8f44366ba133f27b84a4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~BinaryWithSplitParser</b> () override=default</td></tr>
-<tr class="memdesc:aed803e26bfbd8f44366ba133f27b84a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classBinaryWithSplitParser.html" title="A parser to convert assembly into a neural network input by splitting each instruction with a 0....">BinaryWithSplitParser</a> object. <br /></td></tr>
+<tr class="memdesc:aed803e26bfbd8f44366ba133f27b84a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classBinaryWithSplitParser.html" title="A parser to convert binary into a neural network input by splitting each instruction with a 0....">BinaryWithSplitParser</a> object. <br /></td></tr>
 <tr class="separator:aed803e26bfbd8f44366ba133f27b84a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f16f28089a202aefe913bc789dd0e7" id="r_a45f16f28089a202aefe913bc789dd0e7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45f16f28089a202aefe913bc789dd0e7">parse_in</a> (std::string &amp;input) override</td></tr>
-<tr class="memdesc:a45f16f28089a202aefe913bc789dd0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an assembly code into a vector of 0's and 1's according to its binary representation, splitting each instruction with a 0.5.  <br /></td></tr>
+<tr class="memdesc:a45f16f28089a202aefe913bc789dd0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a binary representation of assembly code into a vector of 0's and 1's according to its binary representation, splitting each instruction with a 0.5.  <br /></td></tr>
 <tr class="separator:a45f16f28089a202aefe913bc789dd0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9667c01c95f058ee80fcbb0ed63d2ef7" id="r_a9667c01c95f058ee80fcbb0ed63d2ef7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9667c01c95f058ee80fcbb0ed63d2ef7">parse_out</a> (std::string &amp;input) override</td></tr>
 <tr class="memdesc:a9667c01c95f058ee80fcbb0ed63d2ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the time taken for the code to run using a header in the first line Cycles: (number)  <br /></td></tr>
@@ -124,12 +124,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IParser</b> ()=de
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classIParser"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_methods_classIParser')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classIParser.html">IParser</a></td></tr>
-<tr class="memitem:a4889e50b2d0cce8ebbfddb3c47087003 inherit pub_static_methods_classIParser" id="r_a4889e50b2d0cce8ebbfddb3c47087003"><td class="memItemLeft" align="right" valign="top">static std::array&lt; double, <a class="el" href="iparser_8hpp.html#ac3c8ef52a65b17b370b8014b0f0c1c37">MAX_TOKENS_NN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIParser.html#a4889e50b2d0cce8ebbfddb3c47087003">into_neural_network_input</a> (std::vector&lt; double &gt; &amp;parsed)</td></tr>
-<tr class="memdesc:a4889e50b2d0cce8ebbfddb3c47087003 inherit pub_static_methods_classIParser"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a vector of parsed values into an input for the neural network.  <br /></td></tr>
-<tr class="separator:a4889e50b2d0cce8ebbfddb3c47087003 inherit pub_static_methods_classIParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3424417a355d3afd80bbcc37e5ab495c inherit pub_static_methods_classIParser" id="r_a3424417a355d3afd80bbcc37e5ab495c"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIParser.html#a3424417a355d3afd80bbcc37e5ab495c">into_neural_network_input</a> (std::vector&lt; double &gt; &amp;parsed, std::vector&lt; size_t &gt; &amp;topology)</td></tr>
+<tr class="memdesc:a3424417a355d3afd80bbcc37e5ab495c inherit pub_static_methods_classIParser"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a vector of parsed values into an input for the neural network.  <br /></td></tr>
+<tr class="separator:a3424417a355d3afd80bbcc37e5ab495c inherit pub_static_methods_classIParser"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A parser to convert assembly into a neural network input by splitting each instruction with a 0.5. </p>
+<div class="textblock"><p>A parser to convert binary into a neural network input by splitting each instruction with a 0.5. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45f16f28089a202aefe913bc789dd0e7" name="a45f16f28089a202aefe913bc789dd0e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45f16f28089a202aefe913bc789dd0e7">&#9670;&#160;</a></span>parse_in()</h2>
@@ -154,10 +154,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parses an assembly code into a vector of 0's and 1's according to its binary representation, splitting each instruction with a 0.5. </p>
+<p>Parses a binary representation of assembly code into a vector of 0's and 1's according to its binary representation, splitting each instruction with a 0.5. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>The assembly code to parse </td></tr>
+    <tr><td class="paramname">input</td><td>The binary code to parse </td></tr>
   </table>
   </dd>
 </dl>

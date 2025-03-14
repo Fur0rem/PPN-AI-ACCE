@@ -12,8 +12,10 @@ Class representing a dataset (inputs and outputs)
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classDataset_afaff94b9d3332fb22947c2f9270bcd60}{Dataset}} (\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}parser, std\+::string dir\+\_\+path)
+\mbox{\hyperlink{classDataset_ad7b11978a8a76f6e53b651d65f5513e0}{Dataset}} (\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}parser, std\+::string dir\+\_\+path, std\+::vector$<$ size\+\_\+t $>$ \&topology)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classDataset}{Dataset} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDataset_a5a091a7ce42fb69d1a19edcd218ce459}{Dataset}} (std\+::vector$<$ std\+::vector$<$ float $>$ $>$ target\+\_\+inputs, std\+::vector$<$ std\+::vector$<$ float $>$ $>$ target\+\_\+outputs, std\+::vector$<$ size\+\_\+t $>$ \&topology)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classDataset}{Dataset} object from already parsed data. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ \mbox{\hyperlink{classDataset_ae39e0751b7fa079edb57f642f12b88f0}{get\+\_\+data}} (double proportion)
 \begin{DoxyCompactList}\small\item\em Get the data from the dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -22,11 +24,11 @@ std\+::vector$<$ std\+::pair$<$ Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$
 Class representing a dataset (inputs and outputs) 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classDataset_afaff94b9d3332fb22947c2f9270bcd60}\label{classDataset_afaff94b9d3332fb22947c2f9270bcd60} 
+\Hypertarget{classDataset_ad7b11978a8a76f6e53b651d65f5513e0}\label{classDataset_ad7b11978a8a76f6e53b651d65f5513e0} 
 \index{Dataset@{Dataset}!Dataset@{Dataset}}
 \index{Dataset@{Dataset}!Dataset@{Dataset}}
-\doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}}
-{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}}]{parser,  }\item[{std\+::string}]{dir\+\_\+path }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}}]{parser,  }\item[{std\+::string}]{dir\+\_\+path,  }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology }\end{DoxyParamCaption})}
 
 
 
@@ -37,6 +39,27 @@ Construct a new \doxylink{classDataset}{Dataset} object.
 {\em parser} & The parser used to parse the data \\
 \hline
 {\em dir\+\_\+path} & The path to the directory containing the data \\
+\hline
+{\em topology} & The topology of the neural network \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDataset_a5a091a7ce42fb69d1a19edcd218ce459}\label{classDataset_a5a091a7ce42fb69d1a19edcd218ce459} 
+\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{target\+\_\+inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{target\+\_\+outputs,  }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classDataset}{Dataset} object from already parsed data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+inputs} & The inputs of the dataset \\
+\hline
+{\em target\+\_\+outputs} & The outputs of the dataset \\
+\hline
+{\em topology} & The topology of the neural network \\
 \hline
 \end{DoxyParams}
 

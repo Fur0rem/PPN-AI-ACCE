@@ -11,9 +11,9 @@
 #include <tuple>
 #include <vector>
 
-constexpr size_t MAX_TOKENS_NN = 2000; ///< Maximum number of tokens for the neural network
-constexpr float MAX_CYCLES = 10000.0;  ///< Maximum number of cycles as an output for the neural network
-constexpr double NO_MORE_VALUE = 0.0;  ///< Filler value for the neural network input
+constexpr size_t MAX_TOKENS_NN = 11000; ///< Maximum number of tokens for the neural network
+constexpr float MAX_CYCLES = 4e5;		///< Maximum number of cycles as an output for the neural network
+constexpr double NO_MORE_VALUE = 0.0;	///< Filler value for the neural network input
 
 /**
  * @brief Interface for parsing and transforming assembly instructions into an input for a neural network
@@ -37,9 +37,10 @@ class IParser {
 	/**
 	 * @brief Convert a vector of parsed values into an input for the neural network
 	 * @param parsed The vector of parsed values
+	 * @param topology The topology of the neural network
 	 * @return An array of doubles representing the input for the neural network
 	 */
-	static std::array<double, MAX_TOKENS_NN> into_neural_network_input(std::vector<double>& parsed);
+	static std::vector<double> into_neural_network_input(std::vector<double>& parsed, std::vector<size_t>& topology);
 
 	/**
 	 * @brief destructor for the IParser class

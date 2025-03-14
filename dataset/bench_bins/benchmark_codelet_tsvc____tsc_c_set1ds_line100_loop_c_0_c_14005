@@ -1,0 +1,28 @@
+;; Cycles : 14005
+
+ba 08 00 00 00
+48 c7 c0 40 79 62 00
+c5 fd 6f 0d 1c e9 01
+00
+c4 e2 7d 18 25 fb bc
+01 00
+c5 f9 6e da
+ba 01 00 00 00
+c5 f9 6e d2
+48 8d 88 00 f4 01 00
+c4 e2 7d 58 db
+c4 e2 7d 58 d2
+0f 1f 44 00 00
+c5 fd 6f c1
+48 83 c0 20
+c5 f5 fe cb
+c5 fd fe c2
+c5 fc 5b c0
+c5 dc 5e c0
+c5 fc 11 40 e0
+48 39 c1
+75 de
+c5 f8 77
+c3
+66 2e 0f 1f 84 00 00
+00 00 00

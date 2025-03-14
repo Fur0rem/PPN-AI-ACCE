@@ -1,0 +1,47 @@
+\doxysection{benchmarks/codelet\+\_\+vector\+\_\+c\+\_\+hypre\+\_\+seq\+\_\+vector\+\_\+axpy\+\_\+line384.cpp File Reference}
+\hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp}{}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp}\index{benchmarks/codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp@{benchmarks/codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp}}
+
+
+Benchmark for axpy operation on vectors.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a679965e7e7e1be5281449ecae6060783}{BENCHMARK\+\_\+\+FN}} (codelet\+\_\+vector\+\_\+c\+\_\+hypre\+\_\+seq\+\_\+vector\+\_\+axpy\+\_\+line384, \{ for(int i=0;i$<$=SIZE -\/ 1;i+=1) \{ y\+\_\+data\mbox{[}i\mbox{]}+=alpha \texorpdfstring{$\ast$}{*}x\+\_\+data\mbox{[}i\mbox{]};\} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Do the axpy operation on vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a0ae4b10cd6576f2ccf0da832de940dae}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a0ae4b10cd6576f2ccf0da832de940dae} 
+constexpr int {\bfseries SIZE} = 125000
+\item 
+\Hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a86695981a49410aa548db6277f041cd2}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a86695981a49410aa548db6277f041cd2} 
+double {\bfseries x\+\_\+data} \mbox{[}SIZE\mbox{]} = \{3.\+0\}
+\item 
+\Hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_abf6726c417a4066a30cb8640a97ea83d}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_abf6726c417a4066a30cb8640a97ea83d} 
+double {\bfseries y\+\_\+data} \mbox{[}SIZE\mbox{]} = \{2.\+0\}
+\item 
+\Hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a20f4c4490bc8ecbdd1ffcb79acce6035}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a20f4c4490bc8ecbdd1ffcb79acce6035} 
+double {\bfseries alpha} = 0.\+5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for axpy operation on vectors. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a679965e7e7e1be5281449ecae6060783}\label{codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp_a679965e7e7e1be5281449ecae6060783} 
+\index{codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp@{codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp@{codelet\_vector\_c\_hypre\_seq\_vector\_axpy\_line384.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{codelet\+\_\+vector\+\_\+c\+\_\+hypre\+\_\+seq\+\_\+vector\+\_\+axpy\+\_\+line384}]{,  }\item[{\{ for(int i=0;i$<$=SIZE -\/ 1;i+=1) \{ y\+\_\+data\mbox{[}i\mbox{]}+=alpha \texorpdfstring{$\ast$}{*}x\+\_\+data\mbox{[}i\mbox{]};\} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Do the axpy operation on vectors. 
+
+Run the benchmarks for codelet\+\_\+generate\+\_\+seq\+\_\+laplacian\+\_\+line73 

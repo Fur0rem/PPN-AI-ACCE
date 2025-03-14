@@ -1,0 +1,28 @@
+\doxysection{benchmarks/reverse\+\_\+complement.cpp File Reference}
+\hypertarget{reverse__complement_8cpp}{}\label{reverse__complement_8cpp}\index{benchmarks/reverse\_complement.cpp@{benchmarks/reverse\_complement.cpp}}
+
+
+Benchmark for reversing a DNA sequence.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reverse__complement_8cpp_a182c833a75a5d3ed0589bb0f033fbb9a}\label{reverse__complement_8cpp_a182c833a75a5d3ed0589bb0f033fbb9a} 
+{\bfseries BENCHMARK\+\_\+\+FN} (reverse\+\_\+complement, \{ char from\mbox{[}61\mbox{]};char to\mbox{[}61\mbox{]};for(int i=0;i$<$ 128;i++) \{ tbl\mbox{[}i\mbox{]}=i;\} for(int i=0;i$<$ 60;i++) \{ from\mbox{[}i\mbox{]}="{}ATCG"{}\mbox{[}i \% 4\mbox{]};\} from\mbox{[}60\mbox{]}=\textquotesingle{}\textbackslash{}0\textquotesingle{};size\+\_\+t len=to -\/ from;size\+\_\+t off=60 -\/(len \% 61);if(off) \{ char \texorpdfstring{$\ast$}{*}m;for(m=from+60 -\/ off;m$<$ to;m+=61) \{ memmove(m+1, m, off); \texorpdfstring{$\ast$}{*}m=\textquotesingle{}\textbackslash{}n\textquotesingle{};\} \} for(int i=0;i$<$ 60;i++) \{ to\mbox{[}i\mbox{]}=tbl\mbox{[}from\mbox{[}i\mbox{]}\mbox{]};\} to\mbox{[}60\mbox{]}=\textquotesingle{}\textbackslash{}0\textquotesingle{};\}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reverse__complement_8cpp_ae9ad5f80083cde3995e03f36e9cfd981}\label{reverse__complement_8cpp_ae9ad5f80083cde3995e03f36e9cfd981} 
+char \texorpdfstring{$\ast$}{*} {\bfseries pairs} = "{}ATCGGCTAUAMKRYWWSSYRKMVBHDDHBVNN\textbackslash{}n\textbackslash{}n"{}
+\item 
+\Hypertarget{reverse__complement_8cpp_aff1baa28d212e6b41144e7482c697946}\label{reverse__complement_8cpp_aff1baa28d212e6b41144e7482c697946} 
+char {\bfseries tbl} \mbox{[}128\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for reversing a DNA sequence. 
+

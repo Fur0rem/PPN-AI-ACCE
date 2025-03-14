@@ -1,0 +1,136 @@
+\doxysection{benchmarks/poisson.cpp File Reference}
+\hypertarget{poisson_8cpp}{}\label{poisson_8cpp}\index{benchmarks/poisson.cpp@{benchmarks/poisson.cpp}}
+
+
+Benchmark for algorithms related to the Poisson equation.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{poisson_8cpp_a6f0a4cc03a2b0ab0302484ce4b15c05c}{DECLARE\+\_\+\+MATRIX}}(size)
+\item 
+\Hypertarget{poisson_8cpp_ad777e998feccb50ba0707515a7f1bfe5}\label{poisson_8cpp_ad777e998feccb50ba0707515a7f1bfe5} 
+\#define {\bfseries IDX\+\_\+\+AB\+\_\+\+COL}(i,  j)~(((j) + 1) \texorpdfstring{$\ast$}{*} (NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB -\/ 1) + (i)-\/1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{poisson_8cpp_ae176a158e55b4ba0ec66c8f853520120}\label{poisson_8cpp_ae176a158e55b4ba0ec66c8f853520120} 
+{\bfseries BENCHMARK\+\_\+\+FN} (set\+\_\+gb\+\_\+operator\+\_\+col\+\_\+major\+\_\+poisson1d, \{ for(int i=0;i$<$ NB\+\_\+\+COLS\+\_\+\+AB \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB;i+=NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB) \{ for(int j=0;j$<$ PAD\+\_\+\+AB;j++) \{ ab\mbox{[}i+j\mbox{]}=0;\} ab\mbox{[}i+PAD\+\_\+\+AB\mbox{]}=-\/1;ab\mbox{[}i+PAD\+\_\+\+AB+1\mbox{]}=2;ab\mbox{[}i+PAD\+\_\+\+AB+2\mbox{]}=-\/1;\} ab\mbox{[}NB\+\_\+\+COLS\+\_\+\+AB \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB -\/ 1\mbox{]}=0;ab\mbox{[}PAD\+\_\+\+AB\mbox{]}=0;\}) const expr int NB\+\_\+\+COLS\+\_\+\+ID
+\item 
+\Hypertarget{poisson_8cpp_ad9303a10af12f69680bf37deacd7755d}\label{poisson_8cpp_ad9303a10af12f69680bf37deacd7755d} 
+{\bfseries BENCHMARK\+\_\+\+FN} (set\+\_\+gb\+\_\+operator\+\_\+col\+\_\+major\+\_\+poisson1d\+\_\+id, \{ for(int i=0;i$<$ NB\+\_\+\+COLS\+\_\+\+ID \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+ID;i++) \{ id\mbox{[}i\mbox{]}=0;\} for(int i=0;i$<$ NB\+\_\+\+COLS\+\_\+\+ID;i++) \{ int idx=i \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+ID+PAD\+\_\+\+ID;id\mbox{[}idx\mbox{]}=1;\} \}) double rhs\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\item 
+\Hypertarget{poisson_8cpp_aa0f00d46450bb09a56775f37d31bcb8d}\label{poisson_8cpp_aa0f00d46450bb09a56775f37d31bcb8d} 
+{\bfseries BENCHMARK\+\_\+\+FN} (set\+\_\+dense\+\_\+rhs\+\_\+dbc\+\_\+1d, \{ rhs\mbox{[}0\mbox{]}=T0;for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}} -\/ 1;i++) \{ rhs\mbox{[}i\mbox{]}=0.\+0;\} rhs\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}} -\/ 1\mbox{]}=T1;\}) BENCHMARK\+\_\+\+FN(set\+\_\+analytical\+\_\+solution\+\_\+dbc\+\_\+1d
+\item 
+\Hypertarget{poisson_8cpp_ad5373e835d70b23a18d1f62831274e9d}\label{poisson_8cpp_ad5373e835d70b23a18d1f62831274e9d} 
+{\bfseries BENCHMARK\+\_\+\+FN} (relative\+\_\+forward\+\_\+error, \{ double norm\+\_\+x=0;for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ norm\+\_\+x+=x\+\_\+exact\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*}x\+\_\+exact\mbox{[}i\mbox{]};\} norm\+\_\+x=sqrt(norm\+\_\+x);for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ x\+\_\+approx\mbox{[}i\mbox{]}=x\+\_\+exact\mbox{[}i\mbox{]} -\/ x\+\_\+approx\mbox{[}i\mbox{]};\} double norm\+\_\+res=0;for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ norm\+\_\+res+=x\+\_\+approx\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*}x\+\_\+approx\mbox{[}i\mbox{]};\} norm\+\_\+res=sqrt(norm\+\_\+res);result=norm\+\_\+res/norm\+\_\+x;\}) int ipiv\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\item 
+\Hypertarget{poisson_8cpp_a55b39050a01ba996b0a2387301b8f90c}\label{poisson_8cpp_a55b39050a01ba996b0a2387301b8f90c} 
+{\bfseries BENCHMARK\+\_\+\+FN} (dgbtrftridiag, \{ for(int k=0;k$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}} -\/ 1;k++) \{ int pivot\+\_\+idx;double pivot\+\_\+value;if(fabs(ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, k)\mbox{]}) $>$ fabs(ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k+1, k)\mbox{]})) \{ pivot\+\_\+idx=k;pivot\+\_\+value=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, k)\mbox{]};\} else \{ pivot\+\_\+idx=k+1;pivot\+\_\+value=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k+1, k)\mbox{]};\} if(pivot\+\_\+idx !=k) \{ for(int j=0;j$<$ NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB;j++) \{ double tmp=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(pivot\+\_\+idx, j)\mbox{]};ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(pivot\+\_\+idx, j)\mbox{]}=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, j)\mbox{]};ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, j)\mbox{]}=tmp;\} ipiv\mbox{[}k\mbox{]}=pivot\+\_\+idx;\} else \{ ipiv\mbox{[}k\mbox{]}=k+1;\} if(ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, k)\mbox{]}==0) \{ continue;\} ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k+1, k)\mbox{]}/=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, k)\mbox{]};ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k+1, k+1)\mbox{]} -\/=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k+1, k)\mbox{]} \texorpdfstring{$\ast$}{*}ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(k, k+1)\mbox{]};\} ipiv\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}} -\/ 1\mbox{]}=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};\}) const expr double ALPHA
+\item 
+\Hypertarget{poisson_8cpp_a2229d9fdbae59235f57bc23e68b24f26}\label{poisson_8cpp_a2229d9fdbae59235f57bc23e68b24f26} 
+{\bfseries BENCHMARK\+\_\+\+FN} (dgbmv\+\_\+no\+\_\+transposed, \{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=INCY) \{ double sum=0;for(int j=0;j$<$ NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB;j+=INCX) \{ sum+=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(j, i)\mbox{]} \texorpdfstring{$\ast$}{*}x\mbox{[}j\mbox{]};\} x\mbox{[}i\mbox{]}=ALPHA \texorpdfstring{$\ast$}{*}sum+BETA \texorpdfstring{$\ast$}{*}x\mbox{[}i\mbox{]};\} \}) BENCHMARK\+\_\+\+FN(dgbmv\+\_\+transposed
+\item 
+\Hypertarget{poisson_8cpp_a31cd916b50e2c6c7a34a246a88f7c369}\label{poisson_8cpp_a31cd916b50e2c6c7a34a246a88f7c369} 
+{\bfseries for} (int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++)
+\item 
+\Hypertarget{poisson_8cpp_a91183f9127e08604c218e3210ffe4ac2}\label{poisson_8cpp_a91183f9127e08604c218e3210ffe4ac2} 
+{\bfseries BENCHMARK\+\_\+\+FN} (eig\+\_\+poisson\+\_\+1d, \{ double h=1.\+0/(\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}+1);for(int k=1;k$<$=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};k++) \{ double sin\+\_\+theta=sin(k \texorpdfstring{$\ast$}{*}M\+\_\+\+PI \texorpdfstring{$\ast$}{*}h/2.\+0);eigval\mbox{[}k -\/ 1\mbox{]}=4.\+0 \texorpdfstring{$\ast$}{*}sin\+\_\+theta \texorpdfstring{$\ast$}{*}sin\+\_\+theta;\} \}) double res\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\item 
+\Hypertarget{poisson_8cpp_ac28c17a35967c5c8b2aaeedc0b539b57}\label{poisson_8cpp_ac28c17a35967c5c8b2aaeedc0b539b57} 
+{\bfseries BENCHMARK\+\_\+\+FN} (residual, \{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ res\mbox{[}i\mbox{]}=b\mbox{[}i\mbox{]};for(int j=0;j$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};j++) \{ res\mbox{[}i\mbox{]} -\/=ab\mbox{[}IDX\+\_\+\+AB\+\_\+\+COL(j, i)\mbox{]} \texorpdfstring{$\ast$}{*}x\mbox{[}j\mbox{]};\} \} \}) void init\+\_\+arrays()
+\item 
+\Hypertarget{poisson_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{poisson_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for poisson equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{poisson_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{poisson_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 4096
+\item 
+\Hypertarget{poisson_8cpp_acb6fc7df602434d666fbb44cde3ce0b5}\label{poisson_8cpp_acb6fc7df602434d666fbb44cde3ce0b5} 
+constexpr int {\bfseries NB\+\_\+\+COLS\+\_\+\+AB} = \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}
+\item 
+\Hypertarget{poisson_8cpp_a0177ec81868d58946f30066a5bd09c5d}\label{poisson_8cpp_a0177ec81868d58946f30066a5bd09c5d} 
+constexpr int {\bfseries NB\+\_\+\+ROWS\+\_\+\+AB} = 3
+\item 
+\Hypertarget{poisson_8cpp_a64c3d526f03d057d3438a17efcb1a73f}\label{poisson_8cpp_a64c3d526f03d057d3438a17efcb1a73f} 
+constexpr int {\bfseries PAD\+\_\+\+AB} = 2
+\item 
+\Hypertarget{poisson_8cpp_aefbd8cc293502d889a09bc472e42ba2c}\label{poisson_8cpp_aefbd8cc293502d889a09bc472e42ba2c} 
+constexpr int {\bfseries NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB} = NB\+\_\+\+ROWS\+\_\+\+AB + PAD\+\_\+\+AB
+\item 
+\Hypertarget{poisson_8cpp_a35fbd217af87b3c5f52614c5a75239ec}\label{poisson_8cpp_a35fbd217af87b3c5f52614c5a75239ec} 
+double {\bfseries ab} \mbox{[}NB\+\_\+\+COLS\+\_\+\+AB \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+AB\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_a60021d4746abaf2a2ee1234a370dabde}\label{poisson_8cpp_a60021d4746abaf2a2ee1234a370dabde} 
+constexpr int {\bfseries NB\+\_\+\+ROWS\+\_\+\+ID} = 1
+\item 
+\Hypertarget{poisson_8cpp_a80551e937dce850c286968853023e3eb}\label{poisson_8cpp_a80551e937dce850c286968853023e3eb} 
+constexpr int {\bfseries PAD\+\_\+\+ID} = 2
+\item 
+\Hypertarget{poisson_8cpp_a5918f8fb4bb11843c9892fb773f2d163}\label{poisson_8cpp_a5918f8fb4bb11843c9892fb773f2d163} 
+constexpr int {\bfseries NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+ID} = NB\+\_\+\+ROWS\+\_\+\+ID + PAD\+\_\+\+ID
+\item 
+\Hypertarget{poisson_8cpp_a93cf4217aadce349b843768136f27711}\label{poisson_8cpp_a93cf4217aadce349b843768136f27711} 
+double {\bfseries id} \mbox{[}NB\+\_\+\+COLS\+\_\+\+ID \texorpdfstring{$\ast$}{*}NB\+\_\+\+ROWS\+\_\+\+TOT\+\_\+\+ID\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_ad5905964820876a2f0fb522188be2848}\label{poisson_8cpp_ad5905964820876a2f0fb522188be2848} 
+double {\bfseries ex\+\_\+sol} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_a39f02fa97b5feae8dc3610a58fc07f2b}\label{poisson_8cpp_a39f02fa97b5feae8dc3610a58fc07f2b} 
+double {\bfseries x} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_a5562d87eab696e870a47f59ac4c43acf}\label{poisson_8cpp_a5562d87eab696e870a47f59ac4c43acf} 
+constexpr double {\bfseries T0} = 50.\+0
+\item 
+\Hypertarget{poisson_8cpp_af3a028589a8bdecd5ed8548e74ba9aba}\label{poisson_8cpp_af3a028589a8bdecd5ed8548e74ba9aba} 
+constexpr double {\bfseries T1} = 100.\+0
+\item 
+\Hypertarget{poisson_8cpp_a7cd40f18c52fdbdcf6e2158d5efc3ce5}\label{poisson_8cpp_a7cd40f18c52fdbdcf6e2158d5efc3ce5} 
+double {\bfseries x\+\_\+approx} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_a92a6ff7cf680492cdf07acd468b486bf}\label{poisson_8cpp_a92a6ff7cf680492cdf07acd468b486bf} 
+volatile double {\bfseries result} = 0
+\item 
+\Hypertarget{poisson_8cpp_ad89f6ff711ec01ef85ebc3043e4cfc32}\label{poisson_8cpp_ad89f6ff711ec01ef85ebc3043e4cfc32} 
+constexpr double {\bfseries BETA} = 3.\+0
+\item 
+\Hypertarget{poisson_8cpp_a4aa899d06b31261daad47064b83cd288}\label{poisson_8cpp_a4aa899d06b31261daad47064b83cd288} 
+constexpr int {\bfseries INCX} = 2
+\item 
+\Hypertarget{poisson_8cpp_a586bd347f6f8f7a24171f27925b6eadb}\label{poisson_8cpp_a586bd347f6f8f7a24171f27925b6eadb} 
+constexpr int {\bfseries INCY} = 2
+\item 
+\Hypertarget{poisson_8cpp_a871f6aa2923a95584aa13519a6aa4106}\label{poisson_8cpp_a871f6aa2923a95584aa13519a6aa4106} 
+double {\bfseries eigval} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{0\}
+\item 
+\Hypertarget{poisson_8cpp_a6be86c1115779e9d84577516ace071f1}\label{poisson_8cpp_a6be86c1115779e9d84577516ace071f1} 
+double {\bfseries b} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for algorithms related to the Poisson equation. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{poisson_8cpp_a6f0a4cc03a2b0ab0302484ce4b15c05c}\label{poisson_8cpp_a6f0a4cc03a2b0ab0302484ce4b15c05c} 
+\index{poisson.cpp@{poisson.cpp}!DECLARE\_MATRIX@{DECLARE\_MATRIX}}
+\index{DECLARE\_MATRIX@{DECLARE\_MATRIX}!poisson.cpp@{poisson.cpp}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_MATRIX}{DECLARE\_MATRIX}}
+{\footnotesize\ttfamily \#define DECLARE\+\_\+\+MATRIX(\begin{DoxyParamCaption}\item[{}]{size }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ m\#\#size\#\#\_a[size][size]\ =\ \{0\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ m\#\#size\#\#\_b[size][size]\ =\ \{0\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ m\#\#size\#\#\_c[size][size]\ =\ \{0\};}
+
+\end{DoxyCode}

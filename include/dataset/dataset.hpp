@@ -30,8 +30,17 @@ class Dataset {
 	 * @brief Construct a new Dataset object
 	 * @param parser The parser used to parse the data
 	 * @param dir_path The path to the directory containing the data
+	 * @param topology The topology of the neural network
 	 */
-	Dataset(IParser* parser, std::string dir_path);
+	Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& topology);
+
+	/**
+	 * @brief Construct a new Dataset object from already parsed data
+	 * @param target_inputs The inputs of the dataset
+	 * @param target_outputs The outputs of the dataset
+	 * @param topology The topology of the neural network
+	 */
+	Dataset(std::vector<std::vector<float>> target_inputs, std::vector<std::vector<float>> target_outputs, std::vector<size_t>& topology);
 
 	/**
 	 * @brief Get the data from the dataset

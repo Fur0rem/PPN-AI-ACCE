@@ -13,12 +13,13 @@
  * @brief Test to check if IParser can correctly fill in the neural network input
  */
 TEST(IParser, Into_Neural_Network_Input) {
+	constexpr int input_size = 50;
+	std::vector<size_t> topology = {input_size, 1};
 	std::vector<double> parsed = {0, 1, 0, 1, 1, 0, 1, 0};
-	std::array<double, MAX_TOKENS_NN> expected = {(7.0 + 1.0) / static_cast<double>(MAX_TOKENS_NN), 0, 1, 0, 1, 1, 0, 1, 0};
-	for (size_t i = 9; i < MAX_TOKENS_NN; i++) {
-		expected[i] = NO_MORE_VALUE;
-	}
-	std::array<double, MAX_TOKENS_NN> result = IParser::into_neural_network_input(parsed);
+	std::vector<double> expected(input_size, NO_MORE_VALUE);
+	expected[0] = static_cast<double>(parsed.size()) / static_cast<double>(input_size);
+	std::copy(parsed.begin(), parsed.end(), expected.begin() + 1);
+	std::vector<double> result = IParser::into_neural_network_input(parsed, topology);
 	EXPECT_EQ(result, expected);
 }
 
@@ -26,11 +27,12 @@ TEST(IParser, Into_Neural_Network_Input) {
  * @brief Test to check if IParser can correctly fill in the neural network input with an empty vector
  */
 TEST(IParser, Into_Neural_Network_Input_Zero) {
+	constexpr int input_size = 50;
+	std::vector<size_t> topology = {input_size, 1};
 	std::vector<double> parsed = {};
-	std::array<double, MAX_TOKENS_NN> expected;
-	std::fill(expected.begin(), expected.end(), NO_MORE_VALUE);
+	std::vector<double> expected(input_size, NO_MORE_VALUE);
 	expected[0] = 0.0;
-	std::array<double, MAX_TOKENS_NN> result = IParser::into_neural_network_input(parsed);
+	std::vector<double> result = IParser::into_neural_network_input(parsed, topology);
 	EXPECT_EQ(result, expected);
 }
 
@@ -38,10 +40,12 @@ TEST(IParser, Into_Neural_Network_Input_Zero) {
  * @brief Test to check if IParser can correctly fill in the neural network input with the maximum number of tokens
  */
 TEST(IParser, Into_Neural_Network_Input_Max_Tokens) {
-	std::vector<double> parsed(MAX_TOKENS_NN - 1, 0);
-	std::array<double, MAX_TOKENS_NN> expected{};
-	expected[0] = static_cast<double>(MAX_TOKENS_NN - 1) / static_cast<double>(MAX_TOKENS_NN);
+	constexpr int input_size = 50;
+	std::vector<size_t> topology = {input_size, 1};
+	std::vector<double> parsed(input_size - 1, 0);
+	std::vector<double> expected(input_size, NO_MORE_VALUE);
+	expected[0] = static_cast<double>(input_size - 1) / static_cast<double>(input_size);
 	std::fill(expected.begin() + 1, expected.end(), 0);
-	std::array<double, MAX_TOKENS_NN> result = IParser::into_neural_network_input(parsed);
+	std::vector<double> result = IParser::into_neural_network_input(parsed, topology);
 	EXPECT_EQ(result, expected);
 }

@@ -101,10 +101,45 @@ Functions</h2></td></tr>
 <tr class="memitem:a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1" id="r_a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1">deriv_relu</a> (float x)</td></tr>
 <tr class="memdesc:a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The derivative of the ReLU activation function.  <br /></td></tr>
 <tr class="separator:a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a743c6e47c50d54d77bee4de32e06f" id="r_a15a743c6e47c50d54d77bee4de32e06f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15a743c6e47c50d54d77bee4de32e06f">leaky_relu</a> (float x)</td></tr>
+<tr class="memdesc:a15a743c6e47c50d54d77bee4de32e06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The leaky ReLU activation function.  <br /></td></tr>
+<tr class="separator:a15a743c6e47c50d54d77bee4de32e06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87b8530f497c54eeacae4f04d8b64fa" id="r_aa87b8530f497c54eeacae4f04d8b64fa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa87b8530f497c54eeacae4f04d8b64fa">deriv_leaky_relu</a> (float x)</td></tr>
+<tr class="memdesc:aa87b8530f497c54eeacae4f04d8b64fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The derivative of the leaky ReLU activation function.  <br /></td></tr>
+<tr class="separator:aa87b8530f497c54eeacae4f04d8b64fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3231b67aef956f62c30e131cbe558907" id="r_a3231b67aef956f62c30e131cbe558907"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3231b67aef956f62c30e131cbe558907">deriv_tanh</a> (float x)</td></tr>
+<tr class="memdesc:a3231b67aef956f62c30e131cbe558907"><td class="mdescLeft">&#160;</td><td class="mdescRight">The derivative of the tanh activation function.  <br /></td></tr>
+<tr class="separator:a3231b67aef956f62c30e131cbe558907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for the activation functions used in the neural network. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa87b8530f497c54eeacae4f04d8b64fa" name="aa87b8530f497c54eeacae4f04d8b64fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa87b8530f497c54eeacae4f04d8b64fa">&#9670;&#160;</a></span>deriv_leaky_relu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float deriv_leaky_relu </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The derivative of the leaky ReLU activation function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input to the function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output of the function </dd></dl>
+
+</div>
+</div>
 <a id="a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1" name="a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1">&#9670;&#160;</a></span>deriv_relu()</h2>
 
@@ -147,6 +182,58 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The derivative of the sigmoid activation function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input to the function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output of the function </dd></dl>
+
+</div>
+</div>
+<a id="a3231b67aef956f62c30e131cbe558907" name="a3231b67aef956f62c30e131cbe558907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3231b67aef956f62c30e131cbe558907">&#9670;&#160;</a></span>deriv_tanh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float deriv_tanh </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The derivative of the tanh activation function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input to the function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output of the function </dd></dl>
+
+</div>
+</div>
+<a id="a15a743c6e47c50d54d77bee4de32e06f" name="a15a743c6e47c50d54d77bee4de32e06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a743c6e47c50d54d77bee4de32e06f">&#9670;&#160;</a></span>leaky_relu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float leaky_relu </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The leaky ReLU activation function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The input to the function </td></tr>

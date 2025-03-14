@@ -1,0 +1,115 @@
+;; Cycles : 51
+
+48 c7 c2 20 43 42 00
+48 c7 c0 c0 40 42 00
+c5 7d 28 42 20
+c5 fd 28 0a
+c5 fd 28 42 40
+c5 7d 28 52 60
+c5 bd 5c d1
+c5 fd 28 b2 80 00 00
+00
+48 c7 c2 40 40 42 00
+c5 fd 5c d9
+c4 c1 7d 5c e0
+c5 ad 5c e9
+c4 c1 2d 5c f8
+c5 fd 29 10
+c5 ed 59 d2
+c5 2d 5c c8
+c5 cd 5c c9
+c5 fd 29 58 20
+c5 e5 59 db
+c4 41 4d 5c c0
+c5 cd 5c c0
+c5 fd 29 60 40
+c4 c1 4d 5c f2
+c5 fd 29 68 60
+c5 7d 29 88 a0 00 00
+00
+c4 41 35 59 c9
+c5 fd 29 88 c0 00 00
+00
+c5 f5 59 c9
+c5 ed 7c db
+c5 dd 59 d4
+c5 7d 29 80 e0 00 00
+00
+c5 d5 59 e5
+c5 fd 29 b8 80 00 00
+00
+c4 41 3d 59 c0
+c5 fd 29 80 00 01 00
+00
+c5 fd 29 b0 20 01 00
+00
+c5 fd 59 c0
+c5 cd 59 f6
+c5 ed 7c e4
+c4 e3 65 06 d4 21
+c4 e3 65 0d dc 0c
+c4 e2 7d 19 25 c6 77
+01 00
+c5 ed 58 d3
+c4 e2 7d 19 1d c1 77
+01 00
+c5 7d 5a d2
+c4 41 78 52 d2
+c4 41 7c 5a d2
+c4 c1 6d 59 d2
+c4 c1 6d 59 d2
+c5 ed 59 ec
+c5 6d 59 db
+c5 ed 59 d5
+c4 e2 7d 19 2d 9c 77
+01 00
+c5 25 58 dd
+c4 c1 6d 5c d3
+c5 2d 59 d2
+c5 c5 59 d7
+c4 c1 75 7c f8
+c5 7d 29 12
+c4 c1 6d 7c d1
+c4 e3 6d 06 cf 21
+c4 e3 6d 0d d7 0c
+c5 f5 58 ca
+c5 fd 5a d1
+c5 f8 52 d2
+c5 fc 5a d2
+c5 f5 59 ca
+c5 f5 59 ca
+c5 75 59 c4
+c5 f5 59 fb
+c4 c1 75 59 c8
+c5 c5 58 fd
+c5 f5 5c cf
+c5 fd 28 b8 60 01 00
+00
+c5 ed 59 d1
+c5 fd 7c ce
+c5 fd 29 52 20
+c5 fd 28 90 40 01 00
+00
+c5 ed 59 c2
+c5 c5 59 d7
+c5 fd 7c d2
+c4 e3 75 06 c2 21
+c4 e3 75 0d ca 0c
+c5 fd 58 c1
+c5 fd 5a c8
+c5 f8 52 c9
+c5 fc 5a c9
+c5 fd 59 c1
+c5 fd 59 c1
+c5 fd 59 e4
+c5 fd 59 db
+c5 fd 59 c4
+c5 e5 58 dd
+c5 fd 5c c3
+c5 f5 59 c8
+c5 fd 29 4a 40
+c5 f8 77
+c3
+66 66 2e 0f 1f 84 00
+00 00 00 00
+0f 1f 00

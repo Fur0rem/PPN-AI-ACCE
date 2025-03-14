@@ -3,17 +3,25 @@
  * @brief Dummy benchmark as a template for new benchmarks
  */
 
-#define ANKERL_NANOBENCH_IMPLEMENT
-#include "../nanobench/src/include/nanobench.h"
+#include "bench_common.hpp"
 
-int func_to_benchmark(int left, int right) {
-	return left + right;
-}
+void dummy() {}
 
+/**
+ * @brief Run the benchmarks for dummy
+ */
 int main() {
-	ankerl::nanobench::Bench().run("Dummy benchmark", [&] {
-		ankerl::nanobench::doNotOptimizeAway(func_to_benchmark(0, 0));
-	});
+	std::ostringstream oss;
+	auto result = ankerl::nanobench::Bench().minEpochIterations(1000).performanceCounters(true).output(&oss).run("dummy", dummy).results();
+
+	// std::cout << oss.str();
+
+	for (auto const& res : result) {
+		auto measure = res.fromString("cpucycles");
+		auto name = res.config().mBenchmarkName;
+		std::cout << name << " : ";
+		std::cout << res.median(measure) << " cycles\n";
+	}
 
 	return 0;
 }

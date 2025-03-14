@@ -1,0 +1,49 @@
+\doxysection{tests/binary\+\_\+parser.cpp File Reference}
+\hypertarget{tests_2binary__parser_8cpp}{}\label{tests_2binary__parser_8cpp}\index{tests/binary\_parser.cpp@{tests/binary\_parser.cpp}}
+
+
+Used to test the assembly parser that reads hexadecimal and converts it to binary directly. It assumes the rawbinary\+\_\+parser is working correctly.  
+
+
+{\ttfamily \#include "{}parsing/binary\+\_\+parser.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{tests_2binary__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e}{binary\+\_\+from\+\_\+hexadecimal}} (std\+::vector$<$ uint8\+\_\+t $>$ \&\&hex)
+\begin{DoxyCompactList}\small\item\em Convert a hexadecimal vector to a binary vector. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2binary__parser_8cpp_ae4bb9ff107d0c8a32d132c01b5fb7cb4}\label{tests_2binary__parser_8cpp_ae4bb9ff107d0c8a32d132c01b5fb7cb4} 
+{\bfseries TEST} (Binary\+With\+Split\+\_\+\+Parser, Single\+\_\+\+Instruction)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can convert a single line of instruction to binary. \end{DoxyCompactList}\item 
+\Hypertarget{tests_2binary__parser_8cpp_a08679d62d72cc690219326da8fd6c953}\label{tests_2binary__parser_8cpp_a08679d62d72cc690219326da8fd6c953} 
+{\bfseries TEST} (Binary\+With\+Split\+\_\+\+Parser, Multiple\+\_\+\+Instructions)
+\begin{DoxyCompactList}\small\item\em Test to check if the parser can convert multiple instructions to binary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used to test the assembly parser that reads hexadecimal and converts it to binary directly. It assumes the rawbinary\+\_\+parser is working correctly. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tests_2binary__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e}\label{tests_2binary__parser_8cpp_a94eee1326cba13d75f7b772b3d8a277e} 
+\index{binary\_parser.cpp@{binary\_parser.cpp}!binary\_from\_hexadecimal@{binary\_from\_hexadecimal}}
+\index{binary\_from\_hexadecimal@{binary\_from\_hexadecimal}!binary\_parser.cpp@{binary\_parser.cpp}}
+\doxysubsubsection{\texorpdfstring{binary\_from\_hexadecimal()}{binary\_from\_hexadecimal()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ binary\+\_\+from\+\_\+hexadecimal (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&\&}]{hex }\end{DoxyParamCaption})}
+
+
+
+Convert a hexadecimal vector to a binary vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hex} & The hexadecimal vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The binary vector 
+\end{DoxyReturn}

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['get_5fdata_0',['get_data',['../classDataset.html#ae39e0751b7fa079edb57f642f12b88f0',1,'Dataset']]],
-  ['get_5fprediction_1',['get_prediction',['../classNeuralNetwork.html#ab49565a6d89816ebf8b03c483e3dfb21',1,'NeuralNetwork']]],
-  ['get_5ftotal_5floss_2',['get_total_loss',['../classNeuralNetwork.html#af1a50518446dfaf61e76041bad614eeb',1,'NeuralNetwork']]]
+  ['dataset_0',['Dataset',['../classDataset.html#ad7b11978a8a76f6e53b651d65f5513e0',1,'Dataset::Dataset(IParser *parser, std::string dir_path, std::vector&lt; size_t &gt; &amp;topology)'],['../classDataset.html#a5a091a7ce42fb69d1a19edcd218ce459',1,'Dataset::Dataset(std::vector&lt; std::vector&lt; float &gt; &gt; target_inputs, std::vector&lt; std::vector&lt; float &gt; &gt; target_outputs, std::vector&lt; size_t &gt; &amp;topology)']]],
+  ['deriv_5fleaky_5frelu_1',['deriv_leaky_relu',['../activation__functions_8cpp.html#aa87b8530f497c54eeacae4f04d8b64fa',1,'deriv_leaky_relu(float x):&#160;activation_functions.cpp'],['../activation__functions_8hpp.html#aa87b8530f497c54eeacae4f04d8b64fa',1,'deriv_leaky_relu(float x):&#160;activation_functions.cpp']]],
+  ['deriv_5frelu_2',['deriv_relu',['../activation__functions_8cpp.html#a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1',1,'deriv_relu(float x):&#160;activation_functions.cpp'],['../activation__functions_8hpp.html#a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1',1,'deriv_relu(float x):&#160;activation_functions.cpp']]],
+  ['deriv_5fsigmoid_3',['deriv_sigmoid',['../activation__functions_8cpp.html#a598adcc22ac39155970bc30af27aed7b',1,'deriv_sigmoid(float x):&#160;activation_functions.cpp'],['../activation__functions_8hpp.html#a598adcc22ac39155970bc30af27aed7b',1,'deriv_sigmoid(float x):&#160;activation_functions.cpp']]],
+  ['deriv_5ftanh_4',['deriv_tanh',['../activation__functions_8cpp.html#a3231b67aef956f62c30e131cbe558907',1,'deriv_tanh(float x):&#160;activation_functions.cpp'],['../activation__functions_8hpp.html#a3231b67aef956f62c30e131cbe558907',1,'deriv_tanh(float x):&#160;activation_functions.cpp']]]
 ];

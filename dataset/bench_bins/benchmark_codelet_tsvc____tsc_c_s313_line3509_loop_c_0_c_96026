@@ -1,0 +1,31 @@
+;; Cycles : 96026
+
+48 c7 c6 e8 90 52 00
+48 c7 c1 60 31 6e 00
+31 c0
+48 c7 c2 60 25 70 00
+c5 fa 10 1e
+0f 1f 44 00 00
+c5 fc 10 24 08
+c5 dc 59 0c 10
+48 83 c0 20
+c5 f2 58 c3
+c5 f0 c6 d9 55
+c5 f0 c6 d1 ff
+c5 fa 58 c3
+c5 f0 15 d9
+c4 e3 7d 19 c9 01
+c5 fa 58 c3
+c5 fa 58 c2
+c5 f0 c6 d1 55
+c5 fa 58 c1
+c5 fa 58 c2
+c5 f0 15 d1
+c5 f0 c6 c9 ff
+c5 fa 58 c2
+c5 fa 58 d9
+48 3d 00 f4 01 00
+75 a8
+c5 fa 11 1e
+c5 f8 77
+c3

@@ -1,0 +1,44 @@
+\doxysection{benchmarks/codelet\+\_\+rbm\+\_\+train.cpp File Reference}
+\hypertarget{codelet__rbm__train_8cpp}{}\label{codelet__rbm__train_8cpp}\index{benchmarks/codelet\_rbm\_train.cpp@{benchmarks/codelet\_rbm\_train.cpp}}
+
+
+Benchmark of codelet for training Restricted Boltzmann Machine.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{codelet__rbm__train_8cpp_a37e00adfbdf4621c704c04ee397090a7}{BENCHMARK\+\_\+\+FN}} (codelet\+\_\+rbm\+\_\+train\+\_\+line191, \{ for(int v=0;v$<$=500;v+=1) \{ for(int h=0;h$<$=300;h+=1) \{ edges\mbox{[}v\mbox{]}\mbox{[}h\mbox{]}=edges\mbox{[}v\mbox{]}\mbox{[}h\mbox{]}+0.\+1 \texorpdfstring{$\ast$}{*}(pos\mbox{[}v\mbox{]}\mbox{[}h\mbox{]} -\/ neg\mbox{[}v\mbox{]}\mbox{[}h\mbox{]});\} \} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Perform the loop for training Restricted Boltzmann Machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__rbm__train_8cpp_aec8182f217e3360a075096f45275bf87}\label{codelet__rbm__train_8cpp_aec8182f217e3360a075096f45275bf87} 
+double {\bfseries edges} \mbox{[}100 \texorpdfstring{$\ast$}{*}5+1\mbox{]}\mbox{[}3 \texorpdfstring{$\ast$}{*}100+1\mbox{]}
+\item 
+\Hypertarget{codelet__rbm__train_8cpp_a90d8797f88a6bf1ff32ff2d7c46e8679}\label{codelet__rbm__train_8cpp_a90d8797f88a6bf1ff32ff2d7c46e8679} 
+int {\bfseries pos} \mbox{[}500+1\mbox{]}\mbox{[}300+1\mbox{]}
+\item 
+\Hypertarget{codelet__rbm__train_8cpp_a159766140684d751469f6cdf76774184}\label{codelet__rbm__train_8cpp_a159766140684d751469f6cdf76774184} 
+int {\bfseries neg} \mbox{[}500+1\mbox{]}\mbox{[}300+1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark of codelet for training Restricted Boltzmann Machine. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{codelet__rbm__train_8cpp_a37e00adfbdf4621c704c04ee397090a7}\label{codelet__rbm__train_8cpp_a37e00adfbdf4621c704c04ee397090a7} 
+\index{codelet\_rbm\_train.cpp@{codelet\_rbm\_train.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!codelet\_rbm\_train.cpp@{codelet\_rbm\_train.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{codelet\+\_\+rbm\+\_\+train\+\_\+line191}]{,  }\item[{\{ for(int v=0;v$<$=500;v+=1) \{ for(int h=0;h$<$=300;h+=1) \{ edges\mbox{[}v\mbox{]}\mbox{[}h\mbox{]}=edges\mbox{[}v\mbox{]}\mbox{[}h\mbox{]}+0.\+1 \texorpdfstring{$\ast$}{*}(pos\mbox{[}v\mbox{]}\mbox{[}h\mbox{]} -\/ neg\mbox{[}v\mbox{]}\mbox{[}h\mbox{]});\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform the loop for training Restricted Boltzmann Machine. 
+
+Run the benchmarks for codelet\+\_\+rbm\+\_\+train\+\_\+line191 

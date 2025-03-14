@@ -1,0 +1,52 @@
+\doxysection{benchmarks/codelet\+\_\+livermore\+\_\+default\+\_\+lloops\+\_\+c\+\_\+kernels\+\_\+line1113\+\_\+3.cpp File Reference}
+\hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp}{}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp}\index{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line1113\_3.cpp@{benchmarks/codelet\_livermore\_default\_lloops\_c\_kernels\_line1113\_3.cpp}}
+
+
+Benchmark extracted from the Livermore loops codelet.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_aec793d6bb049bf5f76c66b4f857e4224}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_aec793d6bb049bf5f76c66b4f857e4224} 
+OPTIMISE\+\_\+\+SIZE {\bfseries BENCHMARK\+\_\+\+FN} (lloops\+\_\+c\+\_\+kernels\+\_\+line1113\+\_\+loop\+\_\+c\+\_\+3\+\_\+c, \{ int k0=k;\{ int \+\_\+lu\+\_\+fringe\+\_\+3=(((inner\+\_\+loops -\/ 1+1 -\/ 0) \% 1==0 ?(inner\+\_\+loops -\/ 1+1 -\/ 0)/1 \+:(inner\+\_\+loops -\/ 1+1 -\/ 0)/1+1)) \% 8==0 ? 0 \+:8;for(k0=0;((long) k0)$<$=inner\+\_\+loops -\/ 1 -\/ \+\_\+lu\+\_\+fringe\+\_\+3;k0+=8) \{ for(int x=0;x$<$ 8;x++) \{ vx\mbox{[}k0+x\mbox{]}=vx\mbox{[}k0+x\mbox{]}+ex1\mbox{[}k0+x\mbox{]}+(xx\mbox{[}k0+x\mbox{]} -\/ xi\mbox{[}k0+x\mbox{]}) \texorpdfstring{$\ast$}{*}dex1\mbox{[}k0+x\mbox{]};xx\mbox{[}k0+x\mbox{]}=xx\mbox{[}k0+x\mbox{]}+vx\mbox{[}k0+x\mbox{]}+xtra\mbox{[}27\mbox{]};ir\mbox{[}k0+x\mbox{]}=((long) xx\mbox{[}k0+x\mbox{]});rx\mbox{[}k0+x\mbox{]}=xx\mbox{[}k0+x\mbox{]} -\/((double) ir\mbox{[}k0+x\mbox{]});ir\mbox{[}k0+x\mbox{]}=(ir\mbox{[}k0+x\mbox{]} \&((long) 2047))+((long) 1);xx\mbox{[}k0+x\mbox{]}=rx\mbox{[}k0+x\mbox{]}+((double) ir\mbox{[}k0+x\mbox{]});\} \} for(;((long) k0)$<$=inner\+\_\+loops -\/ 1;k0+=1) \{ vx\mbox{[}k0\mbox{]}=vx\mbox{[}k0\mbox{]}+ex1\mbox{[}k0\mbox{]}+(xx\mbox{[}k0\mbox{]} -\/ xi\mbox{[}k0\mbox{]}) \texorpdfstring{$\ast$}{*}dex1\mbox{[}k0\mbox{]};xx\mbox{[}k0\mbox{]}=xx\mbox{[}k0\mbox{]}+vx\mbox{[}k0\mbox{]}+xtra\mbox{[}27\mbox{]};ir\mbox{[}k0\mbox{]}=((long) xx\mbox{[}k0\mbox{]});rx\mbox{[}k0\mbox{]}=xx\mbox{[}k0\mbox{]} -\/((double) ir\mbox{[}k0\mbox{]});ir\mbox{[}k0\mbox{]}=(ir\mbox{[}k0\mbox{]} \&((long) 2047))+((long) 1);xx\mbox{[}k0\mbox{]}=rx\mbox{[}k0\mbox{]}+((double) ir\mbox{[}k0\mbox{]});\} \} k=k0;\}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for lloops\+\_\+c\+\_\+kernels\+\_\+line1113\+\_\+loop\+\_\+c\+\_\+3\+\_\+c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a166d56cfd4c4c4d27db0bd3cd0fe81d9}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a166d56cfd4c4c4d27db0bd3cd0fe81d9} 
+long {\bfseries k} = 0
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_afd7f567f1c49a6b08240599913001f4c}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_afd7f567f1c49a6b08240599913001f4c} 
+long {\bfseries inner\+\_\+loops} = 1001
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_aca94ec9b3639078cd56d9e4b4ebe8f17}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_aca94ec9b3639078cd56d9e4b4ebe8f17} 
+double {\bfseries vx} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a3afc87792cc540070bb2b819e8e64f0d}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a3afc87792cc540070bb2b819e8e64f0d} 
+double {\bfseries ex1} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_adc47d3d913e610f82a13020410235fa7}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_adc47d3d913e610f82a13020410235fa7} 
+double {\bfseries xx} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_abc9aa79a31e60302af3212ecf92ee699}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_abc9aa79a31e60302af3212ecf92ee699} 
+double {\bfseries xi} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a191a353a4893dc736b5292fa6f3e9224}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a191a353a4893dc736b5292fa6f3e9224} 
+double {\bfseries dex1} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a757981566a96092cf9cd7620985685a1}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a757981566a96092cf9cd7620985685a1} 
+double {\bfseries xtra} \mbox{[}40\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a15ef04cf2e4ec317d4893b8a6b6fc646}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a15ef04cf2e4ec317d4893b8a6b6fc646} 
+long {\bfseries ir} \mbox{[}1001\mbox{]} = \{0\}
+\item 
+\Hypertarget{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a6c3590fbb0e87bba4c754515d57f1a3c}\label{codelet__livermore__default__lloops__c__kernels__line1113__3_8cpp_a6c3590fbb0e87bba4c754515d57f1a3c} 
+double {\bfseries rx} \mbox{[}1001\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark extracted from the Livermore loops codelet. 
+

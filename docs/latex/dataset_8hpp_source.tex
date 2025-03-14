@@ -23,11 +23,13 @@
 \DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_dataset\_size;\ }
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classDataset_afaff94b9d3332fb22947c2f9270bcd60}{Dataset}}(\mbox{\hyperlink{classIParser}{IParser}}*\ parser,\ std::string\ dir\_path);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00041\ \ \ \ \ std::vector<std::pair<Eigen::VectorXf,\ Eigen::VectorXf>>\ \mbox{\hyperlink{classDataset_ae39e0751b7fa079edb57f642f12b88f0}{get\_data}}(\textcolor{keywordtype}{double}\ proportion);}
-\DoxyCodeLine{00042\ \};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATASET\_HPP}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classDataset_ad7b11978a8a76f6e53b651d65f5513e0}{Dataset}}(\mbox{\hyperlink{classIParser}{IParser}}*\ parser,\ std::string\ dir\_path,\ std::vector<size\_t>\&\ topology);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classDataset_ad7b11978a8a76f6e53b651d65f5513e0}{Dataset}}(std::vector<std::vector<float>>\ target\_inputs,\ std::vector<std::vector<float>>\ target\_outputs,\ std::vector<size\_t>\&\ topology);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<std::pair<Eigen::VectorXf,\ Eigen::VectorXf>>\ \mbox{\hyperlink{classDataset_ae39e0751b7fa079edb57f642f12b88f0}{get\_data}}(\textcolor{keywordtype}{double}\ proportion);}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATASET\_HPP}}
 
 \end{DoxyCode}

@@ -1,0 +1,100 @@
+\doxysection{benchmarks/codelet\+\_\+netlib.cpp File Reference}
+\hypertarget{codelet__netlib_8cpp}{}\label{codelet__netlib_8cpp}\index{benchmarks/codelet\_netlib.cpp@{benchmarks/codelet\_netlib.cpp}}
+
+
+Benchmark extracted from the NETLIB codelet.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__netlib_8cpp_ae5e1eda25f99a5a3b45919956d8c7a64}\label{codelet__netlib_8cpp_ae5e1eda25f99a5a3b45919956d8c7a64} 
+{\bfseries BENCHMARK\+\_\+\+FN} (cg\+\_\+rc\+\_\+prb\+\_\+test02\+\_\+line432\+\_\+0, \{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};++i) \{ rnrm2=rnrm2+r\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*}r\mbox{[}i\mbox{]};\} \}) volatile double ax\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a13f3da626e38bedf61b4b48e986db933}\label{codelet__netlib_8cpp_a13f3da626e38bedf61b4b48e986db933} 
+{\bfseries BENCHMARK\+\_\+\+FN} (cg\+\_\+rc\+\_\+prb\+\_\+test02\+\_\+line421\+\_\+0, \{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};++i) \{ r\mbox{[}i\mbox{]}=r\mbox{[}i\mbox{]} -\/ ax\mbox{[}i\mbox{]};\} \}) void init()
+\item 
+\Hypertarget{codelet__netlib_8cpp_afb9b18abb916ee54d34a1c37253eea06}\label{codelet__netlib_8cpp_afb9b18abb916ee54d34a1c37253eea06} 
+{\bfseries BENCHMARK\+\_\+\+FN} (chebyshev\+\_\+prb\+\_\+c\+\_\+test01\+\_\+line115, \{ for(int i=0;i$<$ N2;++i) \{ x\mbox{[}i\mbox{]}=0.\+5 \texorpdfstring{$\ast$}{*}(a+b)+x\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*}0.\+5 \texorpdfstring{$\ast$}{*}(b -\/ a);\} \}) BENCHMARK\+\_\+\+FN(chebyshev\+\_\+prb\+\_\+c\+\_\+test01\+\_\+line115\+\_\+rev
+\item 
+\Hypertarget{codelet__netlib_8cpp_aa31d268bf730fb6599e9539f90bc15e6}\label{codelet__netlib_8cpp_aa31d268bf730fb6599e9539f90bc15e6} 
+{\bfseries BENCHMARK\+\_\+\+FN} (whetstone\+\_\+c\+\_\+main\+\_\+line187\+\_\+0, \{ for(int i=1;i$<$=N3;++i) \{ e1\mbox{[}1\mbox{]}=(e1\mbox{[}1\mbox{]}+e1\mbox{[}2\mbox{]}+e1\mbox{[}3\mbox{]} -\/ e1\mbox{[}4\mbox{]}) \texorpdfstring{$\ast$}{*}T;e1\mbox{[}2\mbox{]}=(e1\mbox{[}1\mbox{]}+e1\mbox{[}2\mbox{]} -\/ e1\mbox{[}3\mbox{]}+e1\mbox{[}4\mbox{]}) \texorpdfstring{$\ast$}{*}T;e1\mbox{[}3\mbox{]}=(e1\mbox{[}1\mbox{]} -\/ e1\mbox{[}2\mbox{]}+e1\mbox{[}3\mbox{]}+e1\mbox{[}4\mbox{]}) \texorpdfstring{$\ast$}{*}T;e1\mbox{[}4\mbox{]}=(-\/e1\mbox{[}1\mbox{]}+e1\mbox{[}2\mbox{]}+e1\mbox{[}3\mbox{]}+e1\mbox{[}4\mbox{]}) \texorpdfstring{$\ast$}{*}T;\} \}) BENCHMARK\+\_\+\+FN(whetstone\+\_\+c\+\_\+main\+\_\+line187\+\_\+1
+\item 
+\Hypertarget{codelet__netlib_8cpp_ae670fc5f81973ff118d0db0bc2e470b3}\label{codelet__netlib_8cpp_ae670fc5f81973ff118d0db0bc2e470b3} 
+{\bfseries for} (i=1;i$<$=N3 -\/ lu\+\_\+fringe\+\_\+1;i+=2)
+\item 
+\Hypertarget{codelet__netlib_8cpp_aa35577689d8148ca613893313ec8ad40}\label{codelet__netlib_8cpp_aa35577689d8148ca613893313ec8ad40} 
+{\bfseries for} (;i$<$=N3;i+=1)
+\item 
+\Hypertarget{codelet__netlib_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{codelet__netlib_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for netlib. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{codelet__netlib_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 9841
+\begin{DoxyCompactList}\small\item\em Number of elements. \end{DoxyCompactList}\item 
+\Hypertarget{codelet__netlib_8cpp_a80b00dcaf4419b62f1b70ecf4697c573}\label{codelet__netlib_8cpp_a80b00dcaf4419b62f1b70ecf4697c573} 
+volatile double {\bfseries r} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a6ab908dedb092685dc5730304ffb24a7}\label{codelet__netlib_8cpp_a6ab908dedb092685dc5730304ffb24a7} 
+volatile double {\bfseries rnrm2}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a298a174c346e6f1827f5e73f25b447e9}\label{codelet__netlib_8cpp_a298a174c346e6f1827f5e73f25b447e9} 
+constexpr int {\bfseries N2} = 5000
+\item 
+\Hypertarget{codelet__netlib_8cpp_a09d21a8308713538a0e691750b2cc795}\label{codelet__netlib_8cpp_a09d21a8308713538a0e691750b2cc795} 
+volatile double {\bfseries x} \mbox{[}N2\mbox{]}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a1031d0e0a97a340abfe0a6ab9e831045}\label{codelet__netlib_8cpp_a1031d0e0a97a340abfe0a6ab9e831045} 
+double {\bfseries a} = -\/1.\+000000
+\item 
+\Hypertarget{codelet__netlib_8cpp_a1510a66dacf9cf3586de5fc89ae2a073}\label{codelet__netlib_8cpp_a1510a66dacf9cf3586de5fc89ae2a073} 
+double {\bfseries b} = 1.\+000000
+\item 
+double \mbox{\hyperlink{codelet__netlib_8cpp_a9dbf2461d87a55b81b29497865b9e388}{e1}} \mbox{[}5\mbox{]}
+\item 
+\Hypertarget{codelet__netlib_8cpp_a2fc4943b316499dacf2de3ed6aa4972a}\label{codelet__netlib_8cpp_a2fc4943b316499dacf2de3ed6aa4972a} 
+constexpr double {\bfseries T} = 0.\+499975
+\item 
+int \mbox{\hyperlink{codelet__netlib_8cpp_acb559820d9ca11295b4500f179ef6392}{i}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark extracted from the NETLIB codelet. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{codelet__netlib_8cpp_a9dbf2461d87a55b81b29497865b9e388}\label{codelet__netlib_8cpp_a9dbf2461d87a55b81b29497865b9e388} 
+\index{codelet\_netlib.cpp@{codelet\_netlib.cpp}!e1@{e1}}
+\index{e1@{e1}!codelet\_netlib.cpp@{codelet\_netlib.cpp}}
+\doxysubsubsection{\texorpdfstring{e1}{e1}}
+{\footnotesize\ttfamily double e1\mbox{[}5\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ N2\ -\/\ 1;\ i\ >\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ x[i]\ =\ 0.5\ *\ (a\ +\ b)\ +\ x[i]\ *\ 0.5\ *\ (b\ -\/\ a);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ N3\ =\ 1200000}
+
+\end{DoxyCode}
+\Hypertarget{codelet__netlib_8cpp_acb559820d9ca11295b4500f179ef6392}\label{codelet__netlib_8cpp_acb559820d9ca11295b4500f179ef6392} 
+\index{codelet\_netlib.cpp@{codelet\_netlib.cpp}!i@{i}}
+\index{i@{i}!codelet\_netlib.cpp@{codelet\_netlib.cpp}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily int i}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ lu\_fringe\_1\ =\ (((N3\ +\ 1\ -\/\ 1)\ \%\ 1\ ==\ 0\ ?\ (N3\ +\ 1\ -\/\ 1)\ /\ 1\ :\ (N3\ +\ 1\ -\/\ 1)\ /\ 1\ +\ 1))\ \%\ 2\ ==\ 0\ ?\ 0\ :\ 2}
+
+\end{DoxyCode}

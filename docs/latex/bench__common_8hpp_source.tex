@@ -1,0 +1,44 @@
+\doxysection{bench\+\_\+common.\+hpp}
+\hypertarget{bench__common_8hpp_source}{}\label{bench__common_8hpp_source}\index{benchmarks/bench\_common.hpp@{benchmarks/bench\_common.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ANKERL\_NANOBENCH\_IMPLEMENT\ }}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../nanobench/src/include/nanobench.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <immintrin.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ STRINGIFY\_INTERN(s)\ \#s\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ STRINGIFY(s)\ \ \ \ \ \ \ \ STRINGIFY\_INTERN(s)\ }}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ LABEL(name,\ code)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*asm\ volatile(STRINGIFY(\_\_\_\#\#name\#\#\_start\_PPN\_LABEL:));*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ code;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ asm\ volatile(STRINGIFY(\_\_\_\#\#name\#\#\_end\_PPN\_LABEL:));}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ BENCHMARK\_FN(name,\ code)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ void\ \_\_\_\#\#name\#\#\_start\_PPN\_LABEL()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ code;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ asm\ volatile(STRINGIFY(\_\_\_\#\#name\#\#\_end\_PPN\_LABEL:));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ RUN(name)\ run(STRINGIFY(\_\_\_\#\#name\#\#\_start\_PPN\_LABEL),\ \_\_\_\#\#name\#\#\_start\_PPN\_LABEL).doNotOptimizeAway(\_\_\_\#\#name\#\#\_start\_PPN\_LABEL)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ BENCHMARK\_INIT(nb\_iters,\ out\_buf)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ ankerl::nanobench::Bench().minEpochIterations((nb\_iters)).performanceCounters(true).output(\&(out\_buf))}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ concat\_results(std::vector<ankerl::nanobench::Result>\&\ results,\ std::vector<ankerl::nanobench::Result>\ \textcolor{keyword}{const}\&\ other\_results)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ results.reserve(results.size()\ +\ other\_results.size());}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ res\ :\ other\_results)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ results.push\_back(res);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ NO\_VECTORISE\ \_Pragma("{}GCC\ ivdep"{})}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ NO\_VECTORISE\_NO\_UNROLL\ \_Pragma("{}GCC\ ivdep"{})\ \_Pragma("{}GCC\ unroll\ 1"{})}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ OPTIMISE\_SIZE\ \_Pragma("{}GCC\ optimize(\(\backslash\)"{}Os\(\backslash\)"{})"{})}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ OPTIMISE\_SPEED\ \_Pragma("{}GCC\ optimize(\(\backslash\)"{}O3\(\backslash\)"{})"{})}}
+
+\end{DoxyCode}

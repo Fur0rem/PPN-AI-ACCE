@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iparser_0',['IParser',['../classIParser.html',1,'']]]
+  ['dataset_0',['Dataset',['../classDataset.html',1,'']]]
 ];

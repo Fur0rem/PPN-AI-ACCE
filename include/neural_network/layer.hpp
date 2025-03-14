@@ -25,7 +25,7 @@ class Layer {
 	 * @param input The input to the layer
 	 * @return The output of the layer
 	 */
-	Eigen::MatrixXf feed_forward(Eigen::MatrixXf& input);
+	Eigen::MatrixXf feed_forward(Eigen::MatrixXf* input);
 
 	/**
 	 * @brief Back propagate the error through the layer

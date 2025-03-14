@@ -1,0 +1,185 @@
+\doxysection{benchmarks/array\+\_\+copy.cpp File Reference}
+\hypertarget{array__copy_8cpp}{}\label{array__copy_8cpp}\index{benchmarks/array\_copy.cpp@{benchmarks/array\_copy.cpp}}
+
+
+Benchmark for copying arrays with and without SIMD instructions.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__copy_8cpp_ae20b116e3c84a8c006d9605e5b13eea3}\label{array__copy_8cpp_ae20b116e3c84a8c006d9605e5b13eea3} 
+void {\bfseries initialize\+\_\+arrays} ()
+\begin{DoxyCompactList}\small\item\em Initialize the arrays. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a25c5d8335f56cd6dee73a2aaabae8f72}{BENCHMARK\+\_\+\+FN}} (u8\+\_\+copy\+\_\+no\+\_\+simd, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movb (\%0, \%\%rcx, 1), \%\%al\textbackslash{}n"{} "{}movb \%\%al, (\%1, \%\%rcx, 1)\textbackslash{}n"{} "{}addq \$1, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9}{u8\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0}{u8\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}al"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u8\+\_\+copy\+\_\+simd128
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 8-\/bit integers without SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a1b629d76418fceffad28bcf6d3d870e7}{BENCHMARK\+\_\+\+FN}} (u8\+\_\+copy\+\_\+simd256, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovdqu (\%0, \%\%rcx, 1), \%\%ymm0\textbackslash{}n"{} "{}vmovdqu \%\%ymm0, (\%1, \%\%rcx, 1)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9}{u8\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0}{u8\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u16\+\_\+copy\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 8-\/bit integers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_af499f061592032004f56f68b3eef78c2}{BENCHMARK\+\_\+\+FN}} (u16\+\_\+copy\+\_\+simd128, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movdqu (\%0, \%\%rcx, 2), \%\%xmm0\textbackslash{}n"{} "{}movdqu \%\%xmm0, (\%1, \%\%rcx, 2)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a6f4064cec98e650e3dec80c25dd79a25}{u16\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a87b86ca8ffc9e84a925623eee1cd6726}{u16\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u16\+\_\+copy\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 16-\/bit integers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_ab6cff7a2b37119b6d0c59163aefce634}{BENCHMARK\+\_\+\+FN}} (u32\+\_\+copy\+\_\+no\+\_\+simd, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movl (\%0, \%\%rcx, 4), \%\%eax\textbackslash{}n"{} "{}movl \%\%eax, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$4, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63}{u32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4}{u32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}eax"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u32\+\_\+copy\+\_\+simd128
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 32-\/bit integers without SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a57935093fc631de325f6bbb46c082f89}{BENCHMARK\+\_\+\+FN}} (u32\+\_\+copy\+\_\+simd256, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovdqa (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovdqa \%\%ymm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63}{u32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4}{u32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u64\+\_\+copy\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 32-\/bit integers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a6d634dea13f72e38796edde59bf00638}{BENCHMARK\+\_\+\+FN}} (u64\+\_\+copy\+\_\+simd128, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movdqa (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movdqa \%\%xmm0, (\%1, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_adaaf8c592018c584db678893ba0a9e7a}{u64\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a6ee637d6466359b0016d7edc00642315}{u64\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(u64\+\_\+copy\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Copy an array of unsigned 64-\/bit integers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a2aff0037b56ba7d37609867963f61238}{BENCHMARK\+\_\+\+FN}} (f32\+\_\+copy\+\_\+no\+\_\+simd, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movss (\%0, \%\%rcx, 4), \%\%xmm0\textbackslash{}n"{} "{}movss \%\%xmm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$4, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c}{f32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469}{f32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(f32\+\_\+copy\+\_\+simd128
+\begin{DoxyCompactList}\small\item\em Copy an array of single precision floating point numbers without SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a29a2a5a713305dfc2d19ab698af594d8}{BENCHMARK\+\_\+\+FN}} (f32\+\_\+copy\+\_\+simd256, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovaps (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovaps \%\%ymm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c}{f32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469}{f32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(f64\+\_\+copy\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Copy an array of single precision floating point numbers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a1215775b1217479009680adf6309473d}{BENCHMARK\+\_\+\+FN}} (f64\+\_\+copy\+\_\+simd128, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movapd (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movapd \%\%xmm0, (\%1, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b}{f64\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878}{f64\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(f64\+\_\+copy\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Copy an array of double precision floating point numbers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__copy_8cpp_a428ba7837ae89acd2fc4aa473a0db525}{BENCHMARK\+\_\+\+FN}} (f64\+\_\+copy\+\_\+duffs\+\_\+device, \{ volatile double \texorpdfstring{$\ast$}{*}src=\mbox{\hyperlink{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b}{f64\+\_\+src}};volatile double \texorpdfstring{$\ast$}{*}dst=\mbox{\hyperlink{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878}{f64\+\_\+dst}};int n=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};int count=(n+7)/8;switch(n \% 8) \{ case 0\+:do \{ \texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 7\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 6\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 5\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 4\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 3\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 2\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 1\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;\} while(-\/-\/count $>$ 0);\} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Copy an array of double precision floating point numbers using Duff\textquotesingle{}s device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__copy_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{array__copy_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1024
+\begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9}\label{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9} 
+volatile uint8\+\_\+t {\bfseries u8\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 8-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0}\label{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0} 
+volatile uint8\+\_\+t {\bfseries u8\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 8-\/bit integers to be copied to. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_a6f4064cec98e650e3dec80c25dd79a25}\label{array__copy_8cpp_a6f4064cec98e650e3dec80c25dd79a25} 
+volatile uint16\+\_\+t {\bfseries u16\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 16-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_a87b86ca8ffc9e84a925623eee1cd6726}\label{array__copy_8cpp_a87b86ca8ffc9e84a925623eee1cd6726} 
+volatile uint16\+\_\+t {\bfseries u16\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 16-\/bit integers to be copied to. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63}\label{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63} 
+volatile uint32\+\_\+t {\bfseries u32\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 32-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4}\label{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4} 
+volatile uint32\+\_\+t {\bfseries u32\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 32-\/bit integers to be copied to. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_adaaf8c592018c584db678893ba0a9e7a}\label{array__copy_8cpp_adaaf8c592018c584db678893ba0a9e7a} 
+volatile uint64\+\_\+t {\bfseries u64\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 64-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_a6ee637d6466359b0016d7edc00642315}\label{array__copy_8cpp_a6ee637d6466359b0016d7edc00642315} 
+volatile uint64\+\_\+t {\bfseries u64\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 64-\/bit integers to be copied to. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c}\label{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c} 
+volatile float {\bfseries f32\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469}\label{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469} 
+volatile float {\bfseries f32\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers to be copied to. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b}\label{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b} 
+volatile double {\bfseries f64\+\_\+src} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878}\label{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878} 
+volatile double {\bfseries f64\+\_\+dst} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers to be copied to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for copying arrays with and without SIMD instructions. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__copy_8cpp_a2aff0037b56ba7d37609867963f61238}\label{array__copy_8cpp_a2aff0037b56ba7d37609867963f61238} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f32\+\_\+copy\+\_\+no\+\_\+simd}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movss (\%0, \%\%rcx, 4), \%\%xmm0\textbackslash{}n"{} "{}movss \%\%xmm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$4, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c}{f32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469}{f32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of single precision floating point numbers without SIMD instructions. 
+
+Copy an array of single precision floating point numbers using SIMD instructions with 128 bits registers \Hypertarget{array__copy_8cpp_a29a2a5a713305dfc2d19ab698af594d8}\label{array__copy_8cpp_a29a2a5a713305dfc2d19ab698af594d8} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f32\+\_\+copy\+\_\+simd256}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovaps (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovaps \%\%ymm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a3bab5bbd9dd8e121f1dd0d5af752641c}{f32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa9bfd49915208fd825c4933affc77469}{f32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of single precision floating point numbers using SIMD instructions with 256 bits registers. 
+
+Copy an array of double precision floating point numbers without SIMD instructions \Hypertarget{array__copy_8cpp_a428ba7837ae89acd2fc4aa473a0db525}\label{array__copy_8cpp_a428ba7837ae89acd2fc4aa473a0db525} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f64\+\_\+copy\+\_\+duffs\+\_\+device}]{,  }\item[{\{ volatile double \texorpdfstring{$\ast$}{*}src=\mbox{\hyperlink{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b}{f64\+\_\+src}};volatile double \texorpdfstring{$\ast$}{*}dst=\mbox{\hyperlink{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878}{f64\+\_\+dst}};int n=\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};int count=(n+7)/8;switch(n \% 8) \{ case 0\+:do \{ \texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 7\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 6\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 5\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 4\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 3\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 2\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;case 1\+:\texorpdfstring{$\ast$}{*}dst++= \texorpdfstring{$\ast$}{*}src++;\} while(-\/-\/count $>$ 0);\} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of double precision floating point numbers using Duff\textquotesingle{}s device. 
+
+Run the benchmarks for array copy \Hypertarget{array__copy_8cpp_a1215775b1217479009680adf6309473d}\label{array__copy_8cpp_a1215775b1217479009680adf6309473d} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f64\+\_\+copy\+\_\+simd128}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movapd (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movapd \%\%xmm0, (\%1, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad10ae0445638868d49cf98eb6d0d819b}{f64\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_aa85716856b5e15c4b21d744113d61878}{f64\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of double precision floating point numbers using SIMD instructions with 128 bits registers. 
+
+Copy an array of double precision floating point numbers using SIMD instructions with 256 bits registers \Hypertarget{array__copy_8cpp_af499f061592032004f56f68b3eef78c2}\label{array__copy_8cpp_af499f061592032004f56f68b3eef78c2} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u16\+\_\+copy\+\_\+simd128}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movdqu (\%0, \%\%rcx, 2), \%\%xmm0\textbackslash{}n"{} "{}movdqu \%\%xmm0, (\%1, \%\%rcx, 2)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a6f4064cec98e650e3dec80c25dd79a25}{u16\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a87b86ca8ffc9e84a925623eee1cd6726}{u16\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 16-\/bit integers using SIMD instructions with 128 bits registers. 
+
+Copy an array of unsigned 16-\/bit integers using SIMD instructions with 256 bits registers \Hypertarget{array__copy_8cpp_ab6cff7a2b37119b6d0c59163aefce634}\label{array__copy_8cpp_ab6cff7a2b37119b6d0c59163aefce634} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u32\+\_\+copy\+\_\+no\+\_\+simd}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movl (\%0, \%\%rcx, 4), \%\%eax\textbackslash{}n"{} "{}movl \%\%eax, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$4, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63}{u32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4}{u32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}eax"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 32-\/bit integers without SIMD instructions. 
+
+Copy an array of unsigned 32-\/bit integers using SIMD instructions with 128 bits registers \Hypertarget{array__copy_8cpp_a57935093fc631de325f6bbb46c082f89}\label{array__copy_8cpp_a57935093fc631de325f6bbb46c082f89} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u32\+\_\+copy\+\_\+simd256}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovdqa (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovdqa \%\%ymm0, (\%1, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a5b27a7f6e781545370b72cbe4c150e63}{u32\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_af1890485e797dc2e4d04f43628fe73f4}{u32\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 32-\/bit integers using SIMD instructions with 256 bits registers. 
+
+Copy an array of unsigned 64-\/bit integers without SIMD instructions \Hypertarget{array__copy_8cpp_a6d634dea13f72e38796edde59bf00638}\label{array__copy_8cpp_a6d634dea13f72e38796edde59bf00638} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u64\+\_\+copy\+\_\+simd128}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movdqa (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movdqa \%\%xmm0, (\%1, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$16, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_adaaf8c592018c584db678893ba0a9e7a}{u64\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_a6ee637d6466359b0016d7edc00642315}{u64\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 64-\/bit integers using SIMD instructions with 128 bits registers. 
+
+Copy an array of unsigned 64-\/bit integers using SIMD instructions with 256 bits registers \Hypertarget{array__copy_8cpp_a25c5d8335f56cd6dee73a2aaabae8f72}\label{array__copy_8cpp_a25c5d8335f56cd6dee73a2aaabae8f72} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u8\+\_\+copy\+\_\+no\+\_\+simd}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movb (\%0, \%\%rcx, 1), \%\%al\textbackslash{}n"{} "{}movb \%\%al, (\%1, \%\%rcx, 1)\textbackslash{}n"{} "{}addq \$1, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9}{u8\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0}{u8\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}al"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 8-\/bit integers without SIMD instructions. 
+
+Copy an array of unsigned 8-\/bit integers using SIMD instructions with 128 bits registers \Hypertarget{array__copy_8cpp_a1b629d76418fceffad28bcf6d3d870e7}\label{array__copy_8cpp_a1b629d76418fceffad28bcf6d3d870e7} 
+\index{array\_copy.cpp@{array\_copy.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_copy.cpp@{array\_copy.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u8\+\_\+copy\+\_\+simd256}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovdqu (\%0, \%\%rcx, 1), \%\%ymm0\textbackslash{}n"{} "{}vmovdqu \%\%ymm0, (\%1, \%\%rcx, 1)\textbackslash{}n"{} "{}addq \$32, \%\%rcx\textbackslash{}n"{} "{}cmpq \%2, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ad097a017ab9dac0e6684f61b4a95c1b9}{u8\+\_\+src}}), "{}r"{}(\mbox{\hyperlink{array__copy_8cpp_ab4003414c466e43906cbe1d16f5535f0}{u8\+\_\+dst}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Copy an array of unsigned 8-\/bit integers using SIMD instructions with 256 bits registers. 
+
+Copy an array of unsigned 16-\/bit integers without SIMD instructions 

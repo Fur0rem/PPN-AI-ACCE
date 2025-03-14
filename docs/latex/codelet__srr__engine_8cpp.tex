@@ -1,0 +1,47 @@
+\doxysection{benchmarks/codelet\+\_\+srr\+\_\+engine.cpp File Reference}
+\hypertarget{codelet__srr__engine_8cpp}{}\label{codelet__srr__engine_8cpp}\index{benchmarks/codelet\_srr\_engine.cpp@{benchmarks/codelet\_srr\_engine.cpp}}
+
+
+Benchmark of codelet for srr engine.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{codelet__srr__engine_8cpp_a8bb4764ac16c143f825f85d2a61b9a08}{BENCHMARK\+\_\+\+FN}} (codelet\+\_\+srr\+\_\+engine\+\_\+matmul\+\_\+line21\+\_\+1, \{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ for(int j=0;j$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};j++) \{ \mbox{\hyperlink{codelet__srr__engine_8cpp_a5b2b6994e067c5a84c76532d965040e1}{m\+\_\+result}}\mbox{[}i\mbox{]}+=\mbox{\hyperlink{codelet__srr__engine_8cpp_a22776d82221e8cff7b19048ac9ff2949}{mat1}}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{codelet__srr__engine_8cpp_a9155277b9a45216bd154e85427caa0f5}{mat2}}\mbox{[}j\mbox{]};\} \} \}) BENCHMARK\+\_\+\+FN(codelet\+\_\+srr\+\_\+engine\+\_\+matmul\+\_\+line21\+\_\+8
+\begin{DoxyCompactList}\small\item\em Perform the loop for matrix multiplication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{codelet__srr__engine_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{codelet__srr__engine_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 16
+\begin{DoxyCompactList}\small\item\em Size of the matrices. \end{DoxyCompactList}\item 
+\Hypertarget{codelet__srr__engine_8cpp_a5b2b6994e067c5a84c76532d965040e1}\label{codelet__srr__engine_8cpp_a5b2b6994e067c5a84c76532d965040e1} 
+double {\bfseries m\+\_\+result} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{3.\+0\}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers to store the result. \end{DoxyCompactList}\item 
+\Hypertarget{codelet__srr__engine_8cpp_a22776d82221e8cff7b19048ac9ff2949}\label{codelet__srr__engine_8cpp_a22776d82221e8cff7b19048ac9ff2949} 
+double {\bfseries mat1} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{4.\+0\}
+\begin{DoxyCompactList}\small\item\em First matrix. \end{DoxyCompactList}\item 
+\Hypertarget{codelet__srr__engine_8cpp_a9155277b9a45216bd154e85427caa0f5}\label{codelet__srr__engine_8cpp_a9155277b9a45216bd154e85427caa0f5} 
+double {\bfseries mat2} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{5.\+0\}
+\begin{DoxyCompactList}\small\item\em Second matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark of codelet for srr engine. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{codelet__srr__engine_8cpp_a8bb4764ac16c143f825f85d2a61b9a08}\label{codelet__srr__engine_8cpp_a8bb4764ac16c143f825f85d2a61b9a08} 
+\index{codelet\_srr\_engine.cpp@{codelet\_srr\_engine.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!codelet\_srr\_engine.cpp@{codelet\_srr\_engine.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{codelet\+\_\+srr\+\_\+engine\+\_\+matmul\+\_\+line21\+\_\+1}]{,  }\item[{\{ for(int i=0;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ for(int j=0;j$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};j++) \{ \mbox{\hyperlink{codelet__srr__engine_8cpp_a5b2b6994e067c5a84c76532d965040e1}{m\+\_\+result}}\mbox{[}i\mbox{]}+=\mbox{\hyperlink{codelet__srr__engine_8cpp_a22776d82221e8cff7b19048ac9ff2949}{mat1}}\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{codelet__srr__engine_8cpp_a9155277b9a45216bd154e85427caa0f5}{mat2}}\mbox{[}j\mbox{]};\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Perform the loop for matrix multiplication. 
+
+Perform the loop for matrix multiplication with unrolling 

@@ -5,58 +5,90 @@
 
 #include "neural_network/neural_network.hpp"
 #include "neural_network/activation_functions.hpp"
+#include "parsing/iparser.hpp"
+#include <cassert>
+#include <chrono>
+#include <cstddef>
 #include <cstdlib>
 #include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/src/Core/Matrix.h>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
-/**
- * @brief Calculate the mean squared error
- * @param output The output of the network
- * @param targets The target output of the network
- * @return The mean squared error
- */
-float mean_squared_error(std::vector<float> output, std::vector<float> targets) {
-	float loss = 0;
-	for (size_t i = 0; i < targets.size(); i++) {
-		loss += (output[i] - targets[i]) * (output[i] - targets[i]) / targets[i];
+std::vector<float> cpp_vec_from_eigen_vec(const Eigen::VectorXf& eigen_vector) {
+	std::vector<float> cpp_vector(eigen_vector.size());
+	for (long i = 0; i < eigen_vector.size(); i++) {
+		cpp_vector[i] = eigen_vector[i];
 	}
-	return loss / static_cast<float>(targets.size());
+	return cpp_vector;
 }
 
-float mean_squared_error(Eigen::VectorXf output, Eigen::VectorXf targets) {
-	float loss = 0;
-	for (int i = 0; i < targets.size(); i++) {
-		loss += (output(i) - targets(i)) * (output(i) - targets(i)) / targets(i);
+Eigen::VectorXf eigen_vec_from_cpp_vec(const std::vector<float>& cpp_vector) {
+	Eigen::VectorXf eigen_vector(cpp_vector.size());
+	for (size_t i = 0; i < cpp_vector.size(); i++) {
+		eigen_vector[i] = cpp_vector[i];
 	}
-	return loss / static_cast<float>(targets.size());
+	return eigen_vector;
 }
 
 /**
- * @brief Calculate the mean absolute error
+ * @brief Calculate the  squared error
  * @param output The output of the network
  * @param targets The target output of the network
- * @return The mean absolute error
+ * @return The  squared error
  */
-float mean_absolute_error(std::vector<float> output, std::vector<float> targets) {
-	float loss = 0;
-	for (size_t i = 0; i < targets.size(); i++) {
-		loss += std::abs(output[i] - targets[i]);
-	}
-	return loss / static_cast<float>(targets.size());
+double squared_error(const Eigen::VectorXf* output, const Eigen::VectorXf* targets) {
+	assert(targets->size() == 1); // We only have one output (the number of cycles)
+	double target = (*targets)[0] * MAX_CYCLES;
+	double prediction = (*output)[0] * MAX_CYCLES;
+	std::cout << "Target: " << target << ", Prediction: " << prediction << ", Error: " << (target - prediction) * (target - prediction)
+			  << '\n';
+	return (target - prediction) * (target - prediction);
 }
 
-float mean_absolute_error(Eigen::VectorXf output, Eigen::VectorXf targets) {
-	float loss = 0;
-	for (int i = 0; i < targets.size(); i++) {
-		loss += std::abs( (output(i) - targets(i)) / targets(i) );
-	}
-	return loss / static_cast<float>(targets.size());
+/**
+ * @brief Calculate the relative squared error
+ * @param output The output of the network
+ * @param targets The target output of the network
+ * @return The squared error
+ */
+double relative_squared_error(const Eigen::VectorXf* output, const Eigen::VectorXf* targets) {
+	assert(targets->size() == 1); // We only have one output (the number of cycles)
+	double target = (*targets)[0] * MAX_CYCLES;
+	double prediction = (*output)[0] * MAX_CYCLES;
+	return (target - prediction) * (target - prediction) / std::max(1.0, std::max(target * target, prediction * prediction));
 }
 
-NeuralNetwork::NeuralNetwork(std::vector<int>& topology, float learning_rate) : m_topology(topology), m_learning_rate(learning_rate) {
+/**
+ * @brief Calculate the  absolute error
+ * @param output The output of the network
+ * @param targets The target output of the network
+ * @return The  absolute error
+ */
+double absolute_error(const Eigen::VectorXf* output, const Eigen::VectorXf* targets) {
+	assert(targets->size() == 1); // We only have one output (the number of cycles)
+	double target = (*targets)[0] * MAX_CYCLES;
+	double prediction = (*output)[0] * MAX_CYCLES;
+	return std::abs(target - prediction);
+}
+
+/**
+ * @brief Calculate the relative absolute error
+ * @param output The output of the network
+ * @param targets The target output of the network
+ * @return The absolute error
+ */
+double relative_absolute_error(const Eigen::VectorXf* output, const Eigen::VectorXf* targets) {
+	assert(targets->size() == 1); // We only have one output (the number of cycles)
+	double target = (*targets)[0] * MAX_CYCLES;
+	double prediction = (*output)[0] * MAX_CYCLES;
+	return std::abs(target - prediction) / std::max(1.0, std::max(target, prediction));
+}
+
+NeuralNetwork::NeuralNetwork(std::vector<size_t>& topology, float learning_rate) : m_topology(topology), m_learning_rate(learning_rate) {
+	srand(time(nullptr));
 	for (size_t i = 0; i < topology.size() - 1; i++) {
 		Layer layer(topology[i], topology[i + 1]);
 		m_layers.push_back(layer);
@@ -64,30 +96,31 @@ NeuralNetwork::NeuralNetwork(std::vector<int>& topology, float learning_rate) : 
 	this->m_last_values = Eigen::MatrixXf::Zero(0, 0);
 }
 
-void NeuralNetwork::feed_forward(const Eigen::VectorXf& input) {
-	if (input.size() != m_topology[0]) {
-		throw std::invalid_argument("Input size does not match the number of weights.");
+void NeuralNetwork::feed_forward(const Eigen::VectorXf* input) {
+	if (input->size() != m_topology[0]) {
+		throw std::invalid_argument(std::string("Input size does not match the number of weights : " + std::to_string(input->size()) +
+												" != " + std::to_string(m_topology[0])));
 	}
- 
-	Eigen::MatrixXf values2(1, input.size());
-	for (long i = 0; i < input.size(); i++) {
-		values2(0, i) = input[i];
+
+	Eigen::MatrixXf values2(1, input->size());
+	for (long i = 0; i < input->size(); i++) {
+		values2(0, i) = (*input)[i];
 	}
 
 	// Forwarding inputs to next layers
 	Eigen::MatrixXf layer_values = values2;
 	for (Layer& layer : m_layers) {
-		layer_values = layer.feed_forward(layer_values);
+		layer_values = layer.feed_forward(&layer_values);
 	}
 
 	// Save the last values
 	this->m_last_values = layer_values;
 }
 
-void NeuralNetwork::back_propagate(const Eigen::VectorXf& target_output) {
-	Eigen::MatrixXf errors(1, target_output.size());
-	for (long i = 0; i < target_output.size(); i++) {
-		errors(0, i) = target_output[i] - m_last_values(0, i);
+void NeuralNetwork::back_propagate(const Eigen::VectorXf* target_output) {
+	Eigen::MatrixXf errors(1, target_output->size());
+	for (long i = 0; i < target_output->size(); i++) {
+		errors(0, i) = (*target_output)[i] - m_last_values(0, i);
 	}
 
 	// Propagate for the last values of the layer
@@ -99,119 +132,174 @@ void NeuralNetwork::back_propagate(const Eigen::VectorXf& target_output) {
 	}
 }
 
-std::vector<float> NeuralNetwork::get_prediction(std::vector<float>& input) {
-	// Convert the input to Eigen::VectorXf
-	Eigen::VectorXf input_vector(input.size());
-	for (size_t i = 0; i < input.size(); i++) {
-		input_vector[i] = input[i];
-	}
-
-	// Get the prediction
-	feed_forward(input_vector);
-	Eigen::VectorXf output = m_last_values;
-
-	// Convert the output to std::vector<float>
-	std::vector<float> output_vector(output.size());
-	for (long i = 0; i < output.size(); i++) {
-		output_vector[i] = output[i];
-	}
-
-	return output_vector;
-}
-
-Eigen::VectorXf NeuralNetwork::get_prediction(Eigen::VectorXf& input) {
+Eigen::VectorXf NeuralNetwork::get_prediction(const Eigen::VectorXf* input) {
+	// Feed the input through the network
 	feed_forward(input);
-	Eigen::VectorXf output = m_last_values;
-	return output;
+	// Return the last values (the prediction)
+	return m_last_values;
 }
 
-float NeuralNetwork::get_total_loss(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> targets) {
-	float loss = 0;
+std::vector<float> NeuralNetwork::get_prediction(const std::vector<float>& input) {
+	auto eigen_vec = eigen_vec_from_cpp_vec(input);
+	auto prediction = this->get_prediction(&eigen_vec);
+	return cpp_vec_from_eigen_vec(prediction);
+}
+
+std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>>
+NeuralNetwork::convert_data_for_loss(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets) {
+	std::vector<Eigen::VectorXf*> in;
+	std::vector<Eigen::VectorXf*> out;
 	for (size_t i = 0; i < inputs.size(); i++) {
-		loss += mean_squared_error(this->get_prediction(inputs[i]), targets[i]);
+		auto input = new Eigen::VectorXf(eigen_vec_from_cpp_vec(inputs[i]));
+		auto target = new Eigen::VectorXf(eigen_vec_from_cpp_vec(targets[i]));
+		in.push_back(input);
+		out.push_back(target);
 	}
-	return loss / static_cast<float>(inputs.size());
+	return {in, out};
 }
 
-float NeuralNetwork::get_total_loss(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets) {
-	float loss = 0;
+std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>>
+NeuralNetwork::convert_data_for_loss(std::vector<Eigen::VectorXf>& inputs, std::vector<Eigen::VectorXf>& targets) {
+	std::vector<Eigen::VectorXf*> in;
+	std::vector<Eigen::VectorXf*> out;
 	for (size_t i = 0; i < inputs.size(); i++) {
-		loss += mean_squared_error(this->get_prediction(inputs[i]), targets[i]);
+		in.push_back(&inputs[i]);
+		out.push_back(&targets[i]);
 	}
-	return loss / static_cast<float>(inputs.size());
+	return {in, out};
 }
 
-float NeuralNetwork::get_accuracy(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets) {
-	float loss = 0;
+std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>> NeuralNetwork::convert_data_for_loss(Dataset& dataset) {
+	std::vector<Eigen::VectorXf*> in;
+	std::vector<Eigen::VectorXf*> out;
+	for (auto [input, target] : dataset.get_data(1.0)) {
+		in.push_back(&input);
+		out.push_back(&target);
+	}
+	return {in, out};
+}
+
+double NeuralNetwork::get_loss_mrse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets) {
+	double loss = 0;
 	for (size_t i = 0; i < inputs.size(); i++) {
-		loss += mean_absolute_error(this->get_prediction(inputs[i]), targets[i]);
+		auto prediction = this->get_prediction(inputs[i]);
+		loss += relative_squared_error(&prediction, targets[i]);
 	}
-	return 1.0 - (loss / static_cast<float>(inputs.size()));
+	return loss / static_cast<double>(inputs.size());
 }
 
-void NeuralNetwork::train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,
-						  float input_ratio, std::string&& logging_filename) {
+double NeuralNetwork::get_loss_mse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets) {
+	double loss = 0;
+	for (size_t i = 0; i < inputs.size(); i++) {
+		auto prediction = this->get_prediction(inputs[i]);
+		loss += squared_error(&prediction, targets[i]);
+	}
+	return loss / static_cast<double>(inputs.size());
+}
+
+double NeuralNetwork::get_acc_mrae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets) {
+	double acc = 0;
+	for (size_t i = 0; i < inputs.size(); i++) {
+		auto prediction = this->get_prediction(inputs[i]);
+		acc += relative_absolute_error(&prediction, targets[i]);
+	}
+	return 1.0 - (acc / static_cast<double>(inputs.size()));
+}
+
+double NeuralNetwork::get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets) {
+	double acc = 0;
+	for (size_t i = 0; i < inputs.size(); i++) {
+		auto prediction = this->get_prediction(inputs[i]);
+		acc += absolute_error(&prediction, targets[i]);
+	}
+	return 1.0 - (acc / static_cast<double>(inputs.size()));
+}
+
+void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float input_ratio, std::string&& logging_filename) {
 	// Open the file for logging
 	std::ofstream log_file;
 	log_file.open(logging_filename);
+	auto data = dataset.get_data(1.0);
 
-	size_t const train_size = (size_t) (inputs.size() * input_ratio);
-	size_t const validation_size = inputs.size() - train_size;
+	// Split the data into training and validation sets
+	size_t const train_size = (size_t)(data.size() * input_ratio);
+	size_t const validation_size = data.size() - train_size;
 
-	// Convert the inputs and targets to Eigen::VectorXf
-	std::vector<Eigen::VectorXf> train_input_vectors(train_size);
-	std::vector<Eigen::VectorXf> validation_input_vectors(validation_size);
-	std::vector<Eigen::VectorXf> train_target_vectors(train_size);
-	std::vector<Eigen::VectorXf> validation_target_vectors(validation_size);
-	for (size_t i = 0; i < train_size; i++) {
-		Eigen::VectorXf input(inputs[i].size());
-		for (size_t j = 0; j < inputs[i].size(); j++) {
-			input[j] = inputs[i][j];
+	std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
+
+	std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
+	std::vector<Eigen::VectorXf*> train_target_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_target_vectors(validation_size);
+
+	for (size_t i = 0; i < data.size(); i++) {
+		// Put the input and target in the right set
+		if (i < train_size) {
+			train_input_vectors[i] = &data[i].first;
+			train_target_vectors[i] = &data[i].second;
 		}
-		train_input_vectors[i] = input;
-	}
-	for (size_t i = 0; i < validation_size; i++) {
-		size_t index = i + train_size;
-		Eigen::VectorXf input(inputs[index].size());
-		for (size_t j = 0; j < inputs[index].size(); j++) {
-			input[j] = inputs[index][j];
+		else {
+			validation_input_vectors[i - train_size] = &data[i].first;
+			validation_target_vectors[i - train_size] = &data[i].second;
 		}
-		validation_input_vectors[i] = input;
-	}
-	for (size_t i = 0; i < train_size; i++) {
-		Eigen::VectorXf target(targets[i].size());
-		for (size_t j = 0; j < targets[i].size(); j++) {
-			target[j] = targets[i][j];
-		}
-		train_target_vectors[i] = target;
-	}
-	for (size_t i = 0; i < validation_size; i++) {
-		size_t index = i + train_size;
-		Eigen::VectorXf target(targets[index].size());
-		for (size_t j = 0; j < targets[index].size(); j++) {
-			target[j] = targets[index][j];
-		}
-		validation_target_vectors[i] = target;
 	}
 
 	// Training the neural network
 	const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
+
+	std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
 	for (int i = 0; i < nb_epochs; i++) {
+		auto clock = std::chrono::high_resolution_clock::now();
 		for (size_t j = 0; j < train_size; j++) {
+			std::cout << "Epoch: " << i << " ( " << j << " / " << train_size << " )\n";
 			this->feed_forward(train_input_vectors[j]);
 			this->back_propagate(train_target_vectors[j]);
 		}
-		// Logging the loss
+		auto end_clock = std::chrono::high_resolution_clock::now();
+		std::chrono::duration<double> elapsed_seconds = end_clock - clock;
+		total_time += elapsed_seconds;
+
+		std::cout << "Epoch: " << i << '\n';
+		// Logging the loss and accuracy
 		if (i % nb_points_to_plot == 0) {
-			float training_loss = this->get_total_loss(train_input_vectors, train_target_vectors);
-			float validation_loss = this->get_total_loss(validation_input_vectors, validation_target_vectors);
-			float training_acc = this->get_accuracy(train_input_vectors, train_target_vectors);
-			float validation_acc = this->get_accuracy(validation_input_vectors, validation_target_vectors);
-			std::cout << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << ", Training Acc: " << training_acc << ", Validation Acc: " << validation_acc << '\n';
-			for (size_t j = 0; j < inputs.size(); j++) {
-				std::cout << "Prediction output: " << this->get_prediction(inputs[j])[0] << ", Target output: " << targets[j][0] << '\n';
+			// Different losses
+			double tl_mrse = this->get_loss_mrse(train_input_vectors, train_target_vectors);
+			double vl_mrse = this->get_loss_mrse(validation_input_vectors, validation_target_vectors);
+			double tl_mse = this->get_loss_mse(train_input_vectors, train_target_vectors);
+			double vl_mse = this->get_loss_mse(validation_input_vectors, validation_target_vectors);
+
+			// Different accuracies
+			double ta_mae = this->get_acc_mae(train_input_vectors, train_target_vectors);
+			double va_mae = this->get_acc_mae(validation_input_vectors, validation_target_vectors);
+			double ta_mrae = this->get_acc_mrae(train_input_vectors, train_target_vectors);
+			double va_mrae = this->get_acc_mrae(validation_input_vectors, validation_target_vectors);
+
+			std::stringstream stream = std::stringstream();
+			stream << "Epoch: " << i << ':';
+
+			stream << "Training loss (MRSE): " << tl_mrse << ',';
+			stream << "Validation loss (MRSE): " << vl_mrse << ',';
+			stream << "Training loss (MSE): " << tl_mse << ',';
+			stream << "Validation loss (MSE): " << vl_mse << ',';
+
+			stream << "Training accuracy (MAE): " << ta_mae << ',';
+			stream << "Validation accuracy (MAE): " << va_mae << ',';
+			stream << "Training accuracy (MRAE): " << ta_mrae << ',';
+			stream << "Validation accuracy (MRAE): " << va_mrae << '\n';
+
+			std::cout << stream.str();
+			log_file << stream.str();
+
+			// Print all the values predicted
+			for (auto [input, target] : dataset.get_data(1.0)) {
+				auto output = this->get_prediction(&input);
+				log_file << "Input: " << input.transpose() << ", Prediction: " << output.transpose() << ", Target: " << target.transpose()
+						 << '\n';
 			}
-			log_file << "Epoch: " << i << ", Training Loss: " << training_loss << ", Validation Loss: " << validation_loss << ", Training Acc: " << training_acc << ", Validation Acc: " << validation_acc << '\n';
 		}
 	}
+
+	std::cout << "Training time: " << total_time.count() << "s\n";
+	log_file << "Training time: " << total_time.count() << "s\n";
+	log_file.close();
 }

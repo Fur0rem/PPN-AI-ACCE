@@ -1,0 +1,162 @@
+\doxysection{benchmarks/array\+\_\+min.cpp File Reference}
+\hypertarget{array__min_8cpp}{}\label{array__min_8cpp}\index{benchmarks/array\_min.cpp@{benchmarks/array\_min.cpp}}
+
+
+Benchmark for finding the minimum in an array of integers and floating point numbers.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{array__min_8cpp_aa8af7a3380ad37af108999a56334ab3a}{BENCHMARK\+\_\+\+FN}} (u8\+\_\+min\+\_\+no\+\_\+simd, \{ volatile uint8\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]};\} \} \}) BENCHMARK\+\_\+\+FN(u16\+\_\+min\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of u8\textquotesingle{}s without using SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a538a2fe783a54516b6e3376fbfc5c20f}{for}} (int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++)
+\item 
+\mbox{\hyperlink{array__min_8cpp_acce6b07fb871cc2572cefa7976ceadd2}{BENCHMARK\+\_\+\+FN}} (u32\+\_\+min\+\_\+no\+\_\+simd, \{ volatile uint32\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]};\} \} \}) BENCHMARK\+\_\+\+FN(u64\+\_\+min\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of u32\textquotesingle{}s without using SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a08a43d027c1ced8871c9e73000e7447f}{BENCHMARK\+\_\+\+FN}} (f32\+\_\+min\+\_\+no\+\_\+simd, \{ volatile float min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]};\} \} \}) BENCHMARK\+\_\+\+FN(f64\+\_\+min\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of f32\textquotesingle{}s without using SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a20a50454e156fece303b360959b8df2c}{BENCHMARK\+\_\+\+FN}} (u8\+\_\+min\+\_\+simd128, \{ volatile uint8\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi8(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=16) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu8(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi8(min\+\_\+v, 0);\}) BENCHMARK\+\_\+\+FN(u8\+\_\+min\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of u8\textquotesingle{}s using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_ac30b921be3bceb29ca3ffbdb14c07d2c}{BENCHMARK\+\_\+\+FN}} (u16\+\_\+min\+\_\+simd128, \{ volatile uint16\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e}{U16}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi16(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=8) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e}{U16}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu16(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi16(min\+\_\+v, 0);\}) BENCHMARK\+\_\+\+FN(u16\+\_\+min\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of u16\textquotesingle{}s using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a9e930f4e32fb1f710ea8e58cae5a9856}{BENCHMARK\+\_\+\+FN}} (u32\+\_\+min\+\_\+simd128, \{ volatile uint32\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi32(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=4) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu32(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi32(min\+\_\+v, 0);\}) BENCHMARK\+\_\+\+FN(u32\+\_\+min\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of u32\textquotesingle{}s using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a6c7405c77e225757b0acd78ba0e32869}{BENCHMARK\+\_\+\+FN}} (f32\+\_\+min\+\_\+simd128, \{ volatile float min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128 min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+ps(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=4) \{ \+\_\+\+\_\+m128 v=\+\_\+mm\+\_\+load\+\_\+ps(\&\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+ps(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+cvtss\+\_\+f32(min\+\_\+v);\}) BENCHMARK\+\_\+\+FN(f32\+\_\+min\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of f32\textquotesingle{}s using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__min_8cpp_a00029d97d713f94184ffc182568b0be9}{BENCHMARK\+\_\+\+FN}} (f64\+\_\+min\+\_\+simd128, \{ volatile double min=\mbox{\hyperlink{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9}{F64}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128d min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+pd(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=2) \{ \+\_\+\+\_\+m128d v=\+\_\+mm\+\_\+load\+\_\+pd(\&\mbox{\hyperlink{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9}{F64}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+pd(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+cvtsd\+\_\+f64(min\+\_\+v);\}) BENCHMARK\+\_\+\+FN(f64\+\_\+min\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Finds the minimum in an array of f64\textquotesingle{}s using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{array__min_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for array min. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__min_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{array__min_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1024
+\begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}\label{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0} 
+constexpr uint8\+\_\+t {\bfseries U8} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 8-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e}\label{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e} 
+constexpr uint16\+\_\+t {\bfseries U16} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 16-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}\label{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c} 
+constexpr uint32\+\_\+t {\bfseries U32} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 32-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_a05294404d794166f0223812f4152850a}\label{array__min_8cpp_a05294404d794166f0223812f4152850a} 
+constexpr uint64\+\_\+t {\bfseries U64} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of unsigned 64-\/bit integers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}\label{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4} 
+constexpr float {\bfseries F32} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9}\label{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9} 
+constexpr double {\bfseries F64} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]} = \{1\}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers to be copied. \end{DoxyCompactList}\item 
+\Hypertarget{array__min_8cpp_a35e6a551505952efdebb907c433aecf2}\label{array__min_8cpp_a35e6a551505952efdebb907c433aecf2} 
+\+\_\+\+\_\+m256i {\bfseries min\+\_\+v} = \+\_\+mm256\+\_\+set1\+\_\+epi8(min)
+\item 
+\Hypertarget{array__min_8cpp_a4735a0c4d1b11f62ea44115d54a93087}\label{array__min_8cpp_a4735a0c4d1b11f62ea44115d54a93087} 
+{\bfseries min} = \+\_\+mm256\+\_\+extract\+\_\+epi8(min\+\_\+v, 0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for finding the minimum in an array of integers and floating point numbers. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__min_8cpp_a08a43d027c1ced8871c9e73000e7447f}\label{array__min_8cpp_a08a43d027c1ced8871c9e73000e7447f} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f32\+\_\+min\+\_\+no\+\_\+simd}]{,  }\item[{\{ volatile float min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]};\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of f32\textquotesingle{}s without using SIMD instructions. 
+
+Finds the minimum in an array of f64\textquotesingle{}s without using SIMD instructions \Hypertarget{array__min_8cpp_a6c7405c77e225757b0acd78ba0e32869}\label{array__min_8cpp_a6c7405c77e225757b0acd78ba0e32869} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f32\+\_\+min\+\_\+simd128}]{,  }\item[{\{ volatile float min=\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128 min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+ps(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=4) \{ \+\_\+\+\_\+m128 v=\+\_\+mm\+\_\+load\+\_\+ps(\&\mbox{\hyperlink{array__min_8cpp_ad51c18c7f9d910888f6c9fdcb394b4e4}{F32}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+ps(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+cvtss\+\_\+f32(min\+\_\+v);\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of f32\textquotesingle{}s using SIMD instructions with 128 bits registers. 
+
+Finds the minimum in an array of f32\textquotesingle{}s using SIMD instructions with 256 bits registers \Hypertarget{array__min_8cpp_a00029d97d713f94184ffc182568b0be9}\label{array__min_8cpp_a00029d97d713f94184ffc182568b0be9} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{f64\+\_\+min\+\_\+simd128}]{,  }\item[{\{ volatile double min=\mbox{\hyperlink{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9}{F64}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128d min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+pd(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=2) \{ \+\_\+\+\_\+m128d v=\+\_\+mm\+\_\+load\+\_\+pd(\&\mbox{\hyperlink{array__min_8cpp_aaa566837e8ff2bb44611c3729c10adb9}{F64}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+pd(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+cvtsd\+\_\+f64(min\+\_\+v);\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of f64\textquotesingle{}s using SIMD instructions with 128 bits registers. 
+
+Finds the minimum in an array of f64\textquotesingle{}s using SIMD instructions with 256 bits registers \Hypertarget{array__min_8cpp_ac30b921be3bceb29ca3ffbdb14c07d2c}\label{array__min_8cpp_ac30b921be3bceb29ca3ffbdb14c07d2c} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u16\+\_\+min\+\_\+simd128}]{,  }\item[{\{ volatile uint16\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e}{U16}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi16(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=8) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_abc916b63ce19963f3e48bf2e4aadc76e}{U16}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu16(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi16(min\+\_\+v, 0);\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of u16\textquotesingle{}s using SIMD instructions with 128 bits registers. 
+
+Finds the minimum in an array of u16\textquotesingle{}s using SIMD instructions with 256 bits registers \Hypertarget{array__min_8cpp_acce6b07fb871cc2572cefa7976ceadd2}\label{array__min_8cpp_acce6b07fb871cc2572cefa7976ceadd2} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u32\+\_\+min\+\_\+no\+\_\+simd}]{,  }\item[{\{ volatile uint32\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]};\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of u32\textquotesingle{}s without using SIMD instructions. 
+
+Finds the minimum in an array of u64\textquotesingle{}s without using SIMD instructions \Hypertarget{array__min_8cpp_a9e930f4e32fb1f710ea8e58cae5a9856}\label{array__min_8cpp_a9e930f4e32fb1f710ea8e58cae5a9856} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u32\+\_\+min\+\_\+simd128}]{,  }\item[{\{ volatile uint32\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi32(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=4) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_a69190240275e8bbfc092a249bac4b52c}{U32}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu32(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi32(min\+\_\+v, 0);\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of u32\textquotesingle{}s using SIMD instructions with 128 bits registers. 
+
+Finds the minimum in an array of u32\textquotesingle{}s using SIMD instructions with 256 bits registers \Hypertarget{array__min_8cpp_aa8af7a3380ad37af108999a56334ab3a}\label{array__min_8cpp_aa8af7a3380ad37af108999a56334ab3a} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u8\+\_\+min\+\_\+no\+\_\+simd}]{,  }\item[{\{ volatile uint8\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}0\mbox{]};for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i++) \{ if(\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]}$<$ min) \{ min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]};\} \} \}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of u8\textquotesingle{}s without using SIMD instructions. 
+
+Finds the minimum in an array of u16\textquotesingle{}s without using SIMD instructions \Hypertarget{array__min_8cpp_a20a50454e156fece303b360959b8df2c}\label{array__min_8cpp_a20a50454e156fece303b360959b8df2c} 
+\index{array\_min.cpp@{array\_min.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{u8\+\_\+min\+\_\+simd128}]{,  }\item[{\{ volatile uint8\+\_\+t min=\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}0\mbox{]};\+\_\+\+\_\+m128i min\+\_\+v=\+\_\+mm\+\_\+set1\+\_\+epi8(min);for(int i=1;i$<$ \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}};i+=16) \{ \+\_\+\+\_\+m128i v=\+\_\+mm\+\_\+load\+\_\+si128((\+\_\+\+\_\+m128i \texorpdfstring{$\ast$}{*})\&\mbox{\hyperlink{array__min_8cpp_aec7cf097c7ddabada07baabec9b09fe0}{U8}}\mbox{[}i\mbox{]});min\+\_\+v=\+\_\+mm\+\_\+min\+\_\+epu8(min\+\_\+v, v);\} min=\+\_\+mm\+\_\+extract\+\_\+epi8(min\+\_\+v, 0);\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Finds the minimum in an array of u8\textquotesingle{}s using SIMD instructions with 128 bits registers. 
+
+Finds the minimum in an array of u8\textquotesingle{}s using SIMD instructions with 256 bits registers \Hypertarget{array__min_8cpp_a538a2fe783a54516b6e3376fbfc5c20f}\label{array__min_8cpp_a538a2fe783a54516b6e3376fbfc5c20f} 
+\index{array\_min.cpp@{array\_min.cpp}!for@{for}}
+\index{for@{for}!array\_min.cpp@{array\_min.cpp}}
+\doxysubsubsection{\texorpdfstring{for()}{for()}}
+{\footnotesize\ttfamily for (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{volatile}\ uint64\_t\ min\ =\ \mbox{\hyperlink{array__min_8cpp_a05294404d794166f0223812f4152850a}{U64}}[0]}
+
+\end{DoxyCode}

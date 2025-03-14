@@ -1,0 +1,236 @@
+;; Cycles : 204630
+
+55
+48 89 e5
+48 83 e4 e0
+48 81 ec a8 00 00 00
+48 c7 c6 10 30 42 00
+49 c7 c1 48 6e 8b 00
+49 c7 c0 44 6e 8b 00
+48 c7 c7 40 6e 8b 00
+8b 36
+41 8b 09
+41 8b 10
+8b 07
+41 89 f3
+41 83 eb 01
+0f 88 96 03 00 00
+48 c7 c0 40 cf 66 00
+48 c7 c2 40 30 42 00
+31 c9
+66 0f 1f 44 00 00
+c5 fd 10 70 20
+c5 fd 10 78 40
+83 c1 01
+48 05 e8 03 00 00
+c5 4d 5c 72 20
+c5 45 5c 6a 40
+48 81 c2 e8 03 00 00
+c5 fd 10 88 78 fc ff
+ff
+c5 fd 10 90 98 fc ff
+ff
+c5 75 5c a2 78 fc ff
+ff
+c5 6d 5c 9a 98 fc ff
+ff
+c5 fd 10 98 b8 fc ff
+ff
+c5 fd 10 a0 d8 fc ff
+ff
+c5 65 5c 92 b8 fc ff
+ff
+c5 5d 5c 8a d8 fc ff
+ff
+c5 fd 10 a8 f8 fc ff
+ff
+c5 fd 10 b0 18 fd ff
+ff
+c5 55 5c 82 f8 fc ff
+ff
+c5 cd 5c ba 18 fd ff
+ff
+c5 fd 10 90 38 fd ff
+ff
+c5 fd 10 a0 58 fd ff
+ff
+c5 ed 5c 8a 38 fd ff
+ff
+c5 dd 5c 9a 58 fd ff
+ff
+c5 fd 10 b0 78 fd ff
+ff
+c5 fd 10 90 98 fd ff
+ff
+c5 cd 5c aa 78 fd ff
+ff
+c5 ed 5c 82 98 fd ff
+ff
+c5 fd 10 b0 b8 fd ff
+ff
+c5 cd 5c a2 b8 fd ff
+ff
+c5 fd 29 8c 24 88 00
+00 00
+c5 fd 10 b0 d8 fd ff
+ff
+c5 fd 29 5c 24 68
+c5 fd 29 6c 24 48
+c5 fd 29 44 24 28
+c5 fd 29 64 24 08
+c5 cd 5c 92 d8 fd ff
+ff
+c5 7d 10 b8 18 fe ff
+ff
+c5 05 5c ba 18 fe ff
+ff
+c5 fd 10 98 38 fe ff
+ff
+c5 fd 10 b0 f8 fd ff
+ff
+c5 e5 5c 8a 38 fe ff
+ff
+c5 cd 5c b2 f8 fd ff
+ff
+c5 fd 10 a8 58 fe ff
+ff
+c5 fd 29 54 24 e8
+c5 7d 29 7c 24 a8
+c5 7d 10 b8 18 fc ff
+ff
+c5 05 5c ba 18 fc ff
+ff
+c5 fd 10 80 78 fe ff
+ff
+c5 fd 10 98 98 fe ff
+ff
+c5 fd 29 4c 24 88
+c5 e5 5c a2 98 fe ff
+ff
+c5 fd 10 90 d8 fe ff
+ff
+c5 fd 29 74 24 c8
+c5 ed 5c 92 d8 fe ff
+ff
+c5 d5 5c b2 58 fe ff
+ff
+c5 fd 5c aa 78 fe ff
+ff
+c5 fd 10 80 b8 fe ff
+ff
+c5 fd 5c 9a b8 fe ff
+ff
+c5 fd 10 80 f8 fe ff
+ff
+c5 fd 5c 8a f8 fe ff
+ff
+c5 fd 10 80 18 ff ff
+ff
+c5 fd 5c 82 18 ff ff
+ff
+c5 7d 11 b8 18 fc ff
+ff
+c5 7d 11 b0 38 fc ff
+ff
+c5 7d 11 a8 58 fc ff
+ff
+c5 7d 11 a0 78 fc ff
+ff
+c5 7d 11 98 98 fc ff
+ff
+c5 7d 11 90 b8 fc ff
+ff
+c5 7d 28 7c 24 a8
+c5 fd 11 b8 18 fd ff
+ff
+c5 fd 28 bc 24 88 00
+00 00
+c5 fd 11 a8 78 fe ff
+ff
+c5 fd 10 a8 78 ff ff
+ff
+c5 fd 11 b8 38 fd ff
+ff
+c5 fd 28 7c 24 68
+c5 fd 11 90 d8 fe ff
+ff
+c5 fd 11 b8 58 fd ff
+ff
+c5 fd 28 7c 24 48
+c5 fd 11 88 f8 fe ff
+ff
+c5 fd 10 88 58 ff ff
+ff
+c5 fd 11 b8 78 fd ff
+ff
+c5 fd 28 7c 24 28
+c5 fd 11 80 18 ff ff
+ff
+c5 fd 11 b8 98 fd ff
+ff
+c5 fd 28 7c 24 08
+c5 7d 11 88 d8 fc ff
+ff
+c5 fd 11 b8 b8 fd ff
+ff
+c5 fd 28 7c 24 e8
+c5 7d 11 80 f8 fc ff
+ff
+c5 fd 11 b8 d8 fd ff
+ff
+c5 fd 28 7c 24 c8
+c5 7d 11 b8 18 fe ff
+ff
+c5 fd 11 b8 f8 fd ff
+ff
+c5 fd 28 7c 24 88
+c5 fd 11 b0 58 fe ff
+ff
+c5 fd 11 b8 38 fe ff
+ff
+c5 fd 11 a0 98 fe ff
+ff
+c5 fd 11 98 b8 fe ff
+ff
+c5 d5 5c 9a 78 ff ff
+ff
+c5 f5 5c a2 58 ff ff
+ff
+c5 fd 10 48 98
+c5 fd 10 68 b8
+c5 f5 5c 52 98
+c5 d5 5c 4a b8
+c5 fd 10 68 d8
+c5 d5 5c 42 d8
+c5 fd 10 a8 38 ff ff
+ff
+c5 d5 5c aa 38 ff ff
+ff
+c5 fd 11 a0 58 ff ff
+ff
+c5 fd 11 98 78 ff ff
+ff
+c5 fd 11 40 d8
+c5 fb 10 40 f8
+c5 fd 11 a8 38 ff ff
+ff
+c5 fd 11 50 98
+c5 fd 11 48 b8
+c5 fb 5c 42 f8
+c5 fb 11 40 f8
+39 f1
+0f 85 a6 fc ff ff
+b8 05 00 00 00
+ba 05 00 00 00
+b9 05 00 00 00
+c5 f8 77
+49 c7 c2 4c 6e 8b 00
+41 89 09
+41 89 10
+41 89 32
+89 07
+c9
+c3
+31 f6
+eb e8
+0f 1f 40 00

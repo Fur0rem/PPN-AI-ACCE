@@ -1,0 +1,227 @@
+;; Cycles : 208397
+
+55
+48 c7 c0 40 30 5b 00
+c5 f9 57 c0
+49 c7 c0 40 b0 67 00
+49 c7 c3 40 b0 4e 00
+4c 8d 88 00 32 00 00
+49 c7 c2 40 30 42 00
+48 89 e5
+4c 89 cf
+53
+49 8d 98 00 80 0c 00
+4c 89 d6
+4c 89 d9
+4c 89 c2
+c5 fd 11 02
+48 05 20 03 00 00
+48 81 c2 20 03 00 00
+48 81 c1 20 03 00 00
+c5 fd 11 82 00 fd ff
+ff
+48 81 c6 20 03 00 00
+c5 fd 11 82 20 fd ff
+ff
+c5 fd 11 82 40 fd ff
+ff
+c5 fd 11 82 60 fd ff
+ff
+c5 fd 11 82 80 fd ff
+ff
+c5 fd 11 82 a0 fd ff
+ff
+c5 fd 11 82 c0 fd ff
+ff
+c5 fd 11 82 e0 fd ff
+ff
+c5 fd 11 82 00 fe ff
+ff
+c5 fd 11 82 20 fe ff
+ff
+c5 fd 11 82 40 fe ff
+ff
+c5 fd 11 82 60 fe ff
+ff
+c5 fd 11 82 80 fe ff
+ff
+c5 fd 11 82 a0 fe ff
+ff
+c5 fd 11 82 c0 fe ff
+ff
+c5 fd 11 82 e0 fe ff
+ff
+c5 fd 11 82 00 ff ff
+ff
+c5 fd 11 82 20 ff ff
+ff
+c5 fd 11 82 40 ff ff
+ff
+c5 fd 11 82 60 ff ff
+ff
+c5 fd 11 42 80
+c5 fd 11 42 a0
+c5 fd 11 42 c0
+c5 fd 11 42 e0
+c5 fd 11 80 e0 fc ff
+ff
+c5 fd 11 80 00 fd ff
+ff
+c5 fd 11 80 20 fd ff
+ff
+c5 fd 11 80 40 fd ff
+ff
+c5 fd 11 80 60 fd ff
+ff
+c5 fd 11 80 80 fd ff
+ff
+c5 fd 11 80 a0 fd ff
+ff
+c5 fd 11 80 c0 fd ff
+ff
+c5 fd 11 80 e0 fd ff
+ff
+c5 fd 11 80 00 fe ff
+ff
+c5 fd 11 80 20 fe ff
+ff
+c5 fd 11 80 40 fe ff
+ff
+c5 fd 11 80 60 fe ff
+ff
+c5 fd 11 80 80 fe ff
+ff
+c5 fd 11 80 a0 fe ff
+ff
+c5 fd 11 80 c0 fe ff
+ff
+c5 fd 11 80 e0 fe ff
+ff
+c5 fd 11 80 00 ff ff
+ff
+c5 fd 11 80 20 ff ff
+ff
+c5 fd 11 80 40 ff ff
+ff
+c5 fd 11 80 60 ff ff
+ff
+c5 fd 11 40 80
+c5 fd 11 40 a0
+c5 fd 11 40 c0
+c5 fd 11 40 e0
+c5 fd 11 81 e0 fc ff
+ff
+c5 fd 11 81 00 fd ff
+ff
+c5 fd 11 81 20 fd ff
+ff
+c5 fd 11 81 40 fd ff
+ff
+c5 fd 11 81 60 fd ff
+ff
+c5 fd 11 81 80 fd ff
+ff
+c5 fd 11 81 a0 fd ff
+ff
+c5 fd 11 81 c0 fd ff
+ff
+c5 fd 11 81 e0 fd ff
+ff
+c5 fd 11 81 00 fe ff
+ff
+c5 fd 11 81 20 fe ff
+ff
+c5 fd 11 81 40 fe ff
+ff
+c5 fd 11 81 60 fe ff
+ff
+c5 fd 11 81 80 fe ff
+ff
+c5 fd 11 81 a0 fe ff
+ff
+c5 fd 11 81 c0 fe ff
+ff
+c5 fd 11 81 e0 fe ff
+ff
+c5 fd 11 81 00 ff ff
+ff
+c5 fd 11 81 20 ff ff
+ff
+c5 fd 11 81 40 ff ff
+ff
+c5 fd 11 81 60 ff ff
+ff
+c5 fd 11 41 80
+c5 fd 11 41 a0
+c5 fd 11 41 c0
+c5 fd 11 41 e0
+c5 fd 11 86 e0 fc ff
+ff
+c5 fd 11 86 00 fd ff
+ff
+c5 fd 11 86 20 fd ff
+ff
+c5 fd 11 86 40 fd ff
+ff
+c5 fd 11 86 60 fd ff
+ff
+c5 fd 11 86 80 fd ff
+ff
+c5 fd 11 86 a0 fd ff
+ff
+c5 fd 11 86 c0 fd ff
+ff
+c5 fd 11 86 e0 fd ff
+ff
+c5 fd 11 86 00 fe ff
+ff
+c5 fd 11 86 20 fe ff
+ff
+c5 fd 11 86 40 fe ff
+ff
+c5 fd 11 86 60 fe ff
+ff
+c5 fd 11 86 80 fe ff
+ff
+c5 fd 11 86 a0 fe ff
+ff
+c5 fd 11 86 c0 fe ff
+ff
+c5 fd 11 86 e0 fe ff
+ff
+c5 fd 11 86 00 ff ff
+ff
+c5 fd 11 86 20 ff ff
+ff
+c5 fd 11 86 40 ff ff
+ff
+c5 fd 11 86 60 ff ff
+ff
+c5 fd 11 46 80
+c5 fd 11 46 a0
+c5 fd 11 46 c0
+c5 fd 11 46 e0
+48 39 f8
+0f 85 f0 fc ff ff
+49 81 c0 00 32 00 00
+4c 89 c8
+49 81 c3 00 32 00 00
+49 81 c2 00 32 00 00
+48 81 c7 00 32 00 00
+49 39 d8
+74 0c
+49 81 c1 00 32 00 00
+e9 b7 fc ff ff
+48 c7 c0 4c 30 74 00
+c7 00 40 00 00 00
+48 c7 c0 48 30 74 00
+c7 00 40 00 00 00
+48 c7 c0 44 30 74 00
+c7 00 05 00 00 00
+48 c7 c0 40 30 74 00
+c7 00 05 00 00 00
+c5 f8 77
+48 8b 5d f8
+c9
+c3
+0f 1f 40 00

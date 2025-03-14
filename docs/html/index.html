@@ -75,14 +75,17 @@ $(function() {
   <div class="headertitle"><div class="title">Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator) </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a>Link : <a href="https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator">https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator</a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Link : <a href="https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator">https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator</a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Current status of the project</h1>
-<p>Done/To do:</p><ul>
+<p>Done/To do:</p>
+<ul>
 <li>[x] Set up the project</li>
 <li>[x] Add parsing of the assembly code</li>
-<li>[] Get data to train the AI model</li>
+<li>[x] Get data to train the AI model</li>
 <li>[x] Implement the AI model</li>
+<li>[ ] Improve accuracy of the AI model</li>
+<li>[ ] Improve speed of the AI model</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h1>
@@ -100,27 +103,31 @@ How to run the project</h1>
 <ul>
 <li>Clone the repository with submodules: <code>git clone --recurse-submodules</code></li>
 <li><code>Build it with CMake: -</code>mkdir build<code> -</code>cd build<code> -</code>cmake ..<code> -</code>make<code></code></li>
-<li><code>Now you can run the tests with</code>make check`</li>
+<li><code>Now you can run the tests with</code>make check<code></code></li>
+<li><code>You can extract the data with</code>$/build/&gt; ./extract_data<code></code></li>
+<li><code>You can run the AI model with</code>$/&gt; ./main`</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Project structure</h1>
-<div class="fragment"><div class="line">├── benchmarks      # Contains the benchmarks to generate the data</div>
+<div class="fragment"><div class="line">├── benchmarks              # Contains the benchmarks to generate the data</div>
 <div class="line">│   └── op.cpp</div>
-<div class="line">├── bin             # Contains the compiled files (including the tests and benchmarks)</div>
-<div class="line">├── dataset         # Contains the training data</div>
-<div class="line">├── docs            # Contains the documentation</div>
-<div class="line">├── nanobench       # Contains the nanobench submodule</div>
-<div class="line">├── experiments     # Contains several experiments using pre-made frameworks we did not related to the main project</div>
-<div class="line">├── include         # Contains the header files</div>
+<div class="line">├── bin                     # Contains the compiled files (including the tests and benchmarks)</div>
+<div class="line">├── dataset                 # Contains the training data</div>
+<div class="line">│   ├── bench_bins          # Contains the binaries of the benchmarks along with the cycles count</div>
+<div class="line">│   ├── bench_srcs_small    # Contains a small subset of the benchmarks binaries for testing</div>
+<div class="line">├── docs                    # Contains the documentation</div>
+<div class="line">├── nanobench               # Contains the nanobench submodule</div>
+<div class="line">├── experiments             # Contains several experiments using pre-made frameworks we did not related to the main project</div>
+<div class="line">├── include                 # Contains the header files</div>
 <div class="line">│   └── x.hpp</div>
-<div class="line">├── src             # Contains the source code</div>
+<div class="line">├── src                     # Contains the source code</div>
 <div class="line">│   └── x.cpp</div>
-<div class="line">├── tests           # Contains the tests source code</div>
+<div class="line">├── tests                   # Contains the tests source code</div>
 <div class="line">│   └── test_x.cpp</div>
-<div class="line">├── CMakeLists.txt  # To compile the project</div>
-<div class="line">├── default.nix     # Nix file to create a development environment</div>
-<div class="line">├── Doxyfile        # Doxygen configuration file</div>
-<div class="line">└── .clang files    # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd</div>
+<div class="line">├── CMakeLists.txt          # To compile the project</div>
+<div class="line">├── default.nix             # Nix file to create a development environment</div>
+<div class="line">├── Doxyfile                # Doxygen configuration file</div>
+<div class="line">└── .clang files            # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd</div>
 </div><!-- fragment --><p>Move the pre-commit.sh file to .git/hooks/pre-commit to make the project automatically format, test and generate the documentation when committing. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>

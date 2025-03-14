@@ -1,0 +1,31 @@
+;; Cycles : 2565
+
+ba 08 00 00 00
+48 c7 c0 60 00 45 00
+c5 fd 6f 15 6c 85 01
+00
+c4 e2 7d 19 1d b3 85
+01 00
+c5 f9 6e ea
+ba 01 00 00 00
+c5 f9 6e e2
+48 8d 88 00 80 00 00
+c4 e2 7d 58 ed
+c4 e2 7d 58 e4
+0f 1f 44 00 00
+c5 fd 6f c2
+48 83 c0 40
+c5 ed fe d5
+c5 fd fe c4
+c5 fe e6 c8
+c5 f5 59 cb
+c4 e3 7d 39 c0 01
+c5 fe e6 c0
+c5 fd 59 c3
+c5 fd 11 48 c0
+c5 fd 11 40 e0
+48 39 c1
+75 cb
+c5 f8 77
+c3
+0f 1f 80 00 00 00 00

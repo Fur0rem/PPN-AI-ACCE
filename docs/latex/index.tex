@@ -2,13 +2,17 @@
 \hypertarget{index}{}\label{index}\index{Repository for the course PPN (Projet de Programmation Numérique): AI-\/ACCE (AI based Assembly Code Cycles Estimator)@{Repository for the course PPN (Projet de Programmation Numérique): AI-\/ACCE (AI based Assembly Code Cycles Estimator)}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
-Link \+: \href{https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html\#ai-acce-ai-based-assembly-code-cycles-estimator}{\texttt{ https\+://academic.\+liparad.\+uvsq.\+fr/m1chps/ppn/projets.\+html\#ai-\/acce-\/ai-\/based-\/assembly-\/code-\/cycles-\/estimator}}\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Current status of the project}{Current status of the project}}\label{index_autotoc_md1}
+ Link \+: \href{https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html\#ai-acce-ai-based-assembly-code-cycles-estimator}{\texttt{ https\+://academic.\+liparad.\+uvsq.\+fr/m1chps/ppn/projets.\+html\#ai-\/acce-\/ai-\/based-\/assembly-\/code-\/cycles-\/estimator}}\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Current status of the project}{Current status of the project}}\label{index_autotoc_md1}
 Done/\+To do\+:
+
+
 \begin{DoxyItemize}
 \item \mbox{[}x\mbox{]} Set up the project
 \item \mbox{[}x\mbox{]} Add parsing of the assembly code
-\item \mbox{[}\mbox{]} Get data to train the AI model
+\item \mbox{[}x\mbox{]} Get data to train the AI model
 \item \mbox{[}x\mbox{]} Implement the AI model
+\item \mbox{[} \mbox{]} Improve accuracy of the AI model
+\item \mbox{[} \mbox{]} Improve speed of the AI model
 \end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
@@ -24,27 +28,31 @@ Done/\+To do\+:
 \begin{DoxyItemize}
 \item Clone the repository with submodules\+: {\ttfamily git clone -\/-\/recurse-\/submodules}
 \item {\ttfamily Build it with CMake\+: -\/}mkdir build{\ttfamily  -\/}cd build{\ttfamily  -\/}cmake ..{\ttfamily  -\/}make{\ttfamily }
-\item {\ttfamily Now you can run the tests with}make check\`{}
+\item {\ttfamily Now you can run the tests with}make check{\ttfamily }
+\item {\ttfamily You can extract the data with}\$/build/\texorpdfstring{$>$}{>} ./extract\+\_\+data{\ttfamily }
+\item {\ttfamily You can run the AI model with}\$/\texorpdfstring{$>$}{>} ./main\`{}
 \end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Project structure}{Project structure}}\label{index_autotoc_md4}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{├──\ benchmarks\ \ \ \ \ \ \#\ Contains\ the\ benchmarks\ to\ generate\ the\ data}
+\DoxyCodeLine{├──\ benchmarks\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ benchmarks\ to\ generate\ the\ data}
 \DoxyCodeLine{│\ \ \ └──\ op.cpp}
-\DoxyCodeLine{├──\ bin\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ compiled\ files\ (including\ the\ tests\ and\ benchmarks)}
-\DoxyCodeLine{├──\ dataset\ \ \ \ \ \ \ \ \ \#\ Contains\ the\ training\ data}
-\DoxyCodeLine{├──\ docs\ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ documentation}
-\DoxyCodeLine{├──\ nanobench\ \ \ \ \ \ \ \#\ Contains\ the\ nanobench\ submodule}
-\DoxyCodeLine{├──\ experiments\ \ \ \ \ \#\ Contains\ several\ experiments\ using\ pre-\/made\ frameworks\ we\ did\ not\ related\ to\ the\ main\ project}
-\DoxyCodeLine{├──\ include\ \ \ \ \ \ \ \ \ \#\ Contains\ the\ header\ files}
+\DoxyCodeLine{├──\ bin\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ compiled\ files\ (including\ the\ tests\ and\ benchmarks)}
+\DoxyCodeLine{├──\ dataset\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ training\ data}
+\DoxyCodeLine{│\ \ \ ├──\ bench\_bins\ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ binaries\ of\ the\ benchmarks\ along\ with\ the\ cycles\ count}
+\DoxyCodeLine{│\ \ \ ├──\ bench\_srcs\_small\ \ \ \ \#\ Contains\ a\ small\ subset\ of\ the\ benchmarks\ binaries\ for\ testing}
+\DoxyCodeLine{├──\ docs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ documentation}
+\DoxyCodeLine{├──\ nanobench\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ nanobench\ submodule}
+\DoxyCodeLine{├──\ experiments\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ several\ experiments\ using\ pre-\/made\ frameworks\ we\ did\ not\ related\ to\ the\ main\ project}
+\DoxyCodeLine{├──\ include\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ header\ files}
 \DoxyCodeLine{│\ \ \ └──\ x.hpp}
-\DoxyCodeLine{├──\ src\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ source\ code}
+\DoxyCodeLine{├──\ src\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ source\ code}
 \DoxyCodeLine{│\ \ \ └──\ x.cpp}
-\DoxyCodeLine{├──\ tests\ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ tests\ source\ code}
+\DoxyCodeLine{├──\ tests\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ tests\ source\ code}
 \DoxyCodeLine{│\ \ \ └──\ test\_x.cpp}
-\DoxyCodeLine{├──\ CMakeLists.txt\ \ \#\ To\ compile\ the\ project}
-\DoxyCodeLine{├──\ default.nix\ \ \ \ \ \#\ Nix\ file\ to\ create\ a\ development\ environment}
-\DoxyCodeLine{├──\ Doxyfile\ \ \ \ \ \ \ \ \#\ Doxygen\ configuration\ file}
-\DoxyCodeLine{└──\ .clang\ files\ \ \ \ \#\ Contains\ the\ clang\ files\ for\ formatting\ and\ linting\ like\ .clang-\/format,\ .clang-\/tidy\ and\ .clangd}
+\DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \#\ To\ compile\ the\ project}
+\DoxyCodeLine{├──\ default.nix\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Nix\ file\ to\ create\ a\ development\ environment}
+\DoxyCodeLine{├──\ Doxyfile\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Doxygen\ configuration\ file}
+\DoxyCodeLine{└──\ .clang\ files\ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ clang\ files\ for\ formatting\ and\ linting\ like\ .clang-\/format,\ .clang-\/tidy\ and\ .clangd}
 
 \end{DoxyCode}
 

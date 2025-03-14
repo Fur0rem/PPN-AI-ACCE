@@ -1,0 +1,36 @@
+;; Cycles : 46810100
+
+48 c7 c2 60 30 42 00
+c5 fb 10 2d 11 75 01
+00
+b8 80 4f 12 00
+c5 fb 10 4a 08
+c5 fb 10 42 10
+c5 fb 10 62 18
+c5 fb 10 52 20
+0f 1f 84 00 00 00 00
+00
+c5 fb 58 c9
+c5 f3 58 cc
+c5 f3 5c ca
+c5 f3 59 cd
+c5 f3 58 c0
+c5 fb 5c c4
+c5 fb 58 c2
+c5 fb 59 c5
+c5 f3 5c d8
+c5 e3 58 dc
+c5 e3 58 da
+c5 e3 59 e5
+c5 fb 5c d9
+c5 e3 58 dc
+c5 e3 58 d2
+c5 eb 59 d5
+83 e8 01
+75 bb
+c5 fb 11 4a 08
+c5 fb 11 42 10
+c5 fb 11 62 18
+c5 fb 11 52 20
+c3
+66 0f 1f 44 00 00

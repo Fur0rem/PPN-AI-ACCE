@@ -1,0 +1,92 @@
+\doxysection{benchmarks/array\+\_\+add.cpp File Reference}
+\hypertarget{array__add_8cpp}{}\label{array__add_8cpp}\index{benchmarks/array\_add.cpp@{benchmarks/array\_add.cpp}}
+
+
+Benchmark for array addition using SIMD instructions.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__add_8cpp_a2cc4e9c576b3ebf139e068548437be3f}\label{array__add_8cpp_a2cc4e9c576b3ebf139e068548437be3f} 
+\#define {\bfseries OPTIMISE\+\_\+\+SPEED}~\+\_\+\+Pragma("{}GCC optimize(\textbackslash{}"{}O3\textbackslash{}"{})"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__add_8cpp_ae20b116e3c84a8c006d9605e5b13eea3}\label{array__add_8cpp_ae20b116e3c84a8c006d9605e5b13eea3} 
+void {\bfseries initialize\+\_\+arrays} ()
+\begin{DoxyCompactList}\small\item\em Initialize the arrays. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__add_8cpp_a609dbb65b8c734642c7fcf9081eb9306}{BENCHMARK\+\_\+\+FN}} (array\+\_\+add\+\_\+f32\+\_\+no\+\_\+simd, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movss (\%0, \%\%rcx, 4), \%\%xmm0\textbackslash{}n"{} "{}movss (\%1, \%\%rcx, 4), \%\%xmm1\textbackslash{}n"{} "{}addss \%\%xmm1, \%\%xmm0\textbackslash{}n"{} "{}movss \%\%xmm0, (\%2, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$1, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_a012767f4964361f81e52c378ae806f3b}{f32a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}{f32b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}{f32c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}xmm1"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(array\+\_\+add\+\_\+f32\+\_\+simd128
+\begin{DoxyCompactList}\small\item\em Add two arrays of single precision floating point numbers without SIMD instructions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__add_8cpp_a330d9c79e8c921819c14162e39731ac9}{BENCHMARK\+\_\+\+FN}} (array\+\_\+add\+\_\+f32\+\_\+simd256, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovaps (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovaps (\%1, \%\%rcx, 4), \%\%ymm1\textbackslash{}n"{} "{}vaddps \%\%ymm1, \%\%ymm0, \%\%ymm0\textbackslash{}n"{} "{}vmovaps \%\%ymm0, (\%2, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$8, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_a012767f4964361f81e52c378ae806f3b}{f32a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}{f32b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}{f32c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}ymm1"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(array\+\_\+add\+\_\+f64\+\_\+no\+\_\+simd
+\begin{DoxyCompactList}\small\item\em Add two arrays of single precision floating point numbers using SIMD instructions with 256 bits registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{array__add_8cpp_a2a74fc29506354135c99afe080fa393b}{BENCHMARK\+\_\+\+FN}} (array\+\_\+add\+\_\+f64\+\_\+simd128, \{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movapd (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movapd (\%1, \%\%rcx, 8), \%\%xmm1\textbackslash{}n"{} "{}addpd \%\%xmm1, \%\%xmm0\textbackslash{}n"{} "{}movapd \%\%xmm0, (\%2, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$2, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2}{f64a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1}{f64b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2}{f64c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}xmm1"{}, "{}rcx"{});\}) BENCHMARK\+\_\+\+FN(array\+\_\+add\+\_\+f64\+\_\+simd256
+\begin{DoxyCompactList}\small\item\em Add two arrays of double precision floating point numbers using SIMD instructions with 128 bits registers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{array__add_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for vector addition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}\label{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706} 
+constexpr int {\bfseries N} = 1024
+\begin{DoxyCompactList}\small\item\em Size of the arrays. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_a012767f4964361f81e52c378ae806f3b}\label{array__add_8cpp_a012767f4964361f81e52c378ae806f3b} 
+float {\bfseries f32a} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}\label{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47} 
+float {\bfseries f32b} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}\label{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504} 
+float {\bfseries f32c} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of single precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2}\label{array__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2} 
+double {\bfseries f64a} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1}\label{array__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1} 
+double {\bfseries f64b} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\item 
+\Hypertarget{array__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2}\label{array__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2} 
+double {\bfseries f64c} \mbox{[}\mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of double precision floating point numbers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for array addition using SIMD instructions. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__add_8cpp_a609dbb65b8c734642c7fcf9081eb9306}\label{array__add_8cpp_a609dbb65b8c734642c7fcf9081eb9306} 
+\index{array\_add.cpp@{array\_add.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_add.cpp@{array\_add.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{array\+\_\+add\+\_\+f32\+\_\+no\+\_\+simd}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movss (\%0, \%\%rcx, 4), \%\%xmm0\textbackslash{}n"{} "{}movss (\%1, \%\%rcx, 4), \%\%xmm1\textbackslash{}n"{} "{}addss \%\%xmm1, \%\%xmm0\textbackslash{}n"{} "{}movss \%\%xmm0, (\%2, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$1, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_a012767f4964361f81e52c378ae806f3b}{f32a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}{f32b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}{f32c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}xmm1"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Add two arrays of single precision floating point numbers without SIMD instructions. 
+
+Add two arrays of single precision floating point numbers using SIMD instructions with 128 bits registers \Hypertarget{array__add_8cpp_a330d9c79e8c921819c14162e39731ac9}\label{array__add_8cpp_a330d9c79e8c921819c14162e39731ac9} 
+\index{array\_add.cpp@{array\_add.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_add.cpp@{array\_add.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{array\+\_\+add\+\_\+f32\+\_\+simd256}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}vmovaps (\%0, \%\%rcx, 4), \%\%ymm0\textbackslash{}n"{} "{}vmovaps (\%1, \%\%rcx, 4), \%\%ymm1\textbackslash{}n"{} "{}vaddps \%\%ymm1, \%\%ymm0, \%\%ymm0\textbackslash{}n"{} "{}vmovaps \%\%ymm0, (\%2, \%\%rcx, 4)\textbackslash{}n"{} "{}addq \$8, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_a012767f4964361f81e52c378ae806f3b}{f32a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a3d0f32d59731d7aa1731f8f4e0d8fe47}{f32b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_aadcba481c5d65c1d24d3dd60bb20f504}{f32c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}ymm0"{}, "{}ymm1"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Add two arrays of single precision floating point numbers using SIMD instructions with 256 bits registers. 
+
+Add two arrays of double precision floating point numbers without SIMD instructions \Hypertarget{array__add_8cpp_a2a74fc29506354135c99afe080fa393b}\label{array__add_8cpp_a2a74fc29506354135c99afe080fa393b} 
+\index{array\_add.cpp@{array\_add.cpp}!BENCHMARK\_FN@{BENCHMARK\_FN}}
+\index{BENCHMARK\_FN@{BENCHMARK\_FN}!array\_add.cpp@{array\_add.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_FN()}{BENCHMARK\_FN()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+FN (\begin{DoxyParamCaption}\item[{array\+\_\+add\+\_\+f64\+\_\+simd128}]{,  }\item[{\{ asm volatile("{}movq \$0, \%\%rcx\textbackslash{}n"{} "{}1\+:\textbackslash{}n"{} "{}movapd (\%0, \%\%rcx, 8), \%\%xmm0\textbackslash{}n"{} "{}movapd (\%1, \%\%rcx, 8), \%\%xmm1\textbackslash{}n"{} "{}addpd \%\%xmm1, \%\%xmm0\textbackslash{}n"{} "{}movapd \%\%xmm0, (\%2, \%\%rcx, 8)\textbackslash{}n"{} "{}addq \$2, \%\%rcx\textbackslash{}n"{} "{}cmpq \%3, \%\%rcx\textbackslash{}n"{} "{}jl 1b\textbackslash{}n"{} \+::"{}r"{}(\mbox{\hyperlink{array__add_8cpp_afd6289ae798ff9c2a331264cfeb7eda2}{f64a}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_a5cc3ce141f6b15ab901214f746dfb9a1}{f64b}}), "{}r"{}(\mbox{\hyperlink{array__add_8cpp_ac36faa29f70026ba76d5f99ada7352e2}{f64c}}), "{}r"{}((long long) \mbox{\hyperlink{array__add_8cpp_a8eee69f4f513623c72ccbaea4e0fb706}{N}}) \+:"{}xmm0"{}, "{}xmm1"{}, "{}rcx"{});\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Add two arrays of double precision floating point numbers using SIMD instructions with 128 bits registers. 
+
+Add two arrays of double precision floating point numbers using SIMD instructions with 256 bits registers 

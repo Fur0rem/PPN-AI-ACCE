@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xorparser_0',['XORParser',['../classXORParser.html',1,'']]]
+  ['planet_0',['Planet',['../structPlanet.html',1,'']]]
 ];

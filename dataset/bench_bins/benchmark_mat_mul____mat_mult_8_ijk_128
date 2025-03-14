@@ -1,0 +1,50 @@
+;; Cycles : 128
+
+48 c7 c0 40 68 42 2b
+48 8d 15 c2 f4 56 00
+c5 e9 57 d2
+48 8d 88 00 02 00 00
+0f 1f 80 00 00 00 00
+c5 fd 28 0a
+48 83 c0 40
+48 83 c2 40
+c4 e2 7d 19 c1
+c4 63 fd 01 c9 55
+c4 63 fd 01 c1 aa
+c5 35 59 ca
+c4 e3 fd 01 c9 ff
+c5 f5 59 fa
+c5 fd 28 4a e0
+c5 fd 59 c2
+c4 e2 7d 19 f1
+c4 e3 fd 01 e9 55
+c4 e3 fd 01 e1 aa
+c5 3d 59 c2
+c4 e3 fd 01 c9 ff
+c5 f5 59 da
+c5 fd 58 48 e0
+c5 fd 58 40 c0
+c5 cd 59 f2
+c5 d5 59 ea
+c4 c1 75 58 c9
+c4 c1 7d 58 c1
+c5 dd 59 e2
+c4 c1 75 58 c8
+c4 c1 7d 58 c0
+c5 f5 58 cf
+c5 fd 58 c7
+c5 f5 58 ce
+c5 fd 58 c6
+c5 f5 58 cd
+c5 fd 58 c5
+c5 f5 58 cc
+c5 fd 58 c4
+c5 f5 58 cb
+c5 fd 58 c3
+c5 fd 11 48 e0
+c5 fd 11 40 c0
+48 39 c8
+0f 85 48 ff ff ff
+c5 f8 77
+c3
+0f 1f 40 00

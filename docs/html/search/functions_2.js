@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feed_5fforward_0',['feed_forward',['../classLayer.html#ab74288f699a9765caa9cef07616103a8',1,'Layer']]]
+  ['convert_5fdata_5ffor_5floss_0',['convert_data_for_loss',['../classNeuralNetwork.html#adc488c9cff4768932aa59aed9bca51ad',1,'NeuralNetwork']]]
 ];

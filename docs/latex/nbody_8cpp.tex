@@ -1,0 +1,137 @@
+\doxysection{benchmarks/nbody.cpp File Reference}
+\hypertarget{nbody_8cpp}{}\label{nbody_8cpp}\index{benchmarks/nbody.cpp@{benchmarks/nbody.cpp}}
+
+
+Benchmark for the nbody problem.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPlanet}{Planet}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nbody_8cpp_a598a3330b3c21701223ee0ca14316eca}\label{nbody_8cpp_a598a3330b3c21701223ee0ca14316eca} 
+\#define {\bfseries PI}~3.\+141592653589793
+\item 
+\Hypertarget{nbody_8cpp_a6321c9a4f727494edf637f2c5559af44}\label{nbody_8cpp_a6321c9a4f727494edf637f2c5559af44} 
+\#define {\bfseries SOLAR\+\_\+\+MASS}~(4 \texorpdfstring{$\ast$}{*} PI \texorpdfstring{$\ast$}{*} PI)
+\item 
+\Hypertarget{nbody_8cpp_ab8b198f8809cbf6e5135c0a7750b3b45}\label{nbody_8cpp_ab8b198f8809cbf6e5135c0a7750b3b45} 
+\#define {\bfseries DAYS\+\_\+\+PER\+\_\+\+YEAR}~365.\+24
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nbody_8cpp_a387f6e7aab3ff5ea40077b0103d77bad}\label{nbody_8cpp_a387f6e7aab3ff5ea40077b0103d77bad} 
+{\bfseries BENCHMARK\+\_\+\+FN} (initialize\+\_\+bodies, \{(\{ bodies\mbox{[}0\mbox{]}=\mbox{\hyperlink{structPlanet}{Planet}}\{ .x=0,.y=0,.z=0,.vx=0,.vy=0,.vz=0,.mass=SOLAR\+\_\+\+MASS, \};bodies\mbox{[}1\mbox{]}=\mbox{\hyperlink{structPlanet}{Planet}}\{.x=4.\+84143144246472090e+00,.y=-\/1.\+16032004402742839e+00,.z=-\/1.\+03622044471123109e-\/01,.vx=1.\+66007664274403694e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vy=7.\+69901118419740425e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vz=-\/6.\+90460016972063023e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.mass=9.\+54791938424326609e-\/04 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS\};bodies\mbox{[}2\mbox{]}=\mbox{\hyperlink{structPlanet}{Planet}}\{.x=8.\+34336671824457987e+00,.y=4.\+12479856412430479e+00,.z=-\/4.\+03523417114321381e-\/01,.vx=-\/2.\+76742510726862411e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vy=4.\+99852801234917238e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vz=2.\+30417297573763929e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.mass=2.\+85885980666130812e-\/04 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS\};bodies\mbox{[}3\mbox{]}=\mbox{\hyperlink{structPlanet}{Planet}}\{.x=1.\+28943695621391310e+01,.y=-\/1.\+51111514016986312e+01,.z=-\/2.\+23307578892655734e-\/01,.vx=2.\+96460137564761618e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vy=2.\+37847173959480950e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vz=-\/2.\+96589568540237556e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.mass=4.\+36624404335156298e-\/05 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS\};bodies\mbox{[}4\mbox{]}=\mbox{\hyperlink{structPlanet}{Planet}}\{.x=1.\+53796971148509165e+01,.y=-\/2.\+59193146099879641e+01,.z=1.\+79258772950371181e-\/01,.vx=2.\+68067772490389322e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vy=1.\+62824170038242295e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.vz=-\/9.\+51592254519715870e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR,.mass=5.\+15138902046611451e-\/05 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS\};\});\}) BENCHMARK\+\_\+\+FN(offset\+\_\+momentum
+\begin{DoxyCompactList}\small\item\em Initialize the bodies. \end{DoxyCompactList}\item 
+\Hypertarget{nbody_8cpp_ab721b1dc055245ac91ecbebbf25ebb68}\label{nbody_8cpp_ab721b1dc055245ac91ecbebbf25ebb68} 
+{\bfseries for} (int i=0;i$<$ NBODIES;i++)
+\item 
+\Hypertarget{nbody_8cpp_a467b9ebd45a59f3c816da0751414c3e9}\label{nbody_8cpp_a467b9ebd45a59f3c816da0751414c3e9} 
+{\bfseries BENCHMARK\+\_\+\+FN} (advance, \{ for(int iter=0;iter$<$ NB\+\_\+\+ITERS;iter++) \{ for(int i=0;i$<$ NBODIES;i++) \{ \mbox{\hyperlink{structPlanet}{Planet}} \texorpdfstring{$\ast$}{*}b=\&(bodies\mbox{[}i\mbox{]});for(int j=i+1;j$<$ NBODIES;j++) \{ \mbox{\hyperlink{structPlanet}{Planet}} \texorpdfstring{$\ast$}{*}b2=\&(bodies\mbox{[}j\mbox{]});double dx=b-\/$>$x -\/ b2-\/$>$x;double dy=b-\/$>$y -\/ b2-\/$>$y;double dz=b-\/$>$z -\/ b2-\/$>$z;double distanced=dx \texorpdfstring{$\ast$}{*}dx+dy \texorpdfstring{$\ast$}{*}dy+dz \texorpdfstring{$\ast$}{*}dz;double distance=sqrt(distanced);double mag=0.\+01/(distanced \texorpdfstring{$\ast$}{*}distance);b-\/$>$vx -\/=dx \texorpdfstring{$\ast$}{*}b2-\/$>$mass \texorpdfstring{$\ast$}{*}mag;b-\/$>$vy -\/=dy \texorpdfstring{$\ast$}{*}b2-\/$>$mass \texorpdfstring{$\ast$}{*}mag;b-\/$>$vz -\/=dz \texorpdfstring{$\ast$}{*}b2-\/$>$mass \texorpdfstring{$\ast$}{*}mag;b2-\/$>$vx+=dx \texorpdfstring{$\ast$}{*}b-\/$>$mass \texorpdfstring{$\ast$}{*}mag;b2-\/$>$vy+=dy \texorpdfstring{$\ast$}{*}b-\/$>$mass \texorpdfstring{$\ast$}{*}mag;b2-\/$>$vz+=dz \texorpdfstring{$\ast$}{*}b-\/$>$mass \texorpdfstring{$\ast$}{*}mag;\} \} for(int i=0;i$<$ NBODIES;i++) \{ \mbox{\hyperlink{structPlanet}{Planet}} \texorpdfstring{$\ast$}{*}b=\&(bodies\mbox{[}i\mbox{]});b-\/$>$x+=0.\+01 \texorpdfstring{$\ast$}{*}b-\/$>$vx;b-\/$>$y+=0.\+01 \texorpdfstring{$\ast$}{*}b-\/$>$vy;b-\/$>$z+=0.\+01 \texorpdfstring{$\ast$}{*}b-\/$>$vz;\} \} \}) volatile double energy\+\_\+result
+\item 
+\Hypertarget{nbody_8cpp_af7c4fd67d016f580bba7b09c773613bc}\label{nbody_8cpp_af7c4fd67d016f580bba7b09c773613bc} 
+{\bfseries BENCHMARK\+\_\+\+FN} (energy, \{ double e=0.\+0;for(int i=0;i$<$ NBODIES;i++) \{ \mbox{\hyperlink{structPlanet}{Planet}} \texorpdfstring{$\ast$}{*}b=\&(bodies\mbox{[}i\mbox{]});e+=0.\+5 \texorpdfstring{$\ast$}{*}b-\/$>$mass \texorpdfstring{$\ast$}{*}(b-\/$>$vx \texorpdfstring{$\ast$}{*}b-\/$>$vx+b-\/$>$vy \texorpdfstring{$\ast$}{*}b-\/$>$vy+b-\/$>$vz \texorpdfstring{$\ast$}{*}b-\/$>$vz);for(int j=i+1;j$<$ NBODIES;j++) \{ \mbox{\hyperlink{structPlanet}{Planet}} \texorpdfstring{$\ast$}{*}b2=\&(bodies\mbox{[}j\mbox{]});double dx=b-\/$>$x -\/ b2-\/$>$x;double dy=b-\/$>$y -\/ b2-\/$>$y;double dz=b-\/$>$z -\/ b2-\/$>$z;double distance=sqrt(dx \texorpdfstring{$\ast$}{*}dx+dy \texorpdfstring{$\ast$}{*}dy+dz \texorpdfstring{$\ast$}{*}dz);e -\/=(b-\/$>$mass \texorpdfstring{$\ast$}{*}b2-\/$>$mass)/distance;\} \} energy\+\_\+result=e;\}) const expr int PAIRS
+\item 
+\Hypertarget{nbody_8cpp_aad53b0d94ac3415c89e387f84592cabd}\label{nbody_8cpp_aad53b0d94ac3415c89e387f84592cabd} 
+\+\_\+\+\_\+m256d r\mbox{[}PAIRS+3\mbox{]} {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((aligned(sizeof(\+\_\+\+\_\+m256d))))
+\item 
+\Hypertarget{nbody_8cpp_aace273ed49bb5375a1f8e369e4a27539}\label{nbody_8cpp_aace273ed49bb5375a1f8e369e4a27539} 
+{\bfseries BENCHMARK\+\_\+\+FN} (initialize\+\_\+bodies\+\_\+simd, \{ masses\mbox{[}0\mbox{]}=SOLAR\+\_\+\+MASS;positions\mbox{[}0\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(0.\+0);velocities\mbox{[}0\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(0.\+0);masses\mbox{[}1\mbox{]}=9.\+54791938424326609e-\/04 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS;positions\mbox{[}1\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 4.\+84143144246472090e+00, -\/1.\+16032004402742839e+00, -\/1.\+03622044471123109e-\/01);velocities\mbox{[}1\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 1.\+66007664274403694e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, 7.\+69901118419740425e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, -\/6.\+90460016972063023e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR);masses\mbox{[}2\mbox{]}=2.\+85885980666130812e-\/04 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS;positions\mbox{[}2\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 8.\+34336671824457987e+00, 4.\+12479856412430479e+00, -\/4.\+03523417114321381e-\/01);velocities\mbox{[}2\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, -\/2.\+76742510726862411e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, 4.\+99852801234917238e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, 2.\+30417297573763929e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR);masses\mbox{[}3\mbox{]}=4.\+36624404335156298e-\/05 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS;positions\mbox{[}3\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 1.\+28943695621391310e+01, -\/1.\+51111514016986312e+01, -\/2.\+23307578892655734e-\/01);velocities\mbox{[}3\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 2.\+96460137564761618e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, 2.\+37847173959480950e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, -\/2.\+96589568540237556e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR);masses\mbox{[}4\mbox{]}=5.\+15138902046611451e-\/05 \texorpdfstring{$\ast$}{*}SOLAR\+\_\+\+MASS;positions\mbox{[}4\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 1.\+53796971148509165e+01, -\/2.\+59193146099879641e+01, 1.\+79258772950371181e-\/01);velocities\mbox{[}4\mbox{]}=\+\_\+mm256\+\_\+setr\+\_\+pd(0.\+0, 2.\+68067772490389322e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, 1.\+62824170038242295e-\/03 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR, -\/9.\+51592254519715870e-\/05 \texorpdfstring{$\ast$}{*}DAYS\+\_\+\+PER\+\_\+\+YEAR);\}) BENCHMARK\+\_\+\+FN(rsqrt\+\_\+simd
+\item 
+\Hypertarget{nbody_8cpp_ab6227222ec220dcda67673e40b29a443}\label{nbody_8cpp_ab6227222ec220dcda67673e40b29a443} 
+{\bfseries BENCHMARK\+\_\+\+FN} (kernel\+\_\+simd, \{ for(int i=1, k=0;i$<$ NBODIES;i++) \{ for(int j=0;j$<$ i;j++, k++) \{ r\mbox{[}k\mbox{]}=\+\_\+mm256\+\_\+sub\+\_\+pd(positions\mbox{[}i\mbox{]}, positions\mbox{[}j\mbox{]});\} \} for(int k=0;k$<$ PAIRS;k+=4) \{ \+\_\+\+\_\+m256d x0=\+\_\+mm256\+\_\+mul\+\_\+pd(r\mbox{[}k\mbox{]}, r\mbox{[}k\mbox{]});\+\_\+\+\_\+m256d x1=\+\_\+mm256\+\_\+mul\+\_\+pd(r\mbox{[}k+1\mbox{]}, r\mbox{[}k+1\mbox{]});\+\_\+\+\_\+m256d x2=\+\_\+mm256\+\_\+mul\+\_\+pd(r\mbox{[}k+2\mbox{]}, r\mbox{[}k+2\mbox{]});\+\_\+\+\_\+m256d x3=\+\_\+mm256\+\_\+mul\+\_\+pd(r\mbox{[}k+3\mbox{]}, r\mbox{[}k+3\mbox{]});\+\_\+\+\_\+m256d t0=\+\_\+mm256\+\_\+hadd\+\_\+pd(x0, x1);\+\_\+\+\_\+m256d t1=\+\_\+mm256\+\_\+hadd\+\_\+pd(x2, x3);\+\_\+\+\_\+m256d y0=\+\_\+mm256\+\_\+permute2f128\+\_\+pd(t0, t1, 0x21);\+\_\+\+\_\+m256d y1=\+\_\+mm256\+\_\+blend\+\_\+pd(t0, t1, 0b1100);\+\_\+\+\_\+m256d z=\+\_\+mm256\+\_\+add\+\_\+pd(y0, y1);\+\_\+\+\_\+m128 q=\+\_\+mm256\+\_\+cvtpd\+\_\+ps(z);q=\+\_\+mm\+\_\+rsqrt\+\_\+ps(q);\+\_\+\+\_\+m256d x=\+\_\+mm256\+\_\+cvtps\+\_\+pd(q);\+\_\+\+\_\+m256d y=z \texorpdfstring{$\ast$}{*}x \texorpdfstring{$\ast$}{*}x;\+\_\+\+\_\+m256d a=y \texorpdfstring{$\ast$}{*}\+\_\+mm256\+\_\+set1\+\_\+pd(0.\+375);a=a \texorpdfstring{$\ast$}{*}y;\+\_\+\+\_\+m256d b=y \texorpdfstring{$\ast$}{*}\+\_\+mm256\+\_\+set1\+\_\+pd(1.\+25);b=b -\/ \+\_\+mm256\+\_\+set1\+\_\+pd(1.\+875);z=a -\/ b;z=x \texorpdfstring{$\ast$}{*}z;\+\_\+mm256\+\_\+store\+\_\+pd(w+k, z);\} \}) BENCHMARK\+\_\+\+FN(energy\+\_\+simd
+\item 
+\Hypertarget{nbody_8cpp_acf81ede63ad06a6b84e7a0f4abba1553}\label{nbody_8cpp_acf81ede63ad06a6b84e7a0f4abba1553} 
+{\bfseries for} (int i=1, k=0;i$<$ NBODIES;i++)
+\item 
+\Hypertarget{nbody_8cpp_af7415a18ce0dae8ad8b6b9e95af78dcf}\label{nbody_8cpp_af7415a18ce0dae8ad8b6b9e95af78dcf} 
+{\bfseries BENCHMARK\+\_\+\+FN} (advance\+\_\+simd, \{ r\mbox{[}PAIRS\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(1.\+0);r\mbox{[}PAIRS+1\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(1.\+0);r\mbox{[}PAIRS+2\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(1.\+0);\+\_\+\+\_\+m256d rt=\+\_\+mm256\+\_\+set1\+\_\+pd(0.\+01);\+\_\+\+\_\+m256d rm\mbox{[}NBODIES\mbox{]};for(int i=0;i$<$ NBODIES;i++) \{ rm\mbox{[}i\mbox{]}=\+\_\+mm256\+\_\+set1\+\_\+pd(masses\mbox{[}i\mbox{]});\} for(int s=0;s$<$ NB\+\_\+\+ITERS;s++) \{ for(int k=0;k$<$ PAIRS;k+=4) \{ \+\_\+\+\_\+m256d x=\+\_\+mm256\+\_\+load\+\_\+pd(w+k);\+\_\+\+\_\+m256d y=x \texorpdfstring{$\ast$}{*}x;\+\_\+\+\_\+m256d z=x \texorpdfstring{$\ast$}{*}rt;x=y \texorpdfstring{$\ast$}{*}z;\+\_\+mm256\+\_\+store\+\_\+pd(w+k, x);\} for(int i=1, k=0;i$<$ NBODIES;i++) \{ for(int j=0;j$<$ i;j++, k++) \{ \+\_\+\+\_\+m256d t=\+\_\+mm256\+\_\+set1\+\_\+pd(w\mbox{[}k\mbox{]});t=r\mbox{[}k\mbox{]} \texorpdfstring{$\ast$}{*}t;\+\_\+\+\_\+m256d x=t \texorpdfstring{$\ast$}{*}rm\mbox{[}j\mbox{]};\+\_\+\+\_\+m256d y=t \texorpdfstring{$\ast$}{*}rm\mbox{[}i\mbox{]};velocities\mbox{[}i\mbox{]}=velocities\mbox{[}i\mbox{]} -\/ x;velocities\mbox{[}j\mbox{]}=velocities\mbox{[}j\mbox{]}+y;\} \} for(int i=0;i$<$ NBODIES;i++) \{ \+\_\+\+\_\+m256d t=velocities\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*}rt;positions\mbox{[}i\mbox{]}=positions\mbox{[}i\mbox{]}+t;\} \} \}) int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks for the nbody problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nbody_8cpp_a23b6c79d171747f67e8925d28d13b47e}\label{nbody_8cpp_a23b6c79d171747f67e8925d28d13b47e} 
+constexpr int {\bfseries NBODIES} = 5
+\item 
+\Hypertarget{nbody_8cpp_ada858345792ec75f807df5162289468f}\label{nbody_8cpp_ada858345792ec75f807df5162289468f} 
+\mbox{\hyperlink{structPlanet}{Planet}} {\bfseries bodies} \mbox{[}NBODIES\mbox{]}
+\item 
+\Hypertarget{nbody_8cpp_ad29ba68eddcdfabc5dd4e8e213a0f5cd}\label{nbody_8cpp_ad29ba68eddcdfabc5dd4e8e213a0f5cd} 
+double {\bfseries py} = 0.\+0
+\item 
+\Hypertarget{nbody_8cpp_a2bc9242655b656456541637ff3a3b6b3}\label{nbody_8cpp_a2bc9242655b656456541637ff3a3b6b3} 
+double {\bfseries pz} = 0.\+0
+\item 
+\Hypertarget{nbody_8cpp_a09869728ea673aa6639a42638ae78fd8}\label{nbody_8cpp_a09869728ea673aa6639a42638ae78fd8} 
+bodies\mbox{[}0\mbox{]} {\bfseries vx} = -\/px / SOLAR\+\_\+\+MASS
+\item 
+\Hypertarget{nbody_8cpp_a0c6b22108dbbd5c39597239bb8c21c2e}\label{nbody_8cpp_a0c6b22108dbbd5c39597239bb8c21c2e} 
+bodies\mbox{[}0\mbox{]} {\bfseries vy} = -\/py / SOLAR\+\_\+\+MASS
+\item 
+\Hypertarget{nbody_8cpp_ad99729ab4e5ae3ef8347dab6468128f8}\label{nbody_8cpp_ad99729ab4e5ae3ef8347dab6468128f8} 
+bodies\mbox{[}0\mbox{]} {\bfseries vz} = -\/pz / SOLAR\+\_\+\+MASS
+\item 
+\Hypertarget{nbody_8cpp_a210d2a667b0e5a0fb2815459fd05eba5}\label{nbody_8cpp_a210d2a667b0e5a0fb2815459fd05eba5} 
+constexpr int {\bfseries NB\+\_\+\+ITERS} = 1000
+\item 
+\Hypertarget{nbody_8cpp_a980c3fb652b765bd9a0ae32401dc09e5}\label{nbody_8cpp_a980c3fb652b765bd9a0ae32401dc09e5} 
+double {\bfseries masses} \mbox{[}NBODIES\mbox{]}
+\item 
+\Hypertarget{nbody_8cpp_ab49f70ba3a6f0eb5a4ee1f09a65215bd}\label{nbody_8cpp_ab49f70ba3a6f0eb5a4ee1f09a65215bd} 
+\+\_\+\+\_\+m256d {\bfseries positions} \mbox{[}NBODIES\mbox{]}
+\item 
+\Hypertarget{nbody_8cpp_abf57a10a5848c05feaadc6f7fa56230c}\label{nbody_8cpp_abf57a10a5848c05feaadc6f7fa56230c} 
+\+\_\+\+\_\+m256d {\bfseries velocities} \mbox{[}NBODIES\mbox{]}
+\item 
+\Hypertarget{nbody_8cpp_a25ed1bcb423b0b7200f485fc5ff71c8e}\label{nbody_8cpp_a25ed1bcb423b0b7200f485fc5ff71c8e} 
+\+\_\+\+\_\+m256d {\bfseries z} = x
+\item 
+\Hypertarget{nbody_8cpp_a099b3b060154898840f0ebdfb46ec78f}\label{nbody_8cpp_a099b3b060154898840f0ebdfb46ec78f} 
+{\bfseries q} = \+\_\+mm\+\_\+rsqrt\+\_\+ps(q)
+\item 
+\Hypertarget{nbody_8cpp_a9336ebf25087d91c818ee6e9ec29f8c1}\label{nbody_8cpp_a9336ebf25087d91c818ee6e9ec29f8c1} 
+\+\_\+\+\_\+m256d {\bfseries x} = \+\_\+mm256\+\_\+cvtps\+\_\+pd(q)
+\item 
+\Hypertarget{nbody_8cpp_a2fb1c5cf58867b5bbc9a1b145a86f3a0}\label{nbody_8cpp_a2fb1c5cf58867b5bbc9a1b145a86f3a0} 
+\+\_\+\+\_\+m256d {\bfseries y} = positions\mbox{[}0\mbox{]} \texorpdfstring{$\ast$}{*} x \texorpdfstring{$\ast$}{*} x
+\item 
+\Hypertarget{nbody_8cpp_a4124bc0a9335c27f086f24ba207a4912}\label{nbody_8cpp_a4124bc0a9335c27f086f24ba207a4912} 
+\+\_\+\+\_\+m256d {\bfseries a} = y \texorpdfstring{$\ast$}{*} \+\_\+mm256\+\_\+set1\+\_\+pd(0.\+375)
+\item 
+\Hypertarget{nbody_8cpp_a21ad0bd836b90d08f4cf640b4c298e7c}\label{nbody_8cpp_a21ad0bd836b90d08f4cf640b4c298e7c} 
+\+\_\+\+\_\+m256d {\bfseries b} = y \texorpdfstring{$\ast$}{*} \+\_\+mm256\+\_\+set1\+\_\+pd(1.\+25)
+\item 
+\+\_\+\+\_\+m256d \mbox{\hyperlink{nbody_8cpp_a341035163730b5e3ce7c9ae1f84a8404}{r}} \mbox{[}PAIRS+3\mbox{]}
+\item 
+\Hypertarget{nbody_8cpp_aae52cb31c0a82595a74ba77dc30d7cbd}\label{nbody_8cpp_aae52cb31c0a82595a74ba77dc30d7cbd} 
+{\bfseries energy\+\_\+result} = e
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for the nbody problem. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{nbody_8cpp_a341035163730b5e3ce7c9ae1f84a8404}\label{nbody_8cpp_a341035163730b5e3ce7c9ae1f84a8404} 
+\index{nbody.cpp@{nbody.cpp}!r@{r}}
+\index{r@{r}!nbody.cpp@{nbody.cpp}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily r\mbox{[}PAIRS+2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ e\ =\ 0.0}
+
+\end{DoxyCode}

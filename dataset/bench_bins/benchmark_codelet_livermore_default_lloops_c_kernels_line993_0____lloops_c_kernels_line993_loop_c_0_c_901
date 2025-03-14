@@ -1,0 +1,65 @@
+;; Cycles : 901
+
+48 c7 c0 10 30 42 00
+48 8b 30
+48 85 f6
+0f 8e ed 00 00 00
+48 c7 c0 80 7f 42 00
+48 8d 0c b6
+48 8d 0c 89
+48 8d 50 20
+48 c7 c0 80 30 42 00
+48 83 c0 20
+48 8d 0c c8
+0f 1f 00
+c5 fb 10 0a
+c5 f3 5c 38
+48 05 c8 00 00 00
+48 81 c2 c8 00 00 00
+c5 c3 5c 90 40 ff ff
+ff
+c5 6b 5c 80 48 ff ff
+ff
+c5 bb 5c 80 50 ff ff
+ff
+c5 fb 5c b0 58 ff ff
+ff
+c5 cb 5c a8 60 ff ff
+ff
+c5 d3 5c a0 68 ff ff
+ff
+c5 f1 14 cf
+c4 c1 69 14 d0
+c5 db 5c 98 70 ff ff
+ff
+c4 e3 75 18 ca 01
+c5 f9 14 c6
+c5 fd 11 88 38 ff ff
+ff
+c5 d1 14 cc
+c4 e3 7d 18 c1 01
+c5 fd 11 80 58 ff ff
+ff
+c5 e3 5c 80 78 ff ff
+ff
+c5 fb 11 98 78 ff ff
+ff
+c5 fb 11 40 80
+48 39 c8
+0f 85 68 ff ff ff
+48 c7 c0 68 ce 42 00
+c5 fb 11 28
+48 c7 c0 68 7f 42 00
+c5 fb 11 20
+48 c7 c0 60 30 42 00
+c5 fb 11 18
+c5 f8 77
+48 c7 c0 70 ce 42 00
+48 89 30
+c3
+90
+31 f6
+eb f0
+66 66 2e 0f 1f 84 00
+00 00 00 00
+90

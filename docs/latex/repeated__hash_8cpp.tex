@@ -1,0 +1,50 @@
+\doxysection{benchmarks/repeated\+\_\+hash.cpp File Reference}
+\hypertarget{repeated__hash_8cpp}{}\label{repeated__hash_8cpp}\index{benchmarks/repeated\_hash.cpp@{benchmarks/repeated\_hash.cpp}}
+
+
+Benchmark for repeating a hash function a certain number of times.  
+
+
+{\ttfamily \#include "{}bench\+\_\+common.\+hpp"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{repeated__hash_8cpp_ab0d0034cb8197d9f72173aaccbd0807c}{LOOP\+\_\+\+HASH}}(amount)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{repeated__hash_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{repeated__hash_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Run the benchmarks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{repeated__hash_8cpp_a13d1575d84c4f10d699c20606c6cea5d}\label{repeated__hash_8cpp_a13d1575d84c4f10d699c20606c6cea5d} 
+volatile uint64\+\_\+t {\bfseries result}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for repeating a hash function a certain number of times. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{repeated__hash_8cpp_ab0d0034cb8197d9f72173aaccbd0807c}\label{repeated__hash_8cpp_ab0d0034cb8197d9f72173aaccbd0807c} 
+\index{repeated\_hash.cpp@{repeated\_hash.cpp}!LOOP\_HASH@{LOOP\_HASH}}
+\index{LOOP\_HASH@{LOOP\_HASH}!repeated\_hash.cpp@{repeated\_hash.cpp}}
+\doxysubsubsection{\texorpdfstring{LOOP\_HASH}{LOOP\_HASH}}
+{\footnotesize\ttfamily \#define LOOP\+\_\+\+HASH(\begin{DoxyParamCaption}\item[{}]{amount }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ BENCHMARK\_FN(hash\_\#\#amount,\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ uint64\_t\ hash\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ for\ (uint64\_t\ i\ =\ 0;\ i\ <\ (amount);\ i++)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ hash\ =\ (((hash\ *\ 31)\ +\ i)\ >>\ 2)\ \string^\ ((hash\ <<\ 5)\ ||\ (hash\ >>\ 3));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ result\ =\ hash;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \})}
+
+\end{DoxyCode}

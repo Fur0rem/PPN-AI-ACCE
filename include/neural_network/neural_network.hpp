@@ -5,6 +5,7 @@
 
 #ifndef NEURAL_NETWORK_HPP
 #define NEURAL_NETWORK_HPP
+#include "dataset/dataset.hpp"
 #include "neural_network/layer.hpp"
 #include <eigen3/Eigen/Dense>
 #include <string>
@@ -15,22 +16,22 @@
  */
 class NeuralNetwork {
   private:
-	std::vector<int> m_topology;   ///< Number of neurons in each layer
-	std::vector<Layer> m_layers;   ///< Vector of layers in the network
-	Eigen::MatrixXf m_last_values; ///< Values of the last layer
-	float m_learning_rate;		   ///< Learning rate of the network
+	std::vector<size_t> m_topology; ///< Number of neurons in each layer
+	std::vector<Layer> m_layers;	///< Vector of layers in the network
+	Eigen::MatrixXf m_last_values;	///< Values of the last layer
+	float m_learning_rate;			///< Learning rate of the network
 
 	/**
 	 * @brief Feed forward the input through the network
 	 * @param input The input to the network
 	 */
-	void feed_forward(const Eigen::VectorXf& input);
+	void feed_forward(const Eigen::VectorXf* input);
 
 	/**
 	 * @brief Back propagate the error through the network
 	 * @param target_output The target output of the network
 	 */
-	void back_propagate(const Eigen::VectorXf& target_output);
+	void back_propagate(const Eigen::VectorXf* target_output);
 
   public:
 	/**
@@ -38,7 +39,7 @@ class NeuralNetwork {
 	 * @param topology The number of neurons in each layer
 	 * @param learning_rate The learning rate of the network
 	 */
-	NeuralNetwork(std::vector<int>& topology, float learning_rate);
+	NeuralNetwork(std::vector<size_t>& topology, float learning_rate);
 
 	/**
 	 * @brief Train the neural network
@@ -48,28 +49,58 @@ class NeuralNetwork {
 	 * @param input_ratio the ratio of inputs to be used as training data, the rest will be used as validation data
 	 * @param logging_filename The name of the file to log the loss to
 	 */
-	void train(std::vector<std::vector<float>>& inputs, std::vector<std::vector<float>>& targets, int nb_epochs,
-			   float input_ratio, std::string&& logging_filename);
+	void train(Dataset& dataset, int nb_epochs, float input_ratio, std::string&& logging_filename);
 
 	/**
 	 * @brief Get the prediction of the network
 	 * @param input The input to the network
 	 * @return The prediction of the network
 	 */
-	std::vector<float> get_prediction(std::vector<float>& input);
-	Eigen::VectorXf get_prediction(Eigen::VectorXf& input);
+	Eigen::VectorXf get_prediction(const Eigen::VectorXf* input);
+	std::vector<float> get_prediction(const std::vector<float>& input);
 
 	/**
-	 * @brief Get the total loss of the network
+	 * @brief Convert input data and target data to correct format to compute loss and accuracy
 	 * @param inputs The input data
 	 * @param targets The target output data
-	 * @return The total loss of the network
+	 * @return The loss of the network
 	 */
-	float get_total_loss(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> targets);
-	float get_total_loss(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets);
+	std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>> convert_data_for_loss(std::vector<std::vector<float>>& inputs,
+																								  std::vector<std::vector<float>>& targets);
+	std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>> convert_data_for_loss(std::vector<Eigen::VectorXf>& inputs,
+																								  std::vector<Eigen::VectorXf>& targets);
+	std::pair<std::vector<Eigen::VectorXf*>, std::vector<Eigen::VectorXf*>> convert_data_for_loss(Dataset& dataset);
 
-	float get_accuracy(std::vector<Eigen::VectorXf> inputs, std::vector<Eigen::VectorXf> targets);
+	/**
+	 * @brief Get the loss of the network, uses mean relative squared error
+	 * @param inputs The input data
+	 * @param targets The target output data
+	 * @return The loss of the network
+	 */
+	double get_loss_mrse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
 
+	/**
+	 * @brief Get the loss of the network, uses mean squared error
+	 * @param inputs The input data
+	 * @param targets The target output data
+	 */
+	double get_loss_mse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+
+	/**
+	 * @brief Get the accuracy of the network, uses mean absolute error
+	 * @param inputs The input data
+	 * @param targets The target output data
+	 * @return The accuracy of the network
+	 */
+	double get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+
+	/**
+	 * @brief Get the accuracy of the network, uses mean relative absolute error
+	 * @param inputs The input data
+	 * @param targets The target output data
+	 * @return The accuracy of the network
+	 */
+	double get_acc_mrae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
 };
 
 #endif // NEURAL_NETWORK_HPP
