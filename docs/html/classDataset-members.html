@@ -78,9 +78,12 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classDataset.html">Dataset</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classDataset.html#ad7b11978a8a76f6e53b651d65f5513e0">Dataset</a>(IParser *parser, std::string dir_path, std::vector&lt; size_t &gt; &amp;topology)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classDataset.html#a5a091a7ce42fb69d1a19edcd218ce459">Dataset</a>(std::vector&lt; std::vector&lt; float &gt; &gt; target_inputs, std::vector&lt; std::vector&lt; float &gt; &gt; target_outputs, std::vector&lt; size_t &gt; &amp;topology)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDataset.html#ae39e0751b7fa079edb57f642f12b88f0">get_data</a>(double proportion)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataset.html#af4b5f6b343419f6ea4ea2d2f2c35ed1a">Dataset</a>(IParser *parser, std::string dir_path, std::vector&lt; size_t &gt; &amp;topology, std::unique_ptr&lt; IEncoder &gt; input_encoder, std::unique_ptr&lt; IEncoder &gt; output_encoder)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classDataset.html#af3890422a709a0787b06348d2ca74ad6">Dataset</a>(std::vector&lt; std::vector&lt; float &gt; &gt; inputs, std::vector&lt; std::vector&lt; float &gt; &gt; target_outputs, std::vector&lt; size_t &gt; &amp;topology, std::unique_ptr&lt; IEncoder &gt; input_encoder, std::unique_ptr&lt; IEncoder &gt; output_encoder)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataset.html#a53dfacec2dc85697a137b908c199ecd1">get_all_data</a>()</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classDataset.html#ac26ae42c722ca90cd5fb92c5c3e2f55e">get_data</a>(double proportion)</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDataset.html#abccdca5465ab9328f1a07cbfe2a7a81f">get_input_encoder</a>() const</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classDataset.html#aa70945f2b0908066d2f4e090bfb076a5">get_output_encoder</a>() const</td><td class="entry"><a class="el" href="classDataset.html">Dataset</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

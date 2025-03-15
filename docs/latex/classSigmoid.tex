@@ -1,0 +1,80 @@
+\doxysection{Sigmoid Class Reference}
+\hypertarget{classSigmoid}{}\label{classSigmoid}\index{Sigmoid@{Sigmoid}}
+
+
+The sigmoid activation function.  
+
+
+
+
+{\ttfamily \#include $<$activation\+\_\+functions.\+hpp$>$}
+
+Inheritance diagram for Sigmoid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSigmoid}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classSigmoid_a538f2115866326dfc535a4499f5ae0fb}{func}} (float x) override
+\begin{DoxyCompactList}\small\item\em The activation function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSigmoid_a34174da7594459e0752b2a6e578a885a}{deriv}} (float x) override
+\begin{DoxyCompactList}\small\item\em The derivative of the activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The sigmoid activation function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSigmoid_a34174da7594459e0752b2a6e578a885a}\label{classSigmoid_a34174da7594459e0752b2a6e578a885a} 
+\index{Sigmoid@{Sigmoid}!deriv@{deriv}}
+\index{deriv@{deriv}!Sigmoid@{Sigmoid}}
+\doxysubsubsection{\texorpdfstring{deriv()}{deriv()}}
+{\footnotesize\ttfamily float Sigmoid\+::deriv (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The derivative of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{Activation\+Func}}.
+
+\Hypertarget{classSigmoid_a538f2115866326dfc535a4499f5ae0fb}\label{classSigmoid_a538f2115866326dfc535a4499f5ae0fb} 
+\index{Sigmoid@{Sigmoid}!func@{func}}
+\index{func@{func}!Sigmoid@{Sigmoid}}
+\doxysubsubsection{\texorpdfstring{func()}{func()}}
+{\footnotesize\ttfamily float Sigmoid\+::func (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{Activation\+Func}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8cpp}{activation\+\_\+functions.\+cpp}}\end{DoxyCompactItemize}

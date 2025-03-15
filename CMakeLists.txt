@@ -33,6 +33,9 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/parsing/hexadecimal_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/hexadecimal_with_split_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/xor_parser.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/non_encoder.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/cycles_normaliser_encoder.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/size_encoder.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp

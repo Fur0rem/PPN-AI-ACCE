@@ -85,16 +85,18 @@ $(function() {
 <p>Implementation of the <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="neural__network_8hpp_source.html">neural_network/neural_network.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="activation__functions_8hpp_source.html">neural_network/activation_functions.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="iparser_8hpp_source.html">parsing/iparser.hpp</a>&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<code>#include &quot;<a class="el" href="dataset_8hpp_source.html">dataset/dataset.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iencoder_8hpp_source.html">parsing/iencoder.hpp</a>&quot;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cxxabi.h&gt;</code><br />
 <code>#include &lt;eigen3/Eigen/Dense&gt;</code><br />
 <code>#include &lt;eigen3/Eigen/src/Core/Matrix.h&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><table class="memberdecls">
@@ -106,147 +108,10 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:a6f1f413f755c248ac48145227d391b51" id="r_a6f1f413f755c248ac48145227d391b51"><td class="memItemLeft" align="right" valign="top"><a id="a6f1f413f755c248ac48145227d391b51" name="a6f1f413f755c248ac48145227d391b51"></a>
 Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><b>eigen_vec_from_cpp_vec</b> (const std::vector&lt; float &gt; &amp;cpp_vector)</td></tr>
 <tr class="separator:a6f1f413f755c248ac48145227d391b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c0133d35ac96199f78bc2b643d1ba99" id="r_a4c0133d35ac96199f78bc2b643d1ba99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c0133d35ac96199f78bc2b643d1ba99">squared_error</a> (const Eigen::VectorXf *output, const Eigen::VectorXf *targets)</td></tr>
-<tr class="memdesc:a4c0133d35ac96199f78bc2b643d1ba99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the squared error.  <br /></td></tr>
-<tr class="separator:a4c0133d35ac96199f78bc2b643d1ba99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a2ebe88493e736235c53747a358a38" id="r_ac2a2ebe88493e736235c53747a358a38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2a2ebe88493e736235c53747a358a38">relative_squared_error</a> (const Eigen::VectorXf *output, const Eigen::VectorXf *targets)</td></tr>
-<tr class="memdesc:ac2a2ebe88493e736235c53747a358a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the relative squared error.  <br /></td></tr>
-<tr class="separator:ac2a2ebe88493e736235c53747a358a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2405f019e7afb835508aa663a7646fde" id="r_a2405f019e7afb835508aa663a7646fde"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2405f019e7afb835508aa663a7646fde">absolute_error</a> (const Eigen::VectorXf *output, const Eigen::VectorXf *targets)</td></tr>
-<tr class="memdesc:a2405f019e7afb835508aa663a7646fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the absolute error.  <br /></td></tr>
-<tr class="separator:a2405f019e7afb835508aa663a7646fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a760ae96b6a7ce01f146ec931d567e6" id="r_a7a760ae96b6a7ce01f146ec931d567e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a760ae96b6a7ce01f146ec931d567e6">relative_absolute_error</a> (const Eigen::VectorXf *output, const Eigen::VectorXf *targets)</td></tr>
-<tr class="memdesc:a7a760ae96b6a7ce01f146ec931d567e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the relative absolute error.  <br /></td></tr>
-<tr class="separator:a7a760ae96b6a7ce01f146ec931d567e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> class. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a2405f019e7afb835508aa663a7646fde" name="a2405f019e7afb835508aa663a7646fde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2405f019e7afb835508aa663a7646fde">&#9670;&#160;</a></span>absolute_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double absolute_error </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>output</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate the absolute error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output of the network </td></tr>
-    <tr><td class="paramname">targets</td><td>The target output of the network </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The absolute error </dd></dl>
-
-</div>
-</div>
-<a id="a7a760ae96b6a7ce01f146ec931d567e6" name="a7a760ae96b6a7ce01f146ec931d567e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a760ae96b6a7ce01f146ec931d567e6">&#9670;&#160;</a></span>relative_absolute_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double relative_absolute_error </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>output</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate the relative absolute error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output of the network </td></tr>
-    <tr><td class="paramname">targets</td><td>The target output of the network </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The absolute error </dd></dl>
-
-</div>
-</div>
-<a id="ac2a2ebe88493e736235c53747a358a38" name="ac2a2ebe88493e736235c53747a358a38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2a2ebe88493e736235c53747a358a38">&#9670;&#160;</a></span>relative_squared_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double relative_squared_error </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>output</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate the relative squared error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output of the network </td></tr>
-    <tr><td class="paramname">targets</td><td>The target output of the network </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The squared error </dd></dl>
-
-</div>
-</div>
-<a id="a4c0133d35ac96199f78bc2b643d1ba99" name="a4c0133d35ac96199f78bc2b643d1ba99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0133d35ac96199f78bc2b643d1ba99">&#9670;&#160;</a></span>squared_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double squared_error </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>output</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::VectorXf *</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate the squared error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">output</td><td>The output of the network </td></tr>
-    <tr><td class="paramname">targets</td><td>The target output of the network </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The squared error </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0

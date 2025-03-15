@@ -1,0 +1,29 @@
+\doxysection{size\+\_\+encoder.\+hpp}
+\hypertarget{size__encoder_8hpp_source}{}\label{size__encoder_8hpp_source}\index{include/parsing/size\_encoder.hpp@{include/parsing/size\_encoder.hpp}}
+\mbox{\hyperlink{size__encoder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SIZE\_ENCODER\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SIZE\_ENCODER\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{size__encoder_8hpp_ac3c8ef52a65b17b370b8014b0f0c1c37}{MAX\_TOKENS\_NN}}\ =\ 11000;\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{size__encoder_8hpp_a84e92db2ecca96cc2a0a0b52e641b741}{NO\_MORE\_VALUE}}\ =\ -\/1.0;\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iencoder_8hpp}{parsing/iencoder.hpp}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSizeEncoder}{SizeEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_size;\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classSizeEncoder_a295cf4253354311c9302534cd993f1cb}{SizeEncoder}}(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SIZE\_ENCODER\_HPP}}
+
+\end{DoxyCode}

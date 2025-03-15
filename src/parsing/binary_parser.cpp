@@ -14,10 +14,10 @@
 #include <string>
 #include <vector>
 
-constexpr char* RED = "\033[31m";
-constexpr char* RESET = "\033[0m";
+constexpr const char* RED = "\033[31m";
+constexpr const char* RESET = "\033[0m";
 
-std::vector<double> BinaryParser::parse_out(std::string& input) {
+std::vector<float> BinaryParser::parse_out(std::string& input) {
 	std::string substring = "";
 
 	// finding first line break
@@ -42,19 +42,14 @@ std::vector<double> BinaryParser::parse_out(std::string& input) {
 
 	substring = substring.substr(col_pos + 1, substring.length());
 
-	double cycles = std::stod(substring);
-	if (cycles > MAX_CYCLES) {
-		// throw std::runtime_error("Failed to read the input string : cycles are too high");
-		std::cerr << RED << "Warning: cycles are too high : " << cycles << " > " << MAX_CYCLES << RESET << '\n';
-		return {1.0};
-	}
-	return {cycles / MAX_CYCLES};
+	float cycles = std::stof(substring);
+	return {cycles};
 }
 
-std::vector<double> BinaryParser::parse_in(std::string& input_ref) {
+std::vector<float> BinaryParser::parse_in(std::string& input_ref) {
 	// Parse each line as hexadecimal
 	std::string input = input_ref;
-	std::vector<double> result;
+	std::vector<float> result;
 
 	// Skip the cycles line
 	size_t found = input.find_first_of("\n");
@@ -67,7 +62,7 @@ std::vector<double> BinaryParser::parse_in(std::string& input_ref) {
 	// Skip the next line
 	input = input.substr(input.find_first_of("\n") + 1);
 
-	// For each line, convert each pair of hex characters into a double
+	// For each line, convert each pair of hex characters into a float
 	std::istringstream iss(input);
 	std::string line;
 	while (std::getline(iss, line)) {

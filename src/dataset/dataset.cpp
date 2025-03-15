@@ -5,23 +5,28 @@
 
 #include <algorithm>
 #include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/src/Core/Matrix.h>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <numeric>
 #include <random>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "dataset/dataset.hpp"
-#include "neural_network/neural_network.hpp"
+#include "parsing/iencoder.hpp"
 #include "parsing/iparser.hpp"
 
 auto rng = std::default_random_engine{}; ///< Random number generator
 
-Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& topology) {
-	m_dir_path = dir_path;
+Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& topology, std::unique_ptr<IEncoder> input_encoder,
+				 std::unique_ptr<IEncoder> output_encoder) {
+	m_dir_path = std::move(dir_path);
 	m_parser = parser;
+	m_input_encoder = std::move(input_encoder);
+	m_output_encoder = std::move(output_encoder);
 
 	auto dir = std::filesystem::directory_iterator(m_dir_path);
 	if (dir == std::filesystem::directory_iterator()) {
@@ -42,6 +47,10 @@ Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& top
 	for (const auto& entry : files) {
 		std::cout << "Reading : " << entry.path() << std::endl;
 
+		// Get only the last part of the path
+		std::string name = entry.path().filename().string();
+		m_names.push_back(name);
+
 		// Read the file
 		std::string file_path = entry.path();
 		std::string content;
@@ -54,20 +63,21 @@ Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& top
 			file.close();
 		}
 
-		std::vector<double> input_vec = m_parser->parse_in(content);
-		auto input = m_parser->into_neural_network_input(input_vec, topology);
-		int input_size = input.size();
-		Eigen::VectorXf vec_in(input_size);
-		for (int i = 0; i < input_size; i++) {
-			vec_in(i) = static_cast<float>(input[i]);
+		// Parse the input
+		std::vector<float> input = m_parser->parse_in(content);
+		auto input_encoded = m_input_encoder->encode(input);
+		Eigen::VectorXf vec_in(input_encoded.size());
+		for (int i = 0; i < input_encoded.size(); i++) {
+			vec_in(i) = static_cast<float>(input_encoded[i]);
 		}
 		m_inputs.push_back(vec_in);
 
-		std::vector<double> output = m_parser->parse_out(content);
-		int output_size = output.size();
-		Eigen::VectorXf vec_out(output_size);
-		for (int i = 0; i < output_size; i++) {
-			vec_out(i) = static_cast<float>(output[i]);
+		// Parse the output
+		std::vector<float> output = m_parser->parse_out(content);
+		auto output_encoded = m_output_encoder->encode(output);
+		Eigen::VectorXf vec_out(output_encoded.size());
+		for (int i = 0; i < output_encoded.size(); i++) {
+			vec_out(i) = static_cast<float>(output_encoded[i]);
 		}
 		m_outputs.push_back(vec_out);
 	}
@@ -75,17 +85,21 @@ Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& top
 	m_dataset_size = m_inputs.size();
 }
 
-Dataset::Dataset(std::vector<std::vector<float>> target_inputs, std::vector<std::vector<float>> target_outputs,
-				 std::vector<size_t>& topology) {
+Dataset::Dataset(std::vector<std::vector<float>> inputs, std::vector<std::vector<float>> target_outputs, std::vector<size_t>& topology,
+				 std::unique_ptr<IEncoder> input_encoder, std::unique_ptr<IEncoder> output_encoder) {
+	this->m_input_encoder = std::move(input_encoder);
+	this->m_output_encoder = std::move(output_encoder);
 	size_t input_size = topology[0];
 	size_t output_size = topology[topology.size() - 1];
-	for (size_t i = 0; i < target_inputs.size(); i++) {
-		if (target_inputs[i].size() != input_size) {
+	for (size_t i = 0; i < inputs.size(); i++) {
+		if (inputs[i].size() != input_size) {
 			throw std::runtime_error("Input size does not match the topology");
 		}
-		Eigen::VectorXf vec_in(input_size);
-		for (size_t j = 0; j < input_size; j++) {
-			vec_in(j) = target_inputs[i][j];
+
+		auto input = m_input_encoder->encode(inputs[i]);
+		Eigen::VectorXf vec_in(input.size());
+		for (size_t j = 0; j < input.size(); j++) {
+			vec_in(j) = static_cast<float>(input[j]);
 		}
 		m_inputs.push_back(vec_in);
 
@@ -93,27 +107,52 @@ Dataset::Dataset(std::vector<std::vector<float>> target_inputs, std::vector<std:
 			throw std::runtime_error("Output size does not match the topology");
 		}
 
-		Eigen::VectorXf vec_out(output_size);
-		for (size_t j = 0; j < output_size; j++) {
-			vec_out(j) = target_outputs[i][j];
+		auto output = m_output_encoder->encode(target_outputs[i]);
+		Eigen::VectorXf vec_out(output.size());
+		for (size_t j = 0; j < output.size(); j++) {
+			vec_out(j) = static_cast<float>(output[j]);
 		}
 		m_outputs.push_back(vec_out);
+
+		std::string name = "";
+		for (size_t j = 0; j < input_size; j++) {
+			name += std::to_string(inputs[i][j]) + " ";
+		}
+		name.pop_back();
+		m_names.push_back(name);
 	}
 
 	m_dataset_size = m_inputs.size();
 }
 
-std::vector<std::pair<Eigen::VectorXf, Eigen::VectorXf>> Dataset::get_data(double proportion) {
+std::vector<std::tuple<std::string, Eigen::VectorXf, Eigen::VectorXf>> Dataset::get_data(double proportion) {
 	std::vector<int> indeces(m_dataset_size);
 	std::iota(indeces.begin(), indeces.end(), 0);
 
 	std::shuffle(indeces.begin(), indeces.end(), rng);
 	size_t last_index = (size_t)((double)m_dataset_size * proportion);
 
-	std::vector<std::pair<Eigen::VectorXf, Eigen::VectorXf>> result;
+	std::vector<std::tuple<std::string, Eigen::VectorXf, Eigen::VectorXf>> result;
 
 	for (size_t i = 0; i < last_index; ++i) {
-		result.push_back({m_inputs[indeces[i]], m_outputs[indeces[i]]});
+		result.push_back({m_names[indeces[i]], m_inputs[indeces[i]], m_outputs[indeces[i]]});
 	}
 	return result;
+}
+
+std::vector<std::tuple<std::string, Eigen::VectorXf, Eigen::VectorXf>> Dataset::get_all_data() {
+	std::vector<std::tuple<std::string, Eigen::VectorXf, Eigen::VectorXf>> result;
+
+	for (size_t i = 0; i < m_dataset_size; ++i) {
+		result.push_back({m_names[i], m_inputs[i], m_outputs[i]});
+	}
+	return result;
+}
+
+IEncoder* Dataset::get_output_encoder() const {
+	return m_output_encoder.get();
+}
+
+IEncoder* Dataset::get_input_encoder() const {
+	return m_input_encoder.get();
 }

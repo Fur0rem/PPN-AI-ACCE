@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['asmparser_0',['AsmParser',['../classAsmParser.html',1,'']]]
+  ['activationfunc_0',['ActivationFunc',['../classActivationFunc.html',1,'']]],
+  ['asmparser_1',['AsmParser',['../classAsmParser.html',1,'']]]
 ];

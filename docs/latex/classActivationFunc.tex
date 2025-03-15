@@ -1,0 +1,79 @@
+\doxysection{Activation\+Func Class Reference}
+\hypertarget{classActivationFunc}{}\label{classActivationFunc}\index{ActivationFunc@{ActivationFunc}}
+
+
+The activation function class.  
+
+
+
+
+{\ttfamily \#include $<$activation\+\_\+functions.\+hpp$>$}
+
+Inheritance diagram for Activation\+Func\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classActivationFunc}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual float \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{func}} (float x)=0
+\begin{DoxyCompactList}\small\item\em The activation function. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{deriv}} (float x)=0
+\begin{DoxyCompactList}\small\item\em The derivative of the activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The activation function class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}\label{classActivationFunc_a52548613c96d6e2ba523bb2815325a05} 
+\index{ActivationFunc@{ActivationFunc}!deriv@{deriv}}
+\index{deriv@{deriv}!ActivationFunc@{ActivationFunc}}
+\doxysubsubsection{\texorpdfstring{deriv()}{deriv()}}
+{\footnotesize\ttfamily virtual float Activation\+Func\+::deriv (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The derivative of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSigmoid_a34174da7594459e0752b2a6e578a885a}{Sigmoid}}, and \mbox{\hyperlink{classReLU_a3793576dd10edcba59b7b88ef968ca87}{Re\+LU}}.
+
+\Hypertarget{classActivationFunc_af9eda686a5f083d3928af46728e10d57}\label{classActivationFunc_af9eda686a5f083d3928af46728e10d57} 
+\index{ActivationFunc@{ActivationFunc}!func@{func}}
+\index{func@{func}!ActivationFunc@{ActivationFunc}}
+\doxysubsubsection{\texorpdfstring{func()}{func()}}
+{\footnotesize\ttfamily virtual float Activation\+Func\+::func (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSigmoid_a538f2115866326dfc535a4499f5ae0fb}{Sigmoid}}, and \mbox{\hyperlink{classReLU_a85883d20a3209e62d7d05693cde521ad}{Re\+LU}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}}\end{DoxyCompactItemize}

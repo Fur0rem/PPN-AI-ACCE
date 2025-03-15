@@ -16,8 +16,8 @@
 TEST(XORParser, XORParseIn) {
 	XORParser parser{};
 	std::string input = "0 0 0\n";
-	std::vector<double> expected = {0.0, 0.0};
-	std::vector<double> result = parser.parse_in(input);
+	std::vector<float> expected = {0.0, 0.0};
+	std::vector<float> result = parser.parse_in(input);
 	EXPECT_EQ(result, expected);
 
 	input = "0 1 1\n";
@@ -42,8 +42,8 @@ TEST(XORParser, XORParseIn) {
 TEST(XORParser, XORParseOut) {
 	XORParser parser{};
 	std::string input = "0 0 0\n";
-	std::vector<double> expected = {0.0};
-	std::vector<double> result = parser.parse_out(input);
+	std::vector<float> expected = {0.0};
+	std::vector<float> result = parser.parse_out(input);
 	EXPECT_EQ(result, expected);
 
 	input = "0 1 1\n";

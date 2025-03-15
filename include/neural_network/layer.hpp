@@ -6,7 +6,9 @@
 #ifndef LAYER_HPP
 #define LAYER_HPP
 
+#include "neural_network/activation_functions.hpp"
 #include <eigen3/Eigen/Dense>
+#include <memory>
 
 /**
  * @brief Class representing a neural network layer
@@ -37,9 +39,18 @@ class Layer {
 	Eigen::MatrixXf back_propagate(const Eigen::MatrixXf& error, float learning_rate, Eigen::MatrixXf& next_values);
 
   private:
-	Eigen::MatrixXf m_weights; ///< Matrix of the weights of the connections to that layer
-	Eigen::MatrixXf m_biases;  ///< Matrix of the biases of the neurons in that layer
-	Eigen::MatrixXf m_values;  ///< Matrix of the values of the neurons in that layer
+	Eigen::MatrixXf m_weights;									///< Matrix of the weights of the connections to that layer
+	Eigen::MatrixXf m_biases;									///< Matrix of the biases of the neurons in that layer
+	Eigen::MatrixXf m_values;									///< Matrix of the values of the neurons in that layer
+	static std::function<float(float)> m_activation_func;		///< The activation function of the layer
+	static std::function<float(float)> m_activation_func_deriv; ///< The derivative of the activation function of the layer
+
+	/**
+	 * @brief Set the activation function and its derivative
+	 * @param activation_func The activation function
+	 * @param activation_func_deriv The derivative of the activation function
+	 */
+	static void set_activation_func(std::function<float(float)> activation_func, std::function<float(float)> activation_func_deriv);
 
 	friend class NeuralNetwork; ///< Allow the neural network to access the private members
 };

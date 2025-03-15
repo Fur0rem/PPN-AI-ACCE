@@ -6,23 +6,29 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LAYER\_HPP}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LAYER\_HPP}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLayer}{Layer}}\ \{}
-\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}{Layer}}(\textcolor{keywordtype}{int}\ input\_size,\ \textcolor{keywordtype}{int}\ output\_size);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00028\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_a81ac99698eec41bf03826b7cfc64ed16}{feed\_forward}}(Eigen::MatrixXf*\ input);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00037\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_afadf0f02441ae751fe4d77711d45aec3}{back\_propagate}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ error,\ \textcolor{keywordtype}{float}\ learning\_rate,\ Eigen::MatrixXf\&\ next\_values);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ Eigen::MatrixXf\ m\_weights;\ }
-\DoxyCodeLine{00041\ \ \ \ \ Eigen::MatrixXf\ m\_biases;\ \ }
-\DoxyCodeLine{00042\ \ \ \ \ Eigen::MatrixXf\ m\_values;\ \ }
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}};\ }
-\DoxyCodeLine{00045\ \};}
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LAYER\_HPP}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{activation__functions_8hpp}{neural\_network/activation\_functions.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLayer}{Layer}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classLayer_a83989eec29e9cc5eb47e1d902c93b48e}{Layer}}(\textcolor{keywordtype}{int}\ input\_size,\ \textcolor{keywordtype}{int}\ output\_size);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_a81ac99698eec41bf03826b7cfc64ed16}{feed\_forward}}(Eigen::MatrixXf*\ input);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classLayer_afadf0f02441ae751fe4d77711d45aec3}{back\_propagate}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ error,\ \textcolor{keywordtype}{float}\ learning\_rate,\ Eigen::MatrixXf\&\ next\_values);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ Eigen::MatrixXf\ m\_weights;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ Eigen::MatrixXf\ m\_biases;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ Eigen::MatrixXf\ m\_values;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ std::function<float(\textcolor{keywordtype}{float})>\ m\_activation\_func;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ std::function<float(\textcolor{keywordtype}{float})>\ m\_activation\_func\_deriv;\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_activation\_func(std::function<\textcolor{keywordtype}{float}(\textcolor{keywordtype}{float})>\ activation\_func,\ std::function<\textcolor{keywordtype}{float}(\textcolor{keywordtype}{float})>\ activation\_func\_deriv);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}};\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LAYER\_HPP}}
 
 \end{DoxyCode}

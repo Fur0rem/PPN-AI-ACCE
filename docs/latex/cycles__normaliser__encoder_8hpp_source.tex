@@ -1,0 +1,22 @@
+\doxysection{cycles\+\_\+normaliser\+\_\+encoder.\+hpp}
+\hypertarget{cycles__normaliser__encoder_8hpp_source}{}\label{cycles__normaliser__encoder_8hpp_source}\index{include/parsing/cycles\_normaliser\_encoder.hpp@{include/parsing/cycles\_normaliser\_encoder.hpp}}
+\mbox{\hyperlink{cycles__normaliser__encoder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ CYCLES\_ENCODER\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ CYCLES\_ENCODER\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{cycles__normaliser__encoder_8hpp_a87fd18e17edcd3b78d02d63325c798ba}{MAX\_CYCLES}}\ =\ 4e9;\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iencoder_8hpp}{parsing/iencoder.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesNormaliserEncoder}{CyclesNormaliserEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CYCLES\_ENCODER\_HPP}}
+
+\end{DoxyCode}

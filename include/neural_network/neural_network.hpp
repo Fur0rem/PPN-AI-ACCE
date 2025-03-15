@@ -6,8 +6,11 @@
 #ifndef NEURAL_NETWORK_HPP
 #define NEURAL_NETWORK_HPP
 #include "dataset/dataset.hpp"
+#include "neural_network/activation_functions.hpp"
 #include "neural_network/layer.hpp"
+#include "parsing/iencoder.hpp"
 #include <eigen3/Eigen/Dense>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -16,10 +19,11 @@
  */
 class NeuralNetwork {
   private:
-	std::vector<size_t> m_topology; ///< Number of neurons in each layer
-	std::vector<Layer> m_layers;	///< Vector of layers in the network
-	Eigen::MatrixXf m_last_values;	///< Values of the last layer
-	float m_learning_rate;			///< Learning rate of the network
+	std::vector<size_t> m_topology;					   ///< Number of neurons in each layer
+	std::vector<Layer> m_layers;					   ///< Vector of layers in the network
+	Eigen::MatrixXf m_last_values;					   ///< Values of the last layer
+	float m_learning_rate;							   ///< Learning rate of the network
+	std::unique_ptr<ActivationFunc> m_activation_func; ///< Activation function of the network
 
 	/**
 	 * @brief Feed forward the input through the network
@@ -29,9 +33,45 @@ class NeuralNetwork {
 
 	/**
 	 * @brief Back propagate the error through the network
-	 * @param target_output The target output of the network
+	 * @param target_output The target output
 	 */
 	void back_propagate(const Eigen::VectorXf* target_output);
+
+	/**
+	 * @brief Calculate the squared error between the prediction and the target
+	 * @param prediction The prediction output of the network
+	 * @param target The target output
+	 * @param encoder The encoder used to encode the data
+	 * @return The squared error
+	 */
+	double squared_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder);
+
+	/**
+	 * @brief Calculate the relative (normalised) squared error between the prediction and the target
+	 * @param prediction The prediction output of the network
+	 * @param target The target output
+	 * @param encoder The encoder used to encode the data
+	 * @return The relative squared error
+	 */
+	double relative_squared_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder);
+
+	/**
+	 * @brief Calculate the absolute error between the prediction and the target
+	 * @param prediction The prediction of the network
+	 * @param target The target output
+	 * @param encoder The encoder used to encode the data
+	 * @return The absolute error
+	 */
+	double absolute_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder);
+
+	/**
+	 * @brief Calculate the relative absolute error between the prediction and the target
+	 * @param prediction The prediction of the network
+	 * @param target The target output
+	 * @param encoder The encoder used to encode the data
+	 * @return The absolute error
+	 */
+	double relative_absolute_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder);
 
   public:
 	/**
@@ -39,17 +79,18 @@ class NeuralNetwork {
 	 * @param topology The number of neurons in each layer
 	 * @param learning_rate The learning rate of the network
 	 */
-	NeuralNetwork(std::vector<size_t>& topology, float learning_rate);
+	NeuralNetwork(std::vector<size_t>& topology, float learning_rate, std::unique_ptr<ActivationFunc> activation_func);
 
 	/**
 	 * @brief Train the neural network
-	 * @param inputs The input data
-	 * @param targets The target output data
+	 * @param dataset The dataset to train on
 	 * @param nb_epochs The number of epochs to train for
-	 * @param input_ratio the ratio of inputs to be used as training data, the rest will be used as validation data
-	 * @param logging_filename The name of the file to log the loss to
+	 * @param training_proportion the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training
+	 * data), the rest will be used as validation data
+	 * @param logging_dir The directory to save the logs
+	 * @param nb_trains The number of times to train the network
 	 */
-	void train(Dataset& dataset, int nb_epochs, float input_ratio, std::string&& logging_filename);
+	void train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains);
 
 	/**
 	 * @brief Get the prediction of the network
@@ -77,14 +118,14 @@ class NeuralNetwork {
 	 * @param targets The target output data
 	 * @return The loss of the network
 	 */
-	double get_loss_mrse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+	double get_loss_mrse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets, IEncoder* encoder);
 
 	/**
 	 * @brief Get the loss of the network, uses mean squared error
 	 * @param inputs The input data
 	 * @param targets The target output data
 	 */
-	double get_loss_mse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+	double get_loss_mse(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets, IEncoder* encoder);
 
 	/**
 	 * @brief Get the accuracy of the network, uses mean absolute error
@@ -92,7 +133,7 @@ class NeuralNetwork {
 	 * @param targets The target output data
 	 * @return The accuracy of the network
 	 */
-	double get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+	double get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets, IEncoder* encoder);
 
 	/**
 	 * @brief Get the accuracy of the network, uses mean relative absolute error
@@ -100,7 +141,7 @@ class NeuralNetwork {
 	 * @param targets The target output data
 	 * @return The accuracy of the network
 	 */
-	double get_acc_mrae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets);
+	double get_acc_mrae(std::vector<Eigen::VectorXf*>& inputs, std::vector<Eigen::VectorXf*>& targets, IEncoder* encoder);
 };
 
 #endif // NEURAL_NETWORK_HPP

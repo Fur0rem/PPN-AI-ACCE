@@ -6,22 +6,25 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ACITVATION\_FUNCTIONS\_HPP}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ACITVATION\_FUNCTIONS\_HPP}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00014\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_ae18d105356d4d3e7730d931fce4bfb23}{sigmoid}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_a598adcc22ac39155970bc30af27aed7b}{deriv\_sigmoid}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_adb6293450780c47c93c102da587f72ff}{relu}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1}{deriv\_relu}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_a15a743c6e47c50d54d77bee4de32e06f}{leaky\_relu}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00049\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_aa87b8530f497c54eeacae4f04d8b64fa}{deriv\_leaky\_relu}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{comment}{//\ tanh\ is\ already\ defined\ in\ the\ std\ library}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{activation__functions_8hpp_a3231b67aef956f62c30e131cbe558907}{deriv\_tanh}}(\textcolor{keywordtype}{float}\ x);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ACITVATION\_FUNCTIONS\_HPP}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classActivationFunc}{ActivationFunc}}\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{func}}(\textcolor{keywordtype}{float}\ x)\ =\ 0;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{deriv}}(\textcolor{keywordtype}{float}\ x)\ =\ 0;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSigmoid}{Sigmoid}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classActivationFunc}{ActivationFunc}}\ \{}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classSigmoid_a538f2115866326dfc535a4499f5ae0fb}{func}}(\textcolor{keywordtype}{float}\ x)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classSigmoid_a34174da7594459e0752b2a6e578a885a}{deriv}}(\textcolor{keywordtype}{float}\ x)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReLU}{ReLU}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classActivationFunc}{ActivationFunc}}\ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classReLU_a85883d20a3209e62d7d05693cde521ad}{func}}(\textcolor{keywordtype}{float}\ x)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classReLU_a3793576dd10edcba59b7b88ef968ca87}{deriv}}(\textcolor{keywordtype}{float}\ x)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ACITVATION\_FUNCTIONS\_HPP}}
 
 \end{DoxyCode}

@@ -33,5 +33,7 @@ var searchData=
   ['course_20ppn_20projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_30',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
   ['crypto_2ecpp_31',['crypto.cpp',['../crypto_8cpp.html',1,'']]],
   ['current_20status_20of_20the_20project_32',['Current status of the project',['../index.html#autotoc_md1',1,'']]],
-  ['cycles_20estimator_33',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
+  ['cycles_20estimator_33',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
+  ['cycles_5fnormaliser_5fencoder_2ehpp_34',['cycles_normaliser_encoder.hpp',['../cycles__normaliser__encoder_8hpp.html',1,'']]],
+  ['cyclesnormaliserencoder_35',['CyclesNormaliserEncoder',['../classCyclesNormaliserEncoder.html',1,'']]]
 ];

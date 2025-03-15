@@ -7,54 +7,41 @@
 #define ACITVATION_FUNCTIONS_HPP
 
 /**
- * @brief The sigmoid activation function
- * @param x The input to the function
- * @return The output of the function
+ * @brief The activation function class
  */
-float sigmoid(float x);
+class ActivationFunc {
+  public:
+	/**
+	 * @brief The activation function
+	 * @param x The input to the function
+	 * @return The output of the function
+	 */
+	virtual float func(float x) = 0;
+
+	/**
+	 * @brief The derivative of the activation function
+	 * @param x The input to the function
+	 * @return The output of the function
+	 */
+	virtual float deriv(float x) = 0;
+};
 
 /**
- * @brief The derivative of the sigmoid activation function
- * @param x The input to the function
- * @return The output of the function
+ * @brief The sigmoid activation function
  */
-float deriv_sigmoid(float x);
+class Sigmoid : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
 
 /**
  * @brief The ReLU activation function
- * @param x The input to the function
- * @return The output of the function
  */
-float relu(float x);
-
-/**
- * @brief The derivative of the ReLU activation function
- * @param x The input to the function
- * @return The output of the function
- */
-float deriv_relu(float x);
-
-/**
- * @brief The leaky ReLU activation function
- * @param x The input to the function
- * @return The output of the function
- */
-float leaky_relu(float x);
-
-/**
- * @brief The derivative of the leaky ReLU activation function
- * @param x The input to the function
- * @return The output of the function
- */
-float deriv_leaky_relu(float x);
-
-// tanh is already defined in the std library
-
-/**
- * @brief The derivative of the tanh activation function
- * @param x The input to the function
- * @return The output of the function
- */
-float deriv_tanh(float x);
+class ReLU : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
 
 #endif // ACITVATION_FUNCTIONS_HPP

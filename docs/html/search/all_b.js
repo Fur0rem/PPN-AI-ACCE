@@ -12,6 +12,6 @@ var searchData=
   ['mat_5fmult_5fjik_9',['MAT_MULT_JIK',['../mat__mul_8cpp.html#a1550db76f62639fc56060d29eba06e09',1,'mat_mul.cpp']]],
   ['mat_5fmult_5fjki_10',['MAT_MULT_JKI',['../mat__mul_8cpp.html#a287622391bc8a616a0263c3bde8b9bc9',1,'mat_mul.cpp']]],
   ['mat_5fmult_5fkij_11',['MAT_MULT_KIJ',['../mat__mul_8cpp.html#af0494c4d781a74e74acc713899acc90b',1,'mat_mul.cpp']]],
-  ['max_5fcycles_12',['MAX_CYCLES',['../iparser_8hpp.html#a87fd18e17edcd3b78d02d63325c798ba',1,'iparser.hpp']]],
-  ['max_5ftokens_5fnn_13',['MAX_TOKENS_NN',['../iparser_8hpp.html#ac3c8ef52a65b17b370b8014b0f0c1c37',1,'iparser.hpp']]]
+  ['max_5fcycles_12',['MAX_CYCLES',['../cycles__normaliser__encoder_8hpp.html#a87fd18e17edcd3b78d02d63325c798ba',1,'cycles_normaliser_encoder.hpp']]],
+  ['max_5ftokens_5fnn_13',['MAX_TOKENS_NN',['../size__encoder_8hpp.html#ac3c8ef52a65b17b370b8014b0f0c1c37',1,'size_encoder.hpp']]]
 ];

@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['get_5facc_5fmae_0',['get_acc_mae',['../classNeuralNetwork.html#a54933c2dc406e688db245dbf2cd1a394',1,'NeuralNetwork']]],
-  ['get_5facc_5fmrae_1',['get_acc_mrae',['../classNeuralNetwork.html#a7981465ca1672b313015c9cc1628fa04',1,'NeuralNetwork']]],
-  ['get_5fdata_2',['get_data',['../classDataset.html#ae39e0751b7fa079edb57f642f12b88f0',1,'Dataset']]],
-  ['get_5floss_5fmrse_3',['get_loss_mrse',['../classNeuralNetwork.html#ae53ea5f84afa590cf055589428656f51',1,'NeuralNetwork']]],
-  ['get_5floss_5fmse_4',['get_loss_mse',['../classNeuralNetwork.html#a1a8d1a7969418a4a590571eda60da9da',1,'NeuralNetwork']]],
-  ['get_5fprediction_5',['get_prediction',['../classNeuralNetwork.html#a26155d14e8c97c786614843494397d16',1,'NeuralNetwork']]]
+  ['get_5facc_5fmae_0',['get_acc_mae',['../classNeuralNetwork.html#ac2dcf7c4974cc5f6f0cc18d32314d6fc',1,'NeuralNetwork']]],
+  ['get_5facc_5fmrae_1',['get_acc_mrae',['../classNeuralNetwork.html#aca0e2e1314d81aa0b41c64d501d92614',1,'NeuralNetwork']]],
+  ['get_5fall_5fdata_2',['get_all_data',['../classDataset.html#a53dfacec2dc85697a137b908c199ecd1',1,'Dataset']]],
+  ['get_5fdata_3',['get_data',['../classDataset.html#ac26ae42c722ca90cd5fb92c5c3e2f55e',1,'Dataset']]],
+  ['get_5finput_5fencoder_4',['get_input_encoder',['../classDataset.html#abccdca5465ab9328f1a07cbfe2a7a81f',1,'Dataset']]],
+  ['get_5floss_5fmrse_5',['get_loss_mrse',['../classNeuralNetwork.html#afb258de0e9efb180c1c7e45c801c3342',1,'NeuralNetwork']]],
+  ['get_5floss_5fmse_6',['get_loss_mse',['../classNeuralNetwork.html#a13d52c1ba7753a9975a6928af7c1e9c4',1,'NeuralNetwork']]],
+  ['get_5foutput_5fencoder_7',['get_output_encoder',['../classDataset.html#aa70945f2b0908066d2f4e090bfb076a5',1,'Dataset']]],
+  ['get_5fprediction_8',['get_prediction',['../classNeuralNetwork.html#a26155d14e8c97c786614843494397d16',1,'NeuralNetwork']]]
 ];

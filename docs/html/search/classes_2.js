@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dataset_0',['Dataset',['../classDataset.html',1,'']]]
+  ['cyclesnormaliserencoder_0',['CyclesNormaliserEncoder',['../classCyclesNormaliserEncoder.html',1,'']]]
 ];

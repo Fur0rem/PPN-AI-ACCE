@@ -10,7 +10,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<double> AsmParser::parse_out(std::string& input) {
+std::vector<float> AsmParser::parse_out(std::string& input) {
 	std::string substring = "";
 
 	// finding first line break
@@ -35,12 +35,11 @@ std::vector<double> AsmParser::parse_out(std::string& input) {
 
 	substring = substring.substr(col_pos + 1, substring.length());
 
-	double cycles = std::stod(substring);
-
-	return {cycles / MAX_CYCLES};
+	float cycles = std::stof(substring);
+	return {cycles};
 }
 
-std::vector<double> AsmParser::parse_in(std::string& input_ref) {
+std::vector<float> AsmParser::parse_in(std::string& input_ref) {
 	// Create a command that will call nasm to assemble the input string
 	std::string input = input_ref;
 	// Add BITS 64 to the input string to assemble it as a 64-bit binary
@@ -80,8 +79,8 @@ std::vector<double> AsmParser::parse_in(std::string& input_ref) {
 		hex_bytes.push_back(byte);
 	}
 
-	// Convert the hexadecimal bytes into a vector of doubles per bit
-	std::vector<double> result;
+	// Convert the hexadecimal bytes into a vector of floats per bit
+	std::vector<float> result;
 	for (uint8_t hex_byte : hex_bytes) {
 		for (int j = 7; j >= 0; j--) {
 			result.push_back((hex_byte >> j) & 1);

@@ -27,20 +27,20 @@ class XORParser : public IParser {
 	~XORParser() override = default;
 
 	/**
-	 * @brief Parse the input of the neural network into a vector of doubles.
+	 * @brief Parse the input of the neural network into a vector of floats.
 	 * The input is expected to be in the format "<input1> <input2> <output>"
 	 * @param input The string to parse
-	 * @return A vector of doubles representing the input of the neural network
+	 * @return A vector of floats representing the input of the neural network
 	 */
-	std::vector<double> parse_in(std::string& input) override;
+	std::vector<float> parse_in(std::string& input) override;
 
 	/**
-	 * @brief Parse the output of the neural network into a vector of doubles.
+	 * @brief Parse the output of the neural network into a vector of floats.
 	 * The output is expected to be in the format "<input1> <input2> <output>"
 	 * @param input The string to parse
-	 * @return A vector of doubles representing the output of the neural network
+	 * @return A vector of floats representing the output of the neural network
 	 */
-	std::vector<double> parse_out(std::string& input) override;
+	std::vector<float> parse_out(std::string& input) override;
 };
 
 #endif // XOR_PARSER_HPP

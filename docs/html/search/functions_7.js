@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['initialize_5farrays_0',['initialize_arrays',['../array__add_8cpp.html#ae20b116e3c84a8c006d9605e5b13eea3',1,'initialize_arrays():&#160;array_add.cpp'],['../array__copy_8cpp.html#ae20b116e3c84a8c006d9605e5b13eea3',1,'initialize_arrays():&#160;array_copy.cpp']]],
-  ['into_5fneural_5fnetwork_5finput_1',['into_neural_network_input',['../classIParser.html#a3424417a355d3afd80bbcc37e5ab495c',1,'IParser']]]
+  ['hexadecimalparser_0',['HexadecimalParser',['../classHexadecimalParser.html#a974280b56a8af6a4863ae8b166208a43',1,'HexadecimalParser']]],
+  ['hexadecimalwithsplitparser_1',['HexadecimalWithSplitParser',['../classHexadecimalWithSplitParser.html#a81369fc37f0b83ca0b283bad40849c7c',1,'HexadecimalWithSplitParser']]]
 ];

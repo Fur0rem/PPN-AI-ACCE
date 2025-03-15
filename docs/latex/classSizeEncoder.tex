@@ -1,0 +1,100 @@
+\doxysection{Size\+Encoder Class Reference}
+\hypertarget{classSizeEncoder}{}\label{classSizeEncoder}\index{SizeEncoder@{SizeEncoder}}
+
+
+A class to encode and decode a variable size vector.  
+
+
+
+
+{\ttfamily \#include $<$size\+\_\+encoder.\+hpp$>$}
+
+Inheritance diagram for Size\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSizeEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSizeEncoder_a295cf4253354311c9302534cd993f1cb}{Size\+Encoder}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classSizeEncoder}{Size\+Encoder} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}{encode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Encode a vector by adding a size token at the beginning and a filler value at the end. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}{decode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Decode a vector by removing the size token at the beginning and the filler value at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to encode and decode a variable size vector. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSizeEncoder_a295cf4253354311c9302534cd993f1cb}\label{classSizeEncoder_a295cf4253354311c9302534cd993f1cb} 
+\index{SizeEncoder@{SizeEncoder}!SizeEncoder@{SizeEncoder}}
+\index{SizeEncoder@{SizeEncoder}!SizeEncoder@{SizeEncoder}}
+\doxysubsubsection{\texorpdfstring{SizeEncoder()}{SizeEncoder()}}
+{\footnotesize\ttfamily Size\+Encoder\+::\+Size\+Encoder (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classSizeEncoder}{Size\+Encoder} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the vector to encode \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}\label{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d} 
+\index{SizeEncoder@{SizeEncoder}!decode@{decode}}
+\index{decode@{decode}!SizeEncoder@{SizeEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a vector by removing the size token at the beginning and the filler value at the end. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The vector to decode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded vector 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+
+\Hypertarget{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}\label{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb} 
+\index{SizeEncoder@{SizeEncoder}!encode@{encode}}
+\index{encode@{encode}!SizeEncoder@{SizeEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a vector by adding a size token at the beginning and a filler value at the end. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The vector to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encoded vector 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{size__encoder_8hpp}{size\+\_\+encoder.\+hpp}}\item 
+src/parsing/\mbox{\hyperlink{size__encoder_8cpp}{size\+\_\+encoder.\+cpp}}\end{DoxyCompactItemize}

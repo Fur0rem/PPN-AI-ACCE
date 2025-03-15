@@ -5,154 +5,17 @@
 Header for the activation functions used in the neural network.  
 
 
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{activation__functions_8hpp_ae18d105356d4d3e7730d931fce4bfb23}{sigmoid}} (float x)
+class \mbox{\hyperlink{classActivationFunc}{Activation\+Func}}
+\begin{DoxyCompactList}\small\item\em The activation function class. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSigmoid}{Sigmoid}}
 \begin{DoxyCompactList}\small\item\em The sigmoid activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_a598adcc22ac39155970bc30af27aed7b}{deriv\+\_\+sigmoid}} (float x)
-\begin{DoxyCompactList}\small\item\em The derivative of the sigmoid activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_adb6293450780c47c93c102da587f72ff}{relu}} (float x)
-\begin{DoxyCompactList}\small\item\em The Re\+LU activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1}{deriv\+\_\+relu}} (float x)
-\begin{DoxyCompactList}\small\item\em The derivative of the Re\+LU activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_a15a743c6e47c50d54d77bee4de32e06f}{leaky\+\_\+relu}} (float x)
-\begin{DoxyCompactList}\small\item\em The leaky Re\+LU activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_aa87b8530f497c54eeacae4f04d8b64fa}{deriv\+\_\+leaky\+\_\+relu}} (float x)
-\begin{DoxyCompactList}\small\item\em The derivative of the leaky Re\+LU activation function. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{activation__functions_8hpp_a3231b67aef956f62c30e131cbe558907}{deriv\+\_\+tanh}} (float x)
-\begin{DoxyCompactList}\small\item\em The derivative of the tanh activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{classReLU}{Re\+LU}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{classReLU}{Re\+LU} activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Header for the activation functions used in the neural network. 
 
-
-
-\doxysubsection{Function Documentation}
-\Hypertarget{activation__functions_8hpp_aa87b8530f497c54eeacae4f04d8b64fa}\label{activation__functions_8hpp_aa87b8530f497c54eeacae4f04d8b64fa} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!deriv\_leaky\_relu@{deriv\_leaky\_relu}}
-\index{deriv\_leaky\_relu@{deriv\_leaky\_relu}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{deriv\_leaky\_relu()}{deriv\_leaky\_relu()}}
-{\footnotesize\ttfamily float deriv\+\_\+leaky\+\_\+relu (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The derivative of the leaky Re\+LU activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1}\label{activation__functions_8hpp_a041b4ccc6a6cf5f6ea9e7d8ba8d58ea1} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!deriv\_relu@{deriv\_relu}}
-\index{deriv\_relu@{deriv\_relu}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{deriv\_relu()}{deriv\_relu()}}
-{\footnotesize\ttfamily float deriv\+\_\+relu (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The derivative of the Re\+LU activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_a598adcc22ac39155970bc30af27aed7b}\label{activation__functions_8hpp_a598adcc22ac39155970bc30af27aed7b} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!deriv\_sigmoid@{deriv\_sigmoid}}
-\index{deriv\_sigmoid@{deriv\_sigmoid}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{deriv\_sigmoid()}{deriv\_sigmoid()}}
-{\footnotesize\ttfamily float deriv\+\_\+sigmoid (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The derivative of the sigmoid activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_a3231b67aef956f62c30e131cbe558907}\label{activation__functions_8hpp_a3231b67aef956f62c30e131cbe558907} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!deriv\_tanh@{deriv\_tanh}}
-\index{deriv\_tanh@{deriv\_tanh}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{deriv\_tanh()}{deriv\_tanh()}}
-{\footnotesize\ttfamily float deriv\+\_\+tanh (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The derivative of the tanh activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_a15a743c6e47c50d54d77bee4de32e06f}\label{activation__functions_8hpp_a15a743c6e47c50d54d77bee4de32e06f} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!leaky\_relu@{leaky\_relu}}
-\index{leaky\_relu@{leaky\_relu}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{leaky\_relu()}{leaky\_relu()}}
-{\footnotesize\ttfamily float leaky\+\_\+relu (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The leaky Re\+LU activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_adb6293450780c47c93c102da587f72ff}\label{activation__functions_8hpp_adb6293450780c47c93c102da587f72ff} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!relu@{relu}}
-\index{relu@{relu}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{relu()}{relu()}}
-{\footnotesize\ttfamily float relu (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The Re\+LU activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}
-\Hypertarget{activation__functions_8hpp_ae18d105356d4d3e7730d931fce4bfb23}\label{activation__functions_8hpp_ae18d105356d4d3e7730d931fce4bfb23} 
-\index{activation\_functions.hpp@{activation\_functions.hpp}!sigmoid@{sigmoid}}
-\index{sigmoid@{sigmoid}!activation\_functions.hpp@{activation\_functions.hpp}}
-\doxysubsubsection{\texorpdfstring{sigmoid()}{sigmoid()}}
-{\footnotesize\ttfamily float sigmoid (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
-
-
-
-The sigmoid activation function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & The input to the function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The output of the function 
-\end{DoxyReturn}

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['absolute_5ferror_0',['absolute_error',['../neural__network_8cpp.html#a2405f019e7afb835508aa663a7646fde',1,'neural_network.cpp']]],
-  ['acce_20ai_20based_20assembly_20code_20cycles_20estimator_1',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
-  ['activation_5ffunctions_2ecpp_2',['activation_functions.cpp',['../activation__functions_8cpp.html',1,'']]],
-  ['activation_5ffunctions_2ehpp_3',['activation_functions.hpp',['../activation__functions_8hpp.html',1,'']]],
+  ['acce_20ai_20based_20assembly_20code_20cycles_20estimator_0',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
+  ['activation_5ffunctions_2ecpp_1',['activation_functions.cpp',['../activation__functions_8cpp.html',1,'']]],
+  ['activation_5ffunctions_2ehpp_2',['activation_functions.hpp',['../activation__functions_8hpp.html',1,'']]],
+  ['activationfunc_3',['ActivationFunc',['../classActivationFunc.html',1,'']]],
   ['ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_4',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
   ['arr_5',['arr',['../crypto_8cpp.html#aa5df0efc3aef8b61da4ec12e83be7b66',1,'arr:&#160;crypto.cpp'],['../sorting_8cpp.html#a4b0bcd470bbfd1c35eb7114ff77f79f2',1,'arr:&#160;sorting.cpp']]],
   ['arr_5fhashed_6',['arr_hashed',['../crypto_8cpp.html#a59d51bc139b21b49cd7af72232785a0f',1,'crypto.cpp']]],

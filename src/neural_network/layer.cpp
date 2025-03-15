@@ -26,19 +26,16 @@ Layer::Layer(int input_size, int output_size) {
 	}
 }
 
-const auto ACTIVATION = sigmoid;
-const auto DERIV_ACTIVATION = deriv_sigmoid;
-
 Eigen::MatrixXf Layer::feed_forward(Eigen::MatrixXf* input) {
 	this->m_values = *input;
 	*input = *input * this->m_weights + this->m_biases;
-	return input->unaryExpr(std::function<float(float)>(ACTIVATION));
+	return input->unaryExpr(m_activation_func);
 }
 
 Eigen::MatrixXf Layer::back_propagate(const Eigen::MatrixXf& error, float learning_rate, Eigen::MatrixXf& next_values) {
 	// Calculate the gradients
 	Eigen::MatrixXf prev_errors = error * this->m_weights.transpose();
-	Eigen::MatrixXf outputs = next_values.unaryExpr(std::function<float(float)>(DERIV_ACTIVATION));
+	Eigen::MatrixXf outputs = next_values.unaryExpr(m_activation_func_deriv);
 	Eigen::MatrixXf gradients = error.cwiseProduct(outputs) * learning_rate;
 	Eigen::MatrixXf weight_gradients = this->m_values.transpose() * gradients;
 
@@ -47,4 +44,13 @@ Eigen::MatrixXf Layer::back_propagate(const Eigen::MatrixXf& error, float learni
 	this->m_weights = this->m_weights + weight_gradients;
 
 	return prev_errors;
+}
+
+// Define the static member variables
+std::function<float(float)> Layer::m_activation_func;
+std::function<float(float)> Layer::m_activation_func_deriv;
+
+void Layer::set_activation_func(std::function<float(float)> activation_func, std::function<float(float)> activation_func_deriv) {
+	m_activation_func = std::move(activation_func);
+	m_activation_func_deriv = std::move(activation_func_deriv);
 }

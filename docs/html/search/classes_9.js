@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xorparser_0',['XORParser',['../classXORParser.html',1,'']]]
+  ['relu_0',['ReLU',['../classReLU.html',1,'']]]
 ];

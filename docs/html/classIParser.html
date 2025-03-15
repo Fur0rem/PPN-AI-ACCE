@@ -74,7 +74,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classIParser-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">IParser Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -101,79 +100,34 @@ Inheritance diagram for IParser:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa8abc420f6f8ee06c81556a5ffb368b" id="r_afa8abc420f6f8ee06c81556a5ffb368b"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa8abc420f6f8ee06c81556a5ffb368b">parse_from_string</a> (std::string &amp;input)</td></tr>
-<tr class="memdesc:afa8abc420f6f8ee06c81556a5ffb368b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a string into a combination of input and output for the neural network.  <br /></td></tr>
-<tr class="separator:afa8abc420f6f8ee06c81556a5ffb368b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a6ab76c1315808c75eb82523967254a" id="r_a8a6ab76c1315808c75eb82523967254a"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a6ab76c1315808c75eb82523967254a">parse_from_file</a> (std::string &amp;filename)</td></tr>
-<tr class="memdesc:a8a6ab76c1315808c75eb82523967254a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file into a combination of input and output for the neural network.  <br /></td></tr>
-<tr class="separator:a8a6ab76c1315808c75eb82523967254a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e00e2ff108b6198f73bcb628fd71b30" id="r_a4e00e2ff108b6198f73bcb628fd71b30"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::vector&lt; float &gt;, std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e00e2ff108b6198f73bcb628fd71b30">parse_from_string</a> (std::string &amp;input)</td></tr>
+<tr class="memdesc:a4e00e2ff108b6198f73bcb628fd71b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a string into a combination of input and output for the neural network.  <br /></td></tr>
+<tr class="separator:a4e00e2ff108b6198f73bcb628fd71b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82801c747a7f9484db42ada934cc1aaa" id="r_a82801c747a7f9484db42ada934cc1aaa"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::vector&lt; float &gt;, std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82801c747a7f9484db42ada934cc1aaa">parse_from_file</a> (std::string &amp;filename)</td></tr>
+<tr class="memdesc:a82801c747a7f9484db42ada934cc1aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a file into a combination of input and output for the neural network.  <br /></td></tr>
+<tr class="separator:a82801c747a7f9484db42ada934cc1aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d9dee322c0e6a77a8d23dce38f9515a" id="r_a8d9dee322c0e6a77a8d23dce38f9515a"><td class="memItemLeft" align="right" valign="top"><a id="a8d9dee322c0e6a77a8d23dce38f9515a" name="a8d9dee322c0e6a77a8d23dce38f9515a"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~IParser</b> ()=default</td></tr>
 <tr class="memdesc:a8d9dee322c0e6a77a8d23dce38f9515a"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for the <a class="el" href="classIParser.html" title="Interface for parsing and transforming assembly instructions into an input for a neural network.">IParser</a> class <br /></td></tr>
 <tr class="separator:a8d9dee322c0e6a77a8d23dce38f9515a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a869fb79d358cf823b2e4d8976c4e7496" id="r_a869fb79d358cf823b2e4d8976c4e7496"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a869fb79d358cf823b2e4d8976c4e7496">parse_out</a> (std::string &amp;input)=0</td></tr>
-<tr class="memdesc:a869fb79d358cf823b2e4d8976c4e7496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the output of the neural network into a vector of doubles.  <br /></td></tr>
-<tr class="separator:a869fb79d358cf823b2e4d8976c4e7496"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad877cca85a9a49a165d1c5a45901850f" id="r_ad877cca85a9a49a165d1c5a45901850f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad877cca85a9a49a165d1c5a45901850f">parse_in</a> (std::string &amp;input)=0</td></tr>
-<tr class="memdesc:ad877cca85a9a49a165d1c5a45901850f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the input of the neural network into a vector of doubles.  <br /></td></tr>
-<tr class="separator:ad877cca85a9a49a165d1c5a45901850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3424417a355d3afd80bbcc37e5ab495c" id="r_a3424417a355d3afd80bbcc37e5ab495c"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3424417a355d3afd80bbcc37e5ab495c">into_neural_network_input</a> (std::vector&lt; double &gt; &amp;parsed, std::vector&lt; size_t &gt; &amp;topology)</td></tr>
-<tr class="memdesc:a3424417a355d3afd80bbcc37e5ab495c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a vector of parsed values into an input for the neural network.  <br /></td></tr>
-<tr class="separator:a3424417a355d3afd80bbcc37e5ab495c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ea2c3f74829400cd975fbc10a05fd4" id="r_a42ea2c3f74829400cd975fbc10a05fd4"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42ea2c3f74829400cd975fbc10a05fd4">parse_out</a> (std::string &amp;input)=0</td></tr>
+<tr class="memdesc:a42ea2c3f74829400cd975fbc10a05fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the output of the neural network into a vector of floats.  <br /></td></tr>
+<tr class="separator:a42ea2c3f74829400cd975fbc10a05fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13534e666201115a9e866571a0d31a59" id="r_a13534e666201115a9e866571a0d31a59"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13534e666201115a9e866571a0d31a59">parse_in</a> (std::string &amp;input)=0</td></tr>
+<tr class="memdesc:a13534e666201115a9e866571a0d31a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the input of the neural network into a vector of floats.  <br /></td></tr>
+<tr class="separator:a13534e666201115a9e866571a0d31a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for parsing and transforming assembly instructions into an input for a neural network. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3424417a355d3afd80bbcc37e5ab495c" name="a3424417a355d3afd80bbcc37e5ab495c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3424417a355d3afd80bbcc37e5ab495c">&#9670;&#160;</a></span>into_neural_network_input()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt; IParser::into_neural_network_input </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>parsed</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; size_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>topology</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert a vector of parsed values into an input for the neural network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">parsed</td><td>The vector of parsed values </td></tr>
-    <tr><td class="paramname">topology</td><td>The topology of the neural network </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An array of doubles representing the input for the neural network </dd></dl>
-
-</div>
-</div>
-<a id="a8a6ab76c1315808c75eb82523967254a" name="a8a6ab76c1315808c75eb82523967254a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a6ab76c1315808c75eb82523967254a">&#9670;&#160;</a></span>parse_from_file()</h2>
+<a id="a82801c747a7f9484db42ada934cc1aaa" name="a82801c747a7f9484db42ada934cc1aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82801c747a7f9484db42ada934cc1aaa">&#9670;&#160;</a></span>parse_from_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt; IParser::parse_from_file </td>
+          <td class="memname">std::tuple&lt; std::vector&lt; float &gt;, std::vector&lt; float &gt; &gt; IParser::parse_from_file </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
           <td></td>
@@ -192,14 +146,14 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afa8abc420f6f8ee06c81556a5ffb368b" name="afa8abc420f6f8ee06c81556a5ffb368b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa8abc420f6f8ee06c81556a5ffb368b">&#9670;&#160;</a></span>parse_from_string()</h2>
+<a id="a4e00e2ff108b6198f73bcb628fd71b30" name="a4e00e2ff108b6198f73bcb628fd71b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e00e2ff108b6198f73bcb628fd71b30">&#9670;&#160;</a></span>parse_from_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; std::vector&lt; double &gt;, std::vector&lt; double &gt; &gt; IParser::parse_from_string </td>
+          <td class="memname">std::tuple&lt; std::vector&lt; float &gt;, std::vector&lt; float &gt; &gt; IParser::parse_from_string </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
@@ -218,8 +172,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad877cca85a9a49a165d1c5a45901850f" name="ad877cca85a9a49a165d1c5a45901850f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad877cca85a9a49a165d1c5a45901850f">&#9670;&#160;</a></span>parse_in()</h2>
+<a id="a13534e666201115a9e866571a0d31a59" name="a13534e666201115a9e866571a0d31a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13534e666201115a9e866571a0d31a59">&#9670;&#160;</a></span>parse_in()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +182,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; double &gt; IParser::parse_in </td>
+          <td class="memname">virtual std::vector&lt; float &gt; IParser::parse_in </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
@@ -241,21 +195,21 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parse the input of the neural network into a vector of doubles. </p>
+<p>Parse the input of the neural network into a vector of floats. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>The string to parse </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of doubles representing the input of the neural network </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of floats representing the input of the neural network </dd></dl>
 
-<p>Implemented in <a class="el" href="classAsmParser.html#a2ea6407d5fba8078e541661abb711c64">AsmParser</a>, <a class="el" href="classBinaryParser.html#a516d2fb87902e4aa0dc886b2d63a25ba">BinaryParser</a>, <a class="el" href="classBinaryWithSplitParser.html#a45f16f28089a202aefe913bc789dd0e7">BinaryWithSplitParser</a>, <a class="el" href="classHexadecimalParser.html#a795054efe6afbfe9441b8e80a9591193">HexadecimalParser</a>, <a class="el" href="classHexadecimalWithSplitParser.html#a993147d2ec8e1df8ab6ee93029f60ff1">HexadecimalWithSplitParser</a>, and <a class="el" href="classXORParser.html#a234a6469b0d601504767657bfd554b2c">XORParser</a>.</p>
+<p>Implemented in <a class="el" href="classAsmParser.html#a7d9e7cfa4ab02f4fe2cb12f071e8fa87">AsmParser</a>, <a class="el" href="classBinaryParser.html#ae2dd60e90e261e7d10e956a2b02c0a4b">BinaryParser</a>, <a class="el" href="classBinaryWithSplitParser.html#aacb4f1524e98488e546a46a0555d12ca">BinaryWithSplitParser</a>, <a class="el" href="classHexadecimalParser.html#af281745d186f65cad90a2981259aa885">HexadecimalParser</a>, <a class="el" href="classHexadecimalWithSplitParser.html#acc2595ea35ee57266405c650fb2551c6">HexadecimalWithSplitParser</a>, and <a class="el" href="classXORParser.html#a41efbccbf97895eeab346c7c200c7ff4">XORParser</a>.</p>
 
 </div>
 </div>
-<a id="a869fb79d358cf823b2e4d8976c4e7496" name="a869fb79d358cf823b2e4d8976c4e7496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a869fb79d358cf823b2e4d8976c4e7496">&#9670;&#160;</a></span>parse_out()</h2>
+<a id="a42ea2c3f74829400cd975fbc10a05fd4" name="a42ea2c3f74829400cd975fbc10a05fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ea2c3f74829400cd975fbc10a05fd4">&#9670;&#160;</a></span>parse_out()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +218,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; double &gt; IParser::parse_out </td>
+          <td class="memname">virtual std::vector&lt; float &gt; IParser::parse_out </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
@@ -277,16 +231,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parse the output of the neural network into a vector of doubles. </p>
+<p>Parse the output of the neural network into a vector of floats. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>The string to parse </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of doubles representing the output of the neural network </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of floats representing the output of the neural network </dd></dl>
 
-<p>Implemented in <a class="el" href="classAsmParser.html#ab6b1827f760957a12962d54db75de068">AsmParser</a>, <a class="el" href="classBinaryParser.html#a188f4366111a934fde3467c504d13840">BinaryParser</a>, <a class="el" href="classBinaryWithSplitParser.html#a9667c01c95f058ee80fcbb0ed63d2ef7">BinaryWithSplitParser</a>, <a class="el" href="classHexadecimalParser.html#aec81dd4af7e3b84cdaa8d962c5df3b97">HexadecimalParser</a>, <a class="el" href="classHexadecimalWithSplitParser.html#a069a2f67324d079d7cb5e66335cdf24f">HexadecimalWithSplitParser</a>, and <a class="el" href="classXORParser.html#aee106b1c0e986107501ac907c9ddef85">XORParser</a>.</p>
+<p>Implemented in <a class="el" href="classAsmParser.html#a8c19db49a721d9a2b0836300a1f1570e">AsmParser</a>, <a class="el" href="classBinaryParser.html#a0af0955ac491f186bf2407fe4777f442">BinaryParser</a>, <a class="el" href="classBinaryWithSplitParser.html#ad5d174968ca410f60eb497c9d543a215">BinaryWithSplitParser</a>, <a class="el" href="classHexadecimalParser.html#a914b347e37b2c97a1200ffb5cd017d3f">HexadecimalParser</a>, <a class="el" href="classHexadecimalWithSplitParser.html#a7b7af8b202079aa7c86e50c45cc0888d">HexadecimalWithSplitParser</a>, and <a class="el" href="classXORParser.html#af5a0e550a40b155012cecad9f3a63785">XORParser</a>.</p>
 
 </div>
 </div>

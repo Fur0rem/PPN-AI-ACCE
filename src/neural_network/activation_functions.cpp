@@ -7,15 +7,15 @@
 #include <cmath>
 #include <eigen3/Eigen/Dense>
 
-float sigmoid(float x) {
+float Sigmoid::func(float x) {
 	return 1.0F / (1 + std::exp(-x));
 }
 
-float deriv_sigmoid(float x) {
+float Sigmoid::deriv(float x) {
 	return x * (1 - x);
 }
 
-float relu(float x) {
+float ReLU::func(float x) {
 	if (x <= 0) {
 		return 0;
 	}
@@ -24,33 +24,11 @@ float relu(float x) {
 	}
 }
 
-float deriv_relu(float x) {
+float ReLU::deriv(float x) {
 	if (x <= 0) {
 		return 0;
 	}
 	else {
 		return 1;
 	}
-}
-
-float leaky_relu(float x) {
-	if (x <= 0) {
-		return 0.05 * x;
-	}
-	else {
-		return x;
-	}
-}
-
-float deriv_leaky_relu(float x) {
-	if (x <= 0) {
-		return 0.05;
-	}
-	else {
-		return 1;
-	}
-}
-
-float deriv_tanh(float x) {
-	return 1 - x * x;
 }

@@ -1,0 +1,80 @@
+\doxysection{Cycles\+Normaliser\+Encoder Class Reference}
+\hypertarget{classCyclesNormaliserEncoder}{}\label{classCyclesNormaliserEncoder}\index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
+
+
+A class to encode and decode the number of cycles.  
+
+
+
+
+{\ttfamily \#include $<$cycles\+\_\+normaliser\+\_\+encoder.\+hpp$>$}
+
+Inheritance diagram for Cycles\+Normaliser\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCyclesNormaliserEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}{encode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it (dividing by the maximum number of cycles) \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}{decode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to encode and decode the number of cycles. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}\label{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead} 
+\index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!decode@{decode}}
+\index{decode@{decode}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The normalised number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+
+\Hypertarget{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}\label{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2} 
+\index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!encode@{encode}}
+\index{encode@{encode}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode the number of cycles by normalising it (dividing by the maximum number of cycles) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised number of cycles, a vector containing a single value between 0 and 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{cycles__normaliser__encoder_8hpp}{cycles\+\_\+normaliser\+\_\+encoder.\+hpp}}\item 
+src/parsing/cycles\+\_\+normaliser\+\_\+encoder.\+cpp\end{DoxyCompactItemize}

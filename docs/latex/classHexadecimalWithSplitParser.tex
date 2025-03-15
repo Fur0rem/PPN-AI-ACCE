@@ -24,36 +24,30 @@ Inheritance diagram for Hexadecimal\+With\+Split\+Parser\+:\begin{figure}[H]
 \Hypertarget{classHexadecimalWithSplitParser_ab5d3aeb9676c9c0fd8a4693581693bd3}\label{classHexadecimalWithSplitParser_ab5d3aeb9676c9c0fd8a4693581693bd3} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Hexadecimal\+With\+Split\+Parser} () override=default
 \begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classHexadecimalWithSplitParser}{Hexadecimal\+With\+Split\+Parser} object. \end{DoxyCompactList}\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{classHexadecimalWithSplitParser_a993147d2ec8e1df8ab6ee93029f60ff1}{parse\+\_\+in}} (std\+::string \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classHexadecimalWithSplitParser_acc2595ea35ee57266405c650fb2551c6}{parse\+\_\+in}} (std\+::string \&input) override
 \begin{DoxyCompactList}\small\item\em Parses a binary representation of assembly code into a vector of 0\textquotesingle{}s and 1\textquotesingle{}s according to its binary representation, splitting each instruction with a 0.\+5. \end{DoxyCompactList}\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{classHexadecimalWithSplitParser_a069a2f67324d079d7cb5e66335cdf24f}{parse\+\_\+out}} (std\+::string \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classHexadecimalWithSplitParser_a7b7af8b202079aa7c86e50c45cc0888d}{parse\+\_\+out}} (std\+::string \&input) override
 \begin{DoxyCompactList}\small\item\em Parse the time taken for the code to run using a header in the first line Cycles\+: (number) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIParser}{IParser}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classIParser_afa8abc420f6f8ee06c81556a5ffb368b}{parse\+\_\+from\+\_\+string}} (std\+::string \&input)
+std\+::tuple$<$ std\+::vector$<$ float $>$, std\+::vector$<$ float $>$ $>$ \mbox{\hyperlink{classIParser_a4e00e2ff108b6198f73bcb628fd71b30}{parse\+\_\+from\+\_\+string}} (std\+::string \&input)
 \begin{DoxyCompactList}\small\item\em Parse a string into a combination of input and output for the neural network. \end{DoxyCompactList}\item 
-std\+::tuple$<$ std\+::vector$<$ double $>$, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classIParser_a8a6ab76c1315808c75eb82523967254a}{parse\+\_\+from\+\_\+file}} (std\+::string \&filename)
+std\+::tuple$<$ std\+::vector$<$ float $>$, std\+::vector$<$ float $>$ $>$ \mbox{\hyperlink{classIParser_a82801c747a7f9484db42ada934cc1aaa}{parse\+\_\+from\+\_\+file}} (std\+::string \&filename)
 \begin{DoxyCompactList}\small\item\em Parse a file into a combination of input and output for the neural network. \end{DoxyCompactList}\item 
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IParser} ()=default
 \begin{DoxyCompactList}\small\item\em destructor for the \doxylink{classIParser}{IParser} class \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classIParser}{IParser}}}
-\begin{DoxyCompactItemize}
-\item 
-static std\+::vector$<$ double $>$ \mbox{\hyperlink{classIParser_a3424417a355d3afd80bbcc37e5ab495c}{into\+\_\+neural\+\_\+network\+\_\+input}} (std\+::vector$<$ double $>$ \&parsed, std\+::vector$<$ size\+\_\+t $>$ \&topology)
-\begin{DoxyCompactList}\small\item\em Convert a vector of parsed values into an input for the neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A parser to convert hexadecimal into a neural network input by splitting each instruction with a 1.\+0. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classHexadecimalWithSplitParser_a993147d2ec8e1df8ab6ee93029f60ff1}\label{classHexadecimalWithSplitParser_a993147d2ec8e1df8ab6ee93029f60ff1} 
+\Hypertarget{classHexadecimalWithSplitParser_acc2595ea35ee57266405c650fb2551c6}\label{classHexadecimalWithSplitParser_acc2595ea35ee57266405c650fb2551c6} 
 \index{HexadecimalWithSplitParser@{HexadecimalWithSplitParser}!parse\_in@{parse\_in}}
 \index{parse\_in@{parse\_in}!HexadecimalWithSplitParser@{HexadecimalWithSplitParser}}
 \doxysubsubsection{\texorpdfstring{parse\_in()}{parse\_in()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Hexadecimal\+With\+Split\+Parser\+::parse\+\_\+in (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Hexadecimal\+With\+Split\+Parser\+::parse\+\_\+in (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -65,17 +59,17 @@ Parses a binary representation of assembly code into a vector of 0\textquotesing
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of doubles representing the input of the neural network 
+A vector of floats representing the input of the neural network 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIParser_ad877cca85a9a49a165d1c5a45901850f}{IParser}}.
+Implements \mbox{\hyperlink{classIParser_a13534e666201115a9e866571a0d31a59}{IParser}}.
 
-\Hypertarget{classHexadecimalWithSplitParser_a069a2f67324d079d7cb5e66335cdf24f}\label{classHexadecimalWithSplitParser_a069a2f67324d079d7cb5e66335cdf24f} 
+\Hypertarget{classHexadecimalWithSplitParser_a7b7af8b202079aa7c86e50c45cc0888d}\label{classHexadecimalWithSplitParser_a7b7af8b202079aa7c86e50c45cc0888d} 
 \index{HexadecimalWithSplitParser@{HexadecimalWithSplitParser}!parse\_out@{parse\_out}}
 \index{parse\_out@{parse\_out}!HexadecimalWithSplitParser@{HexadecimalWithSplitParser}}
 \doxysubsubsection{\texorpdfstring{parse\_out()}{parse\_out()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Hexadecimal\+With\+Split\+Parser\+::parse\+\_\+out (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Hexadecimal\+With\+Split\+Parser\+::parse\+\_\+out (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -87,11 +81,11 @@ Parse the time taken for the code to run using a header in the first line Cycles
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of doubles representing the output of the neural network 
+A vector of floats representing the output of the neural network 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIParser_a869fb79d358cf823b2e4d8976c4e7496}{IParser}}.
+Implements \mbox{\hyperlink{classIParser_a42ea2c3f74829400cd975fbc10a05fd4}{IParser}}.
 
 
 

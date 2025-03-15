@@ -16,5 +16,6 @@ var searchData=
   ['fib_5ffloat_5fresult_13',['fib_float_result',['../fibonacci_8cpp.html#ae578f7f0604430b30c0b94b16ed49546',1,'fibonacci.cpp']]],
   ['fib_5fresult_14',['fib_result',['../fibonacci_8cpp.html#a200f41b6943dc57d92b4111b8fcb8be0',1,'fibonacci.cpp']]],
   ['fibonacci_2ecpp_15',['fibonacci.cpp',['../fibonacci_8cpp.html',1,'']]],
-  ['for_20the_20course_20ppn_20projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_16',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
+  ['for_20the_20course_20ppn_20projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_16',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
+  ['func_17',['func',['../classActivationFunc.html#af9eda686a5f083d3928af46728e10d57',1,'ActivationFunc::func()'],['../classSigmoid.html#a538f2115866326dfc535a4499f5ae0fb',1,'Sigmoid::func()'],['../classReLU.html#a85883d20a3209e62d7d05693cde521ad',1,'ReLU::func()']]]
 ];

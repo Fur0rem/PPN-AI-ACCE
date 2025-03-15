@@ -1,0 +1,79 @@
+\doxysection{IEncoder Class Reference}
+\hypertarget{classIEncoder}{}\label{classIEncoder}\index{IEncoder@{IEncoder}}
+
+
+Interface for encoding and decoding data.  
+
+
+
+
+{\ttfamily \#include $<$iencoder.\+hpp$>$}
+
+Inheritance diagram for IEncoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classIEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{encode}} (std\+::vector$<$ float $>$ \&input)=0
+\begin{DoxyCompactList}\small\item\em Encode a vector of floats into another vector of floats. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{decode}} (std\+::vector$<$ float $>$ \&input)=0
+\begin{DoxyCompactList}\small\item\em Decode a vector of floats into another vector of floats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for encoding and decoding data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}\label{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f} 
+\index{IEncoder@{IEncoder}!decode@{decode}}
+\index{decode@{decode}!IEncoder@{IEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ float $>$ IEncoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Decode a vector of floats into another vector of floats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The vector of floats to decode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded vector of floats 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classNonEncoder_a20f8661f1883032d38d884bdc477e995}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}{Size\+Encoder}}.
+
+\Hypertarget{classIEncoder_ab688418ccdfbb2733010950922260d91}\label{classIEncoder_ab688418ccdfbb2733010950922260d91} 
+\index{IEncoder@{IEncoder}!encode@{encode}}
+\index{encode@{encode}!IEncoder@{IEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ float $>$ IEncoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Encode a vector of floats into another vector of floats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The vector of floats to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encoded vector of floats 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classNonEncoder_add737a5905f062c8bf79738612264215}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}{Size\+Encoder}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{iencoder_8hpp}{iencoder.\+hpp}}\end{DoxyCompactItemize}

@@ -6,16 +6,18 @@ Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class.
 
 
 {\ttfamily \#include "{}neural\+\_\+network/neural\+\_\+network.\+hpp"{}}\newline
-{\ttfamily \#include "{}neural\+\_\+network/activation\+\_\+functions.\+hpp"{}}\newline
-{\ttfamily \#include "{}parsing/iparser.\+hpp"{}}\newline
-{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include "{}dataset/dataset.\+hpp"{}}\newline
+{\ttfamily \#include "{}parsing/iencoder.\+hpp"{}}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cxxabi.\+h$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/src/\+Core/\+Matrix.\+h$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Functions}
@@ -26,100 +28,9 @@ std\+::vector$<$ float $>$ {\bfseries cpp\+\_\+vec\+\_\+from\+\_\+eigen\+\_\+vec
 \item 
 \Hypertarget{neural__network_8cpp_a6f1f413f755c248ac48145227d391b51}\label{neural__network_8cpp_a6f1f413f755c248ac48145227d391b51} 
 Eigen\+::\+Vector\+Xf {\bfseries eigen\+\_\+vec\+\_\+from\+\_\+cpp\+\_\+vec} (const std\+::vector$<$ float $>$ \&cpp\+\_\+vector)
-\item 
-double \mbox{\hyperlink{neural__network_8cpp_a4c0133d35ac96199f78bc2b643d1ba99}{squared\+\_\+error}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}output, const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}targets)
-\begin{DoxyCompactList}\small\item\em Calculate the squared error. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{neural__network_8cpp_ac2a2ebe88493e736235c53747a358a38}{relative\+\_\+squared\+\_\+error}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}output, const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}targets)
-\begin{DoxyCompactList}\small\item\em Calculate the relative squared error. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{neural__network_8cpp_a2405f019e7afb835508aa663a7646fde}{absolute\+\_\+error}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}output, const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}targets)
-\begin{DoxyCompactList}\small\item\em Calculate the absolute error. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{neural__network_8cpp_a7a760ae96b6a7ce01f146ec931d567e6}{relative\+\_\+absolute\+\_\+error}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}output, const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}targets)
-\begin{DoxyCompactList}\small\item\em Calculate the relative absolute error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class. 
 
-
-
-\doxysubsection{Function Documentation}
-\Hypertarget{neural__network_8cpp_a2405f019e7afb835508aa663a7646fde}\label{neural__network_8cpp_a2405f019e7afb835508aa663a7646fde} 
-\index{neural\_network.cpp@{neural\_network.cpp}!absolute\_error@{absolute\_error}}
-\index{absolute\_error@{absolute\_error}!neural\_network.cpp@{neural\_network.cpp}}
-\doxysubsubsection{\texorpdfstring{absolute\_error()}{absolute\_error()}}
-{\footnotesize\ttfamily double absolute\+\_\+error (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{output,  }\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{targets }\end{DoxyParamCaption})}
-
-
-
-Calculate the absolute error. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em output} & The output of the network \\
-\hline
-{\em targets} & The target output of the network \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The absolute error 
-\end{DoxyReturn}
-\Hypertarget{neural__network_8cpp_a7a760ae96b6a7ce01f146ec931d567e6}\label{neural__network_8cpp_a7a760ae96b6a7ce01f146ec931d567e6} 
-\index{neural\_network.cpp@{neural\_network.cpp}!relative\_absolute\_error@{relative\_absolute\_error}}
-\index{relative\_absolute\_error@{relative\_absolute\_error}!neural\_network.cpp@{neural\_network.cpp}}
-\doxysubsubsection{\texorpdfstring{relative\_absolute\_error()}{relative\_absolute\_error()}}
-{\footnotesize\ttfamily double relative\+\_\+absolute\+\_\+error (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{output,  }\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{targets }\end{DoxyParamCaption})}
-
-
-
-Calculate the relative absolute error. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em output} & The output of the network \\
-\hline
-{\em targets} & The target output of the network \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The absolute error 
-\end{DoxyReturn}
-\Hypertarget{neural__network_8cpp_ac2a2ebe88493e736235c53747a358a38}\label{neural__network_8cpp_ac2a2ebe88493e736235c53747a358a38} 
-\index{neural\_network.cpp@{neural\_network.cpp}!relative\_squared\_error@{relative\_squared\_error}}
-\index{relative\_squared\_error@{relative\_squared\_error}!neural\_network.cpp@{neural\_network.cpp}}
-\doxysubsubsection{\texorpdfstring{relative\_squared\_error()}{relative\_squared\_error()}}
-{\footnotesize\ttfamily double relative\+\_\+squared\+\_\+error (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{output,  }\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{targets }\end{DoxyParamCaption})}
-
-
-
-Calculate the relative squared error. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em output} & The output of the network \\
-\hline
-{\em targets} & The target output of the network \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The squared error 
-\end{DoxyReturn}
-\Hypertarget{neural__network_8cpp_a4c0133d35ac96199f78bc2b643d1ba99}\label{neural__network_8cpp_a4c0133d35ac96199f78bc2b643d1ba99} 
-\index{neural\_network.cpp@{neural\_network.cpp}!squared\_error@{squared\_error}}
-\index{squared\_error@{squared\_error}!neural\_network.cpp@{neural\_network.cpp}}
-\doxysubsubsection{\texorpdfstring{squared\_error()}{squared\_error()}}
-{\footnotesize\ttfamily double squared\+\_\+error (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{output,  }\item[{const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}}]{targets }\end{DoxyParamCaption})}
-
-
-
-Calculate the squared error. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em output} & The output of the network \\
-\hline
-{\em targets} & The target output of the network \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The squared error 
-\end{DoxyReturn}
