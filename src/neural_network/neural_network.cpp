@@ -44,7 +44,7 @@ double NeuralNetwork::squared_error(const Eigen::VectorXf* prediction, const Eig
 	for (size_t i = 0; i < prediction_decoded.size(); i++) {
 		error += (prediction_decoded[i] - target_decoded[i]) * (prediction_decoded[i] - target_decoded[i]);
 	}
-	return error;
+	return error / prediction_decoded.size();
 }
 
 double NeuralNetwork::relative_squared_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder) {
@@ -59,7 +59,7 @@ double NeuralNetwork::relative_squared_error(const Eigen::VectorXf* prediction, 
 		auto diff = target_i - prediction_i;
 		error += diff * diff / std::max(1.0F, std::max(target_i * target_i, prediction_i * prediction_i));
 	}
-	return error;
+	return error / prediction_decoded.size();
 }
 
 double NeuralNetwork::absolute_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder) {
@@ -71,7 +71,7 @@ double NeuralNetwork::absolute_error(const Eigen::VectorXf* prediction, const Ei
 	for (size_t i = 0; i < prediction_decoded.size(); i++) {
 		error += std::abs(prediction_decoded[i] - target_decoded[i]);
 	}
-	return error;
+	return error / prediction_decoded.size();
 }
 
 double NeuralNetwork::relative_absolute_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder) {
@@ -86,7 +86,7 @@ double NeuralNetwork::relative_absolute_error(const Eigen::VectorXf* prediction,
 		auto diff = target_i - prediction_i;
 		error += std::abs(diff) / std::max(1.0F, std::max(target_i, prediction_i));
 	}
-	return error;
+	return error / prediction_decoded.size();
 }
 
 NeuralNetwork::NeuralNetwork(std::vector<size_t>& topology, float learning_rate, std::unique_ptr<ActivationFunc> activation_func)
@@ -154,7 +154,11 @@ Eigen::VectorXf NeuralNetwork::get_prediction(const Eigen::VectorXf* input) {
 	// Feed the input through the network
 	feed_forward(input);
 	// Return the last values (the prediction)
-	return m_last_values;
+	Eigen::VectorXf prediction(m_last_values.cols());
+	for (long i = 0; i < m_last_values.cols(); i++) {
+		prediction[i] = m_last_values(0, i);
+	}
+	return prediction;
 }
 
 std::vector<float> NeuralNetwork::get_prediction(const std::vector<float>& input) {

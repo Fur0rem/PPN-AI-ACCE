@@ -1,0 +1,100 @@
+\doxysection{Cycles\+Sqrt\+Encoder Class Reference}
+\hypertarget{classCyclesSqrtEncoder}{}\label{classCyclesSqrtEncoder}\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+
+
+A class to encode and decode the number of cycles by using the square root of the value.  
+
+
+
+
+{\ttfamily \#include $<$cycles\+\_\+encoders.\+hpp$>$}
+
+Inheritance diagram for Cycles\+Sqrt\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCyclesSqrtEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}{Cycles\+Sqrt\+Encoder}} (float added)
+\begin{DoxyCompactList}\small\item\em Construct a new Cycles Sqrt Encoder object. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8}{encode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Encode the number of cycles by using the square root of the value. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3}{decode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by using the square of the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to encode and decode the number of cycles by using the square root of the value. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}\label{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5} 
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\doxysubsubsection{\texorpdfstring{CyclesSqrtEncoder()}{CyclesSqrtEncoder()}}
+{\footnotesize\ttfamily Cycles\+Sqrt\+Encoder\+::\+Cycles\+Sqrt\+Encoder (\begin{DoxyParamCaption}\item[{float}]{added }\end{DoxyParamCaption})}
+
+
+
+Construct a new Cycles Sqrt Encoder object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em added} & A constant to add to the value before the square root \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3}\label{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3} 
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!decode@{decode}}
+\index{decode@{decode}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode the number of cycles by using the square of the value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The normalised number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+
+\Hypertarget{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8}\label{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8} 
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!encode@{encode}}
+\index{encode@{encode}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode the number of cycles by using the square root of the value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{cycles__encoders_8hpp}{cycles\+\_\+encoders.\+hpp}}\item 
+src/parsing/cycles\+\_\+encoders.\+cpp\end{DoxyCompactItemize}

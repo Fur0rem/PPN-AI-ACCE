@@ -1,0 +1,60 @@
+\doxysection{cycles\+\_\+encoders.\+hpp}
+\hypertarget{cycles__encoders_8hpp_source}{}\label{cycles__encoders_8hpp_source}\index{include/parsing/cycles\_encoders.hpp@{include/parsing/cycles\_encoders.hpp}}
+\mbox{\hyperlink{cycles__encoders_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ CYCLES\_ENCODERS\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ CYCLES\_ENCODERS\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{cycles__encoders_8hpp_a87fd18e17edcd3b78d02d63325c798ba}{MAX\_CYCLES}}\ =\ 4e9;\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iencoder_8hpp}{parsing/iencoder.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesNormaliserEncoder}{CyclesNormaliserEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSplitterEncoder}{CyclesSplitterEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_aff563875f52c47bf42264fcc70c50c3e}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_a7a92406259bfe33f418cdb58f9fe19f9}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesBoundedNormaliserEncoder}{CyclesBoundedNormaliserEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6117fa6887f59e2444f25fcec733d698}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a3d0b7a6f7a4bbe310b33a36c07d852de}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesLogEncoder}{CyclesLogEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_log\_base;\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ \ \ \ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}{CyclesLogEncoder}}(\textcolor{keywordtype}{float}\ log\_base,\ \textcolor{keywordtype}{float}\ added);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSqrtEncoder}{CyclesSqrtEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}{CyclesSqrtEncoder}}(\textcolor{keywordtype}{float}\ added);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CYCLES\_ENCODERS\_HPP}}
+
+\end{DoxyCode}

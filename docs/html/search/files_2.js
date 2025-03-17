@@ -29,5 +29,6 @@ var searchData=
   ['codelet_5ftsvc_2ecpp_26',['codelet_tsvc.cpp',['../codelet__tsvc_8cpp.html',1,'']]],
   ['codelet_5fvector_5fc_5fhypre_5fseq_5fvector_5faxpy_5fline384_2ecpp_27',['codelet_vector_c_hypre_seq_vector_axpy_line384.cpp',['../codelet__vector__c__hypre__seq__vector__axpy__line384_8cpp.html',1,'']]],
   ['crypto_2ecpp_28',['crypto.cpp',['../crypto_8cpp.html',1,'']]],
-  ['cycles_5fnormaliser_5fencoder_2ehpp_29',['cycles_normaliser_encoder.hpp',['../cycles__normaliser__encoder_8hpp.html',1,'']]]
+  ['cycles_5fencoders_2ecpp_29',['cycles_encoders.cpp',['../tests_2cycles__encoders_8cpp.html',1,'']]],
+  ['cycles_5fencoders_2ehpp_30',['cycles_encoders.hpp',['../cycles__encoders_8hpp.html',1,'']]]
 ];

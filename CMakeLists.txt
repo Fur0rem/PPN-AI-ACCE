@@ -34,7 +34,7 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/parsing/hexadecimal_with_split_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/xor_parser.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/non_encoder.cpp
-    ${CMAKE_SOURCE_DIR}/src/parsing/cycles_normaliser_encoder.cpp
+    ${CMAKE_SOURCE_DIR}/src/parsing/cycles_encoders.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/size_encoder.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
@@ -61,7 +61,6 @@ enable_testing()
 find_package(GTest REQUIRED)
 
 set(TESTS
-    iparser
     asm_parser
     binary_with_split_parser
     binary_parser
@@ -69,6 +68,7 @@ set(TESTS
     hexadecimal_with_split_parser
     xor_parser
     recognises_xor
+    cycles_encoders
 )
 
 foreach(TEST ${TESTS})

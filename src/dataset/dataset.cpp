@@ -67,7 +67,7 @@ Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& top
 		std::vector<float> input = m_parser->parse_in(content);
 		auto input_encoded = m_input_encoder->encode(input);
 		Eigen::VectorXf vec_in(input_encoded.size());
-		for (int i = 0; i < input_encoded.size(); i++) {
+		for (size_t i = 0; i < input_encoded.size(); i++) {
 			vec_in(i) = static_cast<float>(input_encoded[i]);
 		}
 		m_inputs.push_back(vec_in);
@@ -76,7 +76,7 @@ Dataset::Dataset(IParser* parser, std::string dir_path, std::vector<size_t>& top
 		std::vector<float> output = m_parser->parse_out(content);
 		auto output_encoded = m_output_encoder->encode(output);
 		Eigen::VectorXf vec_out(output_encoded.size());
-		for (int i = 0; i < output_encoded.size(); i++) {
+		for (size_t i = 0; i < output_encoded.size(); i++) {
 			vec_out(i) = static_cast<float>(output_encoded[i]);
 		}
 		m_outputs.push_back(vec_out);

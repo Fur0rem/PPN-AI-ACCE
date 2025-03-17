@@ -1,0 +1,80 @@
+\doxysection{Cycles\+Bounded\+Normaliser\+Encoder Class Reference}
+\hypertarget{classCyclesBoundedNormaliserEncoder}{}\label{classCyclesBoundedNormaliserEncoder}\index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
+
+
+A class to encode and decode the number of cycles by normalising it, but between 0.\+15 and 0.\+85 to avoid either very low or very high values.  
+
+
+
+
+{\ttfamily \#include $<$cycles\+\_\+encoders.\+hpp$>$}
+
+Inheritance diagram for Cycles\+Bounded\+Normaliser\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCyclesBoundedNormaliserEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6117fa6887f59e2444f25fcec733d698}{encode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it, but between 0.\+15 and 0.\+85. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a3d0b7a6f7a4bbe310b33a36c07d852de}{decode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it, but between 0.\+15 and 0.\+85. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to encode and decode the number of cycles by normalising it, but between 0.\+15 and 0.\+85 to avoid either very low or very high values. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCyclesBoundedNormaliserEncoder_a3d0b7a6f7a4bbe310b33a36c07d852de}\label{classCyclesBoundedNormaliserEncoder_a3d0b7a6f7a4bbe310b33a36c07d852de} 
+\index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}!decode@{decode}}
+\index{decode@{decode}!CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Bounded\+Normaliser\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode the number of cycles by denormalising it, but between 0.\+15 and 0.\+85. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The normalised number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+
+\Hypertarget{classCyclesBoundedNormaliserEncoder_a6117fa6887f59e2444f25fcec733d698}\label{classCyclesBoundedNormaliserEncoder_a6117fa6887f59e2444f25fcec733d698} 
+\index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}!encode@{encode}}
+\index{encode@{encode}!CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Bounded\+Normaliser\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode the number of cycles by normalising it, but between 0.\+15 and 0.\+85. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised number of cycles, a vector containing a single value between 0.\+15 and 0.\+85 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{cycles__encoders_8hpp}{cycles\+\_\+encoders.\+hpp}}\item 
+src/parsing/cycles\+\_\+encoders.\+cpp\end{DoxyCompactItemize}

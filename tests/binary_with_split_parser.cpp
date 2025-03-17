@@ -15,8 +15,8 @@
  * @param hex The hexadecimal vector
  * @return The binary vector
  */
-std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
-	std::vector<double> result;
+std::vector<float> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
+	std::vector<float> result;
 	for (uint8_t byte : hex) {
 		for (int j = 7; j >= 0; j--) {
 			result.push_back((byte >> j) & 1);
@@ -32,9 +32,9 @@ TEST(BinaryWithSplit_Parser, Single_Instruction) {
 	std::string instruction = ";; Cycles: x\n\n"
 							  "01 D8\n";
 
-	std::vector<double> expected = binary_from_hexadecimal({0x01, 0xD8});
+	std::vector<float> expected = binary_from_hexadecimal({0x01, 0xD8});
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_in(instruction);
+	std::vector<float> result = BinaryWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = ";; Cycles: x\n\n"
@@ -55,11 +55,11 @@ TEST(BinaryWithSplit_Parser, Multiple_Instructions) {
 							   "00\n"
 							   "71 D9\n";
 
-	std::vector<double> expected;
-	std::vector<double> inst1 = binary_from_hexadecimal({0xAA, 0xBB});
-	std::vector<double> inst2 = binary_from_hexadecimal({0xC5, 0xE4, 0xB8});
-	std::vector<double> inst3 = binary_from_hexadecimal({0x00});
-	std::vector<double> inst4 = binary_from_hexadecimal({0x71, 0xD9});
+	std::vector<float> expected;
+	std::vector<float> inst1 = binary_from_hexadecimal({0xAA, 0xBB});
+	std::vector<float> inst2 = binary_from_hexadecimal({0xC5, 0xE4, 0xB8});
+	std::vector<float> inst3 = binary_from_hexadecimal({0x00});
+	std::vector<float> inst4 = binary_from_hexadecimal({0x71, 0xD9});
 	expected.insert(expected.end(), inst1.begin(), inst1.end());
 	expected.push_back(0.5);
 	expected.insert(expected.end(), inst2.begin(), inst2.end());
@@ -68,6 +68,6 @@ TEST(BinaryWithSplit_Parser, Multiple_Instructions) {
 	expected.push_back(0.5);
 	expected.insert(expected.end(), inst4.begin(), inst4.end());
 	expected.push_back(0.5);
-	std::vector<double> result = BinaryWithSplitParser().parse_in(instructions);
+	std::vector<float> result = BinaryWithSplitParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 }

@@ -1,0 +1,102 @@
+\doxysection{Cycles\+Log\+Encoder Class Reference}
+\hypertarget{classCyclesLogEncoder}{}\label{classCyclesLogEncoder}\index{CyclesLogEncoder@{CyclesLogEncoder}}
+
+
+A class to encode and decode the number of cycles by normalising it in a logarithmic scale.  
+
+
+
+
+{\ttfamily \#include $<$cycles\+\_\+encoders.\+hpp$>$}
+
+Inheritance diagram for Cycles\+Log\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCyclesLogEncoder}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}{Cycles\+Log\+Encoder}} (float log\+\_\+base, float added)
+\begin{DoxyCompactList}\small\item\em Construct a new Cycles Log Encoder object. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6}{encode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it in a logarithmic scale. \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973}{decode}} (std\+::vector$<$ float $>$ \&input) override
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it in a logarithmic scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to encode and decode the number of cycles by normalising it in a logarithmic scale. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}\label{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc} 
+\index{CyclesLogEncoder@{CyclesLogEncoder}!CyclesLogEncoder@{CyclesLogEncoder}}
+\index{CyclesLogEncoder@{CyclesLogEncoder}!CyclesLogEncoder@{CyclesLogEncoder}}
+\doxysubsubsection{\texorpdfstring{CyclesLogEncoder()}{CyclesLogEncoder()}}
+{\footnotesize\ttfamily Cycles\+Log\+Encoder\+::\+Cycles\+Log\+Encoder (\begin{DoxyParamCaption}\item[{float}]{log\+\_\+base,  }\item[{float}]{added }\end{DoxyParamCaption})}
+
+
+
+Construct a new Cycles Log Encoder object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em log\+\_\+base} & The base of the logarithm to use \\
+\hline
+\mbox{\texttt{ in}}  & {\em added} & A constant to add to the value after the logarithm \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973}\label{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973} 
+\index{CyclesLogEncoder@{CyclesLogEncoder}!decode@{decode}}
+\index{decode@{decode}!CyclesLogEncoder@{CyclesLogEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode the number of cycles by denormalising it in a logarithmic scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The normalised number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+
+\Hypertarget{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6}\label{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6} 
+\index{CyclesLogEncoder@{CyclesLogEncoder}!encode@{encode}}
+\index{encode@{encode}!CyclesLogEncoder@{CyclesLogEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode the number of cycles by normalising it in a logarithmic scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The number of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised number of cycles, a vector containing a single value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parsing/\mbox{\hyperlink{cycles__encoders_8hpp}{cycles\+\_\+encoders.\+hpp}}\item 
+src/parsing/cycles\+\_\+encoders.\+cpp\end{DoxyCompactItemize}

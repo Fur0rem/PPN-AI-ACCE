@@ -1,0 +1,32 @@
+\doxysection{include/parsing/cycles\+\_\+encoders.hpp File Reference}
+\hypertarget{cycles__encoders_8hpp}{}\label{cycles__encoders_8hpp}\index{include/parsing/cycles\_encoders.hpp@{include/parsing/cycles\_encoders.hpp}}
+
+
+The header for a few classes to encode and decode the number of cycles.  
+
+
+{\ttfamily \#include "{}parsing/iencoder.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCyclesNormaliserEncoder}{Cycles\+Normaliser\+Encoder}}
+\begin{DoxyCompactList}\small\item\em A class to encode and decode the number of cycles by normalising it (dividing by the maximum number of cycles), to have a value between 0 and 1. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCyclesSplitterEncoder}{Cycles\+Splitter\+Encoder}}
+\begin{DoxyCompactList}\small\item\em A class to encode and decode the number of cycles by splitting it into 4 values, billions, millions, thousands and units. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder}{Cycles\+Bounded\+Normaliser\+Encoder}}
+\begin{DoxyCompactList}\small\item\em A class to encode and decode the number of cycles by normalising it, but between 0.\+15 and 0.\+85 to avoid either very low or very high values. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCyclesLogEncoder}{Cycles\+Log\+Encoder}}
+\begin{DoxyCompactList}\small\item\em A class to encode and decode the number of cycles by normalising it in a logarithmic scale. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCyclesSqrtEncoder}{Cycles\+Sqrt\+Encoder}}
+\begin{DoxyCompactList}\small\item\em A class to encode and decode the number of cycles by using the square root of the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{cycles__encoders_8hpp_a87fd18e17edcd3b78d02d63325c798ba}\label{cycles__encoders_8hpp_a87fd18e17edcd3b78d02d63325c798ba} 
+constexpr float {\bfseries MAX\+\_\+\+CYCLES} = 4e9
+\begin{DoxyCompactList}\small\item\em Maximum number of cycles as an output for the neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The header for a few classes to encode and decode the number of cycles. 
+

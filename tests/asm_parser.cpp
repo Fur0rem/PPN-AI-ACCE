@@ -5,7 +5,6 @@
  */
 
 #include "parsing/asm_parser.hpp"
-#include "parsing/iparser.hpp"
 #include <cstdint>
 #include <gtest/gtest.h>
 #include <string>
@@ -16,8 +15,8 @@
  * @param hex The hexadecimal vector
  * @return The binary vector
  */
-std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
-	std::vector<double> result;
+std::vector<float> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
+	std::vector<float> result;
 	for (uint8_t byte : hex) {
 		for (int j = 7; j >= 0; j--) {
 			result.push_back((byte >> j) & 1);
@@ -30,7 +29,7 @@ std::vector<double> binary_from_hexadecimal(std::vector<uint8_t>&& hex) {
  * @brief Convert a binary vector to a hexadecimal vector and prints it
  * @param binary The binary vector
  */
-void binary_to_hexadecimal(std::vector<double>& binary) {
+void binary_to_hexadecimal(std::vector<float>& binary) {
 	for (size_t i = 0; i < binary.size(); i += 8) {
 		uint8_t byte = 0;
 		for (int j = 0; j < 8; j++) {
@@ -46,8 +45,8 @@ void binary_to_hexadecimal(std::vector<double>& binary) {
  */
 TEST(asm_parser, Single_Instruction) {
 	std::string instruction = "add eax, ebx";
-	std::vector<double> expected = binary_from_hexadecimal({0x01, 0xD8});
-	std::vector<double> result = AsmParser().parse_in(instruction);
+	std::vector<float> expected = binary_from_hexadecimal({0x01, 0xD8});
+	std::vector<float> result = AsmParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = "add eax, 0x1234";
@@ -66,11 +65,11 @@ TEST(asm_parser, Multiple_Instructions) {
 							   "add eax, ecx;\n"
 							   "ret;\n";
 
-	std::vector<double> expected = binary_from_hexadecimal({0x0F, 0xAF, 0xC3, 0x0F, 0xAF, 0xCA, 0x01, 0xC8, 0xC3});
-	std::vector<double> result = AsmParser().parse_in(instructions);
+	std::vector<float> expected = binary_from_hexadecimal({0x0F, 0xAF, 0xC3, 0x0F, 0xAF, 0xCA, 0x01, 0xC8, 0xC3});
+	std::vector<float> result = AsmParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 
-	expected = {1002.0 / MAX_CYCLES};
+	expected = {1002.0};
 	result = AsmParser().parse_out(instructions);
 	EXPECT_EQ(result, expected);
 }
@@ -85,9 +84,8 @@ TEST(asm_parser_out, Multiple_Instructions) {
 							   "add eax, ecx;\n"
 							   "ret;\n";
 
-	std::vector<double> expected;
-	expected.push_back(1002.0 / MAX_CYCLES);
-	std::vector<double> result = AsmParser().parse_out(instructions);
+	std::vector<float> expected = {1002.0};
+	std::vector<float> result = AsmParser().parse_out(instructions);
 	EXPECT_EQ(result, expected);
 }
 
@@ -96,8 +94,8 @@ TEST(asm_parser_out, Multiple_Instructions) {
  */
 TEST(asm_parser, Memory) {
 	std::string instruction = "mov eax, [ebx * 8 + ecx]";
-	std::vector<double> expected = binary_from_hexadecimal({0x67, 0x8B, 0x04, 0xD9});
-	std::vector<double> result = AsmParser().parse_in(instruction);
+	std::vector<float> expected = binary_from_hexadecimal({0x67, 0x8B, 0x04, 0xD9});
+	std::vector<float> result = AsmParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 }
 
@@ -121,11 +119,11 @@ TEST(asm_parser, Loops) {
 							   "end:;\n"
 							   "ret;\n";
 
-	std::vector<double> expected = binary_from_hexadecimal({
+	std::vector<float> expected = binary_from_hexadecimal({
 		0xB8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0xC3, 0xB9, 0x00, 0x00, 0x00, 0x00, 0x48, 0x39, 0xCB, 0x74, 0x14, 0x48, 0x8B,
 		0x14, 0xCF, 0x48, 0x8B, 0x34, 0xCE, 0x48, 0x0F, 0xAF, 0xD6, 0x04, 0x80, 0x1D, 0x04, 0x8F, 0xFC, 0x1E, 0xBE, 0x7C, 0x03,
 	});
-	std::vector<double> result = AsmParser().parse_in(instructions);
+	std::vector<float> result = AsmParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 }
 
@@ -134,8 +132,8 @@ TEST(asm_parser, Loops) {
  */
 TEST(asm_parser, SIMD_Instruction) {
 	std::string instruction = "movdqa xmm0, xmm1";
-	std::vector<double> expected = binary_from_hexadecimal({0x66, 0x0F, 0x6F, 0xC1});
-	std::vector<double> result = AsmParser().parse_in(instruction);
+	std::vector<float> expected = binary_from_hexadecimal({0x66, 0x0F, 0x6F, 0xC1});
+	std::vector<float> result = AsmParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = "movdqa xmm0, [eax];";
