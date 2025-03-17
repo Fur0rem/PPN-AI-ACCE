@@ -1,0 +1,80 @@
+\doxysection{Tanh Class Reference}
+\hypertarget{classTanh}{}\label{classTanh}\index{Tanh@{Tanh}}
+
+
+The tanh activation function.  
+
+
+
+
+{\ttfamily \#include $<$activation\+\_\+functions.\+hpp$>$}
+
+Inheritance diagram for Tanh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTanh}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classTanh_a557ffca2b8e174e53863f1794728dd78}{func}} (float x) override
+\begin{DoxyCompactList}\small\item\em The activation function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classTanh_acf4ba7f0c07ecbbdc765641f88f8f3e6}{deriv}} (float x) override
+\begin{DoxyCompactList}\small\item\em The derivative of the activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The tanh activation function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTanh_acf4ba7f0c07ecbbdc765641f88f8f3e6}\label{classTanh_acf4ba7f0c07ecbbdc765641f88f8f3e6} 
+\index{Tanh@{Tanh}!deriv@{deriv}}
+\index{deriv@{deriv}!Tanh@{Tanh}}
+\doxysubsubsection{\texorpdfstring{deriv()}{deriv()}}
+{\footnotesize\ttfamily float Tanh\+::deriv (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The derivative of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{Activation\+Func}}.
+
+\Hypertarget{classTanh_a557ffca2b8e174e53863f1794728dd78}\label{classTanh_a557ffca2b8e174e53863f1794728dd78} 
+\index{Tanh@{Tanh}!func@{func}}
+\index{func@{func}!Tanh@{Tanh}}
+\doxysubsubsection{\texorpdfstring{func()}{func()}}
+{\footnotesize\ttfamily float Tanh\+::func (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{Activation\+Func}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8cpp}{activation\+\_\+functions.\+cpp}}\end{DoxyCompactItemize}

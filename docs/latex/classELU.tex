@@ -1,0 +1,80 @@
+\doxysection{ELU Class Reference}
+\hypertarget{classELU}{}\label{classELU}\index{ELU@{ELU}}
+
+
+The e\+LU activation function.  
+
+
+
+
+{\ttfamily \#include $<$activation\+\_\+functions.\+hpp$>$}
+
+Inheritance diagram for ELU\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classELU}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classELU_a787ebbb568bb2cf94cc17905fd1bd44c}{func}} (float x) override
+\begin{DoxyCompactList}\small\item\em The activation function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classELU_a6a04ecb31f711c24971c3e3670d8f7fa}{deriv}} (float x) override
+\begin{DoxyCompactList}\small\item\em The derivative of the activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The e\+LU activation function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classELU_a6a04ecb31f711c24971c3e3670d8f7fa}\label{classELU_a6a04ecb31f711c24971c3e3670d8f7fa} 
+\index{ELU@{ELU}!deriv@{deriv}}
+\index{deriv@{deriv}!ELU@{ELU}}
+\doxysubsubsection{\texorpdfstring{deriv()}{deriv()}}
+{\footnotesize\ttfamily float ELU\+::deriv (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The derivative of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{Activation\+Func}}.
+
+\Hypertarget{classELU_a787ebbb568bb2cf94cc17905fd1bd44c}\label{classELU_a787ebbb568bb2cf94cc17905fd1bd44c} 
+\index{ELU@{ELU}!func@{func}}
+\index{func@{func}!ELU@{ELU}}
+\doxysubsubsection{\texorpdfstring{func()}{func()}}
+{\footnotesize\ttfamily float ELU\+::func (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{Activation\+Func}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8cpp}{activation\+\_\+functions.\+cpp}}\end{DoxyCompactItemize}

@@ -44,4 +44,40 @@ class ReLU : public ActivationFunc {
 	float deriv(float x) override;
 };
 
+/**
+ * @brief The Leaky ReLU activation function
+ */
+class LeakyReLU : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
+
+/**
+ * @brief The tanh activation function
+ */
+class Tanh : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
+
+/**
+ * @brief The eLU activation function
+ */
+class ELU : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
+
+/**
+ * @brief The GELU activation function
+ */
+class GELU : public ActivationFunc {
+  public:
+	float func(float x) override;
+	float deriv(float x) override;
+};
+
 #endif // ACITVATION_FUNCTIONS_HPP

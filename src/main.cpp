@@ -4,6 +4,7 @@
  */
 
 #include "dataset/dataset.hpp"
+#include "neural_network/activation_functions.hpp"
 #include "neural_network/neural_network.hpp"
 #include "parsing/binary_parser.hpp"
 #include "parsing/binary_with_split_parser.hpp"
@@ -35,7 +36,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesBoundedNormaliserEncoder>());
@@ -57,7 +58,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesSqrtEncoder>(0));
@@ -79,7 +80,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesSqrtEncoder>(10));
@@ -101,7 +102,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesSqrtEncoder>(100));
@@ -123,7 +124,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesSqrtEncoder>(1000));
@@ -145,7 +146,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesLogEncoder>(2, 0));
@@ -167,7 +168,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesLogEncoder>(10, 0));
@@ -189,7 +190,7 @@ int main() {
 		std::cout << "Neural network created" << '\n';
 
 		Dataset dataset = Dataset(new HexadecimalParser(),
-								  "dataset/bench_bins_small",
+								  "dataset/bench_bins",
 								  topology,
 								  std::make_unique<SizeEncoder>(topology[0]),
 								  std::make_unique<CyclesSplitterEncoder>());
@@ -198,6 +199,127 @@ int main() {
 
 		std::cout << "Training the neural network" << '\n';
 		nn.train(dataset, 2000, 0.75, "training_results/splitter_encoder", 2);
+	}
+
+	// Comparaison of different activation functions
+	// Relu
+	{
+		std::vector<size_t> topology = {
+			MAX_TOKENS_NN / 8,
+			(MAX_TOKENS_NN * 2) / 8,
+			(MAX_TOKENS_NN / 2) / 8,
+			(MAX_TOKENS_NN / 8) / 8,
+			1,
+		};
+		NeuralNetwork nn(topology, 0.02, std::make_unique<ReLU>());
+		std::cout << "Neural network created" << '\n';
+
+		Dataset dataset = Dataset(new HexadecimalParser(),
+								  "dataset/bench_bins",
+								  topology,
+								  std::make_unique<SizeEncoder>(topology[0]),
+								  std::make_unique<CyclesSqrtEncoder>(0));
+
+		std::cout << "Dataset loaded" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train(dataset, 2000, 0.75, "training_results/relu_activation", 2);
+	}
+
+	// Leaky relu
+	{
+		std::vector<size_t> topology = {
+			MAX_TOKENS_NN / 8,
+			(MAX_TOKENS_NN * 2) / 8,
+			(MAX_TOKENS_NN / 2) / 8,
+			(MAX_TOKENS_NN / 8) / 8,
+			1,
+		};
+		NeuralNetwork nn(topology, 0.02, std::make_unique<LeakyReLU>());
+		std::cout << "Neural network created" << '\n';
+
+		Dataset dataset = Dataset(new HexadecimalParser(),
+								  "dataset/bench_bins",
+								  topology,
+								  std::make_unique<SizeEncoder>(topology[0]),
+								  std::make_unique<CyclesSqrtEncoder>(0));
+
+		std::cout << "Dataset loaded" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train(dataset, 2000, 0.75, "training_results/leaky_relu_activation", 1);
+	}
+
+	// Tanh
+	{
+		std::vector<size_t> topology = {
+			MAX_TOKENS_NN / 8,
+			(MAX_TOKENS_NN * 2) / 8,
+			(MAX_TOKENS_NN / 2) / 8,
+			(MAX_TOKENS_NN / 8) / 8,
+			1,
+		};
+		NeuralNetwork nn(topology, 0.02, std::make_unique<Tanh>());
+		std::cout << "Neural network created" << '\n';
+
+		Dataset dataset = Dataset(new HexadecimalParser(),
+								  "dataset/bench_bins",
+								  topology,
+								  std::make_unique<SizeEncoder>(topology[0]),
+								  std::make_unique<CyclesSqrtEncoder>(0));
+
+		std::cout << "Dataset loaded" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train(dataset, 2000, 0.75, "training_results/tanh_activation", 1);
+	}
+
+	// ELU
+	{
+		std::vector<size_t> topology = {
+			MAX_TOKENS_NN / 8,
+			(MAX_TOKENS_NN * 2) / 8,
+			(MAX_TOKENS_NN / 2) / 8,
+			(MAX_TOKENS_NN / 8) / 8,
+			1,
+		};
+		NeuralNetwork nn(topology, 0.02, std::make_unique<ELU>());
+		std::cout << "Neural network created" << '\n';
+
+		Dataset dataset = Dataset(new HexadecimalParser(),
+								  "dataset/bench_bins",
+								  topology,
+								  std::make_unique<SizeEncoder>(topology[0]),
+								  std::make_unique<CyclesSqrtEncoder>(0));
+
+		std::cout << "Dataset loaded" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train(dataset, 2000, 0.75, "training_results/elu_activation", 2);
+	}
+
+	// GELU
+	{
+		std::vector<size_t> topology = {
+			MAX_TOKENS_NN / 8,
+			(MAX_TOKENS_NN * 2) / 8,
+			(MAX_TOKENS_NN / 2) / 8,
+			(MAX_TOKENS_NN / 8) / 8,
+			1,
+		};
+		NeuralNetwork nn(topology, 0.02, std::make_unique<GELU>());
+		std::cout << "Neural network created" << '\n';
+
+		Dataset dataset = Dataset(new HexadecimalParser(),
+								  "dataset/bench_bins",
+								  topology,
+								  std::make_unique<SizeEncoder>(topology[0]),
+								  std::make_unique<CyclesSqrtEncoder>(0));
+
+		std::cout << "Dataset loaded" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train(dataset, 2000, 0.75, "training_results/gelu_activation", 1);
 	}
 
 	exit(EXIT_SUCCESS);

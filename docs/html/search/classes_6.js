@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['layer_0',['Layer',['../classLayer.html',1,'']]]
+  ['hexadecimalparser_0',['HexadecimalParser',['../classHexadecimalParser.html',1,'']]],
+  ['hexadecimalwithsplitparser_1',['HexadecimalWithSplitParser',['../classHexadecimalWithSplitParser.html',1,'']]]
 ];

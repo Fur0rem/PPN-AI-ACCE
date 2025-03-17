@@ -1,0 +1,80 @@
+\doxysection{Leaky\+Re\+LU Class Reference}
+\hypertarget{classLeakyReLU}{}\label{classLeakyReLU}\index{LeakyReLU@{LeakyReLU}}
+
+
+The Leaky \doxylink{classReLU}{Re\+LU} activation function.  
+
+
+
+
+{\ttfamily \#include $<$activation\+\_\+functions.\+hpp$>$}
+
+Inheritance diagram for Leaky\+Re\+LU\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLeakyReLU}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classLeakyReLU_a3618d389ec134cf85dcc093f27b43d04}{func}} (float x) override
+\begin{DoxyCompactList}\small\item\em The activation function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLeakyReLU_a1f044604c4372269f715cc76c9ee53ef}{deriv}} (float x) override
+\begin{DoxyCompactList}\small\item\em The derivative of the activation function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Leaky \doxylink{classReLU}{Re\+LU} activation function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLeakyReLU_a1f044604c4372269f715cc76c9ee53ef}\label{classLeakyReLU_a1f044604c4372269f715cc76c9ee53ef} 
+\index{LeakyReLU@{LeakyReLU}!deriv@{deriv}}
+\index{deriv@{deriv}!LeakyReLU@{LeakyReLU}}
+\doxysubsubsection{\texorpdfstring{deriv()}{deriv()}}
+{\footnotesize\ttfamily float Leaky\+Re\+LU\+::deriv (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The derivative of the activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_a52548613c96d6e2ba523bb2815325a05}{Activation\+Func}}.
+
+\Hypertarget{classLeakyReLU_a3618d389ec134cf85dcc093f27b43d04}\label{classLeakyReLU_a3618d389ec134cf85dcc093f27b43d04} 
+\index{LeakyReLU@{LeakyReLU}!func@{func}}
+\index{func@{func}!LeakyReLU@{LeakyReLU}}
+\doxysubsubsection{\texorpdfstring{func()}{func()}}
+{\footnotesize\ttfamily float Leaky\+Re\+LU\+::func (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The activation function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input to the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the function 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classActivationFunc_af9eda686a5f083d3928af46728e10d57}{Activation\+Func}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8hpp}{activation\+\_\+functions.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{activation__functions_8cpp}{activation\+\_\+functions.\+cpp}}\end{DoxyCompactItemize}
