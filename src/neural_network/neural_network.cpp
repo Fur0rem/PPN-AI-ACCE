@@ -237,7 +237,7 @@ double NeuralNetwork::get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::ve
 	return 1.0 - (acc / static_cast<double>(inputs.size()));
 }
 
-void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains) {
+void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir, int nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -252,6 +252,7 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 
 		// Split the data into training and validation sets
 		size_t const train_size = (size_t)((double)data.size() * training_proportion);
+		size_t const rolling_size = (size_t)((double)train_size * rolling_proportion);
 		size_t const validation_size = data.size() - train_size;
 
 		std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
@@ -281,12 +282,15 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 		const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
 
 		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
+		size_t rolling_index = 0;
 		for (int i = 0; i < nb_epochs; i++) {
 			auto clock = std::chrono::high_resolution_clock::now();
-			for (size_t j = 0; j < train_size; j++) {
+			for (size_t j = 0; j < rolling_size; j++) {
 				// std::cout << "Epoch: " << i << " ( " << j + 1 << " / " << train_size << " )\n";
-				this->feed_forward(train_input_vectors[j]);
-				this->back_propagate(train_target_vectors[j]);
+				this->feed_forward(train_input_vectors[rolling_index]);
+				this->back_propagate(train_target_vectors[rolling_index]);
+				rolling_index++;
+				rolling_index %= train_size;
 			}
 			auto end_clock = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<double> elapsed_seconds = end_clock - clock;

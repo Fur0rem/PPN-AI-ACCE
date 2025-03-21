@@ -90,7 +90,7 @@ class NeuralNetwork {
 	 * @param logging_dir The directory to save the logs
 	 * @param nb_trains The number of times to train the network
 	 */
-	void train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains);
+	void train(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir, int nb_trains);
 
 	/**
 	 * @brief Get the prediction of the network

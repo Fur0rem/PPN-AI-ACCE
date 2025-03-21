@@ -44,7 +44,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/bounded_normaliser_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/bounded_normaliser_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -66,7 +66,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/sqrt_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/sqrt_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -88,7 +88,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/sqrt_p10_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/sqrt_p10_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -110,7 +110,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/sqrt_p100_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/sqrt_p100_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -132,7 +132,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/sqrt_p1000_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/sqrt_p1000_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -154,7 +154,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/log2_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/log2_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -176,7 +176,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/log10_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/log10_encoder", 2);
 	}
 	{
 		std::vector<size_t> topology = {
@@ -198,7 +198,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/splitter_encoder", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/splitter_encoder", 2);
 	}
 
 	// Comparaison of different activation functions
@@ -223,7 +223,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/relu_activation", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/relu_activation", 2);
 	}
 
 	// Leaky relu
@@ -247,7 +247,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/leaky_relu_activation", 1);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/leaky_relu_activation", 1);
 	}
 
 	// Tanh
@@ -271,7 +271,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/tanh_activation", 1);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/tanh_activation", 1);
 	}
 
 	// ELU
@@ -295,7 +295,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/elu_activation", 2);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/elu_activation", 2);
 	}
 
 	// GELU
@@ -319,7 +319,7 @@ int main() {
 		std::cout << "Dataset loaded" << '\n';
 
 		std::cout << "Training the neural network" << '\n';
-		nn.train(dataset, 2000, 0.75, "training_results/gelu_activation", 1);
+		nn.train(dataset, 2000, 0.75, 0.25, "training_results/gelu_activation", 1);
 	}
 
 	exit(EXIT_SUCCESS);
