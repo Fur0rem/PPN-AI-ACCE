@@ -16,6 +16,8 @@ Class representing a neural network.
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classNeuralNetwork}{Neural\+Network} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNeuralNetwork_afc8cc8842356b25617cea788c82ec6c9}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, float training\+\_\+proportion, std\+::string \&\&logging\+\_\+dir, int nb\+\_\+trains)
 \begin{DoxyCompactList}\small\item\em Train the neural network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNeuralNetwork_a106445ed72cb3ae7bc85f99cc28b9a62}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, float training\+\_\+proportion, float rolling\+\_\+proportion, std\+::string \&\&logging\+\_\+dir, int nb\+\_\+trains)
+\begin{DoxyCompactList}\small\item\em Train the neural network. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xf \mbox{\hyperlink{classNeuralNetwork_a26155d14e8c97c786614843494397d16}{get\+\_\+prediction}} (const Eigen\+::\+Vector\+Xf \texorpdfstring{$\ast$}{*}input)
 \begin{DoxyCompactList}\small\item\em Get the prediction of the network. \end{DoxyCompactList}\item 
 \Hypertarget{classNeuralNetwork_af1308079bed0cc76d6995c120bad0284}\label{classNeuralNetwork_af1308079bed0cc76d6995c120bad0284} 
@@ -195,6 +197,31 @@ Train the neural network.
 {\em nb\+\_\+epochs} & The number of epochs to train for \\
 \hline
 {\em training\+\_\+proportion} & the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training data), the rest will be used as validation data \\
+\hline
+{\em logging\+\_\+dir} & The directory to save the logs \\
+\hline
+{\em nb\+\_\+trains} & The number of times to train the network \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classNeuralNetwork_a106445ed72cb3ae7bc85f99cc28b9a62}\label{classNeuralNetwork_a106445ed72cb3ae7bc85f99cc28b9a62} 
+\index{NeuralNetwork@{NeuralNetwork}!train\_batch@{train\_batch}}
+\index{train\_batch@{train\_batch}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{train\_batch()}{train\_batch()}}
+{\footnotesize\ttfamily void Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{rolling\+\_\+proportion,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{int}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+
+
+
+Train the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The dataset to train on \\
+\hline
+{\em nb\+\_\+epochs} & The number of epochs to train for \\
+\hline
+{\em training\+\_\+proportion} & the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training data), the rest will be used as validation data \\
+\hline
+{\em rolling\+\_\+proportion} & The proportion of the training data to be used in each epoch \\
 \hline
 {\em logging\+\_\+dir} & The directory to save the logs \\
 \hline

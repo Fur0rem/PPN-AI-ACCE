@@ -16,6 +16,7 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <random>
 #include <string>
 #include <vector>
 
@@ -237,7 +238,7 @@ double NeuralNetwork::get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::ve
 	return 1.0 - (acc / static_cast<double>(inputs.size()));
 }
 
-void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir, int nb_trains) {
+void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -252,7 +253,6 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 
 		// Split the data into training and validation sets
 		size_t const train_size = (size_t)((double)data.size() * training_proportion);
-		size_t const rolling_size = (size_t)((double)train_size * rolling_proportion);
 		size_t const validation_size = data.size() - train_size;
 
 		std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
@@ -282,15 +282,12 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 		const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
 
 		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
-		size_t rolling_index = 0;
 		for (int i = 0; i < nb_epochs; i++) {
 			auto clock = std::chrono::high_resolution_clock::now();
-			for (size_t j = 0; j < rolling_size; j++) {
+			for (size_t j = 0; j < train_size; j++) {
 				// std::cout << "Epoch: " << i << " ( " << j + 1 << " / " << train_size << " )\n";
-				this->feed_forward(train_input_vectors[rolling_index]);
-				this->back_propagate(train_target_vectors[rolling_index]);
-				rolling_index++;
-				rolling_index %= train_size;
+				this->feed_forward(train_input_vectors[j]);
+				this->back_propagate(train_target_vectors[j]);
 			}
 			auto end_clock = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
@@ -335,6 +332,204 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 		}
 
 		std::cout << "Training time: " << total_time.count() << "s\n";
+		log_file << "Training time: " << total_time.count() << "s\n\n";
+
+		log_file << "Final results:\n";
+
+		log_file << "Training data:\n";
+		for (size_t j = 0; j < train_size; j++) {
+			auto prediction = this->get_prediction(train_input_vectors[j]);
+			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
+			auto target_cpp = cpp_vec_from_eigen_vec(*train_target_vectors[j]);
+			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
+			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
+			log_file << "For " << train_names[j] << ":\t";
+			log_file << "Prediction: \t";
+			for (auto val : prediction_decoded) {
+				log_file << val << ' ';
+			}
+			log_file << "Target: \t";
+			for (auto val : target_decoded) {
+				log_file << val << ' ';
+			}
+			log_file << '\n';
+		}
+
+		log_file << "\nValidation data:\n";
+		for (size_t j = 0; j < validation_size; j++) {
+			auto prediction = this->get_prediction(validation_input_vectors[j]);
+			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
+			auto target_cpp = cpp_vec_from_eigen_vec(*validation_target_vectors[j]);
+			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
+			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
+			log_file << "For " << validation_names[j] << ":\t";
+			log_file << "Prediction: \t";
+			for (auto val : prediction_decoded) {
+				log_file << val << ' ';
+			}
+			log_file << "Target: \t";
+			for (auto val : target_decoded) {
+				log_file << val << ' ';
+			}
+			log_file << '\n';
+		}
+
+		log_file << "\nNetwork topology:\n";
+		for (auto val : m_topology) {
+			log_file << val << ' ';
+		}
+		log_file << '\n';
+		log_file << "Learning rate: " << m_learning_rate << '\n';
+		char* activation_func_name = abi::__cxa_demangle(typeid(*this->m_activation_func).name(), 0, 0, nullptr);
+		log_file << "Activation function: " << activation_func_name << '\n';
+		free(activation_func_name);
+		log_file.close();
+	}
+}
+
+void NeuralNetwork::back_propagate_batch(std::vector<Eigen::VectorXf*>& predictions, std::vector<Eigen::VectorXf*>& targets,
+										 float learning_rate) {
+	// Calculate the gradients
+	Eigen::MatrixXf prev_errors = Eigen::MatrixXf::Zero(1, targets[0]->size());
+	for (size_t i = 0; i < predictions.size(); i++) {
+		Eigen::MatrixXf errors(1, targets[i]->size());
+		// Compute the errors for the current prediction
+		for (long j = 0; j < targets[i]->size(); j++) {
+			errors(0, j) = (*targets[i])(j) - (*predictions[i])(j);
+		}
+		prev_errors += errors;
+	}
+
+	// Average the errors over the predictions
+	prev_errors /= static_cast<float>(predictions.size());
+
+	// Propagate for the last values of the layer
+	prev_errors = m_layers[m_layers.size() - 1].back_propagate(prev_errors, learning_rate, m_last_values);
+
+	// Propagate for the rest of the layers
+	for (int i = m_layers.size() - 2; i >= 0; i--) {
+		prev_errors = m_layers[i].back_propagate(prev_errors, learning_rate, m_layers[i + 1].m_values);
+	}
+}
+
+void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion,
+								std::string&& logging_dir, int nb_trains) {
+
+	// Create the logging directory
+	std::filesystem::create_directory(logging_dir);
+
+	for (int t = 1; t <= nb_trains; t++) {
+
+		// Open the file for logging
+		std::string logging_filename = logging_dir + "/train_" + std::to_string(t) + ".log";
+		std::ofstream log_file;
+		log_file.open(logging_filename);
+		auto data = dataset.get_data(1.0);
+
+		// Split the data into training and validation sets
+		size_t const train_size = (size_t)((double)data.size() * training_proportion);
+		size_t const validation_size = data.size() - train_size;
+
+		std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
+
+		std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
+		std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
+		std::vector<Eigen::VectorXf*> train_target_vectors(train_size);
+		std::vector<Eigen::VectorXf*> validation_target_vectors(validation_size);
+		std::vector<std::string> train_names(train_size);
+		std::vector<std::string> validation_names(validation_size);
+
+		for (size_t i = 0; i < data.size(); i++) {
+			// Put the input and target in the right set
+			if (i < train_size) {
+				train_names[i] = std::get<0>(data[i]);
+				train_input_vectors[i] = &std::get<1>(data[i]);
+				train_target_vectors[i] = &std::get<2>(data[i]);
+			}
+			else {
+				validation_names[i - train_size] = std::get<0>(data[i]);
+				validation_input_vectors[i - train_size] = &std::get<1>(data[i]);
+				validation_target_vectors[i - train_size] = &std::get<2>(data[i]);
+			}
+		}
+
+		// Training the neural network
+		const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
+
+		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
+
+		size_t rolling_train_size = (size_t)(train_size * rolling_proportion);
+		std::vector<size_t> rolling_indices(train_size);
+		for (size_t i = 0; i < train_size; i++) {
+			rolling_indices[i] = i;
+		}
+
+		std::cout << "Rolling training size: " << rolling_train_size << '\n';
+
+		// Batch training
+		for (int i = 0; i < nb_epochs; i++) {
+			auto clock = std::chrono::high_resolution_clock::now();
+			std::vector<Eigen::VectorXf> predictions;
+			std::vector<Eigen::VectorXf> targets;
+			// Shuffle the indices
+			std::shuffle(rolling_indices.begin(), rolling_indices.end(), std::mt19937(std::random_device()()));
+
+			// Make the predictions and targets
+			for (size_t j = 0; j < rolling_train_size; j++) {
+				// std::cout << "Epoch: " << i << " ( " << j + 1 << " / " << train_size << " )\n";
+				this->feed_forward(train_input_vectors[rolling_indices[j]]);
+				predictions.push_back(m_last_values);
+				targets.push_back(*train_target_vectors[rolling_indices[j]]);
+			}
+
+			// Back propagate the batch
+			auto [predictions_ptr, targets_ptr] = convert_data_for_loss(predictions, targets);
+			this->back_propagate_batch(predictions_ptr, targets_ptr, m_learning_rate);
+
+			auto end_clock = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
+			total_time += elapsed_seconds;
+
+			// std::cout << "Epoch: " << i << '\n';
+
+			// Logging the loss and accuracy
+			if (i % nb_points_to_plot == 0) {
+				// Different losses
+				double tl_mrse = this->get_loss_mrse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+				double vl_mrse = this->get_loss_mrse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+				double tl_mse = this->get_loss_mse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+				double vl_mse = this->get_loss_mse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+
+				// Different accuracies
+				double ta_mae = this->get_acc_mae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+				double va_mae = this->get_acc_mae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+				double ta_mrae = this->get_acc_mrae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+				double va_mrae = this->get_acc_mrae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+
+				std::stringstream stream = std::stringstream();
+				stream << "Epoch: " << i << ":\t";
+
+				stream << "Training loss (MRSE): " << tl_mrse << "\t,";
+				stream << "Validation loss (MRSE): " << vl_mrse << "\t,";
+				stream << "Training loss (MSE): " << tl_mse << "\t,";
+				stream << "Validation loss (MSE): " << vl_mse << "\t,";
+
+				stream << "Training accuracy (MAE): " << ta_mae << "\t,";
+				stream << "Validation accuracy (MAE): " << va_mae << "\t,";
+				stream << "Training accuracy (MRAE): " << ta_mrae << "\t,";
+				stream << "Validation accuracy (MRAE): " << va_mrae << '\n';
+
+				// std::cout << stream.str();
+				log_file << stream.str();
+			}
+			// One time every 10 points, flush the log file to avoid losing data
+			if (i % (nb_points_to_plot * 10) == 0) {
+				log_file.flush();
+			}
+		}
+
+		std::cout << "Training time: " << total_time.count() << "s\n";
+
 		log_file << "Training time: " << total_time.count() << "s\n\n";
 
 		log_file << "Final results:\n";

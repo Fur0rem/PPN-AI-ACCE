@@ -16,14 +16,14 @@ TEST(hexadecimalWithSplit_Parser, Single_Instruction) {
 	std::string instruction = ";; Cycles: x\n\n"
 							  "01 D8\n";
 
-	std::vector<double> expected = {(double)0x01 / 280.0, (double)0xD8 / 280.0};
+	std::vector<float> expected = {(float)0x01 / 280.0, (float)0xD8 / 280.0};
 	expected.push_back(1.0);
-	std::vector<double> result = HexadecimalWithSplitParser().parse_in(instruction);
+	std::vector<float> result = HexadecimalWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
 
 	instruction = ";; Cycles: x\n\n"
 				  "05 34 12 00 00";
-	expected = {(double)0x05 / 280.0, (double)0x34 / 280.0, (double)0x12 / 280.0, 0.0, 0.0};
+	expected = {(float)0x05 / 280.0, (float)0x34 / 280.0, (float)0x12 / 280.0, 0.0, 0.0};
 	expected.push_back(1.0);
 	result = HexadecimalWithSplitParser().parse_in(instruction);
 	EXPECT_EQ(result, expected);
@@ -39,11 +39,11 @@ TEST(hexadecimalWithSplit_Parser, Multiple_Instructions) {
 							   "00\n"
 							   "71 D9\n";
 
-	std::vector<double> expected;
-	std::vector<double> inst1 = {(double)0xAA / 280.0, (double)0xBB / 280.0};
-	std::vector<double> inst2 = {(double)0xC5 / 280.0, (double)0xE4 / 280.0, (double)0xB8 / 280.0};
-	std::vector<double> inst3 = {0.0};
-	std::vector<double> inst4 = {(double)0x71 / 280.0, (double)0xD9 / 280.0};
+	std::vector<float> expected;
+	std::vector<float> inst1 = {(float)0xAA / 280.0, (float)0xBB / 280.0};
+	std::vector<float> inst2 = {(float)0xC5 / 280.0, (float)0xE4 / 280.0, (float)0xB8 / 280.0};
+	std::vector<float> inst3 = {0.0};
+	std::vector<float> inst4 = {(float)0x71 / 280.0, (float)0xD9 / 280.0};
 	expected.insert(expected.end(), inst1.begin(), inst1.end());
 	expected.push_back(1.0);
 	expected.insert(expected.end(), inst2.begin(), inst2.end());
@@ -52,6 +52,6 @@ TEST(hexadecimalWithSplit_Parser, Multiple_Instructions) {
 	expected.push_back(1.0);
 	expected.insert(expected.end(), inst4.begin(), inst4.end());
 	expected.push_back(1.0);
-	std::vector<double> result = HexadecimalWithSplitParser().parse_in(instructions);
+	std::vector<float> result = HexadecimalWithSplitParser().parse_in(instructions);
 	EXPECT_EQ(result, expected);
 }

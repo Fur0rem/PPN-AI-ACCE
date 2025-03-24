@@ -38,6 +38,14 @@ class NeuralNetwork {
 	void back_propagate(const Eigen::VectorXf* target_output);
 
 	/**
+	 * @brief Back propagate the error through the network
+	 * @param predictions The predictions of the network
+	 * @param targets The target output
+	 * @param learning_rate The learning rate of the network
+	 */
+	void back_propagate_batch(std::vector<Eigen::VectorXf*>& predictions, std::vector<Eigen::VectorXf*>& targets, float learning_rate);
+
+	/**
 	 * @brief Calculate the squared error between the prediction and the target
 	 * @param prediction The prediction output of the network
 	 * @param target The target output
@@ -90,7 +98,20 @@ class NeuralNetwork {
 	 * @param logging_dir The directory to save the logs
 	 * @param nb_trains The number of times to train the network
 	 */
-	void train(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir, int nb_trains);
+	void train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains);
+
+	/**
+	 * @brief Train the neural network
+	 * @param dataset The dataset to train on
+	 * @param nb_epochs The number of epochs to train for
+	 * @param training_proportion the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training
+	 * data), the rest will be used as validation data
+	 * @param rolling_proportion The proportion of the training data to be used in each epoch
+	 * @param logging_dir The directory to save the logs
+	 * @param nb_trains The number of times to train the network
+	 */
+	void train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir,
+					 int nb_trains);
 
 	/**
 	 * @brief Get the prediction of the network

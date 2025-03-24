@@ -92,6 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afc8cc8842356b25617cea788c82ec6c9" id="r_afc8cc8842356b25617cea788c82ec6c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc8cc8842356b25617cea788c82ec6c9">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float training_proportion, std::string &amp;&amp;logging_dir, int nb_trains)</td></tr>
 <tr class="memdesc:afc8cc8842356b25617cea788c82ec6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
 <tr class="separator:afc8cc8842356b25617cea788c82ec6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106445ed72cb3ae7bc85f99cc28b9a62" id="r_a106445ed72cb3ae7bc85f99cc28b9a62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106445ed72cb3ae7bc85f99cc28b9a62">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string &amp;&amp;logging_dir, int nb_trains)</td></tr>
+<tr class="memdesc:a106445ed72cb3ae7bc85f99cc28b9a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
+<tr class="separator:a106445ed72cb3ae7bc85f99cc28b9a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26155d14e8c97c786614843494397d16" id="r_a26155d14e8c97c786614843494397d16"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26155d14e8c97c786614843494397d16">get_prediction</a> (const Eigen::VectorXf *input)</td></tr>
 <tr class="memdesc:a26155d14e8c97c786614843494397d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the prediction of the network.  <br /></td></tr>
 <tr class="separator:a26155d14e8c97c786614843494397d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -399,6 +402,60 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
     <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
     <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for </td></tr>
     <tr><td class="paramname">training_proportion</td><td>the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training data), the rest will be used as validation data </td></tr>
+    <tr><td class="paramname">logging_dir</td><td>The directory to save the logs </td></tr>
+    <tr><td class="paramname">nb_trains</td><td>The number of times to train the network </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a106445ed72cb3ae7bc85f99cc28b9a62" name="a106445ed72cb3ae7bc85f99cc28b9a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106445ed72cb3ae7bc85f99cc28b9a62">&#9670;&#160;</a></span>train_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NeuralNetwork::train_batch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nb_epochs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>training_proportion</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rolling_proportion</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>logging_dir</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nb_trains</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Train the neural network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
+    <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for </td></tr>
+    <tr><td class="paramname">training_proportion</td><td>the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training data), the rest will be used as validation data </td></tr>
+    <tr><td class="paramname">rolling_proportion</td><td>The proportion of the training data to be used in each epoch </td></tr>
     <tr><td class="paramname">logging_dir</td><td>The directory to save the logs </td></tr>
     <tr><td class="paramname">nb_trains</td><td>The number of times to train the network </td></tr>
   </table>
