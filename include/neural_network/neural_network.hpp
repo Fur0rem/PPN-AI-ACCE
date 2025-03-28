@@ -9,13 +9,19 @@
 #include "neural_network/activation_functions.hpp"
 #include "neural_network/layer.hpp"
 #include "parsing/iencoder.hpp"
+#include <chrono>
 #include <eigen3/Eigen/Dense>
 #include <memory>
 #include <string>
 #include <vector>
 
 /**
- * @brief Class representing a neural network
+ * @class NeuralNetwork
+ * @brief A class representing a neural network.
+ *
+ * The NeuralNetwork class implements a feedforward neural network with backpropagation for training.
+ * It consists of multiple layers, each containing a certain number of neurons.
+ * The network can be trained using various training algorithms and activation functions.
  */
 class NeuralNetwork {
   private:
@@ -81,6 +87,50 @@ class NeuralNetwork {
 	 */
 	double relative_absolute_error(const Eigen::VectorXf* prediction, const Eigen::VectorXf* target, IEncoder* encoder);
 
+	/**
+	 * @brief Resets the neural network's biases and weights to random values
+	 */
+	void reset();
+
+	/**
+	 * @brief Logs different metrics to see the progression of the network as it goes through more epochs
+	 * @param epoch The current epoch
+	 * @param train_input_vectors The training inputs
+	 * @param train_target_vectors The training targets
+	 * @param validation_input_vectors The validation inputs
+	 * @param validation_target_vectors The validation targets
+	 * @param dataset The dataset used for training and validation
+	 * @param log_file The output file to log the metrics
+	 */
+	void log_epoch_metrics(int epoch, std::vector<Eigen::VectorXf*>& train_input_vectors,
+						   std::vector<Eigen::VectorXf*>& train_target_vectors, std::vector<Eigen::VectorXf*>& validation_input_vectors,
+						   std::vector<Eigen::VectorXf*>& validation_target_vectors, const Dataset& dataset, std::ofstream& log_file);
+
+	/**
+	 * @brief Logs the final results of the neural network training and validation process.
+	 *
+	 * This function writes detailed information about the training and validation results to the provided log file.
+	 * It includes predictions, targets, and decoded outputs for both training and validation datasets. Additionally,
+	 * it logs the network's topology, learning rate, activation function, and total training time.
+	 *
+	 * @param log_file The output file stream to write the log data.
+	 * @param dataset The dataset object containing the input and output encoders for decoding predictions and targets.
+	 * @param train_input_vectors A vector of pointers to Eigen vectors representing the training input data.
+	 * @param train_target_vectors A vector of pointers to Eigen vectors representing the training target data.
+	 * @param train_names A vector of strings representing the names or identifiers of the training samples.
+	 * @param validation_input_vectors A vector of pointers to Eigen vectors representing the validation input data.
+	 * @param validation_target_vectors A vector of pointers to Eigen vectors representing the validation target data.
+	 * @param validation_names A vector of strings representing the names or identifiers of the validation samples.
+	 * @param train_size The number of training samples.
+	 * @param validation_size The number of validation samples.
+	 * @param total_time The total duration of the training process, measured as a `std::chrono::duration<double>`.
+	 */
+	void log_final_results(std::ofstream& log_file, const Dataset& dataset, const std::vector<Eigen::VectorXf*>& train_input_vectors,
+						   const std::vector<Eigen::VectorXf*>& train_target_vectors, const std::vector<std::string>& train_names,
+						   const std::vector<Eigen::VectorXf*>& validation_input_vectors,
+						   const std::vector<Eigen::VectorXf*>& validation_target_vectors, const std::vector<std::string>& validation_names,
+						   size_t train_size, size_t validation_size, const std::chrono::duration<double>& total_time);
+
   public:
 	/**
 	 * @brief Construct a new NeuralNetwork object
@@ -106,11 +156,11 @@ class NeuralNetwork {
 	 * @param nb_epochs The number of epochs to train for
 	 * @param training_proportion the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training
 	 * data), the rest will be used as validation data
-	 * @param rolling_proportion The proportion of the training data to be used in each epoch
+	 * @param batch_proportion The proportion of data to be used for each batch before doing backward propagation
 	 * @param logging_dir The directory to save the logs
 	 * @param nb_trains The number of times to train the network
 	 */
-	void train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string&& logging_dir,
+	void train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float batch_proportion, std::string&& logging_dir,
 					 int nb_trains);
 
 	/**

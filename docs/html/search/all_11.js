@@ -6,5 +6,5 @@ var searchData=
   ['the_20project_3',['The project',['../index.html#autotoc_md1',1,'Current status of the project'],['../index.html#autotoc_md3',1,'How to run the project']]],
   ['to_20run_20the_20project_4',['How to run the project',['../index.html#autotoc_md3',1,'']]],
   ['train_5',['train',['../classNeuralNetwork.html#afc8cc8842356b25617cea788c82ec6c9',1,'NeuralNetwork']]],
-  ['train_5fbatch_6',['train_batch',['../classNeuralNetwork.html#a106445ed72cb3ae7bc85f99cc28b9a62',1,'NeuralNetwork']]]
+  ['train_5fbatch_6',['train_batch',['../classNeuralNetwork.html#ace037a628d40c6de4f76612fd6aa2767',1,'NeuralNetwork']]]
 ];

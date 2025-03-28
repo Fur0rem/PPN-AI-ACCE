@@ -38,6 +38,23 @@ int main() {
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
 	std::cout << "Dataset loaded" << '\n';
+	// 0.0005
+	{
+		NeuralNetwork nn(topology, 0.0005, std::make_unique<Sigmoid>());
+		std::cout << "Neural network created" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_0005", 1);
+	}
+
+	// 0.001
+	{
+		NeuralNetwork nn(topology, 0.001, std::make_unique<Sigmoid>());
+		std::cout << "Neural network created" << '\n';
+
+		std::cout << "Training the neural network" << '\n';
+		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_001", 1);
+	}
 
 	// 0.01
 	{

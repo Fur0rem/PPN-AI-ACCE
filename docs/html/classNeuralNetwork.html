@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class representing a neural network.  
+<p>A class representing a neural network.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="neural__network_8hpp_source.html">neural_network.hpp</a>&gt;</code></p>
@@ -87,14 +87,14 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f6d0cd58e503f1aa6c9c6ce64fd09fb" id="r_a0f6d0cd58e503f1aa6c9c6ce64fd09fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f6d0cd58e503f1aa6c9c6ce64fd09fb">NeuralNetwork</a> (std::vector&lt; size_t &gt; &amp;topology, float learning_rate, std::unique_ptr&lt; <a class="el" href="classActivationFunc.html">ActivationFunc</a> &gt; activation_func)</td></tr>
-<tr class="memdesc:a0f6d0cd58e503f1aa6c9c6ce64fd09fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> object.  <br /></td></tr>
+<tr class="memdesc:a0f6d0cd58e503f1aa6c9c6ce64fd09fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNeuralNetwork.html" title="A class representing a neural network.">NeuralNetwork</a> object.  <br /></td></tr>
 <tr class="separator:a0f6d0cd58e503f1aa6c9c6ce64fd09fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc8cc8842356b25617cea788c82ec6c9" id="r_afc8cc8842356b25617cea788c82ec6c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc8cc8842356b25617cea788c82ec6c9">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float training_proportion, std::string &amp;&amp;logging_dir, int nb_trains)</td></tr>
 <tr class="memdesc:afc8cc8842356b25617cea788c82ec6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
 <tr class="separator:afc8cc8842356b25617cea788c82ec6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a106445ed72cb3ae7bc85f99cc28b9a62" id="r_a106445ed72cb3ae7bc85f99cc28b9a62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106445ed72cb3ae7bc85f99cc28b9a62">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float training_proportion, float rolling_proportion, std::string &amp;&amp;logging_dir, int nb_trains)</td></tr>
-<tr class="memdesc:a106445ed72cb3ae7bc85f99cc28b9a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
-<tr class="separator:a106445ed72cb3ae7bc85f99cc28b9a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace037a628d40c6de4f76612fd6aa2767" id="r_ace037a628d40c6de4f76612fd6aa2767"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace037a628d40c6de4f76612fd6aa2767">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, float training_proportion, float batch_proportion, std::string &amp;&amp;logging_dir, int nb_trains)</td></tr>
+<tr class="memdesc:ace037a628d40c6de4f76612fd6aa2767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network.  <br /></td></tr>
+<tr class="separator:ace037a628d40c6de4f76612fd6aa2767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26155d14e8c97c786614843494397d16" id="r_a26155d14e8c97c786614843494397d16"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26155d14e8c97c786614843494397d16">get_prediction</a> (const Eigen::VectorXf *input)</td></tr>
 <tr class="memdesc:a26155d14e8c97c786614843494397d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the prediction of the network.  <br /></td></tr>
 <tr class="separator:a26155d14e8c97c786614843494397d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,7 +124,8 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
 <tr class="separator:aca0e2e1314d81aa0b41c64d501d92614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class representing a neural network. </p>
+<div class="textblock"><p>A class representing a neural network. </p>
+<p>The <a class="el" href="classNeuralNetwork.html" title="A class representing a neural network.">NeuralNetwork</a> class implements a feedforward neural network with backpropagation for training. It consists of multiple layers, each containing a certain number of neurons. The network can be trained using various training algorithms and activation functions. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0f6d0cd58e503f1aa6c9c6ce64fd09fb" name="a0f6d0cd58e503f1aa6c9c6ce64fd09fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f6d0cd58e503f1aa6c9c6ce64fd09fb">&#9670;&#160;</a></span>NeuralNetwork()</h2>
@@ -150,7 +151,7 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
       </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="classNeuralNetwork.html" title="Class representing a neural network.">NeuralNetwork</a> object. </p>
+<p>Construct a new <a class="el" href="classNeuralNetwork.html" title="A class representing a neural network.">NeuralNetwork</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">topology</td><td>The number of neurons in each layer </td></tr>
@@ -410,8 +411,8 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
 
 </div>
 </div>
-<a id="a106445ed72cb3ae7bc85f99cc28b9a62" name="a106445ed72cb3ae7bc85f99cc28b9a62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a106445ed72cb3ae7bc85f99cc28b9a62">&#9670;&#160;</a></span>train_batch()</h2>
+<a id="ace037a628d40c6de4f76612fd6aa2767" name="ace037a628d40c6de4f76612fd6aa2767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace037a628d40c6de4f76612fd6aa2767">&#9670;&#160;</a></span>train_batch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +435,7 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rolling_proportion</em>, </span></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>batch_proportion</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -455,7 +456,7 @@ std::pair&lt; std::vector&lt; Eigen::VectorXf * &gt;, std::vector&lt; Eigen::Vec
     <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
     <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for </td></tr>
     <tr><td class="paramname">training_proportion</td><td>the proportion of inputs to be used as training data (from 0 for no training data, to 1 for all training data), the rest will be used as validation data </td></tr>
-    <tr><td class="paramname">rolling_proportion</td><td>The proportion of the training data to be used in each epoch </td></tr>
+    <tr><td class="paramname">batch_proportion</td><td>The proportion of data to be used for each batch before doing backward propagation </td></tr>
     <tr><td class="paramname">logging_dir</td><td>The directory to save the logs </td></tr>
     <tr><td class="paramname">nb_trains</td><td>The number of times to train the network </td></tr>
   </table>

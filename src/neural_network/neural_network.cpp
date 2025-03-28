@@ -238,12 +238,123 @@ double NeuralNetwork::get_acc_mae(std::vector<Eigen::VectorXf*>& inputs, std::ve
 	return 1.0 - (acc / static_cast<double>(inputs.size()));
 }
 
+void NeuralNetwork::reset() {
+	// Reset everything to random
+	for (Layer& layer : m_layers) {
+		layer.m_biases = Eigen::MatrixXf::Random(1, layer.m_biases.cols());
+		layer.m_weights = Eigen::MatrixXf::Random(layer.m_weights.rows(), layer.m_weights.cols());
+		layer.m_values = Eigen::MatrixXf::Zero(0, 0);
+	}
+}
+
+void NeuralNetwork::log_epoch_metrics(int epoch, std::vector<Eigen::VectorXf*>& train_input_vectors,
+									  std::vector<Eigen::VectorXf*>& train_target_vectors,
+									  std::vector<Eigen::VectorXf*>& validation_input_vectors,
+									  std::vector<Eigen::VectorXf*>& validation_target_vectors, const Dataset& dataset,
+									  std::ofstream& log_file) {
+	// Different losses
+	double tl_mrse = this->get_loss_mrse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+	double vl_mrse = this->get_loss_mrse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+	double tl_mse = this->get_loss_mse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+	double vl_mse = this->get_loss_mse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+
+	// Different accuracies
+	double ta_mae = this->get_acc_mae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+	double va_mae = this->get_acc_mae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+	double ta_mrae = this->get_acc_mrae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
+	double va_mrae = this->get_acc_mrae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
+
+	// Create log stream
+	std::stringstream stream;
+	stream << "Epoch: " << epoch << "\t,";
+	stream << "Training loss (MRSE): " << tl_mrse << "\t,";
+	stream << "Validation loss (MRSE): " << vl_mrse << "\t,";
+	stream << "Training loss (MSE): " << tl_mse << "\t,";
+	stream << "Validation loss (MSE): " << vl_mse << "\t,";
+	stream << "Training accuracy (MAE): " << ta_mae << "\t,";
+	stream << "Validation accuracy (MAE): " << va_mae << "\t,";
+	stream << "Training accuracy (MRAE): " << ta_mrae << "\t,";
+	stream << "Validation accuracy (MRAE): " << va_mrae << '\n';
+
+	// Print and log
+	std::cout << "Epoch: " << epoch << ", Accuracy (MRAE): " << ta_mrae << '\n';
+	log_file << stream.str();
+}
+
+void NeuralNetwork::log_final_results(std::ofstream& log_file, const Dataset& dataset,
+									  const std::vector<Eigen::VectorXf*>& train_input_vectors,
+									  const std::vector<Eigen::VectorXf*>& train_target_vectors,
+									  const std::vector<std::string>& train_names,
+									  const std::vector<Eigen::VectorXf*>& validation_input_vectors,
+									  const std::vector<Eigen::VectorXf*>& validation_target_vectors,
+									  const std::vector<std::string>& validation_names, size_t train_size, size_t validation_size,
+									  const std::chrono::duration<double>& total_time) {
+	// Log training time
+	log_file << "Training time: " << total_time.count() << "s\n\n";
+	std::cout << "Training time: " << total_time.count() << "s\n";
+
+	log_file << "Final results:\n";
+
+	// Log training data predictions
+	log_file << "Training data:\n";
+	for (size_t j = 0; j < train_size; j++) {
+		auto prediction = this->get_prediction(train_input_vectors[j]);
+		auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
+		auto target_cpp = cpp_vec_from_eigen_vec(*train_target_vectors[j]);
+		auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
+		auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
+		log_file << "For " << train_names[j] << ":\t";
+		log_file << "Prediction: \t";
+		for (auto val : prediction_decoded) {
+			log_file << val << ' ';
+		}
+		log_file << "Target: \t";
+		for (auto val : target_decoded) {
+			log_file << val << ' ';
+		}
+		log_file << '\n';
+	}
+
+	// Log validation data predictions
+	log_file << "\nValidation data:\n";
+	for (size_t j = 0; j < validation_size; j++) {
+		auto prediction = this->get_prediction(validation_input_vectors[j]);
+		auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
+		auto target_cpp = cpp_vec_from_eigen_vec(*validation_target_vectors[j]);
+		auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
+		auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
+		log_file << "For " << validation_names[j] << ":\t";
+		log_file << "Prediction: \t";
+		for (auto val : prediction_decoded) {
+			log_file << val << ' ';
+		}
+		log_file << "Target: \t";
+		for (auto val : target_decoded) {
+			log_file << val << ' ';
+		}
+		log_file << '\n';
+	}
+
+	// Log network topology and configuration
+	log_file << "\nNetwork topology:\n";
+	for (auto val : this->m_topology) {
+		log_file << val << ' ';
+	}
+	log_file << '\n';
+	log_file << "Learning rate: " << this->m_learning_rate << '\n';
+	char* activation_func_name = abi::__cxa_demangle(typeid(*this->m_activation_func).name(), 0, 0, nullptr);
+	log_file << "Activation function: " << activation_func_name << '\n';
+	free(activation_func_name);
+}
+
 void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_proportion, std::string&& logging_dir, int nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
 
 	for (int t = 1; t <= nb_trains; t++) {
+
+		this->reset();
 
 		// Open the file for logging
 		std::string logging_filename = logging_dir + "/train_" + std::to_string(t) + ".log";
@@ -285,7 +396,6 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 		for (int i = 0; i < nb_epochs; i++) {
 			auto clock = std::chrono::high_resolution_clock::now();
 			for (size_t j = 0; j < train_size; j++) {
-				// std::cout << "Epoch: " << i << " ( " << j + 1 << " / " << train_size << " )\n";
 				this->feed_forward(train_input_vectors[j]);
 				this->back_propagate(train_target_vectors[j]);
 			}
@@ -293,37 +403,10 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
 			total_time += elapsed_seconds;
 
-			// std::cout << "Epoch: " << i << '\n';
-
 			// Logging the loss and accuracy
 			if (i % nb_points_to_plot == 0) {
-				// Different losses
-				double tl_mrse = this->get_loss_mrse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double vl_mrse = this->get_loss_mrse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-				double tl_mse = this->get_loss_mse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double vl_mse = this->get_loss_mse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-
-				// Different accuracies
-				double ta_mae = this->get_acc_mae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double va_mae = this->get_acc_mae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-				double ta_mrae = this->get_acc_mrae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double va_mrae = this->get_acc_mrae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-
-				std::stringstream stream = std::stringstream();
-				stream << "Epoch: " << i << ":\t";
-
-				stream << "Training loss (MRSE): " << tl_mrse << "\t,";
-				stream << "Validation loss (MRSE): " << vl_mrse << "\t,";
-				stream << "Training loss (MSE): " << tl_mse << "\t,";
-				stream << "Validation loss (MSE): " << vl_mse << "\t,";
-
-				stream << "Training accuracy (MAE): " << ta_mae << "\t,";
-				stream << "Validation accuracy (MAE): " << va_mae << "\t,";
-				stream << "Training accuracy (MRAE): " << ta_mrae << "\t,";
-				stream << "Validation accuracy (MRAE): " << va_mrae << '\n';
-
-				// std::cout << stream.str();
-				log_file << stream.str();
+				this->log_epoch_metrics(
+					i, train_input_vectors, train_target_vectors, validation_input_vectors, validation_target_vectors, dataset, log_file);
 			}
 			// One time every 10 points, flush the log file to avoid losing data
 			if (i % (nb_points_to_plot * 10) == 0) {
@@ -332,57 +415,17 @@ void NeuralNetwork::train(Dataset& dataset, int nb_epochs, float training_propor
 		}
 
 		std::cout << "Training time: " << total_time.count() << "s\n";
-		log_file << "Training time: " << total_time.count() << "s\n\n";
-
-		log_file << "Final results:\n";
-
-		log_file << "Training data:\n";
-		for (size_t j = 0; j < train_size; j++) {
-			auto prediction = this->get_prediction(train_input_vectors[j]);
-			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
-			auto target_cpp = cpp_vec_from_eigen_vec(*train_target_vectors[j]);
-			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
-			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
-			log_file << "For " << train_names[j] << ":\t";
-			log_file << "Prediction: \t";
-			for (auto val : prediction_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << "Target: \t";
-			for (auto val : target_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << '\n';
-		}
-
-		log_file << "\nValidation data:\n";
-		for (size_t j = 0; j < validation_size; j++) {
-			auto prediction = this->get_prediction(validation_input_vectors[j]);
-			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
-			auto target_cpp = cpp_vec_from_eigen_vec(*validation_target_vectors[j]);
-			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
-			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
-			log_file << "For " << validation_names[j] << ":\t";
-			log_file << "Prediction: \t";
-			for (auto val : prediction_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << "Target: \t";
-			for (auto val : target_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << '\n';
-		}
-
-		log_file << "\nNetwork topology:\n";
-		for (auto val : m_topology) {
-			log_file << val << ' ';
-		}
-		log_file << '\n';
-		log_file << "Learning rate: " << m_learning_rate << '\n';
-		char* activation_func_name = abi::__cxa_demangle(typeid(*this->m_activation_func).name(), 0, 0, nullptr);
-		log_file << "Activation function: " << activation_func_name << '\n';
-		free(activation_func_name);
+		this->log_final_results(log_file,
+								dataset,
+								train_input_vectors,
+								train_target_vectors,
+								train_names,
+								validation_input_vectors,
+								validation_target_vectors,
+								validation_names,
+								train_size,
+								validation_size,
+								total_time);
 		log_file.close();
 	}
 }
@@ -412,13 +455,15 @@ void NeuralNetwork::back_propagate_batch(std::vector<Eigen::VectorXf*>& predicti
 	}
 }
 
-void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float rolling_proportion,
+void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_proportion, float batch_proportion,
 								std::string&& logging_dir, int nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
 
 	for (int t = 1; t <= nb_trains; t++) {
+
+		this->reset();
 
 		// Open the file for logging
 		std::string logging_filename = logging_dir + "/train_" + std::to_string(t) + ".log";
@@ -458,33 +503,39 @@ void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_
 
 		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
 
-		size_t rolling_train_size = (size_t)(train_size * rolling_proportion);
-		std::vector<size_t> rolling_indices(train_size);
+		size_t batch_train_size = (size_t)(train_size * batch_proportion);
+		std::vector<size_t> batch_indices(train_size);
 		for (size_t i = 0; i < train_size; i++) {
-			rolling_indices[i] = i;
+			batch_indices[i] = i;
 		}
 
-		std::cout << "Rolling training size: " << rolling_train_size << '\n';
+		std::cout << "Batch training size: " << batch_train_size << '\n';
 
 		// Batch training
 		for (int i = 0; i < nb_epochs; i++) {
 			auto clock = std::chrono::high_resolution_clock::now();
-			std::vector<Eigen::VectorXf> predictions;
-			std::vector<Eigen::VectorXf> targets;
 			// Shuffle the indices
-			std::shuffle(rolling_indices.begin(), rolling_indices.end(), std::mt19937(std::random_device()()));
+			std::shuffle(batch_indices.begin(), batch_indices.end(), std::mt19937(std::random_device()()));
 
 			// Make the predictions and targets
-			for (size_t j = 0; j < rolling_train_size; j++) {
-				// std::cout << "Epoch: " << i << " ( " << j + 1 << " / " << train_size << " )\n";
-				this->feed_forward(train_input_vectors[rolling_indices[j]]);
-				predictions.push_back(m_last_values);
-				targets.push_back(*train_target_vectors[rolling_indices[j]]);
-			}
+			for (size_t j = 0; j < train_size; j += batch_train_size) {
+				// Gather the batch
+				std::vector<Eigen::VectorXf> predictions;
+				std::vector<Eigen::VectorXf> targets;
+				for (size_t k = 0; k < batch_train_size; k++) {
+					// In case it isn't a perfect multiple
+					if (j + k >= batch_indices.size()) {
+						break;
+					}
+					this->feed_forward(train_input_vectors[batch_indices[j + k]]);
+					predictions.push_back(m_last_values);
+					targets.push_back(*train_target_vectors[batch_indices[j + k]]);
+				}
 
-			// Back propagate the batch
-			auto [predictions_ptr, targets_ptr] = convert_data_for_loss(predictions, targets);
-			this->back_propagate_batch(predictions_ptr, targets_ptr, m_learning_rate);
+				// Back propagate the batch
+				auto [predictions_ptr, targets_ptr] = convert_data_for_loss(predictions, targets);
+				this->back_propagate_batch(predictions_ptr, targets_ptr, m_learning_rate);
+			}
 
 			auto end_clock = std::chrono::high_resolution_clock::now();
 			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
@@ -494,33 +545,8 @@ void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_
 
 			// Logging the loss and accuracy
 			if (i % nb_points_to_plot == 0) {
-				// Different losses
-				double tl_mrse = this->get_loss_mrse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double vl_mrse = this->get_loss_mrse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-				double tl_mse = this->get_loss_mse(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double vl_mse = this->get_loss_mse(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-
-				// Different accuracies
-				double ta_mae = this->get_acc_mae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double va_mae = this->get_acc_mae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-				double ta_mrae = this->get_acc_mrae(train_input_vectors, train_target_vectors, dataset.get_output_encoder());
-				double va_mrae = this->get_acc_mrae(validation_input_vectors, validation_target_vectors, dataset.get_output_encoder());
-
-				std::stringstream stream = std::stringstream();
-				stream << "Epoch: " << i << ":\t";
-
-				stream << "Training loss (MRSE): " << tl_mrse << "\t,";
-				stream << "Validation loss (MRSE): " << vl_mrse << "\t,";
-				stream << "Training loss (MSE): " << tl_mse << "\t,";
-				stream << "Validation loss (MSE): " << vl_mse << "\t,";
-
-				stream << "Training accuracy (MAE): " << ta_mae << "\t,";
-				stream << "Validation accuracy (MAE): " << va_mae << "\t,";
-				stream << "Training accuracy (MRAE): " << ta_mrae << "\t,";
-				stream << "Validation accuracy (MRAE): " << va_mrae << '\n';
-
-				// std::cout << stream.str();
-				log_file << stream.str();
+				this->log_epoch_metrics(
+					i, train_input_vectors, train_target_vectors, validation_input_vectors, validation_target_vectors, dataset, log_file);
 			}
 			// One time every 10 points, flush the log file to avoid losing data
 			if (i % (nb_points_to_plot * 10) == 0) {
@@ -529,58 +555,17 @@ void NeuralNetwork::train_batch(Dataset& dataset, int nb_epochs, float training_
 		}
 
 		std::cout << "Training time: " << total_time.count() << "s\n";
-
-		log_file << "Training time: " << total_time.count() << "s\n\n";
-
-		log_file << "Final results:\n";
-
-		log_file << "Training data:\n";
-		for (size_t j = 0; j < train_size; j++) {
-			auto prediction = this->get_prediction(train_input_vectors[j]);
-			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
-			auto target_cpp = cpp_vec_from_eigen_vec(*train_target_vectors[j]);
-			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
-			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
-			log_file << "For " << train_names[j] << ":\t";
-			log_file << "Prediction: \t";
-			for (auto val : prediction_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << "Target: \t";
-			for (auto val : target_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << '\n';
-		}
-
-		log_file << "\nValidation data:\n";
-		for (size_t j = 0; j < validation_size; j++) {
-			auto prediction = this->get_prediction(validation_input_vectors[j]);
-			auto prediction_cpp = cpp_vec_from_eigen_vec(prediction);
-			auto target_cpp = cpp_vec_from_eigen_vec(*validation_target_vectors[j]);
-			auto prediction_decoded = dataset.get_output_encoder()->decode(prediction_cpp);
-			auto target_decoded = dataset.get_output_encoder()->decode(target_cpp);
-			log_file << "For " << validation_names[j] << ":\t";
-			log_file << "Prediction: \t";
-			for (auto val : prediction_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << "Target: \t";
-			for (auto val : target_decoded) {
-				log_file << val << ' ';
-			}
-			log_file << '\n';
-		}
-
-		log_file << "\nNetwork topology:\n";
-		for (auto val : m_topology) {
-			log_file << val << ' ';
-		}
-		log_file << '\n';
-		log_file << "Learning rate: " << m_learning_rate << '\n';
-		char* activation_func_name = abi::__cxa_demangle(typeid(*this->m_activation_func).name(), 0, 0, nullptr);
-		log_file << "Activation function: " << activation_func_name << '\n';
-		free(activation_func_name);
+		this->log_final_results(log_file,
+								dataset,
+								train_input_vectors,
+								train_target_vectors,
+								train_names,
+								validation_input_vectors,
+								validation_target_vectors,
+								validation_names,
+								train_size,
+								validation_size,
+								total_time);
 		log_file.close();
 	}
 }
