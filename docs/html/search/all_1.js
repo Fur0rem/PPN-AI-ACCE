@@ -12,6 +12,6 @@ var searchData=
   ['array_5fmin_2ecpp_9',['array_min.cpp',['../array__min_8cpp.html',1,'']]],
   ['asm_5fparser_2ecpp_10',['asm_parser.cpp',['../src_2parsing_2asm__parser_8cpp.html',1,'(Global Namespace)'],['../tests_2asm__parser_8cpp.html',1,'(Global Namespace)']]],
   ['asm_5fparser_2ehpp_11',['asm_parser.hpp',['../asm__parser_8hpp.html',1,'']]],
-  ['asmparser_12',['AsmParser',['../classAsmParser.html',1,'AsmParser'],['../classAsmParser.html#a6f18d736598bda2cc6f6c530a90bd35e',1,'AsmParser::AsmParser()']]],
+  ['asmparser_12',['asmparser',['../classAsmParser.html',1,'AsmParser'],['../classAsmParser.html#a6f18d736598bda2cc6f6c530a90bd35e',1,'AsmParser::AsmParser()']]],
   ['assembly_20code_20cycles_20estimator_13',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
 ];
