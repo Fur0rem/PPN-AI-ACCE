@@ -1,0 +1,112 @@
+\doxysection{Adam Class Reference}
+\hypertarget{classAdam}{}\label{classAdam}\index{Adam@{Adam}}
+
+
+\doxylink{classAdam}{Adam} optimiser.  
+
+
+
+
+{\ttfamily \#include $<$optimiser.\+hpp$>$}
+
+Inheritance diagram for Adam\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAdam}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAdam_acffa63cd532030741babaed6b3222555}{Adam}} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn, float beta1, float beta2, float epsilon, float learning\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classAdam}{Adam} optimiser. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAdam_ad9582bc631beaee205e458230b325e1d}{update\+\_\+weights}} (const \mbox{\hyperlink{classGradients}{Gradients}} \&grads, \mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn) override
+\begin{DoxyCompactList}\small\item\em Update the weights and biases of the neural network using the gradients. \end{DoxyCompactList}\item 
+\Hypertarget{classAdam_a167991c678a04bcbc74dfeaf674492b4}\label{classAdam_a167991c678a04bcbc74dfeaf674492b4} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Adam} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classAdam_a6f03ecb0b835cf0faef4113319065359}{get\+\_\+learning\+\_\+rate}} () const override
+\begin{DoxyCompactList}\small\item\em Get the learning rate of the optimiser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIOptimiser}{IOptimiser}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IOptimiser} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAdam}{Adam} optimiser. 
+
+This class implements the \doxylink{classAdam}{Adam} optimisation algorithm for updating the weights and biases of a neural network. It uses an adaptive learning rate based on the first and second moments of the gradients. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAdam_acffa63cd532030741babaed6b3222555}\label{classAdam_acffa63cd532030741babaed6b3222555} 
+\index{Adam@{Adam}!Adam@{Adam}}
+\index{Adam@{Adam}!Adam@{Adam}}
+\doxysubsubsection{\texorpdfstring{Adam()}{Adam()}}
+{\footnotesize\ttfamily Adam\+::\+Adam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn,  }\item[{float}]{beta1,  }\item[{float}]{beta2,  }\item[{float}]{epsilon,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classAdam}{Adam} optimiser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & Neural network getting trained \\
+\hline
+{\em beta1} & Exponential decay rate for the first moment \\
+\hline
+{\em beta2} & Exponential decay rate for the second moment \\
+\hline
+{\em epsilon} & Small constant to prevent division by zero \\
+\hline
+{\em learning\+\_\+rate} & Learning rate for the optimiser \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAdam_a6f03ecb0b835cf0faef4113319065359}\label{classAdam_a6f03ecb0b835cf0faef4113319065359} 
+\index{Adam@{Adam}!get\_learning\_rate@{get\_learning\_rate}}
+\index{get\_learning\_rate@{get\_learning\_rate}!Adam@{Adam}}
+\doxysubsubsection{\texorpdfstring{get\_learning\_rate()}{get\_learning\_rate()}}
+{\footnotesize\ttfamily float Adam\+::get\+\_\+learning\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the learning rate of the optimiser. 
+
+\begin{DoxyReturn}{Returns}
+Learning rate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}{IOptimiser}}.
+
+\Hypertarget{classAdam_ad9582bc631beaee205e458230b325e1d}\label{classAdam_ad9582bc631beaee205e458230b325e1d} 
+\index{Adam@{Adam}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!Adam@{Adam}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily void Adam\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGradients}{Gradients}} \&}]{grads,  }\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the weights and biases of the neural network using the gradients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grads} & \doxylink{classGradients}{Gradients} for weights and biases \\
+\hline
+{\em nn} & Neural network to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec}{IOptimiser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{optimiser_8hpp}{optimiser.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{optimiser_8cpp}{optimiser.\+cpp}}\end{DoxyCompactItemize}

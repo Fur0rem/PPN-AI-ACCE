@@ -6,29 +6,24 @@ Implementation of the \doxylink{classNeuralNetwork}{Neural\+Network} class.
 
 
 {\ttfamily \#include "{}neural\+\_\+network/neural\+\_\+network.\+hpp"{}}\newline
-{\ttfamily \#include "{}dataset/dataset.\+hpp"{}}\newline
-{\ttfamily \#include "{}parsing/iencoder.\+hpp"{}}\newline
-{\ttfamily \#include $<$chrono$>$}\newline
-{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include "{}neural\+\_\+network/activation\+\_\+functions.\+hpp"{}}\newline
+{\ttfamily \#include "{}neural\+\_\+network/gradients.\+hpp"{}}\newline
+{\ttfamily \#include "{}neural\+\_\+network/optimiser.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
 {\ttfamily \#include $<$cxxabi.\+h$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
-{\ttfamily \#include $<$eigen3/\+Eigen/src/\+Core/\+Matrix.\+h$>$}\newline
 {\ttfamily \#include $<$filesystem$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$random$>$}\newline
-{\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{neural__network_8cpp_abec664901558c448c2d53b02e951213a}\label{neural__network_8cpp_abec664901558c448c2d53b02e951213a} 
-std\+::vector$<$ float $>$ {\bfseries cpp\+\_\+vec\+\_\+from\+\_\+eigen\+\_\+vec} (const Eigen\+::\+Vector\+Xf \&eigen\+\_\+vector)
-\item 
-\Hypertarget{neural__network_8cpp_a6f1f413f755c248ac48145227d391b51}\label{neural__network_8cpp_a6f1f413f755c248ac48145227d391b51} 
-Eigen\+::\+Vector\+Xf {\bfseries eigen\+\_\+vec\+\_\+from\+\_\+cpp\+\_\+vec} (const std\+::vector$<$ float $>$ \&cpp\+\_\+vector)
+\Hypertarget{neural__network_8cpp_ac04b91ddfffb8cd1eab313e2f25bc7c1}\label{neural__network_8cpp_ac04b91ddfffb8cd1eab313e2f25bc7c1} 
+std\+::vector$<$ float $>$ {\bfseries get\+\_\+row} (const Eigen\+::\+Matrix\+Xf \&matrix, size\+\_\+t row)
 \end{DoxyCompactItemize}
 
 

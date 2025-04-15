@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['layer_0',['Layer',['../classLayer.html#a83989eec29e9cc5eb47e1d902c93b48e',1,'Layer']]]
+  ['log_5fepoch_5fmetrics_0',['log_epoch_metrics',['../classNeuralNetwork.html#a1d6854f374769491c08c2e426c6d28f7',1,'NeuralNetwork']]],
+  ['log_5ffinal_5fresults_1',['log_final_results',['../classNeuralNetwork.html#a2ab8cdad24b0705cb49c2392a23997bc',1,'NeuralNetwork']]]
 ];

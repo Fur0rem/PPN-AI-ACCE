@@ -1,0 +1,106 @@
+\doxysection{Gradients Class Reference}
+\hypertarget{classGradients}{}\label{classGradients}\index{Gradients@{Gradients}}
+
+
+Class to hold gradients for weights and biases of a neural network.  
+
+
+
+
+{\ttfamily \#include $<$gradients.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGradients_a76c7047eb84cabadc4acffc802d2ab08}{Gradients}} (size\+\_\+t nb\+\_\+layers)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classGradients}{Gradients} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& \mbox{\hyperlink{classGradients_a325ef71fa92ce600e4fe7c6e0db1785d}{d\+\_\+w}} ()
+\begin{DoxyCompactList}\small\item\em Get the gradients for weights. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& \mbox{\hyperlink{classGradients_a55ef2749f93aea024482cce4b52bf2fc}{d\+\_\+b}} ()
+\begin{DoxyCompactList}\small\item\em Get the gradients for biases. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& \mbox{\hyperlink{classGradients_a01056db9eb9e309762e537a3ad46508c}{d\+\_\+w}} () const
+\begin{DoxyCompactList}\small\item\em Get the gradients for weights (const version) \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& \mbox{\hyperlink{classGradients_a25079b4a263d6c814e01c417cda9d9cc}{d\+\_\+b}} () const
+\begin{DoxyCompactList}\small\item\em Get the gradients for biases (const version) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to hold gradients for weights and biases of a neural network. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGradients_a76c7047eb84cabadc4acffc802d2ab08}\label{classGradients_a76c7047eb84cabadc4acffc802d2ab08} 
+\index{Gradients@{Gradients}!Gradients@{Gradients}}
+\index{Gradients@{Gradients}!Gradients@{Gradients}}
+\doxysubsubsection{\texorpdfstring{Gradients()}{Gradients()}}
+{\footnotesize\ttfamily Gradients\+::\+Gradients (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{nb\+\_\+layers }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classGradients}{Gradients} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+layers} & Number of layers in the neural network \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGradients_a55ef2749f93aea024482cce4b52bf2fc}\label{classGradients_a55ef2749f93aea024482cce4b52bf2fc} 
+\index{Gradients@{Gradients}!d\_b@{d\_b}}
+\index{d\_b@{d\_b}!Gradients@{Gradients}}
+\doxysubsubsection{\texorpdfstring{d\_b()}{d\_b()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& Gradients\+::d\+\_\+b (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the gradients for biases. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of gradients for biases 
+\end{DoxyReturn}
+\Hypertarget{classGradients_a25079b4a263d6c814e01c417cda9d9cc}\label{classGradients_a25079b4a263d6c814e01c417cda9d9cc} 
+\index{Gradients@{Gradients}!d\_b@{d\_b}}
+\index{d\_b@{d\_b}!Gradients@{Gradients}}
+\doxysubsubsection{\texorpdfstring{d\_b()}{d\_b()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& Gradients\+::d\+\_\+b (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the gradients for biases (const version) 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the vector of gradients for biases 
+\end{DoxyReturn}
+\Hypertarget{classGradients_a325ef71fa92ce600e4fe7c6e0db1785d}\label{classGradients_a325ef71fa92ce600e4fe7c6e0db1785d} 
+\index{Gradients@{Gradients}!d\_w@{d\_w}}
+\index{d\_w@{d\_w}!Gradients@{Gradients}}
+\doxysubsubsection{\texorpdfstring{d\_w()}{d\_w()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& Gradients\+::d\+\_\+w (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the gradients for weights. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of gradients for weights 
+\end{DoxyReturn}
+\Hypertarget{classGradients_a01056db9eb9e309762e537a3ad46508c}\label{classGradients_a01056db9eb9e309762e537a3ad46508c} 
+\index{Gradients@{Gradients}!d\_w@{d\_w}}
+\index{d\_w@{d\_w}!Gradients@{Gradients}}
+\doxysubsubsection{\texorpdfstring{d\_w()}{d\_w()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ Eigen\+::\+Matrix\+Xf $>$ \& Gradients\+::d\+\_\+w (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the gradients for weights (const version) 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the vector of gradients for weights 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{gradients_8hpp}{gradients.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{gradients_8cpp}{gradients.\+cpp}}\end{DoxyCompactItemize}

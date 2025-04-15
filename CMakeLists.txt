@@ -6,9 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Compiler flags
-set(SANITIZER_LIB -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer -fsanitize=undefined)
+# set(SANITIZER_LIB -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer -fsanitize=undefined)
+set(SANITIZER_LIB -Og -g3)
 set(DEBUG_FLAGS -Og -g -Wall -Wextra ${SANITIZER_LIB})
-set(RELEASE_FLAGS -O3)
+set(RELEASE_FLAGS -Og -g3)
+
 set(TEST_FLAGS --coverage ${SANITIZER_LIB})
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include -fno-eliminate-unused-debug-types)
 set(BENCHMARK_FLAGS -lm ${NANOBENCH_LINK_FLAGS} -O3)
@@ -37,7 +39,8 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/parsing/cycles_encoders.cpp
     ${CMAKE_SOURCE_DIR}/src/parsing/size_encoder.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/activation_functions.cpp
-    ${CMAKE_SOURCE_DIR}/src/neural_network/layer.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/gradients.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/optimiser.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
     ${CMAKE_SOURCE_DIR}/src/dataset/dataset.cpp
 )

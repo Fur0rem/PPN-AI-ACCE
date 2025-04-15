@@ -30,10 +30,10 @@
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_dataset\_size;\ }
 \DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classDataset}{Dataset}}(\mbox{\hyperlink{classIParser}{IParser}}*\ parser,\ std::string\ dir\_path,\ std::vector<size\_t>\&\ topology,\ std::unique\_ptr<IEncoder>\ input\_encoder,}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a}{Dataset}}(\mbox{\hyperlink{classIParser}{IParser}}*\ parser,\ std::string\ dir\_path,\ std::vector<size\_t>\&\ topology,\ std::unique\_ptr<IEncoder>\ input\_encoder,}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<IEncoder>\ output\_encoder);}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classDataset}{Dataset}}(std::vector<std::vector<float>>\ inputs,\ std::vector<std::vector<float>>\ target\_outputs,\ std::vector<size\_t>\&\ topology,}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a}{Dataset}}(std::vector<std::vector<float>>\ inputs,\ std::vector<std::vector<float>>\ target\_outputs,\ std::vector<size\_t>\&\ topology,}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<IEncoder>\ input\_encoder,\ std::unique\_ptr<IEncoder>\ output\_encoder);}
 \DoxyCodeLine{00057\ }
 \DoxyCodeLine{00063\ \ \ \ \ std::vector<std::tuple<std::string,\ Eigen::VectorXf,\ Eigen::VectorXf>>\ \mbox{\hyperlink{classDataset_ac26ae42c722ca90cd5fb92c5c3e2f55e}{get\_data}}(\textcolor{keywordtype}{double}\ proportion);}
@@ -43,8 +43,27 @@
 \DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ \mbox{\hyperlink{classDataset_aa70945f2b0908066d2f4e090bfb076a5}{get\_output\_encoder}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00076\ }
 \DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ \mbox{\hyperlink{classDataset_abccdca5465ab9328f1a07cbfe2a7a81f}{get\_input\_encoder}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00082\ \};}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATASET\_HPP}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ MatrixXf\ x\ =\ dataset.get\_input\_data();}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ MatrixXf\ y\ =\ dataset.get\_output\_data();}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ Eigen::MatrixXf\ get\_input\_data()\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ Eigen::MatrixXf\ input\_data(m\_inputs.size(),\ m\_inputs[0].size());}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_inputs.size();\ i++)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ input\_data.row(i)\ =\ m\_inputs[i];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ input\_data;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ Eigen::MatrixXf\ get\_output\_data()\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ Eigen::MatrixXf\ output\_data(m\_outputs.size(),\ m\_outputs[0].size());}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_outputs.size();\ i++)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ output\_data.row(i)\ =\ m\_outputs[i];}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ output\_data;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATASET\_HPP}}
 
 \end{DoxyCode}

@@ -18,9 +18,9 @@ Inheritance diagram for Cycles\+Splitter\+Encoder\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_aff563875f52c47bf42264fcc70c50c3e}{encode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by splitting it into 4 values, billions, millions, thousands and units. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a7a92406259bfe33f418cdb58f9fe19f9}{decode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}{decode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Decode the number of cycles by merging the 4 values into a single one. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -28,11 +28,11 @@ std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a7a924062
 A class to encode and decode the number of cycles by splitting it into 4 values, billions, millions, thousands and units. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCyclesSplitterEncoder_a7a92406259bfe33f418cdb58f9fe19f9}\label{classCyclesSplitterEncoder_a7a92406259bfe33f418cdb58f9fe19f9} 
+\Hypertarget{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}\label{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98} 
 \index{CyclesSplitterEncoder@{CyclesSplitterEncoder}!decode@{decode}}
 \index{decode@{decode}!CyclesSplitterEncoder@{CyclesSplitterEncoder}}
 \doxysubsubsection{\texorpdfstring{decode()}{decode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Splitter\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Splitter\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -48,13 +48,13 @@ The merged number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
-\Hypertarget{classCyclesSplitterEncoder_aff563875f52c47bf42264fcc70c50c3e}\label{classCyclesSplitterEncoder_aff563875f52c47bf42264fcc70c50c3e} 
+\Hypertarget{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}\label{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b} 
 \index{CyclesSplitterEncoder@{CyclesSplitterEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesSplitterEncoder@{CyclesSplitterEncoder}}
 \doxysubsubsection{\texorpdfstring{encode()}{encode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Splitter\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Splitter\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -70,7 +70,7 @@ The split number of cycles, a vector containing 4 values
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
 
 
 

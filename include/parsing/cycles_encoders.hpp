@@ -21,14 +21,14 @@ class CyclesNormaliserEncoder : public IEncoder {
 	 * @param input The number of cycles
 	 * @return The normalised number of cycles, a vector containing a single value between 0 and 1
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles)
 	 * @param input The normalised number of cycles
 	 * @return The denormalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 /**
@@ -41,14 +41,14 @@ class CyclesSplitterEncoder : public IEncoder {
 	 * @param input The number of cycles
 	 * @return The split number of cycles, a vector containing 4 values
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode the number of cycles by merging the 4 values into a single one
 	 * @param input The split number of cycles
 	 * @return The merged number of cycles, a vector containing a single value
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 /**
@@ -62,14 +62,14 @@ class CyclesBoundedNormaliserEncoder : public IEncoder {
 	 * @param input The number of cycles
 	 * @return The normalised number of cycles, a vector containing a single value between 0.15 and 0.85
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode the number of cycles by denormalising it, but between 0.15 and 0.85
 	 * @param input The normalised number of cycles
 	 * @return The denormalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 /**
@@ -93,14 +93,14 @@ class CyclesLogEncoder : public IEncoder {
 	 * @param input The number of cycles
 	 * @return The normalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode the number of cycles by denormalising it in a logarithmic scale
 	 * @param input The normalised number of cycles
 	 * @return The denormalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 /**
@@ -121,14 +121,14 @@ class CyclesSqrtEncoder : public IEncoder {
 	 * @param input The number of cycles
 	 * @return The normalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode the number of cycles by using the square of the value
 	 * @param input The normalised number of cycles
 	 * @return The denormalised number of cycles, a vector containing a single value
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 #endif // CYCLES_ENCODERS_HPP

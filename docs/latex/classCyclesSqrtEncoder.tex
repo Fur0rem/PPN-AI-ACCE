@@ -20,9 +20,9 @@ Inheritance diagram for Cycles\+Sqrt\+Encoder\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}{Cycles\+Sqrt\+Encoder}} (float added)
 \begin{DoxyCompactList}\small\item\em Construct a new Cycles Sqrt Encoder object. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8}{encode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by using the square root of the value. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3}{decode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}{decode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Decode the number of cycles by using the square of the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,11 +48,11 @@ Construct a new Cycles Sqrt Encoder object.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3}\label{classCyclesSqrtEncoder_af1cc1a137afc43591c92e43083f006f3} 
+\Hypertarget{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}\label{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e} 
 \index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!decode@{decode}}
 \index{decode@{decode}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
 \doxysubsubsection{\texorpdfstring{decode()}{decode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -68,13 +68,13 @@ The denormalised number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
-\Hypertarget{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8}\label{classCyclesSqrtEncoder_aef0bcf6b2ee5cd67e3b599a27db40eb8} 
+\Hypertarget{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}\label{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4} 
 \index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
 \doxysubsubsection{\texorpdfstring{encode()}{encode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Sqrt\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -90,7 +90,7 @@ The normalised number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
 
 
 

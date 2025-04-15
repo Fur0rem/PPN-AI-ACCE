@@ -5,10 +5,10 @@
 
 #include "parsing/non_encoder.hpp"
 
-std::vector<float> NonEncoder::encode(std::vector<float>& input) {
+std::vector<float> NonEncoder::encode(std::vector<float>& input) const {
 	return input;
 }
 
-std::vector<float> NonEncoder::decode(std::vector<float>& input) {
+std::vector<float> NonEncoder::decode(std::vector<float>& input) const {
 	return input;
 }

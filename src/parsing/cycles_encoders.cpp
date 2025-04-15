@@ -10,7 +10,7 @@
 #include <stdexcept>
 #include <vector>
 
-std::vector<float> CyclesNormaliserEncoder::encode(std::vector<float>& input) {
+std::vector<float> CyclesNormaliserEncoder::encode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -23,14 +23,14 @@ std::vector<float> CyclesNormaliserEncoder::encode(std::vector<float>& input) {
 	return {input[0] / MAX_CYCLES};
 }
 
-std::vector<float> CyclesNormaliserEncoder::decode(std::vector<float>& input) {
+std::vector<float> CyclesNormaliserEncoder::decode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
 	return {input[0] * MAX_CYCLES};
 }
 
-std::vector<float> CyclesSplitterEncoder::encode(std::vector<float>& input) {
+std::vector<float> CyclesSplitterEncoder::encode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -51,7 +51,7 @@ std::vector<float> CyclesSplitterEncoder::encode(std::vector<float>& input) {
 	return {billions / 4.0F, millions / 1000.0F, thousands / 1000.0F, units / 1000.0F};
 }
 
-std::vector<float> CyclesSplitterEncoder::decode(std::vector<float>& input) {
+std::vector<float> CyclesSplitterEncoder::decode(std::vector<float>& input) const {
 	if (input.size() != 4) {
 		throw std::runtime_error("The input vector must contain 4 values");
 	}
@@ -64,7 +64,7 @@ std::vector<float> CyclesSplitterEncoder::decode(std::vector<float>& input) {
 
 CyclesLogEncoder::CyclesLogEncoder(float log_base, float added) : m_log_base(log_base), m_added(added) {}
 
-std::vector<float> CyclesLogEncoder::encode(std::vector<float>& input) {
+std::vector<float> CyclesLogEncoder::encode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -82,7 +82,7 @@ std::vector<float> CyclesLogEncoder::encode(std::vector<float>& input) {
 	return {encoded / max_possible};
 }
 
-std::vector<float> CyclesLogEncoder::decode(std::vector<float>& input) {
+std::vector<float> CyclesLogEncoder::decode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -94,7 +94,7 @@ std::vector<float> CyclesLogEncoder::decode(std::vector<float>& input) {
 
 CyclesSqrtEncoder::CyclesSqrtEncoder(float added) : m_added(added) {}
 
-std::vector<float> CyclesSqrtEncoder::encode(std::vector<float>& input) {
+std::vector<float> CyclesSqrtEncoder::encode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -113,7 +113,7 @@ std::vector<float> CyclesSqrtEncoder::encode(std::vector<float>& input) {
 	return {encoded / max_possible};
 }
 
-std::vector<float> CyclesSqrtEncoder::decode(std::vector<float>& input) {
+std::vector<float> CyclesSqrtEncoder::decode(std::vector<float>& input) const {
 	if (input.size() != 1) {
 		throw std::runtime_error("The input vector must contain a single value");
 	}
@@ -124,13 +124,13 @@ std::vector<float> CyclesSqrtEncoder::decode(std::vector<float>& input) {
 	return {(denormalised - m_added) * (denormalised - m_added)};
 }
 
-std::vector<float> CyclesBoundedNormaliserEncoder::encode(std::vector<float>& input) {
+std::vector<float> CyclesBoundedNormaliserEncoder::encode(std::vector<float>& input) const {
 	float normalised = (input[0] / MAX_CYCLES);
 	float bounded = 0.15F + normalised * 0.7F;
 	return {bounded};
 }
 
-std::vector<float> CyclesBoundedNormaliserEncoder::decode(std::vector<float>& input) {
+std::vector<float> CyclesBoundedNormaliserEncoder::decode(std::vector<float>& input) const {
 	if (input[0] < 0.15F) {
 		input[0] = 0.15F;
 	}

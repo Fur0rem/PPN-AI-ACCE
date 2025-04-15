@@ -18,9 +18,9 @@ Inheritance diagram for Cycles\+Normaliser\+Encoder\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}{encode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it (dividing by the maximum number of cycles) \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}{decode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04}{decode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -28,11 +28,11 @@ std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_a275f75
 A class to encode and decode the number of cycles by normalising it (dividing by the maximum number of cycles), to have a value between 0 and 1. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead}\label{classCyclesNormaliserEncoder_a275f75823f8935739ffa300e28f22ead} 
+\Hypertarget{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04}\label{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04} 
 \index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!decode@{decode}}
 \index{decode@{decode}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
 \doxysubsubsection{\texorpdfstring{decode()}{decode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -48,13 +48,13 @@ The denormalised number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
-\Hypertarget{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2}\label{classCyclesNormaliserEncoder_a331c3baecdb808ea68af3437e56fccb2} 
+\Hypertarget{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}\label{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8} 
 \index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
 \doxysubsubsection{\texorpdfstring{encode()}{encode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Normaliser\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -70,7 +70,7 @@ The normalised number of cycles, a vector containing a single value between 0 an
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
 
 
 

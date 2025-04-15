@@ -31,14 +31,14 @@ class SizeEncoder : public IEncoder {
 	 * @param input The vector to encode
 	 * @return The encoded vector
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Decode a vector by removing the size token at the beginning and the filler value at the end
 	 * @param input The vector to decode
 	 * @return The decoded vector
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 #endif // SIZE_ENCODER_HPP

@@ -11,7 +11,7 @@ constexpr const char* RESET = "\033[0m";
 
 SizeEncoder::SizeEncoder(size_t size) : m_size(size) {}
 
-std::vector<float> SizeEncoder::encode(std::vector<float>& input) {
+std::vector<float> SizeEncoder::encode(std::vector<float>& input) const {
 	// Check if the input can fit in the neural network
 	if (input.size() + 1 > m_size) {
 		std::string err_msg = RED + std::string("Warning : Kernel too big to analyse : ") + std::to_string(input.size()) + " > " +
@@ -37,7 +37,7 @@ std::vector<float> SizeEncoder::encode(std::vector<float>& input) {
 	return result;
 }
 
-std::vector<float> SizeEncoder::decode(std::vector<float>& input) {
+std::vector<float> SizeEncoder::decode(std::vector<float>& input) const {
 	std::vector<float> result;
 
 	for (size_t i = 1; i < input.size(); i++) {

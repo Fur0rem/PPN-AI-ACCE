@@ -16,12 +16,12 @@ class NonEncoder : public IEncoder {
 	/**
 	 * @brief Does nothing
 	 */
-	std::vector<float> encode(std::vector<float>& input) override;
+	std::vector<float> encode(std::vector<float>& input) const override;
 
 	/**
 	 * @brief Does nothing
 	 */
-	std::vector<float> decode(std::vector<float>& input) override;
+	std::vector<float> decode(std::vector<float>& input) const override;
 };
 
 #endif // NON_ENCODER_HPP

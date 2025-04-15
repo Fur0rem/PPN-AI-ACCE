@@ -1,0 +1,76 @@
+\doxysection{IOptimiser Class Reference}
+\hypertarget{classIOptimiser}{}\label{classIOptimiser}\index{IOptimiser@{IOptimiser}}
+
+
+Interface for an optimiser.  
+
+
+
+
+{\ttfamily \#include $<$optimiser.\+hpp$>$}
+
+Inheritance diagram for IOptimiser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classIOptimiser}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec}{update\+\_\+weights}} (const \mbox{\hyperlink{classGradients}{Gradients}} \&grads, \mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn)=0
+\begin{DoxyCompactList}\small\item\em Update the weights and biases of the neural network using the gradients. \end{DoxyCompactList}\item 
+\Hypertarget{classIOptimiser_ab7a3d1b1b4dfc934729d3d9e025b608d}\label{classIOptimiser_ab7a3d1b1b4dfc934729d3d9e025b608d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IOptimiser} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}{get\+\_\+learning\+\_\+rate}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the learning rate of the optimiser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for an optimiser. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}\label{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93} 
+\index{IOptimiser@{IOptimiser}!get\_learning\_rate@{get\_learning\_rate}}
+\index{get\_learning\_rate@{get\_learning\_rate}!IOptimiser@{IOptimiser}}
+\doxysubsubsection{\texorpdfstring{get\_learning\_rate()}{get\_learning\_rate()}}
+{\footnotesize\ttfamily virtual float IOptimiser\+::get\+\_\+learning\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the learning rate of the optimiser. 
+
+\begin{DoxyReturn}{Returns}
+Learning rate 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSGD_aff412cd4938de5105e9f2b3b4ece0665}{SGD}}, \mbox{\hyperlink{classAdam_a6f03ecb0b835cf0faef4113319065359}{Adam}}, \mbox{\hyperlink{classMomentum_a02428654a3e28d49f956dd3d2bcebe3f}{Momentum}}, \mbox{\hyperlink{classRMSProp_a895b06ad5747b629eb361b8cce028362}{RMSProp}}, and \mbox{\hyperlink{classAMSGrad_a826fc9e8ea0d3e53b18bf57ffd71850f}{AMSGrad}}.
+
+\Hypertarget{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec}\label{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec} 
+\index{IOptimiser@{IOptimiser}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!IOptimiser@{IOptimiser}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily virtual void IOptimiser\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGradients}{Gradients}} \&}]{grads,  }\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update the weights and biases of the neural network using the gradients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grads} & \doxylink{classGradients}{Gradients} for weights and biases \\
+\hline
+{\em nn} & Neural network to update \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classSGD_a6e909e3d245a8aafa1edf8e5ab602a73}{SGD}}, \mbox{\hyperlink{classAdam_ad9582bc631beaee205e458230b325e1d}{Adam}}, \mbox{\hyperlink{classMomentum_a0f5fb135f71d914454c578497e098725}{Momentum}}, \mbox{\hyperlink{classRMSProp_ac38b540eb9a7530720098847c29fcb75}{RMSProp}}, and \mbox{\hyperlink{classAMSGrad_a40747905e30c59c576ab531a682fcfdc}{AMSGrad}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{optimiser_8hpp}{optimiser.\+hpp}}\end{DoxyCompactItemize}

@@ -5,6 +5,7 @@
 
 #include "dataset/dataset.hpp"
 #include "neural_network/neural_network.hpp"
+#include "neural_network/optimiser.hpp"
 #include "parsing/non_encoder.hpp"
 #include <gtest/gtest.h>
 #include <memory>
@@ -15,8 +16,8 @@
 TEST(NeuralNetwork, XorRegularTraining) {
 	// Creating neural network
 	// 2 input neurons, 3 hidden neurons and 1 output neuron
-	std::vector<size_t> topology = {2, 3, 1};
-	NeuralNetwork nn(topology, 0.2, std::make_unique<Sigmoid>());
+	std::vector<size_t> topology = {2, 4, 1};
+	NeuralNetwork nn(topology, std::make_unique<Sigmoid>());
 
 	// Sample dataset
 	std::vector<std::vector<float>> target_inputs = {{0.0F, 0.0F}, {0.0F, 1.0F}, {1.0F, 0.0F}, {1.0F, 1.0F}};
@@ -24,11 +25,12 @@ TEST(NeuralNetwork, XorRegularTraining) {
 
 	Dataset dataset = Dataset(target_inputs, target_outputs, topology, std::make_unique<NonEncoder>(), std::make_unique<NonEncoder>());
 
-	nn.train(dataset, 10000, 1.0, "training_results/xor", 3);
+	// Training the neural network
+	nn.train(dataset, 20000, 1.0, 0.1, std::string("training_results/xor_regular"), 1);
 
 	// Testing the neural network
 	for (std::vector<float> input : target_inputs) {
-		std::vector<float> output = nn.get_prediction(input);
+		std::vector<float> output = nn.predict(input);
 		EXPECT_NEAR(output[0], input[0] != input[1], 0.1);
 	}
 }
@@ -40,7 +42,7 @@ TEST(NeuralNetwork, XorBatchTraining) {
 	// Creating neural network
 	// 2 input neurons, 3 hidden neurons and 1 output neuron
 	std::vector<size_t> topology = {2, 3, 1};
-	NeuralNetwork nn(topology, 0.3, std::make_unique<Sigmoid>());
+	NeuralNetwork nn(topology, std::make_unique<Sigmoid>());
 
 	// Sample dataset
 	std::vector<std::vector<float>> target_inputs = {{0.0F, 0.0F}, {0.0F, 1.0F}, {1.0F, 0.0F}, {1.0F, 1.0F}};
@@ -48,11 +50,13 @@ TEST(NeuralNetwork, XorBatchTraining) {
 
 	Dataset dataset = Dataset(target_inputs, target_outputs, topology, std::make_unique<NonEncoder>(), std::make_unique<NonEncoder>());
 
-	nn.train_batch(dataset, 20000, 1.0, 0.5, "training_results/xor_batch", 3);
+	IOptimiser* optimiser = new Adam(nn, 0.3, 0.7, 1e-8, 0.05);
+	nn.train_batch(dataset, 20000, 1.0, 4, *optimiser, "training_results/xor_batch", 1);
+	delete optimiser;
 
 	// Testing the neural network
 	for (std::vector<float> input : target_inputs) {
-		std::vector<float> output = nn.get_prediction(input);
+		std::vector<float> output = nn.predict(input);
 		EXPECT_NEAR(output[0], input[0] != input[1], 0.1);
 	}
 }

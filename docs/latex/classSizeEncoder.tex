@@ -20,9 +20,9 @@ Inheritance diagram for Size\+Encoder\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classSizeEncoder_a295cf4253354311c9302534cd993f1cb}{Size\+Encoder}} (size\+\_\+t size)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classSizeEncoder}{Size\+Encoder} object. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}{encode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode a vector by adding a size token at the beginning and a filler value at the end. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}{decode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_ad7af63479e030cdb6c6c6c75c6583806}{decode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Decode a vector by removing the size token at the beginning and the filler value at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -48,11 +48,11 @@ Construct a new \doxylink{classSizeEncoder}{Size\+Encoder} object.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d}\label{classSizeEncoder_a0cb3b411ea79d09053490ecf21dbb81d} 
+\Hypertarget{classSizeEncoder_ad7af63479e030cdb6c6c6c75c6583806}\label{classSizeEncoder_ad7af63479e030cdb6c6c6c75c6583806} 
 \index{SizeEncoder@{SizeEncoder}!decode@{decode}}
 \index{decode@{decode}!SizeEncoder@{SizeEncoder}}
 \doxysubsubsection{\texorpdfstring{decode()}{decode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -68,13 +68,13 @@ The decoded vector
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
-\Hypertarget{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb}\label{classSizeEncoder_a1c8429a4c1db46c0e77eea47b34f16bb} 
+\Hypertarget{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4}\label{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4} 
 \index{SizeEncoder@{SizeEncoder}!encode@{encode}}
 \index{encode@{encode}!SizeEncoder@{SizeEncoder}}
 \doxysubsubsection{\texorpdfstring{encode()}{encode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Size\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -90,7 +90,7 @@ The encoded vector
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
 
 
 

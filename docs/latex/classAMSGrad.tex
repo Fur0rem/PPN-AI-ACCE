@@ -1,0 +1,112 @@
+\doxysection{AMSGrad Class Reference}
+\hypertarget{classAMSGrad}{}\label{classAMSGrad}\index{AMSGrad@{AMSGrad}}
+
+
+\doxylink{classAMSGrad}{AMSGrad} optimiser.  
+
+
+
+
+{\ttfamily \#include $<$optimiser.\+hpp$>$}
+
+Inheritance diagram for AMSGrad\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAMSGrad}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAMSGrad_af79c0009f42af710836847fed4fa7b59}{AMSGrad}} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn, float beta1, float beta2, float epsilon, float learning\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classAMSGrad}{AMSGrad} optimiser. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAMSGrad_a40747905e30c59c576ab531a682fcfdc}{update\+\_\+weights}} (const \mbox{\hyperlink{classGradients}{Gradients}} \&grads, \mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn) override
+\begin{DoxyCompactList}\small\item\em Update the weights and biases of the neural network using the gradients. \end{DoxyCompactList}\item 
+\Hypertarget{classAMSGrad_ac86420ecb76e5ac66a969585c001ab4a}\label{classAMSGrad_ac86420ecb76e5ac66a969585c001ab4a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+AMSGrad} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classAMSGrad_a826fc9e8ea0d3e53b18bf57ffd71850f}{get\+\_\+learning\+\_\+rate}} () const override
+\begin{DoxyCompactList}\small\item\em Get the learning rate of the optimiser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIOptimiser}{IOptimiser}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IOptimiser} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAMSGrad}{AMSGrad} optimiser. 
+
+This class implements the \doxylink{classAMSGrad}{AMSGrad} optimisation algorithm for updating the weights and biases of a neural network. It uses an adaptive learning rate based on the maximum of the moving average of the squared gradients. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAMSGrad_af79c0009f42af710836847fed4fa7b59}\label{classAMSGrad_af79c0009f42af710836847fed4fa7b59} 
+\index{AMSGrad@{AMSGrad}!AMSGrad@{AMSGrad}}
+\index{AMSGrad@{AMSGrad}!AMSGrad@{AMSGrad}}
+\doxysubsubsection{\texorpdfstring{AMSGrad()}{AMSGrad()}}
+{\footnotesize\ttfamily AMSGrad\+::\+AMSGrad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn,  }\item[{float}]{beta1,  }\item[{float}]{beta2,  }\item[{float}]{epsilon,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classAMSGrad}{AMSGrad} optimiser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & Neural network getting trained \\
+\hline
+{\em beta1} & Exponential decay rate for the first moment \\
+\hline
+{\em beta2} & Exponential decay rate for the second moment \\
+\hline
+{\em epsilon} & Small constant to prevent division by zero \\
+\hline
+{\em learning\+\_\+rate} & Learning rate for the optimiser \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAMSGrad_a826fc9e8ea0d3e53b18bf57ffd71850f}\label{classAMSGrad_a826fc9e8ea0d3e53b18bf57ffd71850f} 
+\index{AMSGrad@{AMSGrad}!get\_learning\_rate@{get\_learning\_rate}}
+\index{get\_learning\_rate@{get\_learning\_rate}!AMSGrad@{AMSGrad}}
+\doxysubsubsection{\texorpdfstring{get\_learning\_rate()}{get\_learning\_rate()}}
+{\footnotesize\ttfamily float AMSGrad\+::get\+\_\+learning\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the learning rate of the optimiser. 
+
+\begin{DoxyReturn}{Returns}
+Learning rate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}{IOptimiser}}.
+
+\Hypertarget{classAMSGrad_a40747905e30c59c576ab531a682fcfdc}\label{classAMSGrad_a40747905e30c59c576ab531a682fcfdc} 
+\index{AMSGrad@{AMSGrad}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!AMSGrad@{AMSGrad}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily void AMSGrad\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGradients}{Gradients}} \&}]{grads,  }\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the weights and biases of the neural network using the gradients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grads} & \doxylink{classGradients}{Gradients} for weights and biases \\
+\hline
+{\em nn} & Neural network to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec}{IOptimiser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{optimiser_8hpp}{optimiser.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{optimiser_8cpp}{optimiser.\+cpp}}\end{DoxyCompactItemize}

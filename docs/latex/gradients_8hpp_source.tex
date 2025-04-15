@@ -1,0 +1,43 @@
+\doxysection{gradients.\+hpp}
+\hypertarget{gradients_8hpp_source}{}\label{gradients_8hpp_source}\index{include/neural\_network/gradients.hpp@{include/neural\_network/gradients.hpp}}
+\mbox{\hyperlink{gradients_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ GRADIENTS\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ GRADIENTS\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <eigen3/Eigen/Dense>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGradients}{Gradients}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_dW;\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_dB;\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classGradients_a76c7047eb84cabadc4acffc802d2ab08}{Gradients}}(\textcolor{keywordtype}{size\_t}\ nb\_layers);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<Eigen::MatrixXf>\&\ \mbox{\hyperlink{classGradients_a325ef71fa92ce600e4fe7c6e0db1785d}{d\_w}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<Eigen::MatrixXf>\&\ \mbox{\hyperlink{classGradients_a55ef2749f93aea024482cce4b52bf2fc}{d\_b}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Eigen::MatrixXf>\&\ \mbox{\hyperlink{classGradients_a325ef71fa92ce600e4fe7c6e0db1785d}{d\_w}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Eigen::MatrixXf>\&\ \mbox{\hyperlink{classGradients_a55ef2749f93aea024482cce4b52bf2fc}{d\_b}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{gradients_8hpp_aee2b89f53baf239d17a14390cd64d6b0}{mse\_loss}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ Eigen::MatrixXf\ \mbox{\hyperlink{gradients_8hpp_a7cdfd06ad316fa8cb513bc9b0b505fb8}{mse\_loss\_derivative}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{gradients_8hpp_a2e3f905a8a91d2da58ee1586e2106022}{cross\_entropy\_loss}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ Eigen::MatrixXf\ \mbox{\hyperlink{gradients_8hpp_a50903a9c68b4915c479d1774e1db2585}{cross\_entropy\_loss\_derivative}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{gradients_8hpp_ac3c180b5a9b3222e4e95da13ff7ca740}{mae\_loss}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ Eigen::MatrixXf\ \mbox{\hyperlink{gradients_8hpp_ade8b26b3dda22c01d7c239634559bd55}{mae\_loss\_derivative}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ prediction,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ target);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRADIENTS\_HPP}}
+
+\end{DoxyCode}

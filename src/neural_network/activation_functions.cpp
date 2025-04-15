@@ -12,7 +12,7 @@ float Sigmoid::func(float x) {
 }
 
 float Sigmoid::deriv(float x) {
-	return x * (1 - x);
+	return Sigmoid::func(x) * (1 - Sigmoid::func(x));
 }
 
 float ReLU::func(float x) {

@@ -1,29 +1,19 @@
-/**
- * @file src/main.cpp
- * The main file of the program. Where the neural network is trained.
- */
-
 #include "dataset/dataset.hpp"
 #include "neural_network/activation_functions.hpp"
 #include "neural_network/neural_network.hpp"
-#include "parsing/binary_parser.hpp"
-#include "parsing/binary_with_split_parser.hpp"
 #include "parsing/cycles_encoders.hpp"
 #include "parsing/hexadecimal_parser.hpp"
-#include "parsing/hexadecimal_with_split_parser.hpp"
-#include "parsing/non_encoder.hpp"
+#include "parsing/iencoder.hpp"
 #include "parsing/size_encoder.hpp"
-#include <cstdlib>
-#include <iostream>
+#include <cxxabi.h>
 #include <memory>
+#include <string>
 #include <vector>
 
-/**
- * @brief The main function. Used to train the neural network.
- * @return The exit status of the program.
- */
+#include <eigen3/Eigen/Dense>
+
 int main() {
-	// Comparaison on different learning rates for batch training
+	// Topology of the neural network
 	std::vector<size_t> topology = {
 		MAX_TOKENS_NN / 8,
 		MAX_TOKENS_NN / 8,
@@ -32,92 +22,34 @@ int main() {
 	};
 
 	Dataset dataset = Dataset(new HexadecimalParser(),
-							  "dataset/bench_bins",
+							  "dataset/bench_bins_small",
 							  topology,
 							  std::make_unique<SizeEncoder>(topology[0]),
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
-	std::cout << "Dataset loaded" << '\n';
-	// 0.0005
-	{
-		NeuralNetwork nn(topology, 0.0005, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
+	// Create the neural network
+	NeuralNetwork nn(topology, std::make_unique<Sigmoid>());
 
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_0005", 1);
+	// Train the neural network
+	std::vector<float> learning_rates = {0.00005, 0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2};
+	size_t nb_epochs = 2000;
+
+	for (auto& learning_rate : learning_rates) {
+		std::vector<IOptimiser*> optimisers = {
+			new AMSGrad(nn, 0.9, 0.999, 1e-8, learning_rate),
+			new RMSProp(nn, 0.9, 1e-8, learning_rate),
+			new Adam(nn, 0.9, 0.999, 1e-8, learning_rate),
+			new SGD(learning_rate),
+			new Momentum(nn, 0.8, learning_rate),
+		};
+		for (auto& opt : optimisers) {
+			nn.train_batch(dataset,
+						   nb_epochs,
+						   0.8,
+						   16,
+						   *opt,
+						   std::string("training_results/") + typeid(*opt).name() + "_" + std::to_string(learning_rate),
+						   2);
+		}
 	}
-
-	// 0.001
-	{
-		NeuralNetwork nn(topology, 0.001, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_001", 1);
-	}
-
-	// 0.01
-	{
-		NeuralNetwork nn(topology, 0.01, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_01", 1);
-	}
-
-	// 0.02
-	{
-		NeuralNetwork nn(topology, 0.02, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_02", 1);
-	}
-
-	// 0.03
-	{
-		NeuralNetwork nn(topology, 0.03, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_03", 1);
-	}
-
-	// 0.05
-	{
-		NeuralNetwork nn(topology, 0.05, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_05", 1);
-	}
-
-	// 0.1
-	{
-		NeuralNetwork nn(topology, 0.1, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_1", 1);
-	}
-
-	// 0.15
-	{
-		NeuralNetwork nn(topology, 0.15, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_15", 8);
-	}
-
-	// 0.25
-	{
-		NeuralNetwork nn(topology, 0.25, std::make_unique<Sigmoid>());
-		std::cout << "Neural network created" << '\n';
-
-		std::cout << "Training the neural network" << '\n';
-		nn.train_batch(dataset, 8000, 0.75, 0.25, "training_results/batch_training_0_2", 1);
-	}
-
-	exit(EXIT_SUCCESS);
 }

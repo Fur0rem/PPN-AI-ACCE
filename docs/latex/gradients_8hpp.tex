@@ -1,0 +1,157 @@
+\doxysection{include/neural\+\_\+network/gradients.hpp File Reference}
+\hypertarget{gradients_8hpp}{}\label{gradients_8hpp}\index{include/neural\_network/gradients.hpp@{include/neural\_network/gradients.hpp}}
+
+
+Header for the gradients used for training the neural network.  
+
+
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classGradients}{Gradients}}
+\begin{DoxyCompactList}\small\item\em Class to hold gradients for weights and biases of a neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{gradients_8hpp_aee2b89f53baf239d17a14390cd64d6b0}{mse\+\_\+loss}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Mean Squared Error (MSE) loss function. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{gradients_8hpp_a7cdfd06ad316fa8cb513bc9b0b505fb8}{mse\+\_\+loss\+\_\+derivative}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Derivative of Mean Squared Error (MSE) loss function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gradients_8hpp_a2e3f905a8a91d2da58ee1586e2106022}{cross\+\_\+entropy\+\_\+loss}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Cross-\/\+Entropy loss function. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{gradients_8hpp_a50903a9c68b4915c479d1774e1db2585}{cross\+\_\+entropy\+\_\+loss\+\_\+derivative}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Derivative of Cross-\/\+Entropy loss function. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gradients_8hpp_ac3c180b5a9b3222e4e95da13ff7ca740}{mae\+\_\+loss}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Mean Absolute Error (MAE) loss function. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{gradients_8hpp_ade8b26b3dda22c01d7c239634559bd55}{mae\+\_\+loss\+\_\+derivative}} (const Eigen\+::\+Matrix\+Xf \&prediction, const Eigen\+::\+Matrix\+Xf \&target)
+\begin{DoxyCompactList}\small\item\em Derivative of Mean Absolute Error (MAE) loss function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header for the gradients used for training the neural network. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gradients_8hpp_a2e3f905a8a91d2da58ee1586e2106022}\label{gradients_8hpp_a2e3f905a8a91d2da58ee1586e2106022} 
+\index{gradients.hpp@{gradients.hpp}!cross\_entropy\_loss@{cross\_entropy\_loss}}
+\index{cross\_entropy\_loss@{cross\_entropy\_loss}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{cross\_entropy\_loss()}{cross\_entropy\_loss()}}
+{\footnotesize\ttfamily float cross\+\_\+entropy\+\_\+loss (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Cross-\/\+Entropy loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cross-\/\+Entropy loss value 
+\end{DoxyReturn}
+\Hypertarget{gradients_8hpp_a50903a9c68b4915c479d1774e1db2585}\label{gradients_8hpp_a50903a9c68b4915c479d1774e1db2585} 
+\index{gradients.hpp@{gradients.hpp}!cross\_entropy\_loss\_derivative@{cross\_entropy\_loss\_derivative}}
+\index{cross\_entropy\_loss\_derivative@{cross\_entropy\_loss\_derivative}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{cross\_entropy\_loss\_derivative()}{cross\_entropy\_loss\_derivative()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf cross\+\_\+entropy\+\_\+loss\+\_\+derivative (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Derivative of Cross-\/\+Entropy loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Derivative of Cross-\/\+Entropy loss value 
+\end{DoxyReturn}
+\Hypertarget{gradients_8hpp_ac3c180b5a9b3222e4e95da13ff7ca740}\label{gradients_8hpp_ac3c180b5a9b3222e4e95da13ff7ca740} 
+\index{gradients.hpp@{gradients.hpp}!mae\_loss@{mae\_loss}}
+\index{mae\_loss@{mae\_loss}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{mae\_loss()}{mae\_loss()}}
+{\footnotesize\ttfamily float mae\+\_\+loss (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Mean Absolute Error (MAE) loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MAE loss value 
+\end{DoxyReturn}
+\Hypertarget{gradients_8hpp_ade8b26b3dda22c01d7c239634559bd55}\label{gradients_8hpp_ade8b26b3dda22c01d7c239634559bd55} 
+\index{gradients.hpp@{gradients.hpp}!mae\_loss\_derivative@{mae\_loss\_derivative}}
+\index{mae\_loss\_derivative@{mae\_loss\_derivative}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{mae\_loss\_derivative()}{mae\_loss\_derivative()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf mae\+\_\+loss\+\_\+derivative (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Derivative of Mean Absolute Error (MAE) loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Derivative of MAE loss value 
+\end{DoxyReturn}
+\Hypertarget{gradients_8hpp_aee2b89f53baf239d17a14390cd64d6b0}\label{gradients_8hpp_aee2b89f53baf239d17a14390cd64d6b0} 
+\index{gradients.hpp@{gradients.hpp}!mse\_loss@{mse\_loss}}
+\index{mse\_loss@{mse\_loss}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{mse\_loss()}{mse\_loss()}}
+{\footnotesize\ttfamily float mse\+\_\+loss (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Mean Squared Error (MSE) loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MSE loss value 
+\end{DoxyReturn}
+\Hypertarget{gradients_8hpp_a7cdfd06ad316fa8cb513bc9b0b505fb8}\label{gradients_8hpp_a7cdfd06ad316fa8cb513bc9b0b505fb8} 
+\index{gradients.hpp@{gradients.hpp}!mse\_loss\_derivative@{mse\_loss\_derivative}}
+\index{mse\_loss\_derivative@{mse\_loss\_derivative}!gradients.hpp@{gradients.hpp}}
+\doxysubsubsection{\texorpdfstring{mse\_loss\_derivative()}{mse\_loss\_derivative()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf mse\+\_\+loss\+\_\+derivative (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{prediction,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Derivative of Mean Squared Error (MSE) loss function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prediction} & Predicted output \\
+\hline
+{\em target} & Target output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Derivative of MSE loss value 
+\end{DoxyReturn}

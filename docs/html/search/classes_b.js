@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['relu_0',['ReLU',['../classReLU.html',1,'']]]
+  ['planet_0',['Planet',['../structPlanet.html',1,'']]]
 ];

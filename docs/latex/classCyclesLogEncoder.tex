@@ -20,9 +20,9 @@ Inheritance diagram for Cycles\+Log\+Encoder\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}{Cycles\+Log\+Encoder}} (float log\+\_\+base, float added)
 \begin{DoxyCompactList}\small\item\em Construct a new Cycles Log Encoder object. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6}{encode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it in a logarithmic scale. \end{DoxyCompactList}\item 
-std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973}{decode}} (std\+::vector$<$ float $>$ \&input) override
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}{decode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it in a logarithmic scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -50,11 +50,11 @@ Construct a new Cycles Log Encoder object.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973}\label{classCyclesLogEncoder_acfa87054cf0ce371e2525ccc68149973} 
+\Hypertarget{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}\label{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd} 
 \index{CyclesLogEncoder@{CyclesLogEncoder}!decode@{decode}}
 \index{decode@{decode}!CyclesLogEncoder@{CyclesLogEncoder}}
 \doxysubsubsection{\texorpdfstring{decode()}{decode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -70,13 +70,13 @@ The denormalised number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_a57d56b3a736129d6b6411d17ac05da1f}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
-\Hypertarget{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6}\label{classCyclesLogEncoder_ae212574703dab99ea171c560b88a36e6} 
+\Hypertarget{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}\label{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c} 
 \index{CyclesLogEncoder@{CyclesLogEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesLogEncoder@{CyclesLogEncoder}}
 \doxysubsubsection{\texorpdfstring{encode()}{encode()}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Cycles\+Log\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -92,7 +92,7 @@ The normalised number of cycles, a vector containing a single value
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classIEncoder_ab688418ccdfbb2733010950922260d91}{IEncoder}}.
+Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
 
 
 

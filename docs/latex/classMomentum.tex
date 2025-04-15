@@ -1,0 +1,108 @@
+\doxysection{Momentum Class Reference}
+\hypertarget{classMomentum}{}\label{classMomentum}\index{Momentum@{Momentum}}
+
+
+\doxylink{classMomentum}{Momentum} optimiser.  
+
+
+
+
+{\ttfamily \#include $<$optimiser.\+hpp$>$}
+
+Inheritance diagram for Momentum\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMomentum}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMomentum_a5525e6805c17ccc2b46975889eb241e2}{Momentum}} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn, float beta, float learning\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classMomentum}{Momentum} optimiser. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMomentum_a0f5fb135f71d914454c578497e098725}{update\+\_\+weights}} (const \mbox{\hyperlink{classGradients}{Gradients}} \&grads, \mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&nn) override
+\begin{DoxyCompactList}\small\item\em Update the weights and biases of the neural network using the gradients. \end{DoxyCompactList}\item 
+\Hypertarget{classMomentum_a4e66a56af715335c8a0e6dbedeb3fee5}\label{classMomentum_a4e66a56af715335c8a0e6dbedeb3fee5} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Momentum} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classMomentum_a02428654a3e28d49f956dd3d2bcebe3f}{get\+\_\+learning\+\_\+rate}} () const override
+\begin{DoxyCompactList}\small\item\em Get the learning rate of the optimiser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classIOptimiser}{IOptimiser}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IOptimiser} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classMomentum}{Momentum} optimiser. 
+
+This class implements the \doxylink{classMomentum}{Momentum} optimisation algorithm for updating the weights and biases of a neural network. It uses a moving average of the gradients to update the weights and biases. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMomentum_a5525e6805c17ccc2b46975889eb241e2}\label{classMomentum_a5525e6805c17ccc2b46975889eb241e2} 
+\index{Momentum@{Momentum}!Momentum@{Momentum}}
+\index{Momentum@{Momentum}!Momentum@{Momentum}}
+\doxysubsubsection{\texorpdfstring{Momentum()}{Momentum()}}
+{\footnotesize\ttfamily Momentum\+::\+Momentum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn,  }\item[{float}]{beta,  }\item[{float}]{learning\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classMomentum}{Momentum} optimiser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & Neural network getting trained \\
+\hline
+{\em beta} & Exponential decay rate for the moving average \\
+\hline
+{\em learning\+\_\+rate} & Learning rate for the optimiser \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMomentum_a02428654a3e28d49f956dd3d2bcebe3f}\label{classMomentum_a02428654a3e28d49f956dd3d2bcebe3f} 
+\index{Momentum@{Momentum}!get\_learning\_rate@{get\_learning\_rate}}
+\index{get\_learning\_rate@{get\_learning\_rate}!Momentum@{Momentum}}
+\doxysubsubsection{\texorpdfstring{get\_learning\_rate()}{get\_learning\_rate()}}
+{\footnotesize\ttfamily float Momentum\+::get\+\_\+learning\+\_\+rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the learning rate of the optimiser. 
+
+\begin{DoxyReturn}{Returns}
+Learning rate 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}{IOptimiser}}.
+
+\Hypertarget{classMomentum_a0f5fb135f71d914454c578497e098725}\label{classMomentum_a0f5fb135f71d914454c578497e098725} 
+\index{Momentum@{Momentum}!update\_weights@{update\_weights}}
+\index{update\_weights@{update\_weights}!Momentum@{Momentum}}
+\doxysubsubsection{\texorpdfstring{update\_weights()}{update\_weights()}}
+{\footnotesize\ttfamily void Momentum\+::update\+\_\+weights (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGradients}{Gradients}} \&}]{grads,  }\item[{\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}} \&}]{nn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the weights and biases of the neural network using the gradients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grads} & \doxylink{classGradients}{Gradients} for weights and biases \\
+\hline
+{\em nn} & Neural network to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIOptimiser_a01a3fa5fd46b6bc1d997aa6aa775f7ec}{IOptimiser}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{optimiser_8hpp}{optimiser.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{optimiser_8cpp}{optimiser.\+cpp}}\end{DoxyCompactItemize}

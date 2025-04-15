@@ -79,6 +79,25 @@ class Dataset {
 	 * @return The input encoder
 	 */
 	IEncoder* get_input_encoder() const;
+
+	// MatrixXf x = dataset.get_input_data();
+	// MatrixXf y = dataset.get_output_data();
+
+	Eigen::MatrixXf get_input_data() {
+		Eigen::MatrixXf input_data(m_inputs.size(), m_inputs[0].size());
+		for (size_t i = 0; i < m_inputs.size(); i++) {
+			input_data.row(i) = m_inputs[i];
+		}
+		return input_data;
+	}
+
+	Eigen::MatrixXf get_output_data() {
+		Eigen::MatrixXf output_data(m_outputs.size(), m_outputs[0].size());
+		for (size_t i = 0; i < m_outputs.size(); i++) {
+			output_data.row(i) = m_outputs[i];
+		}
+		return output_data;
+	}
 };
 
 #endif // DATASET_HPP
