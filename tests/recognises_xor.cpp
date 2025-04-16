@@ -26,7 +26,7 @@ TEST(NeuralNetwork, XorRegularTraining) {
 	Dataset dataset = Dataset(target_inputs, target_outputs, topology, std::make_unique<NonEncoder>(), std::make_unique<NonEncoder>());
 
 	// Training the neural network
-	nn.train(dataset, 20000, 1.0, 0.1, std::string("training_results/xor_regular"), 1);
+	nn.train(dataset, 20000, 1.0, 0.1, std::string("training_results/xor_regular"), 1 , 0.2);
 
 	// Testing the neural network
 	for (std::vector<float> input : target_inputs) {
@@ -51,7 +51,7 @@ TEST(NeuralNetwork, XorBatchTraining) {
 	Dataset dataset = Dataset(target_inputs, target_outputs, topology, std::make_unique<NonEncoder>(), std::make_unique<NonEncoder>());
 
 	IOptimiser* optimiser = new Adam(nn, 0.3, 0.7, 1e-8, 0.05);
-	nn.train_batch(dataset, 20000, 1.0, 4, *optimiser, "training_results/xor_batch", 1);
+	nn.train_batch(dataset, 20000, 1.0, 4, *optimiser, "training_results/xor_batch", 1 ,0.2);
 	delete optimiser;
 
 	// Testing the neural network

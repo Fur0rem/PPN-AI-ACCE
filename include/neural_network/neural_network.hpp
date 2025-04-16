@@ -48,21 +48,24 @@ class NeuralNetwork {
 	 * @param input The input to get the prediction for
 	 * @return Output vector resulting from the prediction
 	 */
-	std::vector<float> predict(const std::vector<float>& input);
+	std::vector<float> predict(const std::vector<float>& input );
 
 	/**
 	 * @brief Predict the output of the neural network for a given input
 	 * @param input The input to get the prediction for
 	 * @return Output matrix resulting from the prediction
 	 */
-	Eigen::MatrixXf predict(const Eigen::MatrixXf& input);
+	Eigen::MatrixXf predict(const Eigen::MatrixXf& input );
 
 	/**
 	 * @brief Feed forward the input through the neural network
 	 * @param input The input to feed forward
 	 * @return Output matrix resulting from the feed forward
 	 */
-	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input);
+	// Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input  );
+	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input , float 	dropout_rate  );
+
+
 
 	/**
 	 * @brief Backpropagation algorithm to compute gradients
@@ -83,7 +86,7 @@ class NeuralNetwork {
 	 * @param nb_trains Number of training runs
 	 */
 	void train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string&& logging_dir,
-			   size_t nb_trains);
+			   size_t nb_trains , float dropout_rate);
 
 	/**
 	 * @brief Train the neural network using the given dataset with batch training
@@ -97,7 +100,7 @@ class NeuralNetwork {
 	 * @param nb_trains Number of training runs
 	 */
 	void train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size, IOptimiser& optimiser,
-					 std::string&& logging_dir, size_t nb_trains);
+					 std::string&& logging_dir, size_t nb_trains , float dropout_rate);
 
 	/**
 	 * @brief Compute the mean relative squared error between the prediction and target

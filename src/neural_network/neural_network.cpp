@@ -48,12 +48,12 @@ NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_pt
 	}
 }
 
-std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
+std::vector<float> NeuralNetwork::predict(const std::vector<float>& input ) {
 	Eigen::MatrixXf input_matrix(1, input.size());
 	for (size_t i = 0; i < input.size(); i++) {
 		input_matrix(0, i) = input[i];
 	}
-	Eigen::MatrixXf output = this->feed_forward(input_matrix);
+	Eigen::MatrixXf output = this->feed_forward(input_matrix,0.0f );
 	std::vector<float> result(output.cols());
 	for (size_t i = 0; i < output.cols(); i++) {
 		result[i] = output(0, i);
@@ -62,16 +62,46 @@ std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
 }
 
 Eigen::MatrixXf NeuralNetwork::predict(const Eigen::MatrixXf& input) {
-	Eigen::MatrixXf output = this->feed_forward(input);
+	Eigen::MatrixXf output = this->feed_forward(input ,0.0f);
 	return output;
 }
 
-Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
-	m_a_values.clear();
-	m_z_values.clear();
-	m_a_values.push_back(input);
+Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input  , float dropout_rate) {
 
+	
 	for (size_t i = 0; i < m_topology.size() - 1; i++) {
+		//get matrix number of row to know the number of neuron
+		// choose dropout neuron number  dpn=  floor(rate*number_neuron) to know how much neuon you need to shut down
+		//choose randomly
+		// create a random vector dpv of col size with dpn number of zero entries and the rest zero
+		// calculate the matrix multiplication normaly as usual
+		// then at the end before sending those calculate value we multiply the dpv vector with the  a(j,k)
+		// float dropout_rate = 0.2;
+		// int dpn  =   floor(dropout_rate*m_weights.cols());
+		int col_size = m_weights[i].cols();
+	
+		int dpn = static_cast<int>(std::floor(dropout_rate * col_size));
+		std::cout<<"the columns size is "<< m_weights[i].cols() <<" the number of dropout neuron will be "<< dpn << "\n";
+	
+		//fill the vector with 1
+		std::vector<float> vec(col_size, 1.0f);
+		//fill dpn entry with zero
+		std::fill_n(vec.begin(), dpn, 0.0f);
+		//shuffle the zero in the vector
+		std::shuffle(vec.begin(), vec.end(), std::mt19937{std::random_device{}()});
+		//convert std vector to eigen
+		Eigen::VectorXf dpv = Eigen::Map<Eigen::VectorXf>(vec.data(), col_size);
+	
+	
+		m_a_values.clear();
+		m_z_values.clear();
+		m_a_values.push_back(input);
+
+
+
+
+
+
 		Eigen::MatrixXf last_a = m_a_values.back();
 		// Eigen::MatrixXf z = last_a.dot(m_weights[i]);
 		Eigen::MatrixXf z = last_a * m_weights[i];
@@ -87,6 +117,8 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 				a(j, k) = m_activation_func->func(z(j, k));
 			}
 		}
+		//dropout mask applied to the batch of output (one output per row )
+		a = a.array().rowwise() * dpv.transpose().array();
 		m_a_values.push_back(a);
 	}
 
@@ -128,7 +160,7 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 }
 
 void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string&& logging_dir,
-						  size_t nb_trains) {
+						  size_t nb_trains , float dropout_rate) {
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
 
@@ -217,7 +249,8 @@ void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_pro
 				for (size_t k = 0; k < target->size(); k++) {
 					target_matrix(0, k) = (*target)(k);
 				}
-				Eigen::MatrixXf output = this->feed_forward(input_matrix);
+				// Eigen::MatrixXf output = this->feed_forward(input_matrix);
+				Eigen::MatrixXf output = this->feed_forward(input_matrix , dropout_rate);
 				// Backward pass
 				Gradients grads = this->backward(input_matrix, target_matrix);
 				// Update weights and biases
@@ -274,7 +307,7 @@ void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_pro
 }
 
 void NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size, IOptimiser& optimiser,
-								std::string&& logging_dir, size_t nb_trains) {
+								std::string&& logging_dir, size_t nb_trains , float dropout_rate) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -374,7 +407,7 @@ void NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float traini
 				}
 
 				// Forward pass
-				this->feed_forward(x_batch);
+				this->feed_forward(x_batch , dropout_rate);
 
 				// Backward pass
 				Gradients grads = this->backward(x_batch, y_batch);
