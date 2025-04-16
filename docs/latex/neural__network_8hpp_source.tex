@@ -38,45 +38,46 @@
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00058\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4}{predict}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input);}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00065\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7}{feed\_forward}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classGradients}{Gradients}}\ \mbox{\hyperlink{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}{backward}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00086\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}{train}}(\mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keywordtype}{size\_t}\ nb\_epochs,\ \textcolor{keywordtype}{float}\ training\_proportion,\ \textcolor{keywordtype}{float}\ learning\_rate,}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\&\&\ logging\_dir,\ \textcolor{keywordtype}{size\_t}\ nb\_trains);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00101\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}{train\_batch}}(\mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keywordtype}{size\_t}\ nb\_epochs,\ \textcolor{keywordtype}{float}\ training\_proportion,\ \textcolor{keywordtype}{size\_t}\ batch\_size,}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\&\ optimiser,\ std::string\&\&\ logging\_dir,\ \textcolor{keywordtype}{size\_t}\ nb\_trains);}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}{squared\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2}{relative\_squared\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9}{absolute\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28}{relative\_absolute\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750}{get\_loss\_mrse}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a22bce90f6f04becff364a118608af773}{get\_loss\_mse}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3}{get\_acc\_mrae}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c}{get\_acc\_mae}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091}{reset}}();}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7}{log\_epoch\_metrics}}(\textcolor{keywordtype}{size\_t}\ epoch,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_targets,}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_targets,\ \mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\&\ log\_file,\ \textcolor{keyword}{const}\ std::string\&\ file\_name);}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc}{log\_final\_results}}(std::ofstream\&\ log\_file,\ \mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_inputs,}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_targets,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ train\_names,}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_targets,}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\&\ validation\_names,\ \textcolor{keywordtype}{size\_t}\ train\_size,\ \textcolor{keywordtype}{size\_t}\ validation\_size,}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ total\_time,\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\&\ optimiser);}
-\DoxyCodeLine{00221\ \};}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NEURAL\_NETWORK\_HPP}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Eigen::MatrixXf\ feed\_forward(const\ Eigen::MatrixXf\&\ input\ \ );}}
+\DoxyCodeLine{00066\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classNeuralNetwork_a95a8b97a16f8d2084ab43ac94fca64f0}{feed\_forward}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input,\ \textcolor{keywordtype}{float}\ dropout\_rate);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classGradients}{Gradients}}\ \mbox{\hyperlink{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}{backward}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{classNeuralNetwork_ac0985b6c9bcf9841c75d6a8b61c2ab2a}{train}}(\mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keywordtype}{size\_t}\ nb\_epochs,\ \textcolor{keywordtype}{float}\ training\_proportion,\ \textcolor{keywordtype}{float}\ learning\_rate,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\&\&\ logging\_dir,\ \textcolor{keywordtype}{size\_t}\ nb\_trains,\ \textcolor{keywordtype}{float}\ dropout\_rate);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{classNeuralNetwork_a455d44c6023820999dfd9df6943af4f7}{train\_batch}}(\mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keywordtype}{size\_t}\ nb\_epochs,\ \textcolor{keywordtype}{float}\ training\_proportion,\ \textcolor{keywordtype}{size\_t}\ batch\_size,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\&\ optimiser,\ std::string\&\&\ logging\_dir,\ \textcolor{keywordtype}{size\_t}\ nb\_trains,\ \textcolor{keywordtype}{float}\ dropout\_rate);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}{squared\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2}{relative\_squared\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9}{absolute\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28}{relative\_absolute\_error}}(std::vector<float>\&\ prediction,\ std::vector<float>\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750}{get\_loss\_mrse}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a22bce90f6f04becff364a118608af773}{get\_loss\_mse}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3}{get\_acc\_mrae}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c}{get\_acc\_mae}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ targets,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}*\ encoder);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091}{reset}}();}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7}{log\_epoch\_metrics}}(\textcolor{keywordtype}{size\_t}\ epoch,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_targets,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_targets,\ \mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\&\ log\_file,\ \textcolor{keyword}{const}\ std::string\&\ file\_name);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc}{log\_final\_results}}(std::ofstream\&\ log\_file,\ \mbox{\hyperlink{classDataset}{Dataset}}\&\ dataset,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_inputs,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ train\_targets,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ train\_names,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_inputs,\ \textcolor{keyword}{const}\ Eigen::MatrixXf\&\ validation\_targets,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\&\ validation\_names,\ \textcolor{keywordtype}{size\_t}\ train\_size,\ \textcolor{keywordtype}{size\_t}\ validation\_size,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration<double>\ total\_time,\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\&\ optimiser);}
+\DoxyCodeLine{00224\ \};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NEURAL\_NETWORK\_HPP}}
 
 \end{DoxyCode}

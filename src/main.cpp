@@ -49,7 +49,8 @@ int main() {
 						   16,
 						   *opt,
 						   std::string("training_results/") + typeid(*opt).name() + "_" + std::to_string(learning_rate),
-						   2);
+						   2,
+						   0);
 		}
 	}
 }

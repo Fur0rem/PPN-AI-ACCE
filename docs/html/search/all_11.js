@@ -6,6 +6,6 @@ var searchData=
   ['the_20project_3',['The project',['../index.html#autotoc_md1',1,'Current status of the project'],['../index.html#autotoc_md3',1,'How to run the project']]],
   ['to_20run_20the_20project_4',['How to run the project',['../index.html#autotoc_md3',1,'']]],
   ['topology_5ffinder_2ecpp_5',['topology_finder.cpp',['../topology__finder_8cpp.html',1,'']]],
-  ['train_6',['train',['../classNeuralNetwork.html#aab78d40f586338dad53b7c29255dfdcd',1,'NeuralNetwork']]],
-  ['train_5fbatch_7',['train_batch',['../classNeuralNetwork.html#a769264b6424463724390ef9a0b18741c',1,'NeuralNetwork']]]
+  ['train_6',['train',['../classNeuralNetwork.html#ac0985b6c9bcf9841c75d6a8b61c2ab2a',1,'NeuralNetwork']]],
+  ['train_5fbatch_7',['train_batch',['../classNeuralNetwork.html#a455d44c6023820999dfd9df6943af4f7',1,'NeuralNetwork']]]
 ];

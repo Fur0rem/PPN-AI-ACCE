@@ -131,7 +131,7 @@ class Candidate {
 		m_nn.reset();
 		IOptimiser* optimiser = new Adam(m_nn, 0.9, 0.999, 1e-8, 0.001);
 		auto [train_acc, validation_acc] =
-			m_nn.train_batch(dataset, nb_epochs, 0.8, 16, *optimiser, std::string("/tmp/PPN_topology_finder"), 1);
+			m_nn.train_batch(dataset, nb_epochs, 0.8, 16, *optimiser, std::string("/tmp/PPN_topology_finder"), 1, 0.0);
 		delete optimiser;
 
 		// Compute the size penalty
@@ -268,6 +268,6 @@ int main() {
 	// Train the neural network with the best topology
 	NeuralNetwork nn(evolution.back().second, std::make_unique<Sigmoid>());
 	auto [train_acc, validation_acc] =
-		nn.train_batch(dataset, 100, 0.8, 16, *new Adam(nn, 0.9, 0.999, 1e-8, 0.001), std::string("/tmp/PPN_topology_finder"), 1);
+		nn.train_batch(dataset, 100, 0.8, 16, *new Adam(nn, 0.9, 0.999, 1e-8, 0.001), std::string("/tmp/PPN_topology_finder"), 1, 0.0);
 	std::cout << "Training accuracy: " << train_acc << ", Validation accuracy: " << validation_acc << '\n';
 }

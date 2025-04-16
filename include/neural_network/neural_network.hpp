@@ -62,7 +62,8 @@ class NeuralNetwork {
 	 * @param input The input to feed forward
 	 * @return Output matrix resulting from the feed forward
 	 */
-	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input);
+	// Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input  );
+	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input, float dropout_rate);
 
 	/**
 	 * @brief Backpropagation algorithm to compute gradients
@@ -81,10 +82,11 @@ class NeuralNetwork {
 	 * @param learning_rate Learning rate for the optimiser
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
+	 * @param dropout_rate Dropout rate for the neural network
 	 * @return A pair of floats containing the training and validation accuracy
 	 */
 	std::pair<float, float> train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
-								  std::string&& logging_dir, size_t nb_trains);
+								  std::string&& logging_dir, size_t nb_trains, float dropout_rate);
 
 	/**
 	 * @brief Train the neural network using the given dataset with batch training and return the accuracy of training and validation data
@@ -96,10 +98,11 @@ class NeuralNetwork {
 	 * @param optimiser Optimiser to use for training
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
+	 * @param dropout_rate Dropout rate for the neural network
 	 * @return A pair of floats containing the training and validation accuracy
 	 */
 	std::pair<float, float> train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
-										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains);
+										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains, float dropout_rate);
 
 	/**
 	 * @brief Compute the mean relative squared error between the prediction and target

@@ -96,18 +96,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a33c50d558598b59a33674c12dff24d75" id="r_a33c50d558598b59a33674c12dff24d75"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33c50d558598b59a33674c12dff24d75">predict</a> (const Eigen::MatrixXf &amp;input)</td></tr>
 <tr class="memdesc:a33c50d558598b59a33674c12dff24d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict the output of the neural network for a given input.  <br /></td></tr>
 <tr class="separator:a33c50d558598b59a33674c12dff24d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d0c02bd3d2f3056f717847f3a8e36c7" id="r_a6d0c02bd3d2f3056f717847f3a8e36c7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d0c02bd3d2f3056f717847f3a8e36c7">feed_forward</a> (const Eigen::MatrixXf &amp;input)</td></tr>
-<tr class="memdesc:a6d0c02bd3d2f3056f717847f3a8e36c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feed forward the input through the neural network.  <br /></td></tr>
-<tr class="separator:a6d0c02bd3d2f3056f717847f3a8e36c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a8b97a16f8d2084ab43ac94fca64f0" id="r_a95a8b97a16f8d2084ab43ac94fca64f0"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95a8b97a16f8d2084ab43ac94fca64f0">feed_forward</a> (const Eigen::MatrixXf &amp;input, float dropout_rate)</td></tr>
+<tr class="memdesc:a95a8b97a16f8d2084ab43ac94fca64f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feed forward the input through the neural network.  <br /></td></tr>
+<tr class="separator:a95a8b97a16f8d2084ab43ac94fca64f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc20c216225113fe5ed400c8a61d4134" id="r_abc20c216225113fe5ed400c8a61d4134"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGradients.html">Gradients</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc20c216225113fe5ed400c8a61d4134">backward</a> (const Eigen::MatrixXf &amp;inputs, const Eigen::MatrixXf &amp;targets)</td></tr>
 <tr class="memdesc:abc20c216225113fe5ed400c8a61d4134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backpropagation algorithm to compute gradients.  <br /></td></tr>
 <tr class="separator:abc20c216225113fe5ed400c8a61d4134"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab78d40f586338dad53b7c29255dfdcd" id="r_aab78d40f586338dad53b7c29255dfdcd"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab78d40f586338dad53b7c29255dfdcd">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
-<tr class="memdesc:aab78d40f586338dad53b7c29255dfdcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1.  <br /></td></tr>
-<tr class="separator:aab78d40f586338dad53b7c29255dfdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769264b6424463724390ef9a0b18741c" id="r_a769264b6424463724390ef9a0b18741c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a769264b6424463724390ef9a0b18741c">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
-<tr class="memdesc:a769264b6424463724390ef9a0b18741c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1.  <br /></td></tr>
-<tr class="separator:a769264b6424463724390ef9a0b18741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0985b6c9bcf9841c75d6a8b61c2ab2a" id="r_ac0985b6c9bcf9841c75d6a8b61c2ab2a"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0985b6c9bcf9841c75d6a8b61c2ab2a">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string &amp;&amp;logging_dir, size_t nb_trains, float dropout_rate)</td></tr>
+<tr class="memdesc:ac0985b6c9bcf9841c75d6a8b61c2ab2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1.  <br /></td></tr>
+<tr class="separator:ac0985b6c9bcf9841c75d6a8b61c2ab2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455d44c6023820999dfd9df6943af4f7" id="r_a455d44c6023820999dfd9df6943af4f7"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a455d44c6023820999dfd9df6943af4f7">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, std::string &amp;&amp;logging_dir, size_t nb_trains, float dropout_rate)</td></tr>
+<tr class="memdesc:a455d44c6023820999dfd9df6943af4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1.  <br /></td></tr>
+<tr class="separator:a455d44c6023820999dfd9df6943af4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb5ece18f9e2cd67c540b1cfcb3da49" id="r_a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb5ece18f9e2cd67c540b1cfcb3da49">squared_error</a> (std::vector&lt; float &gt; &amp;prediction, std::vector&lt; float &gt; &amp;target, const <a class="el" href="classIEncoder.html">IEncoder</a> *encoder)</td></tr>
 <tr class="memdesc:a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean relative squared error between the prediction and target.  <br /></td></tr>
 <tr class="separator:a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,8 +266,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
 
 </div>
 </div>
-<a id="a6d0c02bd3d2f3056f717847f3a8e36c7" name="a6d0c02bd3d2f3056f717847f3a8e36c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d0c02bd3d2f3056f717847f3a8e36c7">&#9670;&#160;</a></span>feed_forward()</h2>
+<a id="a95a8b97a16f8d2084ab43ac94fca64f0" name="a95a8b97a16f8d2084ab43ac94fca64f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a8b97a16f8d2084ab43ac94fca64f0">&#9670;&#160;</a></span>feed_forward()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,8 +275,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
         <tr>
           <td class="memname">Eigen::MatrixXf NeuralNetwork::feed_forward </td>
           <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dropout_rate</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -783,8 +787,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
 
 </div>
 </div>
-<a id="aab78d40f586338dad53b7c29255dfdcd" name="aab78d40f586338dad53b7c29255dfdcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab78d40f586338dad53b7c29255dfdcd">&#9670;&#160;</a></span>train()</h2>
+<a id="ac0985b6c9bcf9841c75d6a8b61c2ab2a" name="ac0985b6c9bcf9841c75d6a8b61c2ab2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0985b6c9bcf9841c75d6a8b61c2ab2a">&#9670;&#160;</a></span>train()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -817,7 +821,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_trains</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_trains</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dropout_rate</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -831,6 +840,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
     <tr><td class="paramname">learning_rate</td><td>Learning rate for the optimiser </td></tr>
     <tr><td class="paramname">logging_dir</td><td>Directory to log results </td></tr>
     <tr><td class="paramname">nb_trains</td><td>Number of training runs </td></tr>
+    <tr><td class="paramname">dropout_rate</td><td>Dropout rate for the neural network </td></tr>
   </table>
   </dd>
 </dl>
@@ -838,8 +848,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
 
 </div>
 </div>
-<a id="a769264b6424463724390ef9a0b18741c" name="a769264b6424463724390ef9a0b18741c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a769264b6424463724390ef9a0b18741c">&#9670;&#160;</a></span>train_batch()</h2>
+<a id="a455d44c6023820999dfd9df6943af4f7" name="a455d44c6023820999dfd9df6943af4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455d44c6023820999dfd9df6943af4f7">&#9670;&#160;</a></span>train_batch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -877,7 +887,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_trains</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_trains</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dropout_rate</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -892,6 +907,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
     <tr><td class="paramname">optimiser</td><td>Optimiser to use for training </td></tr>
     <tr><td class="paramname">logging_dir</td><td>Directory to log results </td></tr>
     <tr><td class="paramname">nb_trains</td><td>Number of training runs </td></tr>
+    <tr><td class="paramname">dropout_rate</td><td>Dropout rate for the neural network </td></tr>
   </table>
   </dd>
 </dl>

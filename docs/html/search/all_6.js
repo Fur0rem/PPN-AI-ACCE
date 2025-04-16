@@ -12,7 +12,7 @@ var searchData=
   ['f64a_9',['f64a',['../array__add_8cpp.html#afd6289ae798ff9c2a331264cfeb7eda2',1,'array_add.cpp']]],
   ['f64b_10',['f64b',['../array__add_8cpp.html#a5cc3ce141f6b15ab901214f746dfb9a1',1,'array_add.cpp']]],
   ['f64c_11',['f64c',['../array__add_8cpp.html#ac36faa29f70026ba76d5f99ada7352e2',1,'array_add.cpp']]],
-  ['feed_5fforward_12',['feed_forward',['../classNeuralNetwork.html#a6d0c02bd3d2f3056f717847f3a8e36c7',1,'NeuralNetwork']]],
+  ['feed_5fforward_12',['feed_forward',['../classNeuralNetwork.html#a95a8b97a16f8d2084ab43ac94fca64f0',1,'NeuralNetwork']]],
   ['fib_5ffloat_5fresult_13',['fib_float_result',['../fibonacci_8cpp.html#ae578f7f0604430b30c0b94b16ed49546',1,'fibonacci.cpp']]],
   ['fib_5fresult_14',['fib_result',['../fibonacci_8cpp.html#a200f41b6943dc57d92b4111b8fcb8be0',1,'fibonacci.cpp']]],
   ['fibonacci_2ecpp_15',['fibonacci.cpp',['../fibonacci_8cpp.html',1,'']]],
