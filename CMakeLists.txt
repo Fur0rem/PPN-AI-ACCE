@@ -52,6 +52,14 @@ add_executable(main
 target_link_libraries(main)
 target_compile_options(main PRIVATE ${RELEASE_FLAGS})
 
+# Add the topology_finder executable
+add_executable(topology_finder
+    ${SRCS}
+    ${CMAKE_SOURCE_DIR}/src/topology_finder.cpp
+)
+target_link_libraries(topology_finder)
+target_compile_options(topology_finder PRIVATE ${RELEASE_FLAGS})
+
 # Add the extract data executable
 add_executable(extract_data
     ${CMAKE_SOURCE_DIR}/src/dataset/extract_data.cpp

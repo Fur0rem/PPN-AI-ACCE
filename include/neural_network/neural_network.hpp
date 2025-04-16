@@ -73,7 +73,7 @@ class NeuralNetwork {
 	Gradients backward(const Eigen::MatrixXf& inputs, const Eigen::MatrixXf& targets);
 
 	/**
-	 * @brief Train the neural network using the given dataset
+	 * @brief Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE)
 	 * Does backpropagation for each input and updates the weights and biases 1 by 1
 	 * @param dataset The dataset to train on
 	 * @param nb_epochs Number of epochs to train for
@@ -81,13 +81,14 @@ class NeuralNetwork {
 	 * @param learning_rate Learning rate for the optimiser
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
+	 * @return A pair of floats containing the training and validation accuracy
 	 */
-	void train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string&& logging_dir,
-			   size_t nb_trains);
+	std::pair<float, float> train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
+								  std::string&& logging_dir, size_t nb_trains);
 
 	/**
-	 * @brief Train the neural network using the given dataset with batch training
-	 * This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1
+	 * @brief Train the neural network using the given dataset with batch training and return the accuracy of training and validation data
+	 * (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1
 	 * @param dataset The dataset to train on
 	 * @param nb_epochs Number of epochs to train for
 	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
@@ -95,9 +96,10 @@ class NeuralNetwork {
 	 * @param optimiser Optimiser to use for training
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
+	 * @return A pair of floats containing the training and validation accuracy
 	 */
-	void train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size, IOptimiser& optimiser,
-					 std::string&& logging_dir, size_t nb_trains);
+	std::pair<float, float> train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
+										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains);
 
 	/**
 	 * @brief Compute the mean relative squared error between the prediction and target

@@ -1,0 +1,63 @@
+\doxysection{src/topology\+\_\+finder.cpp File Reference}
+\hypertarget{topology__finder_8cpp}{}\label{topology__finder_8cpp}\index{src/topology\_finder.cpp@{src/topology\_finder.cpp}}
+
+
+Uses a genetic algorithm to find the best topology for a neural network.  
+
+
+{\ttfamily \#include "{}neural\+\_\+network/neural\+\_\+network.\+hpp"{}}\newline
+{\ttfamily \#include "{}neural\+\_\+network/optimiser.\+hpp"{}}\newline
+{\ttfamily \#include "{}parsing/cycles\+\_\+encoders.\+hpp"{}}\newline
+{\ttfamily \#include "{}parsing/hexadecimal\+\_\+parser.\+hpp"{}}\newline
+{\ttfamily \#include "{}parsing/size\+\_\+encoder.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCandidate}{Candidate}}
+\begin{DoxyCompactList}\small\item\em Class representing a candidate in the genetic algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::pair$<$ float, std\+::vector$<$ size\+\_\+t $>$ $>$ $>$ \mbox{\hyperlink{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1}{find\+\_\+best\+\_\+topology}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, size\+\_\+t population\+\_\+size, size\+\_\+t nb\+\_\+generations, float selection\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Find the best topology for a neural network using a genetic algorithm. \end{DoxyCompactList}\item 
+\Hypertarget{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Main function to run the topology finder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Uses a genetic algorithm to find the best topology for a neural network. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1}\label{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1} 
+\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology@{find\_best\_topology}}
+\index{find\_best\_topology@{find\_best\_topology}!topology\_finder.cpp@{topology\_finder.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_best\_topology()}{find\_best\_topology()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ float, std\+::vector$<$ size\+\_\+t $>$ $>$ $>$ find\+\_\+best\+\_\+topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Find the best topology for a neural network using a genetic algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The dataset to use for evaluation \\
+\hline
+{\em nb\+\_\+epochs} & The number of epochs to train each candidate for \\
+\hline
+{\em population\+\_\+size} & The size of the population of each generation \\
+\hline
+{\em nb\+\_\+generations} & The number of generations to run the genetic algorithm for \\
+\hline
+{\em selection\+\_\+rate} & How many candidates to select for the next generation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of pairs containing the fitness and topology of the best candidate of each generation 
+\end{DoxyReturn}

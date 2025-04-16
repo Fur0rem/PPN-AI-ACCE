@@ -9,5 +9,6 @@ var searchData=
   ['get_5floss_5fmrse_6',['get_loss_mrse',['../classNeuralNetwork.html#a13371d9e2af79bf76d4c8400ced49750',1,'NeuralNetwork']]],
   ['get_5floss_5fmse_7',['get_loss_mse',['../classNeuralNetwork.html#a22bce90f6f04becff364a118608af773',1,'NeuralNetwork']]],
   ['get_5foutput_5fencoder_8',['get_output_encoder',['../classDataset.html#aa70945f2b0908066d2f4e090bfb076a5',1,'Dataset']]],
-  ['gradients_9',['Gradients',['../classGradients.html#a76c7047eb84cabadc4acffc802d2ab08',1,'Gradients']]]
+  ['get_5ftopology_9',['get_topology',['../classCandidate.html#a1cc115e6d0bc3628566c78a5d7686b84',1,'Candidate']]],
+  ['gradients_10',['Gradients',['../classGradients.html#a76c7047eb84cabadc4acffc802d2ab08',1,'Gradients']]]
 ];

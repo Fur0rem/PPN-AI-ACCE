@@ -127,10 +127,68 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 	return grads;
 }
 
-void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string&& logging_dir,
-						  size_t nb_trains) {
+std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
+											 std::string&& logging_dir, size_t nb_trains) {
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
+
+	auto data = dataset.get_data(1.0);
+	// Split the data into training and validation sets
+	size_t const train_size = (size_t)((double)data.size() * training_proportion);
+	size_t const validation_size = data.size() - train_size;
+
+	std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
+
+	std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
+	std::vector<Eigen::VectorXf*> train_target_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_target_vectors(validation_size);
+	std::vector<std::string> train_names(train_size);
+	std::vector<std::string> validation_names(validation_size);
+
+	for (size_t i = 0; i < data.size(); i++) {
+		// Put the input and target in the right set
+		if (i < train_size) {
+			train_names[i] = std::get<0>(data[i]);
+			train_input_vectors[i] = &std::get<1>(data[i]);
+			train_target_vectors[i] = &std::get<2>(data[i]);
+		}
+		else {
+			validation_names[i - train_size] = std::get<0>(data[i]);
+			validation_input_vectors[i - train_size] = &std::get<1>(data[i]);
+			validation_target_vectors[i - train_size] = &std::get<2>(data[i]);
+		}
+	}
+
+	Eigen::MatrixXf train_input_matrix(train_size, train_input_vectors[0]->size());
+	Eigen::MatrixXf train_target_matrix(train_size, train_target_vectors[0]->size());
+
+	// Check for empty validation set
+	size_t matrix_y_for_validation;
+	if (validation_size > 0) {
+		matrix_y_for_validation = validation_target_vectors[0]->size();
+	}
+	else {
+		matrix_y_for_validation = 0;
+	}
+	Eigen::MatrixXf validation_input_matrix(validation_size, matrix_y_for_validation);
+	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
+	for (size_t j = 0; j < train_size; j++) {
+		for (size_t k = 0; k < train_input_vectors[0]->size(); k++) {
+			train_input_matrix(j, k) = (*train_input_vectors[j])(k);
+		}
+		for (size_t k = 0; k < train_target_vectors[0]->size(); k++) {
+			train_target_matrix(j, k) = (*train_target_vectors[j])(k);
+		}
+	}
+	for (size_t j = 0; j < validation_size; j++) {
+		for (size_t k = 0; k < validation_input_vectors[0]->size(); k++) {
+			validation_input_matrix(j, k) = (*validation_input_vectors[j])(k);
+		}
+		for (size_t k = 0; k < validation_target_vectors[0]->size(); k++) {
+			validation_target_matrix(j, k) = (*validation_target_vectors[j])(k);
+		}
+	}
 
 	for (size_t t = 1; t <= nb_trains; t++) {
 		// Reset the neural network
@@ -140,64 +198,6 @@ void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_pro
 		std::string logging_filename = logging_dir + "/train_" + std::to_string(t) + ".log";
 		std::ofstream log_file;
 		log_file.open(logging_filename);
-		auto data = dataset.get_data(1.0);
-
-		// Split the data into training and validation sets
-		size_t const train_size = (size_t)((double)data.size() * training_proportion);
-		size_t const validation_size = data.size() - train_size;
-
-		std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
-
-		std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
-		std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
-		std::vector<Eigen::VectorXf*> train_target_vectors(train_size);
-		std::vector<Eigen::VectorXf*> validation_target_vectors(validation_size);
-		std::vector<std::string> train_names(train_size);
-		std::vector<std::string> validation_names(validation_size);
-
-		for (size_t i = 0; i < data.size(); i++) {
-			// Put the input and target in the right set
-			if (i < train_size) {
-				train_names[i] = std::get<0>(data[i]);
-				train_input_vectors[i] = &std::get<1>(data[i]);
-				train_target_vectors[i] = &std::get<2>(data[i]);
-			}
-			else {
-				validation_names[i - train_size] = std::get<0>(data[i]);
-				validation_input_vectors[i - train_size] = &std::get<1>(data[i]);
-				validation_target_vectors[i - train_size] = &std::get<2>(data[i]);
-			}
-		}
-
-		Eigen::MatrixXf train_input_matrix(train_size, train_input_vectors[0]->size());
-		Eigen::MatrixXf train_target_matrix(train_size, train_target_vectors[0]->size());
-
-		// Check for empty validation set
-		size_t matrix_y_for_validation;
-		if (validation_size > 0) {
-			matrix_y_for_validation = validation_target_vectors[0]->size();
-		}
-		else {
-			matrix_y_for_validation = 0;
-		}
-		Eigen::MatrixXf validation_input_matrix(validation_size, matrix_y_for_validation);
-		Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
-		for (size_t j = 0; j < train_size; j++) {
-			for (size_t k = 0; k < train_input_vectors[0]->size(); k++) {
-				train_input_matrix(j, k) = (*train_input_vectors[j])(k);
-			}
-			for (size_t k = 0; k < train_target_vectors[0]->size(); k++) {
-				train_target_matrix(j, k) = (*train_target_vectors[j])(k);
-			}
-		}
-		for (size_t j = 0; j < validation_size; j++) {
-			for (size_t k = 0; k < validation_input_vectors[0]->size(); k++) {
-				validation_input_matrix(j, k) = (*validation_input_vectors[j])(k);
-			}
-			for (size_t k = 0; k < validation_target_vectors[0]->size(); k++) {
-				validation_target_matrix(j, k) = (*validation_target_vectors[j])(k);
-			}
-		}
 
 		// Training the neural network
 		const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
@@ -271,10 +271,15 @@ void NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_pro
 		delete opt;
 		log_file.close();
 	}
+
+	// Evaluate the model (accuracy of the training and validation sets)
+	double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
+	return std::make_pair(train_acc, validation_acc);
 }
 
-void NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size, IOptimiser& optimiser,
-								std::string&& logging_dir, size_t nb_trains) {
+std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
+												   IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -419,6 +424,11 @@ void NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float traini
 
 		log_file.close();
 	}
+
+	// Evaluate the model (accuracy of the training and validation sets)
+	double train_acc = get_acc_mrae(train_inputs_mat, train_targets_mat, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_inputs_mat, validation_targets_mat, dataset.get_output_encoder());
+	return std::make_pair(train_acc, validation_acc);
 }
 
 double NeuralNetwork::squared_error(std::vector<float>& prediction, std::vector<float>& target, const IEncoder* encoder) {

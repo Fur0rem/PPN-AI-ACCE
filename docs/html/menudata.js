@@ -84,6 +84,7 @@ var menudata={children:[
 {text:"Functions",url:"globals_func.html",children:[
 {text:"b",url:"globals_func.html#index_b"},
 {text:"c",url:"globals_func.html#index_c"},
+{text:"f",url:"globals_func.html#index_f"},
 {text:"i",url:"globals_func.html#index_i"},
 {text:"m",url:"globals_func.html#index_m"},
 {text:"t",url:"globals_func.html#index_t"}]},

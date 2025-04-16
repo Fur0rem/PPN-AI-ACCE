@@ -22,10 +22,10 @@ Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classNeuralNetwork_a6d0c02bd3d2f3056f7178
 \begin{DoxyCompactList}\small\item\em Feed forward the input through the neural network. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGradients}{Gradients}} \mbox{\hyperlink{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}{backward}} (const Eigen\+::\+Matrix\+Xf \&inputs, const Eigen\+::\+Matrix\+Xf \&targets)
 \begin{DoxyCompactList}\small\item\em Backpropagation algorithm to compute gradients. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNeuralNetwork_afed3893f64a375624322650ed8a2df29}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, float learning\+\_\+rate, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
-\begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset Does backpropagation for each input and updates the weights and biases 1 by 1. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classNeuralNetwork_a038646bf18d6ced9a9d9fcbc576232c6}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
-\begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset with batch training This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, float learning\+\_\+rate, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
+\begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
+\begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}{squared\+\_\+error}} (std\+::vector$<$ float $>$ \&prediction, std\+::vector$<$ float $>$ \&target, const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}encoder)
 \begin{DoxyCompactList}\small\item\em Compute the mean relative squared error between the prediction and target. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2}{relative\+\_\+squared\+\_\+error}} (std\+::vector$<$ float $>$ \&prediction, std\+::vector$<$ float $>$ \&target, const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}encoder)
@@ -431,15 +431,15 @@ Compute the mean relative squared error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean relative squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_afed3893f64a375624322650ed8a2df29}\label{classNeuralNetwork_afed3893f64a375624322650ed8a2df29} 
+\Hypertarget{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}\label{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd} 
 \index{NeuralNetwork@{NeuralNetwork}!train@{train}}
 \index{train@{train}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily void Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{learning\+\_\+rate,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{learning\+\_\+rate,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
 
 
 
-Train the neural network using the given dataset Does backpropagation for each input and updates the weights and biases 1 by 1. 
+Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -456,15 +456,18 @@ Train the neural network using the given dataset Does backpropagation for each i
 {\em nb\+\_\+trains} & Number of training runs \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classNeuralNetwork_a038646bf18d6ced9a9d9fcbc576232c6}\label{classNeuralNetwork_a038646bf18d6ced9a9d9fcbc576232c6} 
+\begin{DoxyReturn}{Returns}
+A pair of floats containing the training and validation accuracy 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}\label{classNeuralNetwork_a769264b6424463724390ef9a0b18741c} 
 \index{NeuralNetwork@{NeuralNetwork}!train\_batch@{train\_batch}}
 \index{train\_batch@{train\_batch}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_batch()}{train\_batch()}}
-{\footnotesize\ttfamily void Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
 
 
 
-Train the neural network using the given dataset with batch training This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. 
+Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -483,6 +486,9 @@ Train the neural network using the given dataset with batch training This means 
 {\em nb\+\_\+trains} & Number of training runs \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of floats containing the training and validation accuracy 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

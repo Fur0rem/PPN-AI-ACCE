@@ -102,12 +102,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abc20c216225113fe5ed400c8a61d4134" id="r_abc20c216225113fe5ed400c8a61d4134"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGradients.html">Gradients</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc20c216225113fe5ed400c8a61d4134">backward</a> (const Eigen::MatrixXf &amp;inputs, const Eigen::MatrixXf &amp;targets)</td></tr>
 <tr class="memdesc:abc20c216225113fe5ed400c8a61d4134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backpropagation algorithm to compute gradients.  <br /></td></tr>
 <tr class="separator:abc20c216225113fe5ed400c8a61d4134"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afed3893f64a375624322650ed8a2df29" id="r_afed3893f64a375624322650ed8a2df29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afed3893f64a375624322650ed8a2df29">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
-<tr class="memdesc:afed3893f64a375624322650ed8a2df29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset Does backpropagation for each input and updates the weights and biases 1 by 1.  <br /></td></tr>
-<tr class="separator:afed3893f64a375624322650ed8a2df29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a038646bf18d6ced9a9d9fcbc576232c6" id="r_a038646bf18d6ced9a9d9fcbc576232c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a038646bf18d6ced9a9d9fcbc576232c6">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
-<tr class="memdesc:a038646bf18d6ced9a9d9fcbc576232c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1.  <br /></td></tr>
-<tr class="separator:a038646bf18d6ced9a9d9fcbc576232c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab78d40f586338dad53b7c29255dfdcd" id="r_aab78d40f586338dad53b7c29255dfdcd"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab78d40f586338dad53b7c29255dfdcd">train</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, float learning_rate, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
+<tr class="memdesc:aab78d40f586338dad53b7c29255dfdcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1.  <br /></td></tr>
+<tr class="separator:aab78d40f586338dad53b7c29255dfdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769264b6424463724390ef9a0b18741c" id="r_a769264b6424463724390ef9a0b18741c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a769264b6424463724390ef9a0b18741c">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
+<tr class="memdesc:a769264b6424463724390ef9a0b18741c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1.  <br /></td></tr>
+<tr class="separator:a769264b6424463724390ef9a0b18741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb5ece18f9e2cd67c540b1cfcb3da49" id="r_a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb5ece18f9e2cd67c540b1cfcb3da49">squared_error</a> (std::vector&lt; float &gt; &amp;prediction, std::vector&lt; float &gt; &amp;target, const <a class="el" href="classIEncoder.html">IEncoder</a> *encoder)</td></tr>
 <tr class="memdesc:a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean relative squared error between the prediction and target.  <br /></td></tr>
 <tr class="separator:a3fb5ece18f9e2cd67c540b1cfcb3da49"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -783,14 +783,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
 
 </div>
 </div>
-<a id="afed3893f64a375624322650ed8a2df29" name="afed3893f64a375624322650ed8a2df29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afed3893f64a375624322650ed8a2df29">&#9670;&#160;</a></span>train()</h2>
+<a id="aab78d40f586338dad53b7c29255dfdcd" name="aab78d40f586338dad53b7c29255dfdcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab78d40f586338dad53b7c29255dfdcd">&#9670;&#160;</a></span>train()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NeuralNetwork::train </td>
+          <td class="memname">std::pair&lt; float, float &gt; NeuralNetwork::train </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
         </tr>
@@ -822,7 +822,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>Train the neural network using the given dataset Does backpropagation for each input and updates the weights and biases 1 by 1. </p>
+<p>Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
@@ -834,17 +834,18 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair of floats containing the training and validation accuracy </dd></dl>
 
 </div>
 </div>
-<a id="a038646bf18d6ced9a9d9fcbc576232c6" name="a038646bf18d6ced9a9d9fcbc576232c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a038646bf18d6ced9a9d9fcbc576232c6">&#9670;&#160;</a></span>train_batch()</h2>
+<a id="a769264b6424463724390ef9a0b18741c" name="a769264b6424463724390ef9a0b18741c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769264b6424463724390ef9a0b18741c">&#9670;&#160;</a></span>train_batch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void NeuralNetwork::train_batch </td>
+          <td class="memname">std::pair&lt; float, float &gt; NeuralNetwork::train_batch </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
         </tr>
@@ -881,7 +882,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>Train the neural network using the given dataset with batch training This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. </p>
+<p>Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
@@ -894,6 +895,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair of floats containing the training and validation accuracy </dd></dl>
 
 </div>
 </div>

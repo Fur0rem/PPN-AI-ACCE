@@ -1,0 +1,105 @@
+\doxysection{Candidate Class Reference}
+\hypertarget{classCandidate}{}\label{classCandidate}\index{Candidate@{Candidate}}
+
+
+Class representing a candidate in the genetic algorithm.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCandidate_adfc1d6748155d4ca8a4e1da9c1ac1fb5}\label{classCandidate_adfc1d6748155d4ca8a4e1da9c1ac1fb5} 
+{\bfseries Candidate} (std\+::vector$<$ size\+\_\+t $>$ topology)
+\begin{DoxyCompactList}\small\item\em Create a candidate with a given topology. \end{DoxyCompactList}\item 
+\Hypertarget{classCandidate_aa2747741fb662af5e8f3d01d1d1a43b6}\label{classCandidate_aa2747741fb662af5e8f3d01d1d1a43b6} 
+{\bfseries Candidate} ()
+\begin{DoxyCompactList}\small\item\em Create a random candidate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCandidate_a0fb37586703fceb9cfe1cea2e4624ecf}{Candidate}} (const \mbox{\hyperlink{classCandidate}{Candidate}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \doxylink{classCandidate}{Candidate} class. \end{DoxyCompactList}\item 
+\Hypertarget{classCandidate_ae9335b9f93f77f38cd8efe1d8f430fe4}\label{classCandidate_ae9335b9f93f77f38cd8efe1d8f430fe4} 
+\mbox{\hyperlink{classCandidate}{Candidate}} \& {\bfseries operator=} (const \mbox{\hyperlink{classCandidate}{Candidate}} \&other)
+\item 
+\Hypertarget{classCandidate_ad94b9a1db4744975616a6cdbf8303353}\label{classCandidate_ad94b9a1db4744975616a6cdbf8303353} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Candidate} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classCandidate}{Candidate} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classCandidate_a1cc115e6d0bc3628566c78a5d7686b84}{get\+\_\+topology}} () const
+\begin{DoxyCompactList}\small\item\em Get the topology of the candidate. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classCandidate_a57606a7a50209cb00c6c7b7f1ceadc23}{mutate}} (std\+::vector$<$ size\+\_\+t $>$ topology)
+\begin{DoxyCompactList}\small\item\em Mutate the topology of the candidate, either by adding or removing a layer, or modifying the number of neurons in a layer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCandidate_aa1cd41a70f410b887f1440fbebad366b}{evaluate\+\_\+fitness}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs)
+\begin{DoxyCompactList}\small\item\em Evaluate the fitness of the candidate, it favours the validation accuracy, the training accuracy and penalises larger networks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a candidate in the genetic algorithm. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCandidate_a0fb37586703fceb9cfe1cea2e4624ecf}\label{classCandidate_a0fb37586703fceb9cfe1cea2e4624ecf} 
+\index{Candidate@{Candidate}!Candidate@{Candidate}}
+\index{Candidate@{Candidate}!Candidate@{Candidate}}
+\doxysubsubsection{\texorpdfstring{Candidate()}{Candidate()}}
+{\footnotesize\ttfamily Candidate\+::\+Candidate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCandidate}{Candidate}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy constructor for the \doxylink{classCandidate}{Candidate} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The candidate to copy \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCandidate_aa1cd41a70f410b887f1440fbebad366b}\label{classCandidate_aa1cd41a70f410b887f1440fbebad366b} 
+\index{Candidate@{Candidate}!evaluate\_fitness@{evaluate\_fitness}}
+\index{evaluate\_fitness@{evaluate\_fitness}!Candidate@{Candidate}}
+\doxysubsubsection{\texorpdfstring{evaluate\_fitness()}{evaluate\_fitness()}}
+{\footnotesize\ttfamily float Candidate\+::evaluate\+\_\+fitness (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Evaluate the fitness of the candidate, it favours the validation accuracy, the training accuracy and penalises larger networks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The dataset to use for evaluation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fitness of the candidate 
+\end{DoxyReturn}
+\Hypertarget{classCandidate_a1cc115e6d0bc3628566c78a5d7686b84}\label{classCandidate_a1cc115e6d0bc3628566c78a5d7686b84} 
+\index{Candidate@{Candidate}!get\_topology@{get\_topology}}
+\index{get\_topology@{get\_topology}!Candidate@{Candidate}}
+\doxysubsubsection{\texorpdfstring{get\_topology()}{get\_topology()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Candidate\+::get\+\_\+topology (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the topology of the candidate. 
+
+\begin{DoxyReturn}{Returns}
+The topology of the candidate 
+\end{DoxyReturn}
+\Hypertarget{classCandidate_a57606a7a50209cb00c6c7b7f1ceadc23}\label{classCandidate_a57606a7a50209cb00c6c7b7f1ceadc23} 
+\index{Candidate@{Candidate}!mutate@{mutate}}
+\index{mutate@{mutate}!Candidate@{Candidate}}
+\doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Candidate\+::mutate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{topology }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mutate the topology of the candidate, either by adding or removing a layer, or modifying the number of neurons in a layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topology} & The topology of the candidate \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{topology__finder_8cpp}{topology\+\_\+finder.\+cpp}}\end{DoxyCompactItemize}
