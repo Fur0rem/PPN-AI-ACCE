@@ -11,19 +11,33 @@ Uses a genetic algorithm to find the best topology for a neural network.
 {\ttfamily \#include "{}parsing/hexadecimal\+\_\+parser.\+hpp"{}}\newline
 {\ttfamily \#include "{}parsing/size\+\_\+encoder.\+hpp"{}}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
 {\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{structMetrics}{Metrics}}
+\begin{DoxyCompactList}\small\item\em Struct representing the metrics that we want to study for the neural network over time. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classCandidate}{Candidate}}
 \begin{DoxyCompactList}\small\item\em Class representing a candidate in the genetic algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{topology__finder_8cpp_a159ca84d25a5487d8e81e4438725df19}\label{topology__finder_8cpp_a159ca84d25a5487d8e81e4438725df19} 
+\#define {\bfseries LOG}~1
+\item 
+\#define \mbox{\hyperlink{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288}{LOG\+\_\+\+PRINT}}(x)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::pair$<$ float, std\+::vector$<$ size\+\_\+t $>$ $>$ $>$ \mbox{\hyperlink{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1}{find\+\_\+best\+\_\+topology}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, size\+\_\+t population\+\_\+size, size\+\_\+t nb\+\_\+generations, float selection\+\_\+rate)
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \mbox{\hyperlink{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a}{find\+\_\+best\+\_\+topology}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, size\+\_\+t population\+\_\+size, size\+\_\+t nb\+\_\+generations, float selection\+\_\+rate)
 \begin{DoxyCompactList}\small\item\em Find the best topology for a neural network using a genetic algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}{log\+\_\+metrics}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \&metrics, const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Log metrics over time in a CSV file of the form\+: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology. \end{DoxyCompactList}\item 
 \Hypertarget{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 int {\bfseries main} ()
 \begin{DoxyCompactList}\small\item\em Main function to run the topology finder. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -34,12 +48,28 @@ Uses a genetic algorithm to find the best topology for a neural network.
 
 
 
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288}\label{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288} 
+\index{topology\_finder.cpp@{topology\_finder.cpp}!LOG\_PRINT@{LOG\_PRINT}}
+\index{LOG\_PRINT@{LOG\_PRINT}!topology\_finder.cpp@{topology\_finder.cpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_PRINT}{LOG\_PRINT}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (LOG)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1}\label{topology__finder_8cpp_a827e6d4659fc58673ec9e60ccbc8e3a1} 
+\Hypertarget{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a}\label{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a} 
 \index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology@{find\_best\_topology}}
 \index{find\_best\_topology@{find\_best\_topology}!topology\_finder.cpp@{topology\_finder.cpp}}
 \doxysubsubsection{\texorpdfstring{find\_best\_topology()}{find\_best\_topology()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ float, std\+::vector$<$ size\+\_\+t $>$ $>$ $>$ find\+\_\+best\+\_\+topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
 
 
 
@@ -59,5 +89,22 @@ Find the best topology for a neural network using a genetic algorithm.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of pairs containing the fitness and topology of the best candidate of each generation 
+A vector containing the evolution of all the candidates and their metrics through time 
 \end{DoxyReturn}
+\Hypertarget{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}\label{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c} 
+\index{topology\_finder.cpp@{topology\_finder.cpp}!log\_metrics@{log\_metrics}}
+\index{log\_metrics@{log\_metrics}!topology\_finder.cpp@{topology\_finder.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_metrics()}{log\_metrics()}}
+{\footnotesize\ttfamily void log\+\_\+metrics (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \&}]{metrics,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Log metrics over time in a CSV file of the form\+: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em metrics} & The metrics to log \\
+\hline
+{\em filename} & The name of the file to log to \\
+\hline
+\end{DoxyParams}

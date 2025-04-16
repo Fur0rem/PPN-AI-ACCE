@@ -67,34 +67,11 @@ Eigen::MatrixXf NeuralNetwork::predict(const Eigen::MatrixXf& input) {
 }
 
 Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input, float dropout_rate) {
+	m_a_values.clear();
+	m_z_values.clear();
+	m_a_values.push_back(input);
 
 	for (size_t i = 0; i < m_topology.size() - 1; i++) {
-		// get matrix number of row to know the number of neuron
-		//  choose dropout neuron number  dpn=  floor(rate*number_neuron) to know how much neuon you need to shut down
-		// choose randomly
-		//  create a random vector dpv of col size with dpn number of zero entries and the rest zero
-		//  calculate the matrix multiplication normaly as usual
-		//  then at the end before sending those calculate value we multiply the dpv vector with the  a(j,k)
-		//  float dropout_rate = 0.2;
-		//  int dpn  =   floor(dropout_rate*m_weights.cols());
-		int col_size = m_weights[i].cols();
-
-		int dpn = static_cast<int>(std::floor(dropout_rate * col_size));
-		std::cout << "the columns size is " << m_weights[i].cols() << " the number of dropout neuron will be " << dpn << "\n";
-
-		// fill the vector with 1
-		std::vector<float> vec(col_size, 1.0f);
-		// fill dpn entry with zero
-		std::fill_n(vec.begin(), dpn, 0.0f);
-		// shuffle the zero in the vector
-		std::shuffle(vec.begin(), vec.end(), std::mt19937{std::random_device{}()});
-		// convert std vector to eigen
-		Eigen::VectorXf dpv = Eigen::Map<Eigen::VectorXf>(vec.data(), col_size);
-
-		m_a_values.clear();
-		m_z_values.clear();
-		m_a_values.push_back(input);
-
 		Eigen::MatrixXf last_a = m_a_values.back();
 		// Eigen::MatrixXf z = last_a.dot(m_weights[i]);
 		Eigen::MatrixXf z = last_a * m_weights[i];
@@ -110,12 +87,61 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input, float 
 				a(j, k) = m_activation_func->func(z(j, k));
 			}
 		}
-		// dropout mask applied to the batch of output (one output per row )
-		a = a.array().rowwise() * dpv.transpose().array();
 		m_a_values.push_back(a);
 	}
 
 	return m_a_values.back();
+
+	// FIXME: Causes size mismatch when multiplying
+	// printf("Calling feed_forward with dropout rate: %f\n", dropout_rate);
+	// for (size_t i = 0; i < m_topology.size() - 1; i++) {
+	// 	// get matrix number of row to know the number of neuron
+	// 	//  choose dropout neuron number  dpn=  floor(rate*number_neuron) to know how much neuon you need to shut down
+	// 	// choose randomly
+	// 	//  create a random vector dpv of col size with dpn number of zero entries and the rest zero
+	// 	//  calculate the matrix multiplication normaly as usual
+	// 	//  then at the end before sending those calculate value we multiply the dpv vector with the  a(j,k)
+	// 	//  float dropout_rate = 0.2;
+	// 	//  int dpn  =   floor(dropout_rate*m_weights.cols());
+	// 	int col_size = m_weights[i].cols();
+
+	// 	int dpn = static_cast<int>(std::floor(dropout_rate * col_size));
+	// 	// std::cout << "the columns size is " << m_weights[i].cols() << " the number of dropout neuron will be " << dpn << "\n";
+
+	// 	// fill the vector with 1
+	// 	std::vector<float> vec(col_size, 1.0f);
+	// 	// fill dpn entry with zero
+	// 	std::fill_n(vec.begin(), dpn, 0.0f);
+	// 	// shuffle the zero in the vector
+	// 	std::shuffle(vec.begin(), vec.end(), std::mt19937{std::random_device{}()});
+	// 	// convert std vector to eigen
+	// 	Eigen::VectorXf dpv = Eigen::Map<Eigen::VectorXf>(vec.data(), col_size);
+
+	// 	m_a_values.clear();
+	// 	m_z_values.clear();
+	// 	m_a_values.push_back(input);
+
+	// 	Eigen::MatrixXf last_a = m_a_values.back();
+	// 	// Eigen::MatrixXf z = last_a.dot(m_weights[i]);
+	// 	Eigen::MatrixXf z = last_a * m_weights[i];
+	// 	for (size_t j = 0; j < z.rows(); j++) {
+	// 		for (size_t k = 0; k < z.cols(); k++) {
+	// 			z(j, k) += m_biases[i](0, k);
+	// 		}
+	// 	}
+	// 	m_z_values.push_back(z);
+	// 	Eigen::MatrixXf a(z.rows(), z.cols());
+	// 	for (size_t j = 0; j < z.rows(); j++) {
+	// 		for (size_t k = 0; k < z.cols(); k++) {
+	// 			a(j, k) = m_activation_func->func(z(j, k));
+	// 		}
+	// 	}
+	// 	// dropout mask applied to the batch of output (one output per row )
+	// 	a = a.array().rowwise() * dpv.transpose().array();
+	// 	m_a_values.push_back(a);
+	// }
+
+	// return m_a_values.back();
 }
 
 Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::MatrixXf& targets) {

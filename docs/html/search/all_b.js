@@ -15,8 +15,9 @@ var searchData=
   ['mat_5fmult_5fkij_12',['MAT_MULT_KIJ',['../mat__mul_8cpp.html#af0494c4d781a74e74acc713899acc90b',1,'mat_mul.cpp']]],
   ['max_5fcycles_13',['MAX_CYCLES',['../cycles__encoders_8hpp.html#a87fd18e17edcd3b78d02d63325c798ba',1,'cycles_encoders.hpp']]],
   ['max_5ftokens_5fnn_14',['MAX_TOKENS_NN',['../size__encoder_8hpp.html#ac3c8ef52a65b17b370b8014b0f0c1c37',1,'size_encoder.hpp']]],
-  ['momentum_15',['Momentum',['../classMomentum.html',1,'Momentum'],['../classMomentum.html#a5525e6805c17ccc2b46975889eb241e2',1,'Momentum::Momentum()']]],
-  ['mse_5floss_16',['mse_loss',['../gradients_8cpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['mse_5floss_5fderivative_17',['mse_loss_derivative',['../gradients_8cpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['mutate_18',['mutate',['../classCandidate.html#a57606a7a50209cb00c6c7b7f1ceadc23',1,'Candidate']]]
+  ['metrics_15',['Metrics',['../structMetrics.html',1,'']]],
+  ['momentum_16',['Momentum',['../classMomentum.html',1,'Momentum'],['../classMomentum.html#a5525e6805c17ccc2b46975889eb241e2',1,'Momentum::Momentum()']]],
+  ['mse_5floss_17',['mse_loss',['../gradients_8cpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
+  ['mse_5floss_5fderivative_18',['mse_loss_derivative',['../gradients_8cpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
+  ['mutate_19',['mutate',['../classCandidate.html#a57606a7a50209cb00c6c7b7f1ceadc23',1,'Candidate']]]
 ];

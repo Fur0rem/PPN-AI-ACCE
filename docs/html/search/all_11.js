@@ -5,7 +5,9 @@ var searchData=
   ['the_20course_20ppn_20projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_2',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
   ['the_20project_3',['The project',['../index.html#autotoc_md1',1,'Current status of the project'],['../index.html#autotoc_md3',1,'How to run the project']]],
   ['to_20run_20the_20project_4',['How to run the project',['../index.html#autotoc_md3',1,'']]],
-  ['topology_5ffinder_2ecpp_5',['topology_finder.cpp',['../topology__finder_8cpp.html',1,'']]],
-  ['train_6',['train',['../classNeuralNetwork.html#ac0985b6c9bcf9841c75d6a8b61c2ab2a',1,'NeuralNetwork']]],
-  ['train_5fbatch_7',['train_batch',['../classNeuralNetwork.html#a455d44c6023820999dfd9df6943af4f7',1,'NeuralNetwork']]]
+  ['topology_5',['topology',['../structMetrics.html#a01423d226db1f853a68637bf956b6572',1,'Metrics']]],
+  ['topology_5ffinder_2ecpp_6',['topology_finder.cpp',['../topology__finder_8cpp.html',1,'']]],
+  ['train_7',['train',['../classNeuralNetwork.html#ac0985b6c9bcf9841c75d6a8b61c2ab2a',1,'NeuralNetwork']]],
+  ['train_5facc_8',['train_acc',['../structMetrics.html#a642f650572618f747f53c892dae37258',1,'Metrics']]],
+  ['train_5fbatch_9',['train_batch',['../classNeuralNetwork.html#a455d44c6023820999dfd9df6943af4f7',1,'NeuralNetwork']]]
 ];

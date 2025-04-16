@@ -78,6 +78,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">topology_finder.cpp File Reference</div></div>
 </div><!--header-->
@@ -91,21 +92,37 @@ $(function() {
 <code>#include &quot;<a class="el" href="hexadecimal__parser_8hpp_source.html">parsing/hexadecimal_parser.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="size__encoder_8hpp_source.html">parsing/size_encoder.hpp</a>&quot;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMetrics.html">Metrics</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing the metrics that we want to study for the neural network over time.  <a href="structMetrics.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCandidate.html">Candidate</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a candidate in the genetic algorithm.  <a href="classCandidate.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a159ca84d25a5487d8e81e4438725df19" id="r_a159ca84d25a5487d8e81e4438725df19"><td class="memItemLeft" align="right" valign="top"><a id="a159ca84d25a5487d8e81e4438725df19" name="a159ca84d25a5487d8e81e4438725df19"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a159ca84d25a5487d8e81e4438725df19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f816530adeca0ac26f3517ab1ca0288" id="r_a7f816530adeca0ac26f3517ab1ca0288"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f816530adeca0ac26f3517ab1ca0288">LOG_PRINT</a>(x)</td></tr>
+<tr class="separator:a7f816530adeca0ac26f3517ab1ca0288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a827e6d4659fc58673ec9e60ccbc8e3a1" id="r_a827e6d4659fc58673ec9e60ccbc8e3a1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; float, std::vector&lt; size_t &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a827e6d4659fc58673ec9e60ccbc8e3a1">find_best_topology</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, size_t population_size, size_t nb_generations, float selection_rate)</td></tr>
-<tr class="memdesc:a827e6d4659fc58673ec9e60ccbc8e3a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the best topology for a neural network using a genetic algorithm.  <br /></td></tr>
-<tr class="separator:a827e6d4659fc58673ec9e60ccbc8e3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc86711f5a66aaabc7d1d9f8e1a7d5a" id="r_a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dc86711f5a66aaabc7d1d9f8e1a7d5a">find_best_topology</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, size_t population_size, size_t nb_generations, float selection_rate)</td></tr>
+<tr class="memdesc:a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the best topology for a neural network using a genetic algorithm.  <br /></td></tr>
+<tr class="separator:a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1355153cdbc6f99a82f66ef58b4da4c" id="r_ad1355153cdbc6f99a82f66ef58b4da4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1355153cdbc6f99a82f66ef58b4da4c">log_metrics</a> (const std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt; &amp;metrics, const std::string &amp;filename)</td></tr>
+<tr class="memdesc:ad1355153cdbc6f99a82f66ef58b4da4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log metrics over time in a CSV file of the form: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology.  <br /></td></tr>
+<tr class="separator:ad1355153cdbc6f99a82f66ef58b4da4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function to run the topology finder. <br /></td></tr>
@@ -113,15 +130,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Uses a genetic algorithm to find the best topology for a neural network. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a827e6d4659fc58673ec9e60ccbc8e3a1" name="a827e6d4659fc58673ec9e60ccbc8e3a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a827e6d4659fc58673ec9e60ccbc8e3a1">&#9670;&#160;</a></span>find_best_topology()</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7f816530adeca0ac26f3517ab1ca0288" name="a7f816530adeca0ac26f3517ab1ca0288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f816530adeca0ac26f3517ab1ca0288">&#9670;&#160;</a></span>LOG_PRINT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::pair&lt; float, std::vector&lt; size_t &gt; &gt; &gt; find_best_topology </td>
+          <td class="memname">#define LOG_PRINT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (LOG) {                                                                                                                             \</div>
+<div class="line">        std::cout &lt;&lt; x;                                                                                                                    \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a3dc86711f5a66aaabc7d1d9f8e1a7d5a" name="a3dc86711f5a66aaabc7d1d9f8e1a7d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc86711f5a66aaabc7d1d9f8e1a7d5a">&#9670;&#160;</a></span>find_best_topology()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt; find_best_topology </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
         </tr>
@@ -159,7 +197,37 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of pairs containing the fitness and topology of the best candidate of each generation </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing the evolution of all the candidates and their metrics through time </dd></dl>
+
+</div>
+</div>
+<a id="ad1355153cdbc6f99a82f66ef58b4da4c" name="ad1355153cdbc6f99a82f66ef58b4da4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1355153cdbc6f99a82f66ef58b4da4c">&#9670;&#160;</a></span>log_metrics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void log_metrics </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>metrics</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log metrics over time in a CSV file of the form: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">metrics</td><td>The metrics to log </td></tr>
+    <tr><td class="paramname">filename</td><td>The name of the file to log to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

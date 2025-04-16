@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['momentum_0',['Momentum',['../classMomentum.html',1,'']]]
+  ['metrics_0',['Metrics',['../structMetrics.html',1,'']]],
+  ['momentum_1',['Momentum',['../classMomentum.html',1,'']]]
 ];
