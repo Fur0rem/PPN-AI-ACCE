@@ -22,35 +22,31 @@ int main() {
 	};
 
 	Dataset dataset = Dataset(new HexadecimalParser(),
-							  "dataset/bench_bins_small",
+							  "dataset/bench_bins",
 							  topology,
 							  std::make_unique<SizeEncoder>(topology[0]),
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
-	// Create the neural network
-	NeuralNetwork nn(topology, std::make_unique<Sigmoid>());
+	std::vector<std::unique_ptr<ActivationFunc>> activation_functions;
+	activation_functions.push_back(std::make_unique<Tanh>());
+	activation_functions.push_back(std::make_unique<ELU>());
+	activation_functions.push_back(std::make_unique<Sigmoid>());
+	activation_functions.push_back(std::make_unique<ReLU>());
+	activation_functions.push_back(std::make_unique<LeakyReLU>());
+	activation_functions.push_back(std::make_unique<GELU>());
 
-	// Train the neural network
-	std::vector<float> learning_rates = {0.00005, 0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2};
-	size_t nb_epochs = 2000;
+	std::vector<std::string> activation_function_names = {
+		"Tanh",
+		"Sigmoid",
+		"ReLU",
+		"LeakyReLU",
+		"GELU",
+		"ELU",
+	};
 
-	for (auto& learning_rate : learning_rates) {
-		std::vector<IOptimiser*> optimisers = {
-			new AMSGrad(nn, 0.9, 0.999, 1e-8, learning_rate),
-			new RMSProp(nn, 0.9, 1e-8, learning_rate),
-			new Adam(nn, 0.9, 0.999, 1e-8, learning_rate),
-			new SGD(learning_rate),
-			new Momentum(nn, 0.8, learning_rate),
-		};
-		for (auto& opt : optimisers) {
-			nn.train_batch(dataset,
-						   nb_epochs,
-						   0.8,
-						   16,
-						   *opt,
-						   std::string("training_results/") + typeid(*opt).name() + "_" + std::to_string(learning_rate),
-						   2,
-						   0);
-		}
+	for (size_t i = 0; i < activation_functions.size(); ++i) {
+		auto& activation_function = activation_functions[i];
+		NeuralNetwork nn(topology, std::move(activation_function));
+		nn.train(dataset, 2000, 0.8, 0.02, std::string("training_results/") + activation_function_names[i], 1, 0);
 	}
 }

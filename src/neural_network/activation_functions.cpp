@@ -56,7 +56,7 @@ float Tanh::func(float x) {
 }
 
 float Tanh::deriv(float x) {
-	return 1 - x * x;
+	return 1 - std::pow(std::tanh(x), 2);
 }
 
 float ELU::func(float x) {

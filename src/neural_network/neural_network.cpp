@@ -180,6 +180,7 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 
 std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
 											 std::string&& logging_dir, size_t nb_trains, float dropout_rate) {
+
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
 
@@ -222,22 +223,25 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 	else {
 		matrix_y_for_validation = 0;
 	}
-	Eigen::MatrixXf validation_input_matrix(validation_size, matrix_y_for_validation);
+	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
 	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
-	for (size_t j = 0; j < train_size; j++) {
-		for (size_t k = 0; k < train_input_vectors[0]->size(); k++) {
-			train_input_matrix(j, k) = (*train_input_vectors[j])(k);
+
+	for (size_t i = 0; i < train_size; i++) {
+		for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
+			// std::cout << "Accessing train input vector " << i << ", index " << j << '\n';
+			// std::cout << "Writing to train input matrix (" << i << ", " << j << ")\n";
+			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
 		}
-		for (size_t k = 0; k < train_target_vectors[0]->size(); k++) {
-			train_target_matrix(j, k) = (*train_target_vectors[j])(k);
+		for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
+			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
 		}
 	}
-	for (size_t j = 0; j < validation_size; j++) {
-		for (size_t k = 0; k < validation_input_vectors[0]->size(); k++) {
-			validation_input_matrix(j, k) = (*validation_input_vectors[j])(k);
+	for (size_t i = 0; i < validation_size; i++) {
+		for (size_t j = 0; j < validation_input_vectors[0]->size(); j++) {
+			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
 		}
-		for (size_t k = 0; k < validation_target_vectors[0]->size(); k++) {
-			validation_target_matrix(j, k) = (*validation_target_vectors[j])(k);
+		for (size_t j = 0; j < validation_target_vectors[0]->size(); j++) {
+			validation_target_matrix(i, j) = (*validation_target_vectors[i])(j);
 		}
 	}
 
