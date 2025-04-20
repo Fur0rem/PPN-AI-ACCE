@@ -22,31 +22,22 @@ int main() {
 	};
 
 	Dataset dataset = Dataset(new HexadecimalParser(),
-							  "dataset/bench_bins",
+							  "dataset/bench_bins_small",
 							  topology,
 							  std::make_unique<SizeEncoder>(topology[0]),
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
-	std::vector<std::unique_ptr<ActivationFunc>> activation_functions;
-	activation_functions.push_back(std::make_unique<Tanh>());
-	activation_functions.push_back(std::make_unique<ELU>());
-	activation_functions.push_back(std::make_unique<Sigmoid>());
-	activation_functions.push_back(std::make_unique<ReLU>());
-	activation_functions.push_back(std::make_unique<LeakyReLU>());
-	activation_functions.push_back(std::make_unique<GELU>());
-
-	std::vector<std::string> activation_function_names = {
-		"Tanh",
-		"Sigmoid",
-		"ReLU",
-		"LeakyReLU",
-		"GELU",
-		"ELU",
-	};
-
-	for (size_t i = 0; i < activation_functions.size(); ++i) {
-		auto& activation_function = activation_functions[i];
-		NeuralNetwork nn(topology, std::move(activation_function));
-		nn.train(dataset, 2000, 0.8, 0.02, std::string("training_results/") + activation_function_names[i], 1, 0);
+	NeuralNetwork nn(topology, std::make_unique<Sigmoid>());
+	std::unique_ptr<IOptimiser> optimiser = std::make_unique<Adam>(nn, 0.9, 0.999, 1e-8, 0.001);
+	auto dropout_rates = {0.0005F, 0.001F, 0.002F, 0.005F, 0.01F, 0.02F, 0.05F, 0.1F, 0.2F};
+	for (auto dropout_rate : dropout_rates) {
+		nn.train_batch(dataset,
+					   100,
+					   0.8,
+					   16,
+					   *optimiser,
+					   std::string("training_results/dropout_rate_") + std::to_string(dropout_rate),
+					   1,
+					   dropout_rate);
 	}
 }
