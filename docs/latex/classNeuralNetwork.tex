@@ -12,19 +12,19 @@ Neural Network class.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classNeuralNetwork_a3e08ff1be26a251cbcad28acb862f941}{Neural\+Network}} (const std\+::vector$<$ size\+\_\+t $>$ \&topology, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$ activation\+\_\+func)
+\mbox{\hyperlink{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b}{Neural\+Network}} (const std\+::vector$<$ size\+\_\+t $>$ \&topology, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$ activation\+\_\+func, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTrainingNoise}{Training\+Noise}} $>$ training\+\_\+noise)
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classNeuralNetwork}{Neural\+Network} class. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4}{predict}} (const std\+::vector$<$ float $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Predict the output of the neural network for a given input. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classNeuralNetwork_a33c50d558598b59a33674c12dff24d75}{predict}} (const Eigen\+::\+Matrix\+Xf \&input)
 \begin{DoxyCompactList}\small\item\em Predict the output of the neural network for a given input. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classNeuralNetwork_a95a8b97a16f8d2084ab43ac94fca64f0}{feed\+\_\+forward}} (const Eigen\+::\+Matrix\+Xf \&input, float dropout\+\_\+rate)
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7}{feed\+\_\+forward}} (const Eigen\+::\+Matrix\+Xf \&input)
 \begin{DoxyCompactList}\small\item\em Feed forward the input through the neural network. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGradients}{Gradients}} \mbox{\hyperlink{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}{backward}} (const Eigen\+::\+Matrix\+Xf \&inputs, const Eigen\+::\+Matrix\+Xf \&targets)
 \begin{DoxyCompactList}\small\item\em Backpropagation algorithm to compute gradients. \end{DoxyCompactList}\item 
-std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_ac0985b6c9bcf9841c75d6a8b61c2ab2a}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, float learning\+\_\+rate, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains, float dropout\+\_\+rate)
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}{train}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, float learning\+\_\+rate, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
 \begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1. \end{DoxyCompactList}\item 
-std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_a455d44c6023820999dfd9df6943af4f7}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains, float dropout\+\_\+rate)
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
 \begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}{squared\+\_\+error}} (std\+::vector$<$ float $>$ \&prediction, std\+::vector$<$ float $>$ \&target, const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}encoder)
 \begin{DoxyCompactList}\small\item\em Compute the mean relative squared error between the prediction and target. \end{DoxyCompactList}\item 
@@ -77,11 +77,11 @@ Neural Network class.
 This class implements a feedforward neural network with backpropagation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classNeuralNetwork_a3e08ff1be26a251cbcad28acb862f941}\label{classNeuralNetwork_a3e08ff1be26a251cbcad28acb862f941} 
+\Hypertarget{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b}\label{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b} 
 \index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}}
-{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$}]{activation\+\_\+func }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$}]{activation\+\_\+func,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTrainingNoise}{Training\+Noise}} $>$}]{training\+\_\+noise }\end{DoxyParamCaption})}
 
 
 
@@ -92,6 +92,8 @@ Constructor for \doxylink{classNeuralNetwork}{Neural\+Network} class.
 {\em topology} & Topology of the neural network \\
 \hline
 {\em activation\+\_\+func} & Activation function of the neural network \\
+\hline
+{\em training\+\_\+noise} & Training noise for the neural network \\
 \hline
 \end{DoxyParams}
 
@@ -139,11 +141,11 @@ Backpropagation algorithm to compute gradients.
 \begin{DoxyReturn}{Returns}
 \doxylink{classGradients}{Gradients} for weights and biases 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a95a8b97a16f8d2084ab43ac94fca64f0}\label{classNeuralNetwork_a95a8b97a16f8d2084ab43ac94fca64f0} 
+\Hypertarget{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7}\label{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7} 
 \index{NeuralNetwork@{NeuralNetwork}!feed\_forward@{feed\_forward}}
 \index{feed\_forward@{feed\_forward}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Neural\+Network\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input,  }\item[{float}]{dropout\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Neural\+Network\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption})}
 
 
 
@@ -431,11 +433,11 @@ Compute the mean relative squared error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean relative squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_ac0985b6c9bcf9841c75d6a8b61c2ab2a}\label{classNeuralNetwork_ac0985b6c9bcf9841c75d6a8b61c2ab2a} 
+\Hypertarget{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}\label{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd} 
 \index{NeuralNetwork@{NeuralNetwork}!train@{train}}
 \index{train@{train}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{learning\+\_\+rate,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains,  }\item[{float}]{dropout\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{learning\+\_\+rate,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
 
 
 
@@ -455,17 +457,15 @@ Train the neural network using the given dataset and return the accuracy of trai
 \hline
 {\em nb\+\_\+trains} & Number of training runs \\
 \hline
-{\em dropout\+\_\+rate} & Dropout rate for the neural network \\
-\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A pair of floats containing the training and validation accuracy 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a455d44c6023820999dfd9df6943af4f7}\label{classNeuralNetwork_a455d44c6023820999dfd9df6943af4f7} 
+\Hypertarget{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}\label{classNeuralNetwork_a769264b6424463724390ef9a0b18741c} 
 \index{NeuralNetwork@{NeuralNetwork}!train\_batch@{train\_batch}}
 \index{train\_batch@{train\_batch}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_batch()}{train\_batch()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains,  }\item[{float}]{dropout\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
 
 
 
@@ -486,8 +486,6 @@ Train the neural network using the given dataset with batch training and return 
 {\em logging\+\_\+dir} & Directory to log results \\
 \hline
 {\em nb\+\_\+trains} & Number of training runs \\
-\hline
-{\em dropout\+\_\+rate} & Dropout rate for the neural network \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

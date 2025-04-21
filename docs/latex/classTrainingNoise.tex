@@ -1,0 +1,70 @@
+\doxysection{Training\+Noise Class Reference}
+\hypertarget{classTrainingNoise}{}\label{classTrainingNoise}\index{TrainingNoise@{TrainingNoise}}
+
+
+Noise the training of the Neural Network to encourage generalisation.  
+
+
+
+
+{\ttfamily \#include $<$neural\+\_\+network.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2}{Training\+Noise}} (float dropout\+\_\+rate, float add\+\_\+noise, float mult\+\_\+noise)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classTrainingNoise}{Training\+Noise}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTrainingNoise_adc69be0ea8f9ec07c3be0c4a6e7ab31f}{apply\+\_\+noise}} (Eigen\+::\+Matrix\+Xf \&matrix)
+\begin{DoxyCompactList}\small\item\em Apply the noise to the given matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Noise the training of the Neural Network to encourage generalisation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2}\label{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2} 
+\index{TrainingNoise@{TrainingNoise}!TrainingNoise@{TrainingNoise}}
+\index{TrainingNoise@{TrainingNoise}!TrainingNoise@{TrainingNoise}}
+\doxysubsubsection{\texorpdfstring{TrainingNoise()}{TrainingNoise()}}
+{\footnotesize\ttfamily Training\+Noise\+::\+Training\+Noise (\begin{DoxyParamCaption}\item[{float}]{dropout\+\_\+rate,  }\item[{float}]{add\+\_\+noise,  }\item[{float}]{mult\+\_\+noise }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classTrainingNoise}{Training\+Noise}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dropout\+\_\+rate} & Rate for drop-\/out of neurons \\
+\hline
+{\em add\+\_\+noise} & If m\+\_\+add\+\_\+noise = a, then it will noise the matrices with \mbox{[}1.\+0 -\/ a, 1.\+0 + a\mbox{]} + value \\
+\hline
+{\em mult\+\_\+noise} & If m\+\_\+add\+\_\+noise = m, then it will noise the matrices with \mbox{[}1.\+0 -\/ m, 1.\+0 + m\mbox{]} \texorpdfstring{$\ast$}{*} value \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTrainingNoise_adc69be0ea8f9ec07c3be0c4a6e7ab31f}\label{classTrainingNoise_adc69be0ea8f9ec07c3be0c4a6e7ab31f} 
+\index{TrainingNoise@{TrainingNoise}!apply\_noise@{apply\_noise}}
+\index{apply\_noise@{apply\_noise}!TrainingNoise@{TrainingNoise}}
+\doxysubsubsection{\texorpdfstring{apply\_noise()}{apply\_noise()}}
+{\footnotesize\ttfamily void Training\+Noise\+::apply\+\_\+noise (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix\+Xf \&}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Apply the noise to the given matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix to apply the noise to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix with noise applied 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/neural\+\_\+network/\mbox{\hyperlink{neural__network_8hpp}{neural\+\_\+network.\+hpp}}\item 
+src/neural\+\_\+network/\mbox{\hyperlink{neural__network_8cpp}{neural\+\_\+network.\+cpp}}\end{DoxyCompactItemize}

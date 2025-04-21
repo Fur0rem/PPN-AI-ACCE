@@ -26,8 +26,57 @@ std::vector<float> get_row(const Eigen::MatrixXf& matrix, size_t row) {
 	return result;
 }
 
-NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_ptr<ActivationFunc> activation_func)
-	: m_topology(topology), m_activation_func(std::move(activation_func)) {
+TrainingNoise::TrainingNoise(float dropout_rate, float add_noise, float mult_noise)
+	: m_dropout_rate(dropout_rate), m_add_noise(add_noise), m_mult_noise(mult_noise) {
+	// Create the random device
+	m_gen = std::mt19937(m_rd());								// Seed the generator with the random device
+	m_dist = std::bernoulli_distribution(1.0 - m_dropout_rate); // Bernoulli distribution for dropout
+}
+
+/**
+ * @brief Apply the noise to the given matrix
+ * @param matrix The matrix to apply the noise to
+ * @return The matrix with noise applied
+ */
+void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
+	// Apply drop-out
+	if (m_dropout_rate > 0.0f) {
+		std::random_device rd;									// Random device for seed
+		std::mt19937 gen(rd());									// Mersenne Twister random number generator
+		std::bernoulli_distribution dist(1.0 - m_dropout_rate); // Bernoulli distribution for dropout
+
+		for (size_t i = 0; i < matrix.rows(); i++) {
+			for (size_t j = 0; j < matrix.cols(); j++) {
+				if (dist(gen)) {
+					matrix(i, j) = 0.0f;
+				}
+			}
+		}
+	}
+
+	// Apply noise
+	if (m_add_noise > 0.0f) {
+		std::uniform_real_distribution<float> dist(-m_add_noise, m_add_noise);
+		for (size_t i = 0; i < matrix.rows(); i++) {
+			for (size_t j = 0; j < matrix.cols(); j++) {
+				matrix(i, j) += dist(m_gen);
+			}
+		}
+	}
+
+	if (m_mult_noise > 0.0f) {
+		std::uniform_real_distribution<float> dist(1.0 - m_mult_noise, 1.0 + m_mult_noise);
+		for (size_t i = 0; i < matrix.rows(); i++) {
+			for (size_t j = 0; j < matrix.cols(); j++) {
+				matrix(i, j) *= dist(m_gen);
+			}
+		}
+	}
+}
+
+NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_ptr<ActivationFunc> activation_func,
+							 std::unique_ptr<TrainingNoise> training_noise)
+	: m_topology(topology), m_activation_func(std::move(activation_func)), m_training_noise(std::move(training_noise)) {
 	for (size_t i = 0; i < topology.size() - 1; i++) {
 		// Initialize weights with small random values
 		m_weights.push_back(Eigen::MatrixXf(topology[i], topology[i + 1]));
@@ -53,7 +102,13 @@ std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
 	for (size_t i = 0; i < input.size(); i++) {
 		input_matrix(0, i) = input[i];
 	}
-	Eigen::MatrixXf output = this->feed_forward(input_matrix, 0.0f);
+
+	// Don't add noise to the input
+	std::unique_ptr<TrainingNoise> temp_noise = std::move(m_training_noise);
+	m_training_noise = nullptr; // Disable noise for prediction
+	Eigen::MatrixXf output = this->feed_forward(input_matrix);
+	m_training_noise = std::move(temp_noise); // Re-enable noise
+
 	std::vector<float> result(output.cols());
 	for (size_t i = 0; i < output.cols(); i++) {
 		result[i] = output(0, i);
@@ -62,19 +117,18 @@ std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
 }
 
 Eigen::MatrixXf NeuralNetwork::predict(const Eigen::MatrixXf& input) {
-	Eigen::MatrixXf output = this->feed_forward(input, 0.0f);
+	// Don't add noise to the input
+	std::unique_ptr<TrainingNoise> temp_noise = std::move(m_training_noise);
+	m_training_noise = nullptr; // Disable noise for prediction
+	Eigen::MatrixXf output = this->feed_forward(input);
+	m_training_noise = std::move(temp_noise); // Re-enable noise
 	return output;
 }
 
-Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input, float dropout_rate) {
+Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 	m_a_values.clear();
 	m_z_values.clear();
 	m_a_values.push_back(input);
-
-	// Random number generator for the drop-out
-	std::random_device rd;								  // Random device for seed
-	std::mt19937 gen(rd());								  // Mersenne Twister random number generator
-	std::bernoulli_distribution dist(1.0 - dropout_rate); // Bernoulli distribution for dropout
 
 	for (size_t i = 0; i < m_topology.size() - 1; i++) {
 		// Pass the input through the layer
@@ -96,17 +150,12 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input, float 
 			}
 		}
 
-		// Apply dropout only if dropout_rate > 0
-		// We generate a mask of 1 or 0 to know if we do the drop-out on that neuron or no
-		if (dropout_rate > 0.0f && i < m_topology.size() - 2) { // Skip dropout for the output layer or if no dropout
-			Eigen::MatrixXf dropout_mask(a.rows(), a.cols());
-			for (size_t j = 0; j < a.rows(); j++) {
-				for (size_t k = 0; k < a.cols(); k++) {
-					dropout_mask(j, k) = dist(gen) ? 1.0F : 0.0F; // Generate binary mask
-				}
+		// Noise the matrix
+		if (m_training_noise) {
+			// Don't noise the last layer
+			if (i < m_topology.size() - 2) {
+				m_training_noise->apply_noise(a);
 			}
-			a = a.cwiseProduct(dropout_mask); // Apply mask element-wise (x*1 = x, x*0 = 0)
-			a /= (1.0F - dropout_rate);		  // Scale activations to maintain expected value
 		}
 
 		m_a_values.push_back(a);
@@ -150,7 +199,7 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 }
 
 std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
-											 std::string&& logging_dir, size_t nb_trains, float dropout_rate) {
+											 std::string&& logging_dir, size_t nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -244,7 +293,7 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 					target_matrix(0, k) = (*target)(k);
 				}
 				// Eigen::MatrixXf output = this->feed_forward(input_matrix);
-				Eigen::MatrixXf output = this->feed_forward(input_matrix, dropout_rate);
+				Eigen::MatrixXf output = this->feed_forward(input_matrix);
 				// Backward pass
 				Gradients grads = this->backward(input_matrix, target_matrix);
 				// Update weights and biases
@@ -306,7 +355,7 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 }
 
 std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
-												   IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains, float dropout_rate) {
+												   IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains) {
 
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
@@ -406,7 +455,7 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 				}
 
 				// Forward pass
-				this->feed_forward(x_batch, dropout_rate);
+				this->feed_forward(x_batch);
 
 				// Backward pass
 				Gradients grads = this->backward(x_batch, y_batch);

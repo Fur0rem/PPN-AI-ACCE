@@ -13,7 +13,37 @@
 #include <chrono>
 #include <eigen3/Eigen/Dense>
 #include <memory>
+#include <random>
 #include <vector>
+
+/**
+ * @brief Noise the training of the Neural Network to encourage generalisation
+ */
+class TrainingNoise {
+  private:
+	float m_dropout_rate;				///< Rate for drop-out of neurons
+	float m_add_noise;					///< If m_add_noise = a, then it will noise the matrices with [1.0 - a, 1.0 + a] + value
+	float m_mult_noise;					///< If m_add_noise = m, then it will noise the matrices with [1.0 - m, 1.0 + m] * value
+	std::random_device m_rd;			///< Random device for seed
+	std::mt19937 m_gen;					///< Mersenne Twister random number generator
+	std::bernoulli_distribution m_dist; ///< Bernoulli distribution for dropout
+
+  public:
+	/**
+	 * @brief Constructor for TrainingNoise
+	 * @param dropout_rate Rate for drop-out of neurons
+	 * @param add_noise If m_add_noise = a, then it will noise the matrices with [1.0 - a, 1.0 + a] + value
+	 * @param mult_noise If m_add_noise = m, then it will noise the matrices with [1.0 - m, 1.0 + m] * value
+	 */
+	TrainingNoise(float dropout_rate, float add_noise, float mult_noise);
+
+	/**
+	 * @brief Apply the noise to the given matrix
+	 * @param matrix The matrix to apply the noise to
+	 * @return The matrix with noise applied
+	 */
+	void apply_noise(Eigen::MatrixXf& matrix);
+};
 
 /**
  * @brief Neural Network class
@@ -34,14 +64,17 @@ class NeuralNetwork {
 	std::vector<Eigen::MatrixXf> m_a_values;		   ///< Activations of the neural network
 	std::vector<Eigen::MatrixXf> m_z_values;		   ///< Pre-activations of the neural network
 	std::unique_ptr<ActivationFunc> m_activation_func; ///< Activation function of the network
+	std::unique_ptr<TrainingNoise> m_training_noise;   ///< Training noise for the neural network
 
   public:
 	/**
 	 * @brief Constructor for NeuralNetwork class
 	 * @param topology Topology of the neural network
 	 * @param activation_func Activation function of the neural network
+	 * @param training_noise Training noise for the neural network
 	 */
-	NeuralNetwork(const std::vector<size_t>& topology, std::unique_ptr<ActivationFunc> activation_func);
+	NeuralNetwork(const std::vector<size_t>& topology, std::unique_ptr<ActivationFunc> activation_func,
+				  std::unique_ptr<TrainingNoise> training_noise);
 
 	/**
 	 * @brief Predict the output of the neural network for a given input
@@ -62,8 +95,7 @@ class NeuralNetwork {
 	 * @param input The input to feed forward
 	 * @return Output matrix resulting from the feed forward
 	 */
-	// Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input  );
-	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input, float dropout_rate);
+	Eigen::MatrixXf feed_forward(const Eigen::MatrixXf& input);
 
 	/**
 	 * @brief Backpropagation algorithm to compute gradients
@@ -82,11 +114,10 @@ class NeuralNetwork {
 	 * @param learning_rate Learning rate for the optimiser
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
-	 * @param dropout_rate Dropout rate for the neural network
 	 * @return A pair of floats containing the training and validation accuracy
 	 */
 	std::pair<float, float> train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
-								  std::string&& logging_dir, size_t nb_trains, float dropout_rate);
+								  std::string&& logging_dir, size_t nb_trains);
 
 	/**
 	 * @brief Train the neural network using the given dataset with batch training and return the accuracy of training and validation data
@@ -98,11 +129,10 @@ class NeuralNetwork {
 	 * @param optimiser Optimiser to use for training
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
-	 * @param dropout_rate Dropout rate for the neural network
 	 * @return A pair of floats containing the training and validation accuracy
 	 */
 	std::pair<float, float> train_batch(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
-										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains, float dropout_rate);
+										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains);
 
 	/**
 	 * @brief Compute the mean relative squared error between the prediction and target

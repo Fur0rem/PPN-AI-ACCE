@@ -7,7 +7,8 @@ var searchData=
   ['to_20run_20the_20project_4',['How to run the project',['../index.html#autotoc_md3',1,'']]],
   ['topology_5',['topology',['../structMetrics.html#a01423d226db1f853a68637bf956b6572',1,'Metrics']]],
   ['topology_5ffinder_2ecpp_6',['topology_finder.cpp',['../topology__finder_8cpp.html',1,'']]],
-  ['train_7',['train',['../classNeuralNetwork.html#ac0985b6c9bcf9841c75d6a8b61c2ab2a',1,'NeuralNetwork']]],
+  ['train_7',['train',['../classNeuralNetwork.html#aab78d40f586338dad53b7c29255dfdcd',1,'NeuralNetwork']]],
   ['train_5facc_8',['train_acc',['../structMetrics.html#a642f650572618f747f53c892dae37258',1,'Metrics']]],
-  ['train_5fbatch_9',['train_batch',['../classNeuralNetwork.html#a455d44c6023820999dfd9df6943af4f7',1,'NeuralNetwork']]]
+  ['train_5fbatch_9',['train_batch',['../classNeuralNetwork.html#a769264b6424463724390ef9a0b18741c',1,'NeuralNetwork']]],
+  ['trainingnoise_10',['TrainingNoise',['../classTrainingNoise.html',1,'TrainingNoise'],['../classTrainingNoise.html#a8e30ce4bd9dca65cbf3efb136ce20cc2',1,'TrainingNoise::TrainingNoise()']]]
 ];
