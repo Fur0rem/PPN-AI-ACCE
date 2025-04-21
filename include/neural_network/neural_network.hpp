@@ -24,6 +24,7 @@ class TrainingNoise {
 	float m_dropout_rate;				///< Rate for drop-out of neurons
 	float m_add_noise;					///< If m_add_noise = a, then it will noise the matrices with [1.0 - a, 1.0 + a] + value
 	float m_mult_noise;					///< If m_add_noise = m, then it will noise the matrices with [1.0 - m, 1.0 + m] * value
+	float m_regularisation_term;		///< L2 regularisation term
 	std::random_device m_rd;			///< Random device for seed
 	std::mt19937 m_gen;					///< Mersenne Twister random number generator
 	std::bernoulli_distribution m_dist; ///< Bernoulli distribution for dropout
@@ -34,8 +35,9 @@ class TrainingNoise {
 	 * @param dropout_rate Rate for drop-out of neurons
 	 * @param add_noise If m_add_noise = a, then it will noise the matrices with [1.0 - a, 1.0 + a] + value
 	 * @param mult_noise If m_add_noise = m, then it will noise the matrices with [1.0 - m, 1.0 + m] * value
+	 * @param regularisation_term L2 regularisation term
 	 */
-	TrainingNoise(float dropout_rate, float add_noise, float mult_noise);
+	TrainingNoise(float dropout_rate, float add_noise, float mult_noise, float regularisation_term);
 
 	/**
 	 * @brief Apply the noise to the given matrix
@@ -43,6 +45,12 @@ class TrainingNoise {
 	 * @return The matrix with noise applied
 	 */
 	void apply_noise(Eigen::MatrixXf& matrix);
+
+	/**
+	 * @brief Get the regularisation term
+	 * @return The regularisation term
+	 */
+	float get_regularisation_term() const;
 };
 
 /**

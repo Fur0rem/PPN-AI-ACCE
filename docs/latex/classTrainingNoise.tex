@@ -12,21 +12,23 @@ Noise the training of the Neural Network to encourage generalisation.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2}{Training\+Noise}} (float dropout\+\_\+rate, float add\+\_\+noise, float mult\+\_\+noise)
+\mbox{\hyperlink{classTrainingNoise_a684b41c6ba1afa47f4984c6453e28f87}{Training\+Noise}} (float dropout\+\_\+rate, float add\+\_\+noise, float mult\+\_\+noise, float regularisation\+\_\+term)
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classTrainingNoise}{Training\+Noise}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTrainingNoise_adc69be0ea8f9ec07c3be0c4a6e7ab31f}{apply\+\_\+noise}} (Eigen\+::\+Matrix\+Xf \&matrix)
-\begin{DoxyCompactList}\small\item\em Apply the noise to the given matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Apply the noise to the given matrix. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classTrainingNoise_ae3d7a1645fa36f83afe2d1806c835997}{get\+\_\+regularisation\+\_\+term}} () const
+\begin{DoxyCompactList}\small\item\em Get the regularisation term. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Noise the training of the Neural Network to encourage generalisation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2}\label{classTrainingNoise_a8e30ce4bd9dca65cbf3efb136ce20cc2} 
+\Hypertarget{classTrainingNoise_a684b41c6ba1afa47f4984c6453e28f87}\label{classTrainingNoise_a684b41c6ba1afa47f4984c6453e28f87} 
 \index{TrainingNoise@{TrainingNoise}!TrainingNoise@{TrainingNoise}}
 \index{TrainingNoise@{TrainingNoise}!TrainingNoise@{TrainingNoise}}
 \doxysubsubsection{\texorpdfstring{TrainingNoise()}{TrainingNoise()}}
-{\footnotesize\ttfamily Training\+Noise\+::\+Training\+Noise (\begin{DoxyParamCaption}\item[{float}]{dropout\+\_\+rate,  }\item[{float}]{add\+\_\+noise,  }\item[{float}]{mult\+\_\+noise }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Training\+Noise\+::\+Training\+Noise (\begin{DoxyParamCaption}\item[{float}]{dropout\+\_\+rate,  }\item[{float}]{add\+\_\+noise,  }\item[{float}]{mult\+\_\+noise,  }\item[{float}]{regularisation\+\_\+term }\end{DoxyParamCaption})}
 
 
 
@@ -39,6 +41,8 @@ Constructor for \doxylink{classTrainingNoise}{Training\+Noise}.
 {\em add\+\_\+noise} & If m\+\_\+add\+\_\+noise = a, then it will noise the matrices with \mbox{[}1.\+0 -\/ a, 1.\+0 + a\mbox{]} + value \\
 \hline
 {\em mult\+\_\+noise} & If m\+\_\+add\+\_\+noise = m, then it will noise the matrices with \mbox{[}1.\+0 -\/ m, 1.\+0 + m\mbox{]} \texorpdfstring{$\ast$}{*} value \\
+\hline
+{\em regularisation\+\_\+term} & L2 regularisation term \\
 \hline
 \end{DoxyParams}
 
@@ -61,6 +65,19 @@ Apply the noise to the given matrix.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The matrix with noise applied 
+\end{DoxyReturn}
+\Hypertarget{classTrainingNoise_ae3d7a1645fa36f83afe2d1806c835997}\label{classTrainingNoise_ae3d7a1645fa36f83afe2d1806c835997} 
+\index{TrainingNoise@{TrainingNoise}!get\_regularisation\_term@{get\_regularisation\_term}}
+\index{get\_regularisation\_term@{get\_regularisation\_term}!TrainingNoise@{TrainingNoise}}
+\doxysubsubsection{\texorpdfstring{get\_regularisation\_term()}{get\_regularisation\_term()}}
+{\footnotesize\ttfamily float Training\+Noise\+::get\+\_\+regularisation\+\_\+term (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the regularisation term. 
+
+\begin{DoxyReturn}{Returns}
+The regularisation term 
 \end{DoxyReturn}
 
 

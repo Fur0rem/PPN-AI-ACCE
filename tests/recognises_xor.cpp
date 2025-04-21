@@ -17,7 +17,7 @@ TEST(NeuralNetwork, XorRegularTraining) {
 	// Creating neural network
 	// 2 input neurons, 3 hidden neurons and 1 output neuron
 	std::vector<size_t> topology = {2, 4, 1};
-	std::unique_ptr<TrainingNoise> training_noise = std::make_unique<TrainingNoise>(0.0F, 0.01F, 0.01F);
+	std::unique_ptr<TrainingNoise> training_noise = std::make_unique<TrainingNoise>(0.0F, 0.01F, 0.01F, 0.0F);
 	NeuralNetwork nn(topology, std::make_unique<Sigmoid>(), std::move(training_noise));
 
 	// Sample dataset
@@ -43,7 +43,7 @@ TEST(NeuralNetwork, XorBatchTraining) {
 	// Creating neural network
 	// 2 input neurons, 3 hidden neurons and 1 output neuron
 	std::vector<size_t> topology = {2, 3, 1};
-	std::unique_ptr<TrainingNoise> training_noise = std::make_unique<TrainingNoise>(0.0F, 0.01F, 0.01F);
+	std::unique_ptr<TrainingNoise> training_noise = std::make_unique<TrainingNoise>(0.0F, 0.01F, 0.01F, 0.0F);
 	NeuralNetwork nn(topology, std::make_unique<Sigmoid>(), std::move(training_noise));
 
 	// Sample dataset

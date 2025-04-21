@@ -86,18 +86,21 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e30ce4bd9dca65cbf3efb136ce20cc2" id="r_a8e30ce4bd9dca65cbf3efb136ce20cc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e30ce4bd9dca65cbf3efb136ce20cc2">TrainingNoise</a> (float dropout_rate, float add_noise, float mult_noise)</td></tr>
-<tr class="memdesc:a8e30ce4bd9dca65cbf3efb136ce20cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classTrainingNoise.html" title="Noise the training of the Neural Network to encourage generalisation.">TrainingNoise</a>.  <br /></td></tr>
-<tr class="separator:a8e30ce4bd9dca65cbf3efb136ce20cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684b41c6ba1afa47f4984c6453e28f87" id="r_a684b41c6ba1afa47f4984c6453e28f87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a684b41c6ba1afa47f4984c6453e28f87">TrainingNoise</a> (float dropout_rate, float add_noise, float mult_noise, float regularisation_term)</td></tr>
+<tr class="memdesc:a684b41c6ba1afa47f4984c6453e28f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classTrainingNoise.html" title="Noise the training of the Neural Network to encourage generalisation.">TrainingNoise</a>.  <br /></td></tr>
+<tr class="separator:a684b41c6ba1afa47f4984c6453e28f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc69be0ea8f9ec07c3be0c4a6e7ab31f" id="r_adc69be0ea8f9ec07c3be0c4a6e7ab31f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc69be0ea8f9ec07c3be0c4a6e7ab31f">apply_noise</a> (Eigen::MatrixXf &amp;matrix)</td></tr>
 <tr class="memdesc:adc69be0ea8f9ec07c3be0c4a6e7ab31f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the noise to the given matrix.  <br /></td></tr>
 <tr class="separator:adc69be0ea8f9ec07c3be0c4a6e7ab31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3d7a1645fa36f83afe2d1806c835997" id="r_ae3d7a1645fa36f83afe2d1806c835997"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3d7a1645fa36f83afe2d1806c835997">get_regularisation_term</a> () const</td></tr>
+<tr class="memdesc:ae3d7a1645fa36f83afe2d1806c835997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the regularisation term.  <br /></td></tr>
+<tr class="separator:ae3d7a1645fa36f83afe2d1806c835997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Noise the training of the Neural Network to encourage generalisation. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8e30ce4bd9dca65cbf3efb136ce20cc2" name="a8e30ce4bd9dca65cbf3efb136ce20cc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e30ce4bd9dca65cbf3efb136ce20cc2">&#9670;&#160;</a></span>TrainingNoise()</h2>
+<a id="a684b41c6ba1afa47f4984c6453e28f87" name="a684b41c6ba1afa47f4984c6453e28f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684b41c6ba1afa47f4984c6453e28f87">&#9670;&#160;</a></span>TrainingNoise()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +118,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>mult_noise</em></span>&#160;)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>mult_noise</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>regularisation_term</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -126,6 +134,7 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">dropout_rate</td><td>Rate for drop-out of neurons </td></tr>
     <tr><td class="paramname">add_noise</td><td>If m_add_noise = a, then it will noise the matrices with [1.0 - a, 1.0 + a] + value </td></tr>
     <tr><td class="paramname">mult_noise</td><td>If m_add_noise = m, then it will noise the matrices with [1.0 - m, 1.0 + m] * value </td></tr>
+    <tr><td class="paramname">regularisation_term</td><td>L2 regularisation term </td></tr>
   </table>
   </dd>
 </dl>
@@ -156,6 +165,26 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The matrix with noise applied </dd></dl>
+
+</div>
+</div>
+<a id="ae3d7a1645fa36f83afe2d1806c835997" name="ae3d7a1645fa36f83afe2d1806c835997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d7a1645fa36f83afe2d1806c835997">&#9670;&#160;</a></span>get_regularisation_term()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TrainingNoise::get_regularisation_term </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the regularisation term. </p>
+<dl class="section return"><dt>Returns</dt><dd>The regularisation term </dd></dl>
 
 </div>
 </div>

@@ -10,5 +10,5 @@ var searchData=
   ['train_7',['train',['../classNeuralNetwork.html#aab78d40f586338dad53b7c29255dfdcd',1,'NeuralNetwork']]],
   ['train_5facc_8',['train_acc',['../structMetrics.html#a642f650572618f747f53c892dae37258',1,'Metrics']]],
   ['train_5fbatch_9',['train_batch',['../classNeuralNetwork.html#a769264b6424463724390ef9a0b18741c',1,'NeuralNetwork']]],
-  ['trainingnoise_10',['TrainingNoise',['../classTrainingNoise.html',1,'TrainingNoise'],['../classTrainingNoise.html#a8e30ce4bd9dca65cbf3efb136ce20cc2',1,'TrainingNoise::TrainingNoise()']]]
+  ['trainingnoise_10',['TrainingNoise',['../classTrainingNoise.html',1,'TrainingNoise'],['../classTrainingNoise.html#a684b41c6ba1afa47f4984c6453e28f87',1,'TrainingNoise::TrainingNoise()']]]
 ];

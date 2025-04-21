@@ -26,8 +26,8 @@ std::vector<float> get_row(const Eigen::MatrixXf& matrix, size_t row) {
 	return result;
 }
 
-TrainingNoise::TrainingNoise(float dropout_rate, float add_noise, float mult_noise)
-	: m_dropout_rate(dropout_rate), m_add_noise(add_noise), m_mult_noise(mult_noise) {
+TrainingNoise::TrainingNoise(float dropout_rate, float add_noise, float mult_noise, float regularisation_term)
+	: m_dropout_rate(dropout_rate), m_add_noise(add_noise), m_mult_noise(mult_noise), m_regularisation_term(regularisation_term) {
 	// Create the random device
 	m_gen = std::mt19937(m_rd());								// Seed the generator with the random device
 	m_dist = std::bernoulli_distribution(1.0 - m_dropout_rate); // Bernoulli distribution for dropout
@@ -72,6 +72,10 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 			}
 		}
 	}
+}
+
+float TrainingNoise::get_regularisation_term() const {
+	return m_regularisation_term;
 }
 
 NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_ptr<ActivationFunc> activation_func,
@@ -459,6 +463,15 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 
 				// Backward pass
 				Gradients grads = this->backward(x_batch, y_batch);
+
+				auto regularisation_term = this->m_training_noise->get_regularisation_term();
+
+				// Add regularisation term (L2 regularisation), penalises large weights
+				if (regularisation_term > 0.0) {
+					for (size_t i = 0; i < m_topology.size() - 1; i++) {
+						grads.d_w()[i] += regularisation_term * m_weights[i].cwiseProduct(m_weights[i]);
+					}
+				}
 
 				// Update weights
 				optimiser.update_weights(grads, *this);
