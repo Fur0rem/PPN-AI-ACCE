@@ -10,6 +10,7 @@ Used to test the neural network implementation on xor example.
 {\ttfamily \#include "{}neural\+\_\+network/optimiser.\+hpp"{}}\newline
 {\ttfamily \#include "{}parsing/non\+\_\+encoder.\+hpp"{}}\newline
 {\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -19,7 +20,13 @@ Used to test the neural network implementation on xor example.
 \begin{DoxyCompactList}\small\item\em Test to check if the neural network can recognise the xor function using regular training. \end{DoxyCompactList}\item 
 \Hypertarget{recognises__xor_8cpp_a153ed92e96a62654554b20bb4ce6104a}\label{recognises__xor_8cpp_a153ed92e96a62654554b20bb4ce6104a} 
 {\bfseries TEST} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}}, Xor\+Batch\+Training)
-\begin{DoxyCompactList}\small\item\em Test to check if the neural network can recognise the xor function using batch training. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test to check if the neural network can recognise the xor function using batch training. \end{DoxyCompactList}\item 
+\Hypertarget{recognises__xor_8cpp_af00c84fa92b6029e77d9ad20f7c3b71c}\label{recognises__xor_8cpp_af00c84fa92b6029e77d9ad20f7c3b71c} 
+{\bfseries TEST} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}}, Xor\+Local\+Search\+Training)
+\begin{DoxyCompactList}\small\item\em Test to check if the neural network can recognise the xor function using local search training. \end{DoxyCompactList}\item 
+\Hypertarget{recognises__xor_8cpp_acc9fa3663cfcca07f7e184bd0f2a1769}\label{recognises__xor_8cpp_acc9fa3663cfcca07f7e184bd0f2a1769} 
+{\bfseries TEST} (\mbox{\hyperlink{classNeuralNetwork}{Neural\+Network}}, Xor\+Simulated\+Annealing\+Training)
+\begin{DoxyCompactList}\small\item\em Test to check if the neural network can recognise the xor function using simulated annealing training. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

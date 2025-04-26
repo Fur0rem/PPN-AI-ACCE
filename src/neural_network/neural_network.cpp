@@ -202,12 +202,18 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 	return grads;
 }
 
-std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
-											 std::string&& logging_dir, size_t nb_trains) {
+struct Data {
+	std::vector<std::string> train_names;
+	std::vector<std::string> validation_names;
+	Eigen::MatrixXf train_input_matrix;
+	Eigen::MatrixXf train_target_matrix;
+	Eigen::MatrixXf validation_input_matrix;
+	Eigen::MatrixXf validation_target_matrix;
+	size_t train_size;
+	size_t validation_size;
+};
 
-	// Create the logging directory
-	std::filesystem::create_directory(logging_dir);
-
+Data into_data(Dataset& dataset, float training_proportion) {
 	auto data = dataset.get_data(1.0);
 	// Split the data into training and validation sets
 	size_t const train_size = (size_t)((double)data.size() * training_proportion);
@@ -254,6 +260,86 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 		for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
 			// std::cout << "Accessing train input vector " << i << ", index " << j << '\n';
 			// std::cout << "Writing to train input matrix (" << i << ", " << j << ")\n";
+			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
+		}
+		for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
+			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
+		}
+	}
+	for (size_t i = 0; i < validation_size; i++) {
+		for (size_t j = 0; j < validation_input_vectors[0]->size(); j++) {
+			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
+		}
+		for (size_t j = 0; j < validation_target_vectors[0]->size(); j++) {
+			validation_target_matrix(i, j) = (*validation_target_vectors[i])(j);
+		}
+	}
+
+	Data data_struct = {
+		.train_names = train_names,
+		.validation_names = validation_names,
+		.train_input_matrix = train_input_matrix,
+		.train_target_matrix = train_target_matrix,
+		.validation_input_matrix = validation_input_matrix,
+		.validation_target_matrix = validation_target_matrix,
+		.train_size = train_size,
+		.validation_size = validation_size,
+	};
+	return data_struct;
+}
+
+std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs, float training_proportion, float learning_rate,
+											 std::string&& logging_dir, size_t nb_trains) {
+
+	// Create the logging directory
+	std::filesystem::create_directory(logging_dir);
+
+	// Get the data
+	// Inline the into_data function
+	auto data = dataset.get_data(1.0);
+
+	if (data.empty()) {
+		throw std::runtime_error("Dataset is empty.");
+	}
+
+	size_t const train_size = (size_t)((double)data.size() * training_proportion);
+	size_t const validation_size = data.size() - train_size;
+
+	std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
+
+	std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
+	std::vector<Eigen::VectorXf*> train_target_vectors(train_size);
+	std::vector<Eigen::VectorXf*> validation_target_vectors(validation_size);
+	std::vector<std::string> train_names(train_size);
+	std::vector<std::string> validation_names(validation_size);
+
+	for (size_t i = 0; i < data.size(); i++) {
+		if (std::get<1>(data[i]).size() == 0 || std::get<2>(data[i]).size() == 0) {
+			throw std::runtime_error("Invalid data point: Input or target vector is empty.");
+		}
+
+		if (i < train_size) {
+			train_names[i] = std::get<0>(data[i]);
+			train_input_vectors[i] = &std::get<1>(data[i]);
+			train_target_vectors[i] = &std::get<2>(data[i]);
+		}
+		else {
+			validation_names[i - train_size] = std::get<0>(data[i]);
+			validation_input_vectors[i - train_size] = &std::get<1>(data[i]);
+			validation_target_vectors[i - train_size] = &std::get<2>(data[i]);
+		}
+	}
+
+	Eigen::MatrixXf train_input_matrix(train_size, train_input_vectors[0]->size());
+	Eigen::MatrixXf train_target_matrix(train_size, train_target_vectors[0]->size());
+
+	size_t matrix_y_for_validation = (validation_size > 0) ? validation_target_vectors[0]->size() : 0;
+	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
+	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
+
+	for (size_t i = 0; i < train_size; i++) {
+		for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
 			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
 		}
 		for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
@@ -364,52 +450,16 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 	// Create the logging directory
 	std::filesystem::create_directory(logging_dir);
 
-	auto data = dataset.get_all_data();
-	std::vector<std::vector<float>> inputs;
-	std::vector<std::vector<float>> targets;
-
-	for (auto& d : data) {
-		auto input = std::get<1>(d);
-		auto target = std::get<2>(d);
-		inputs.push_back(std::vector<float>());
-		targets.push_back(std::vector<float>());
-		for (size_t i = 0; i < input.size(); i++) {
-			inputs.back().push_back(input[i]);
-		}
-		for (size_t i = 0; i < target.size(); i++) {
-			targets.back().push_back(target[i]);
-		}
-	}
-
-	const size_t train_size = (size_t)((double)data.size() * training_proportion);
-	const size_t validation_size = data.size() - train_size;
-
-	Eigen::MatrixXf train_inputs_mat(train_size, inputs[0].size());
-	Eigen::MatrixXf train_targets_mat(train_size, targets[0].size());
-	std::vector<std::string> train_names(train_size);
-	Eigen::MatrixXf validation_inputs_mat(validation_size, inputs[0].size());
-	Eigen::MatrixXf validation_targets_mat(validation_size, targets[0].size());
-	std::vector<std::string> validation_names(validation_size);
-
-	for (size_t i = 0; i < train_size; i++) {
-		for (size_t j = 0; j < inputs[0].size(); j++) {
-			train_inputs_mat(i, j) = inputs[i][j];
-		}
-		for (size_t j = 0; j < targets[0].size(); j++) {
-			train_targets_mat(i, j) = targets[i][j];
-		}
-		train_names[i] = std::get<0>(data[i]);
-	}
-
-	for (size_t i = 0; i < validation_size; i++) {
-		for (size_t j = 0; j < inputs[0].size(); j++) {
-			validation_inputs_mat(i, j) = inputs[i + train_size][j];
-		}
-		for (size_t j = 0; j < targets[0].size(); j++) {
-			validation_targets_mat(i, j) = targets[i + train_size][j];
-		}
-		validation_names[i] = std::get<0>(data[i + train_size]);
-	}
+	// Get the data
+	Data data = into_data(dataset, training_proportion);
+	auto& train_names = data.train_names;
+	auto& validation_names = data.validation_names;
+	auto& train_input_matrix = data.train_input_matrix;
+	auto& train_target_matrix = data.train_target_matrix;
+	auto& validation_input_matrix = data.validation_input_matrix;
+	auto& validation_target_matrix = data.validation_target_matrix;
+	size_t train_size = data.train_size;
+	size_t validation_size = data.validation_size;
 
 	for (size_t train = 0; train < nb_trains; train++) {
 		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
@@ -425,35 +475,35 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 			// Shuffle data
 			auto clock = std::chrono::high_resolution_clock::now();
 
-			std::vector<size_t> indices(train_inputs_mat.rows());
-			for (size_t i = 0; i < train_inputs_mat.rows(); i++) {
+			std::vector<size_t> indices(train_input_matrix.rows());
+			for (size_t i = 0; i < train_input_matrix.rows(); i++) {
 				indices[i] = i;
 			}
 			std::shuffle(indices.begin(), indices.end(), std::mt19937(std::random_device()()));
 
-			Eigen::MatrixXf x_shuffled(train_inputs_mat.rows(), train_inputs_mat.cols());
-			Eigen::MatrixXf y_shuffled(train_targets_mat.rows(), train_targets_mat.cols());
-			for (size_t i = 0; i < train_inputs_mat.rows(); i++) {
-				for (size_t j = 0; j < train_inputs_mat.cols(); j++) {
-					x_shuffled(i, j) = train_inputs_mat(indices[i], j);
+			Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
+			Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
+			for (size_t i = 0; i < train_input_matrix.rows(); i++) {
+				for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+					x_shuffled(i, j) = train_input_matrix(indices[i], j);
 				}
 			}
-			for (size_t i = 0; i < train_targets_mat.rows(); i++) {
-				for (size_t j = 0; j < train_targets_mat.cols(); j++) {
-					y_shuffled(i, j) = train_targets_mat(indices[i], j);
+			for (size_t i = 0; i < train_target_matrix.rows(); i++) {
+				for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+					y_shuffled(i, j) = train_target_matrix(indices[i], j);
 				}
 			}
 
 			// Mini-batch gradient descent
-			for (size_t i = 0; i < train_inputs_mat.rows(); i += batch_size) {
-				size_t end = std::min(i + batch_size, (size_t)train_inputs_mat.rows());
-				Eigen::MatrixXf x_batch(end - i, train_inputs_mat.cols());
-				Eigen::MatrixXf y_batch(end - i, train_targets_mat.cols());
+			for (size_t i = 0; i < train_input_matrix.rows(); i += batch_size) {
+				size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
+				Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
+				Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
 				for (size_t j = i; j < end; j++) {
-					for (size_t k = 0; k < train_inputs_mat.cols(); k++) {
+					for (size_t k = 0; k < train_input_matrix.cols(); k++) {
 						x_batch(j - i, k) = x_shuffled(j, k);
 					}
-					for (size_t k = 0; k < train_targets_mat.cols(); k++) {
+					for (size_t k = 0; k < train_target_matrix.cols(); k++) {
 						y_batch(j - i, k) = y_shuffled(j, k);
 					}
 				}
@@ -484,10 +534,10 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 			const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
 			if (epoch % nb_points_to_plot == 0) {
 				this->log_epoch_metrics(epoch,
-										train_inputs_mat,
-										train_targets_mat,
-										validation_inputs_mat,
-										validation_targets_mat,
+										train_input_matrix,
+										train_target_matrix,
+										validation_input_matrix,
+										validation_target_matrix,
 										dataset,
 										log_file,
 										logging_filename);
@@ -500,11 +550,11 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 		std::cout << "Training time: " << total_time.count() << "s\n";
 		this->log_final_results(log_file,
 								dataset,
-								train_inputs_mat,
-								train_targets_mat,
+								train_input_matrix,
+								train_target_matrix,
 								train_names,
-								validation_inputs_mat,
-								validation_targets_mat,
+								validation_input_matrix,
+								validation_target_matrix,
 								validation_names,
 								train_size,
 								validation_size,
@@ -515,8 +565,276 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 	}
 
 	// Evaluate the model (accuracy of the training and validation sets)
-	double train_acc = get_acc_mrae(train_inputs_mat, train_targets_mat, dataset.get_output_encoder());
-	double validation_acc = get_acc_mrae(validation_inputs_mat, validation_targets_mat, dataset.get_output_encoder());
+	double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
+	return std::make_pair(train_acc, validation_acc);
+}
+
+std::pair<float, float> NeuralNetwork::train_local_search(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
+														  size_t nb_samples, std::string&& logging_dir, size_t nb_trains) {
+	// Create the logging directory
+	std::filesystem::create_directory(logging_dir);
+
+	// Get the data
+	Data data = into_data(dataset, training_proportion);
+	auto& train_names = data.train_names;
+	auto& validation_names = data.validation_names;
+	auto& train_input_matrix = data.train_input_matrix;
+	auto& train_target_matrix = data.train_target_matrix;
+	auto& validation_input_matrix = data.validation_input_matrix;
+	auto& validation_target_matrix = data.validation_target_matrix;
+	size_t train_size = data.train_size;
+	size_t validation_size = data.validation_size;
+
+	for (size_t train = 0; train < nb_trains; train++) {
+		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
+		// Reset the neural network to avoid using the previous weights
+		this->reset();
+
+		// Open the file for logging
+		std::string logging_filename = logging_dir + "/train_" + std::to_string(train) + ".log";
+		std::ofstream log_file;
+		log_file.open(logging_filename);
+
+		for (size_t epoch = 0; epoch < nb_epochs; epoch++) {
+			auto clock = std::chrono::high_resolution_clock::now();
+
+			// Backup the original weights and biases
+			std::vector<Eigen::MatrixXf> original_weights = m_weights;
+			std::vector<Eigen::MatrixXf> original_biases = m_biases;
+			std::vector<Eigen::MatrixXf> best_weights = m_weights;
+			std::vector<Eigen::MatrixXf> best_biases = m_biases;
+
+			double best_train_acc = this->get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+
+			// For each sample, generate a random perturbation, and keep the best one
+			for (size_t i = 0; i < nb_samples; i++) {
+				// Generate a random perturbation
+				for (size_t j = 0; j < m_weights.size(); j++) {
+					for (size_t k = 0; k < m_weights[j].rows(); k++) {
+						for (size_t l = 0; l < m_weights[j].cols(); l++) {
+							m_weights[j](k, l) += ((float)rand() / RAND_MAX - 0.5F) * 0.2F;
+						}
+					}
+					for (size_t k = 0; k < m_biases[j].cols(); k++) {
+						m_biases[j](0, k) += ((float)rand() / RAND_MAX - 0.5F) * 0.2F;
+					}
+				}
+
+				// Evaluate the model
+				double train_acc = this->get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+				if (train_acc > best_train_acc) {
+					best_train_acc = train_acc;
+					best_weights = m_weights;
+					best_biases = m_biases;
+				}
+
+				// Restore the original weights and biases
+				m_weights = original_weights;
+				m_biases = original_biases;
+			}
+
+			// Update the weights and biases with the best ones
+			m_weights = best_weights;
+			m_biases = best_biases;
+			auto end_clock = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
+			total_time += elapsed_seconds;
+
+			const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
+			if (epoch % nb_points_to_plot == 0) {
+				this->log_epoch_metrics(epoch,
+										train_input_matrix,
+										train_target_matrix,
+										validation_input_matrix,
+										validation_target_matrix,
+										dataset,
+										log_file,
+										logging_filename);
+			}
+			// One time every 10 points, flush the log file to avoid losing data
+			if (epoch % (nb_points_to_plot * 10) == 0) {
+				log_file.flush();
+			}
+		}
+		std::cout << "Training time: " << total_time.count() << "s\n";
+		IOptimiser* opt = new SGD(0.00F);
+		this->log_final_results(log_file,
+								dataset,
+								train_input_matrix,
+								train_target_matrix,
+								train_names,
+								validation_input_matrix,
+								validation_target_matrix,
+								validation_names,
+								train_size,
+								validation_size,
+								total_time,
+								*opt);
+		delete opt;
+
+		log_file.close();
+	}
+
+	// Evaluate the model (accuracy of the training and validation sets)
+	double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
+	return std::make_pair(train_acc, validation_acc);
+}
+
+/**
+ * @brief Trains the network through simulated annealing
+ * @param dataset The dataset to train on
+ * @param nb_epochs Number of epochs to train for
+ * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
+ * @param batch_size Size of the batch for training
+ * @param decay_rate Decay rate for the temperature
+ * @param initial_temp Initial temperature for the annealing
+ * @param final_temp Final temperature for the annealing
+ * @param logging_dir Directory to log results
+ * @param nb_trains Number of training runs
+ */
+std::pair<float, float> NeuralNetwork::train_simulated_annealing(Dataset& dataset, size_t nb_epochs, float training_proportion,
+																 size_t batch_size, float decay_rate, float initial_temp, float final_temp,
+																 std::string&& logging_dir, size_t nb_trains) {
+	// Create the logging directory
+	std::filesystem::create_directory(logging_dir);
+
+	// Get the data
+	Data data = into_data(dataset, training_proportion);
+	auto& train_names = data.train_names;
+	auto& validation_names = data.validation_names;
+	auto& train_input_matrix = data.train_input_matrix;
+	auto& train_target_matrix = data.train_target_matrix;
+	auto& validation_input_matrix = data.validation_input_matrix;
+	auto& validation_target_matrix = data.validation_target_matrix;
+	size_t train_size = data.train_size;
+	size_t validation_size = data.validation_size;
+
+	for (size_t train = 0; train < nb_trains; train++) {
+		std::chrono::duration<double> total_time = std::chrono::duration<double>::zero();
+		// Reset the neural network to avoid using the previous weights
+		this->reset();
+
+		// Open the file for logging
+		std::string logging_filename = logging_dir + "/train_" + std::to_string(train) + ".log";
+		std::ofstream log_file;
+		log_file.open(logging_filename);
+
+		// Keep track of some of the best weights and biases
+		constexpr int nb_tracked = 10;
+		std::vector<std::pair<float, std::pair<std::vector<Eigen::MatrixXf>, std::vector<Eigen::MatrixXf>>>>
+			best_weights_and_biases_with_acc(nb_tracked);
+		for (size_t i = 0; i < nb_tracked; i++) {
+			best_weights_and_biases_with_acc[i].first = 0.0f;
+			best_weights_and_biases_with_acc[i].second.first = m_weights;
+			best_weights_and_biases_with_acc[i].second.second = m_biases;
+		}
+
+		// Train the neural network by simulated annealing on the best candidates, and keep the best ones
+		for (size_t epoch = 0; epoch < nb_epochs; epoch++) {
+			auto clock = std::chrono::high_resolution_clock::now();
+
+			// For each tracked candidate, generate a random perturbation according to the temperature, and keep the best one
+			double current_temp = initial_temp * std::pow(decay_rate, epoch);
+			for (size_t i = 0; i < nb_tracked; i++) {
+				// Backup the original weights and biases
+				std::vector<Eigen::MatrixXf> original_weights = m_weights;
+				std::vector<Eigen::MatrixXf> original_biases = m_biases;
+
+				// Put the weights and biases of the candidate in the neural network
+				m_weights = best_weights_and_biases_with_acc[i].second.first;
+				m_biases = best_weights_and_biases_with_acc[i].second.second;
+
+				// Generate a random perturbation
+				for (size_t j = 0; j < m_weights.size(); j++) {
+					for (size_t k = 0; k < m_weights[j].rows(); k++) {
+						for (size_t l = 0; l < m_weights[j].cols(); l++) {
+							m_weights[j](k, l) += ((float)rand() / RAND_MAX - 0.5F) * current_temp;
+						}
+					}
+					for (size_t k = 0; k < m_biases[j].cols(); k++) {
+						m_biases[j](0, k) += ((float)rand() / RAND_MAX - 0.5F) * current_temp;
+					}
+				}
+
+				// Evaluate the model
+				double train_acc = this->get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+
+				// Remove worst candidate
+				double worst_acc = 1.0;
+				size_t worst_index = 0;
+				for (size_t j = 0; j < nb_tracked; j++) {
+					if (best_weights_and_biases_with_acc[j].first < worst_acc) {
+						worst_acc = best_weights_and_biases_with_acc[j].first;
+						worst_index = j;
+					}
+				}
+
+				// Replace the worst candidate if the new one is better
+				if (train_acc > best_weights_and_biases_with_acc[worst_index].first) {
+					best_weights_and_biases_with_acc[worst_index].first = train_acc;
+					best_weights_and_biases_with_acc[worst_index].second.first = m_weights;
+					best_weights_and_biases_with_acc[worst_index].second.second = m_biases;
+				}
+
+				// Restore the original weights and biases
+				m_weights = original_weights;
+				m_biases = original_biases;
+			}
+
+			auto end_clock = std::chrono::high_resolution_clock::now();
+
+			// Update the weights and biases with the best ones
+			double best_acc = 0.0;
+			size_t best_index = 0;
+			for (size_t i = 0; i < nb_tracked; i++) {
+				if (best_weights_and_biases_with_acc[i].first > best_acc) {
+					best_acc = best_weights_and_biases_with_acc[i].first;
+					best_index = i;
+				}
+			}
+			m_weights = best_weights_and_biases_with_acc[best_index].second.first;
+			m_biases = best_weights_and_biases_with_acc[best_index].second.second;
+			std::chrono::duration<double> elapsed_seconds = end_clock - clock;
+			total_time += elapsed_seconds;
+			const int nb_points_to_plot = (nb_epochs > 1000) ? nb_epochs / 1000 : 1;
+			if (epoch % nb_points_to_plot == 0) {
+				this->log_epoch_metrics(epoch,
+										train_input_matrix,
+										train_target_matrix,
+										validation_input_matrix,
+										validation_target_matrix,
+										dataset,
+										log_file,
+										logging_filename);
+			}
+			// One time every 10 points, flush the log file to avoid losing data
+			if (epoch % (nb_points_to_plot * 10) == 0) {
+				log_file.flush();
+			}
+		}
+		std::cout << "Training time: " << total_time.count() << "s\n";
+		IOptimiser* opt = new SGD(0.00F);
+		this->log_final_results(log_file,
+								dataset,
+								train_input_matrix,
+								train_target_matrix,
+								train_names,
+								validation_input_matrix,
+								validation_target_matrix,
+								validation_names,
+								train_size,
+								validation_size,
+								total_time,
+								*opt);
+		delete opt;
+		log_file.close();
+	}
+
+	// Evaluate the model (accuracy of the training and validation sets)
+	double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
 	return std::make_pair(train_acc, validation_acc);
 }
 

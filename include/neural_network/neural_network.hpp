@@ -143,6 +143,35 @@ class NeuralNetwork {
 										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains);
 
 	/**
+	 * @brief Trains the neural network through local search
+	 * @param dataset The dataset to train on
+	 * @param nb_epochs Number of epochs to train for
+	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
+	 * @param batch_size Size of the batch for training
+	 * @param nb_samples Number of samples to look for when stepping
+	 * @param logging_dir Directory to log results
+	 * @param nb_trains Number of training runs
+	 */
+	std::pair<float, float> train_local_search(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
+											   size_t nb_samples, std::string&& logging_dir, size_t nb_trains);
+
+	/**
+	 * @brief Trains the network through simulated annealing
+	 * @param dataset The dataset to train on
+	 * @param nb_epochs Number of epochs to train for
+	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
+	 * @param batch_size Size of the batch for training
+	 * @param decay_rate Decay rate for the temperature
+	 * @param initial_temp Initial temperature for the annealing
+	 * @param final_temp Final temperature for the annealing
+	 * @param logging_dir Directory to log results
+	 * @param nb_trains Number of training runs
+	 */
+	std::pair<float, float> train_simulated_annealing(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
+													  float decay_rate, float initial_temp, float final_temp, std::string&& logging_dir,
+													  size_t nb_trains);
+
+	/**
 	 * @brief Compute the mean relative squared error between the prediction and target
 	 * @param prediction The predicted values
 	 * @param target The target values

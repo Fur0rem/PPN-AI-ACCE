@@ -393,7 +393,7 @@ endforeach()
 # Add custom targets
 add_custom_target(check 
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
-    DEPENDS test_iparser test_asm_parser test_binary_parser test_iparser test_xor_parser test_binary_with_split_parser test_recognises_xor
+    DEPENDS test_asm_parser test_binary_parser test_xor_parser test_binary_with_split_parser test_recognises_xor test_hexadecimal_parser test_hexadecimal_with_split_parser test_cycles_encoders
 )
 
 # Add clean target
