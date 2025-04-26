@@ -107,6 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89bd34ee87c740cab12f020a18239f8e" id="r_a89bd34ee87c740cab12f020a18239f8e"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89bd34ee87c740cab12f020a18239f8e">decode</a> (std::vector&lt; float &gt; &amp;input) const =0</td></tr>
 <tr class="memdesc:a89bd34ee87c740cab12f020a18239f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a vector of floats into another vector of floats.  <br /></td></tr>
 <tr class="separator:a89bd34ee87c740cab12f020a18239f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aaa6183c492295962d835602ffe2afc" id="r_a3aaa6183c492295962d835602ffe2afc"><td class="memItemLeft" align="right" valign="top">virtual Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aaa6183c492295962d835602ffe2afc">encode_batch</a> (const Eigen::MatrixXf &amp;input) const =0</td></tr>
+<tr class="memdesc:a3aaa6183c492295962d835602ffe2afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a matrix of floats into another matrix of floats.  <br /></td></tr>
+<tr class="separator:a3aaa6183c492295962d835602ffe2afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c55134620ad058884f720bef7a56f59" id="r_a9c55134620ad058884f720bef7a56f59"><td class="memItemLeft" align="right" valign="top">virtual Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c55134620ad058884f720bef7a56f59">decode_batch</a> (const Eigen::MatrixXf &amp;input) const =0</td></tr>
+<tr class="memdesc:a9c55134620ad058884f720bef7a56f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a matrix of floats into another matrix of floats.  <br /></td></tr>
+<tr class="separator:a9c55134620ad058884f720bef7a56f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for encoding and decoding data. </p>
@@ -147,6 +153,42 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9c55134620ad058884f720bef7a56f59" name="a9c55134620ad058884f720bef7a56f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c55134620ad058884f720bef7a56f59">&#9670;&#160;</a></span>decode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Eigen::MatrixXf IEncoder::decode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decode a matrix of floats into another matrix of floats. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The matrix of floats to decode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The decoded matrix of floats </dd></dl>
+
+<p>Implemented in <a class="el" href="classCyclesNormaliserEncoder.html#a6287effb278383b7c0388d0eb0384fd7">CyclesNormaliserEncoder</a>, <a class="el" href="classCyclesSplitterEncoder.html#a4a62d89f6958eb083ad96d8080b5de23">CyclesSplitterEncoder</a>, <a class="el" href="classCyclesBoundedNormaliserEncoder.html#a2fdd1cbd26e768fd920f73b4e645eee7">CyclesBoundedNormaliserEncoder</a>, <a class="el" href="classCyclesLogEncoder.html#a939184e5a3954453f5b4182e4f807353">CyclesLogEncoder</a>, <a class="el" href="classCyclesSqrtEncoder.html#adc085fbc609f4c5723471023c37eb122">CyclesSqrtEncoder</a>, <a class="el" href="classNonEncoder.html#aa33d79c52ab38c633bce917d967bd60c">NonEncoder</a>, and <a class="el" href="classSizeEncoder.html#a0e6659e8012a71c4c29f84d7ea15cc94">SizeEncoder</a>.</p>
+
+</div>
+</div>
 <a id="aa23851049a14ccec123dc5422492d8f1" name="aa23851049a14ccec123dc5422492d8f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa23851049a14ccec123dc5422492d8f1">&#9670;&#160;</a></span>encode()</h2>
 
@@ -180,6 +222,42 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The encoded vector of floats </dd></dl>
 
 <p>Implemented in <a class="el" href="classCyclesNormaliserEncoder.html#ad75c401e0d8b6965b2c3806d6b752ac8">CyclesNormaliserEncoder</a>, <a class="el" href="classCyclesSplitterEncoder.html#a299f551fe7bdb2a69488f92edd4dc81b">CyclesSplitterEncoder</a>, <a class="el" href="classCyclesBoundedNormaliserEncoder.html#a6c64b648f84075f1e1fab55c971d5ce2">CyclesBoundedNormaliserEncoder</a>, <a class="el" href="classCyclesLogEncoder.html#a76713415233ff57f0c91cb28a623373c">CyclesLogEncoder</a>, <a class="el" href="classCyclesSqrtEncoder.html#a184d112b28617bc46453c8f992f0c1f4">CyclesSqrtEncoder</a>, <a class="el" href="classNonEncoder.html#aa0351ec353a0100fe1b0f8dfdd5b3a42">NonEncoder</a>, and <a class="el" href="classSizeEncoder.html#a196f02e373a710c48b97daf3aa48c5d4">SizeEncoder</a>.</p>
+
+</div>
+</div>
+<a id="a3aaa6183c492295962d835602ffe2afc" name="a3aaa6183c492295962d835602ffe2afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aaa6183c492295962d835602ffe2afc">&#9670;&#160;</a></span>encode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Eigen::MatrixXf IEncoder::encode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encode a matrix of floats into another matrix of floats. </p>
+<p>*</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The matrix of floats to encode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The encoded matrix of floats </dd></dl>
+
+<p>Implemented in <a class="el" href="classCyclesNormaliserEncoder.html#a224ee28a2894683177316252b24ea01d">CyclesNormaliserEncoder</a>, <a class="el" href="classCyclesSplitterEncoder.html#a9fbc26fda47aa2340f377ccb16a0bd07">CyclesSplitterEncoder</a>, <a class="el" href="classCyclesBoundedNormaliserEncoder.html#a803af40e706e72cae903af2b1a746e0a">CyclesBoundedNormaliserEncoder</a>, <a class="el" href="classCyclesLogEncoder.html#a165da5977a7e251fd326551998bbf1ce">CyclesLogEncoder</a>, <a class="el" href="classCyclesSqrtEncoder.html#a0bc2d988c75cb7f918cf9ab06afdddae">CyclesSqrtEncoder</a>, <a class="el" href="classNonEncoder.html#aff9d4f0dcc4a5ff1e90beb7ba6be665d">NonEncoder</a>, and <a class="el" href="classSizeEncoder.html#a4486d1095cb3c7d91cc74990460fa0f4">SizeEncoder</a>.</p>
 
 </div>
 </div>

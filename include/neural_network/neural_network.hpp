@@ -40,6 +40,12 @@ class TrainingNoise {
 	TrainingNoise(float dropout_rate, float add_noise, float mult_noise, float regularisation_term);
 
 	/**
+	 * @brief Create a TrainingNoise object with no noise
+	 * @return A TrainingNoise object with no noise
+	 */
+	static TrainingNoise none();
+
+	/**
 	 * @brief Apply the noise to the given matrix
 	 * @param matrix The matrix to apply the noise to
 	 * @return The matrix with noise applied
@@ -147,29 +153,45 @@ class NeuralNetwork {
 	 * @param dataset The dataset to train on
 	 * @param nb_epochs Number of epochs to train for
 	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
-	 * @param batch_size Size of the batch for training
 	 * @param nb_samples Number of samples to look for when stepping
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
 	 */
-	std::pair<float, float> train_local_search(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
-											   size_t nb_samples, std::string&& logging_dir, size_t nb_trains);
+	std::pair<float, float> train_local_search(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t nb_samples,
+											   std::string&& logging_dir, size_t nb_trains);
 
 	/**
 	 * @brief Trains the network through simulated annealing
 	 * @param dataset The dataset to train on
 	 * @param nb_epochs Number of epochs to train for
 	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
-	 * @param batch_size Size of the batch for training
 	 * @param decay_rate Decay rate for the temperature
+	 * @param nb_tracked Number of tracked weights and biases through the training
 	 * @param initial_temp Initial temperature for the annealing
-	 * @param final_temp Final temperature for the annealing
 	 * @param logging_dir Directory to log results
 	 * @param nb_trains Number of training runs
 	 */
-	std::pair<float, float> train_simulated_annealing(Dataset& dataset, size_t nb_epochs, float training_proportion, size_t batch_size,
-													  float decay_rate, float initial_temp, float final_temp, std::string&& logging_dir,
-													  size_t nb_trains);
+	std::pair<float, float> train_simulated_annealing(Dataset& dataset, size_t nb_epochs, float training_proportion, float decay_rate,
+													  size_t nb_tracked, float initial_temp, std::string&& logging_dir, size_t nb_trains);
+
+	/**
+	 * @brief Trains the network through simulated annealing and gradient descent within the annealing candidates
+	 * @param dataset The dataset to train on
+	 * @param nb_epochs Number of epochs to train for
+	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
+	 * @param decay_rate Decay rate for the temperature
+	 * @param nb_tracked Number of tracked weights and biases through the training
+	 * @param initial_temp Initial temperature for the annealing
+	 * @param optimiser Optimiser to use for training
+	 * @param nb_epochs_gradient Number of epochs to train for the gradient descent
+	 * @param batch_size_gradient Size of the batch for training
+	 * @param logging_dir Directory to log results
+	 * @param nb_trains Number of training runs
+	 */
+	std::pair<float, float> train_simulated_annealing_and_gradient(Dataset& dataset, size_t nb_epochs, float training_proportion,
+																   float decay_rate, size_t nb_tracked, float initial_temp,
+																   IOptimiser& optimiser, size_t nb_epochs_gradient,
+																   size_t batch_size_gradient, std::string&& logging_dir, size_t nb_trains);
 
 	/**
 	 * @brief Compute the mean relative squared error between the prediction and target

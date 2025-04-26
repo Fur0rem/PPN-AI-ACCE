@@ -104,6 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7af63479e030cdb6c6c6c75c6583806" id="r_ad7af63479e030cdb6c6c6c75c6583806"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7af63479e030cdb6c6c6c75c6583806">decode</a> (std::vector&lt; float &gt; &amp;input) const override</td></tr>
 <tr class="memdesc:ad7af63479e030cdb6c6c6c75c6583806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a vector by removing the size token at the beginning and the filler value at the end.  <br /></td></tr>
 <tr class="separator:ad7af63479e030cdb6c6c6c75c6583806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4486d1095cb3c7d91cc74990460fa0f4" id="r_a4486d1095cb3c7d91cc74990460fa0f4"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4486d1095cb3c7d91cc74990460fa0f4">encode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:a4486d1095cb3c7d91cc74990460fa0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a batch of vectors by adding a size token at the beginning and a filler value at the end.  <br /></td></tr>
+<tr class="separator:a4486d1095cb3c7d91cc74990460fa0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6659e8012a71c4c29f84d7ea15cc94" id="r_a0e6659e8012a71c4c29f84d7ea15cc94"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e6659e8012a71c4c29f84d7ea15cc94">decode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:a0e6659e8012a71c4c29f84d7ea15cc94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a batch of vectors by removing the size token at the beginning and the filler value at the end.  <br /></td></tr>
+<tr class="separator:a0e6659e8012a71c4c29f84d7ea15cc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to encode and decode a variable size vector. </p>
@@ -170,6 +176,42 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0e6659e8012a71c4c29f84d7ea15cc94" name="a0e6659e8012a71c4c29f84d7ea15cc94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6659e8012a71c4c29f84d7ea15cc94">&#9670;&#160;</a></span>decode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf SizeEncoder::decode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decode a batch of vectors by removing the size token at the beginning and the filler value at the end. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of vectors to decode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The decoded batch of vectors </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a9c55134620ad058884f720bef7a56f59">IEncoder</a>.</p>
+
+</div>
+</div>
 <a id="a196f02e373a710c48b97daf3aa48c5d4" name="a196f02e373a710c48b97daf3aa48c5d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a196f02e373a710c48b97daf3aa48c5d4">&#9670;&#160;</a></span>encode()</h2>
 
@@ -203,6 +245,42 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The encoded vector </dd></dl>
 
 <p>Implements <a class="el" href="classIEncoder.html#aa23851049a14ccec123dc5422492d8f1">IEncoder</a>.</p>
+
+</div>
+</div>
+<a id="a4486d1095cb3c7d91cc74990460fa0f4" name="a4486d1095cb3c7d91cc74990460fa0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4486d1095cb3c7d91cc74990460fa0f4">&#9670;&#160;</a></span>encode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf SizeEncoder::encode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encode a batch of vectors by adding a size token at the beginning and a filler value at the end. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of vectors to encode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The encoded batch of vectors </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a3aaa6183c492295962d835602ffe2afc">IEncoder</a>.</p>
 
 </div>
 </div>

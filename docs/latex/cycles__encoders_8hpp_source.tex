@@ -15,46 +15,66 @@
 \DoxyCodeLine{00024\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00031\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00032\ \};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSplitterEncoder}{CyclesSplitterEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
-\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00051\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00052\ \};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesBoundedNormaliserEncoder}{CyclesBoundedNormaliserEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
-\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00065\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00072\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a14d471b32f36ac2feb9e8dcce55d5cc0}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00073\ \};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesLogEncoder}{CyclesLogEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
-\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_log\_base;\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ \ \ \ }
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}{CyclesLogEncoder}}(\textcolor{keywordtype}{float}\ log\_base,\ \textcolor{keywordtype}{float}\ added);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00096\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00103\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a224ee28a2894683177316252b24ea01d}{encode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesNormaliserEncoder_a6287effb278383b7c0388d0eb0384fd7}{decode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSplitterEncoder}{CyclesSplitterEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesSplitterEncoder_a9fbc26fda47aa2340f377ccb16a0bd07}{encode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesSplitterEncoder_a4a62d89f6958eb083ad96d8080b5de23}{decode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesBoundedNormaliserEncoder}{CyclesBoundedNormaliserEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a14d471b32f36ac2feb9e8dcce55d5cc0}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSqrtEncoder}{CyclesSqrtEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
-\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ }
-\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}{CyclesSqrtEncoder}}(\textcolor{keywordtype}{float}\ added);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00124\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00131\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00132\ \};}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CYCLES\_ENCODERS\_HPP}}
+\DoxyCodeLine{00112\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a803af40e706e72cae903af2b1a746e0a}{encode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a2fdd1cbd26e768fd920f73b4e645eee7}{decode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesLogEncoder}{CyclesLogEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_log\_base;\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ \ \ \ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classCyclesLogEncoder_a2764839326c16cc4e2c9eb9dc08bd5fc}{CyclesLogEncoder}}(\textcolor{keywordtype}{float}\ log\_base,\ \textcolor{keywordtype}{float}\ added);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00159\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesLogEncoder_a165da5977a7e251fd326551998bbf1ce}{encode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesLogEncoder_a939184e5a3954453f5b4182e4f807353}{decode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00168\ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCyclesSqrtEncoder}{CyclesSqrtEncoder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIEncoder}{IEncoder}}\ \{}
+\DoxyCodeLine{00174\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_added;\ }
+\DoxyCodeLine{00176\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classCyclesSqrtEncoder_ad5580c548f56a7f1fad40e80150846c5}{CyclesSqrtEncoder}}(\textcolor{keywordtype}{float}\ added);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00188\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}{encode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00195\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}{decode}}(std::vector<float>\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00203\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesSqrtEncoder_a0bc2d988c75cb7f918cf9ab06afdddae}{encode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00211\ \ \ \ \ Eigen::MatrixXf\ \mbox{\hyperlink{classCyclesSqrtEncoder_adc085fbc609f4c5723471023c37eb122}{decode\_batch}}(\textcolor{keyword}{const}\ Eigen::MatrixXf\&\ input)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00212\ \};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CYCLES\_ENCODERS\_HPP}}
 
 \end{DoxyCode}

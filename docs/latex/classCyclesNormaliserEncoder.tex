@@ -21,7 +21,11 @@ Inheritance diagram for Cycles\+Normaliser\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it (dividing by the maximum number of cycles) \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesNormaliserEncoder_a224ee28a2894683177316252b24ea01d}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of cycles by normalising it (dividing by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesNormaliserEncoder_a6287effb278383b7c0388d0eb0384fd7}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of cycles by denormalising it (multiplying by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,6 +54,28 @@ The denormalised number of cycles, a vector containing a single value
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classCyclesNormaliserEncoder_a6287effb278383b7c0388d0eb0384fd7}\label{classCyclesNormaliserEncoder_a6287effb278383b7c0388d0eb0384fd7} 
+\index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Normaliser\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of cycles by denormalising it (multiplying by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}\label{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8} 
 \index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
@@ -71,6 +97,28 @@ The normalised number of cycles, a vector containing a single value between 0 an
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classCyclesNormaliserEncoder_a224ee28a2894683177316252b24ea01d}\label{classCyclesNormaliserEncoder_a224ee28a2894683177316252b24ea01d} 
+\index{CyclesNormaliserEncoder@{CyclesNormaliserEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!CyclesNormaliserEncoder@{CyclesNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Normaliser\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of cycles by normalising it (dividing by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

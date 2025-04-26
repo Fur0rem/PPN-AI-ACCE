@@ -23,7 +23,11 @@ Inheritance diagram for Cycles\+Log\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it in a logarithmic scale. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it in a logarithmic scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it in a logarithmic scale. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesLogEncoder_a165da5977a7e251fd326551998bbf1ce}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of cycles by normalising it in a logarithmic scale. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesLogEncoder_a939184e5a3954453f5b4182e4f807353}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of cycles by denormalising it in a logarithmic scale. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -72,6 +76,28 @@ The denormalised number of cycles, a vector containing a single value
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classCyclesLogEncoder_a939184e5a3954453f5b4182e4f807353}\label{classCyclesLogEncoder_a939184e5a3954453f5b4182e4f807353} 
+\index{CyclesLogEncoder@{CyclesLogEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!CyclesLogEncoder@{CyclesLogEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Log\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of cycles by denormalising it in a logarithmic scale. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}\label{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c} 
 \index{CyclesLogEncoder@{CyclesLogEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesLogEncoder@{CyclesLogEncoder}}
@@ -93,6 +119,28 @@ The normalised number of cycles, a vector containing a single value
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classCyclesLogEncoder_a165da5977a7e251fd326551998bbf1ce}\label{classCyclesLogEncoder_a165da5977a7e251fd326551998bbf1ce} 
+\index{CyclesLogEncoder@{CyclesLogEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!CyclesLogEncoder@{CyclesLogEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Log\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of cycles by normalising it in a logarithmic scale. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

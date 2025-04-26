@@ -21,7 +21,11 @@ Inheritance diagram for IEncoder\+:\begin{figure}[H]
 virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{encode}} (std\+::vector$<$ float $>$ \&input) const =0
 \begin{DoxyCompactList}\small\item\em Encode a vector of floats into another vector of floats. \end{DoxyCompactList}\item 
 virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{decode}} (std\+::vector$<$ float $>$ \&input) const =0
-\begin{DoxyCompactList}\small\item\em Decode a vector of floats into another vector of floats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode a vector of floats into another vector of floats. \end{DoxyCompactList}\item 
+virtual Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const =0
+\begin{DoxyCompactList}\small\item\em Encode a matrix of floats into another matrix of floats. \end{DoxyCompactList}\item 
+virtual Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const =0
+\begin{DoxyCompactList}\small\item\em Decode a matrix of floats into another matrix of floats. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,6 +54,28 @@ The decoded vector of floats
 
 Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_aa9f3dc0c87d9592347960341995f9b04}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}{Cycles\+Splitter\+Encoder}}, \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a14d471b32f36ac2feb9e8dcce55d5cc0}{Cycles\+Bounded\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesLogEncoder_a1ae000aaefba10ef6e83a57270b68fcd}{Cycles\+Log\+Encoder}}, \mbox{\hyperlink{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}{Cycles\+Sqrt\+Encoder}}, \mbox{\hyperlink{classNonEncoder_a8dc385d172fd28ffaa3ef41e347f2e15}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_ad7af63479e030cdb6c6c6c75c6583806}{Size\+Encoder}}.
 
+\Hypertarget{classIEncoder_a9c55134620ad058884f720bef7a56f59}\label{classIEncoder_a9c55134620ad058884f720bef7a56f59} 
+\index{IEncoder@{IEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!IEncoder@{IEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily virtual Eigen\+::\+Matrix\+Xf IEncoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Decode a matrix of floats into another matrix of floats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The matrix of floats to decode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded matrix of floats 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_a6287effb278383b7c0388d0eb0384fd7}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesSplitterEncoder_a4a62d89f6958eb083ad96d8080b5de23}{Cycles\+Splitter\+Encoder}}, \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a2fdd1cbd26e768fd920f73b4e645eee7}{Cycles\+Bounded\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesLogEncoder_a939184e5a3954453f5b4182e4f807353}{Cycles\+Log\+Encoder}}, \mbox{\hyperlink{classCyclesSqrtEncoder_adc085fbc609f4c5723471023c37eb122}{Cycles\+Sqrt\+Encoder}}, \mbox{\hyperlink{classNonEncoder_aa33d79c52ab38c633bce917d967bd60c}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_a0e6659e8012a71c4c29f84d7ea15cc94}{Size\+Encoder}}.
+
 \Hypertarget{classIEncoder_aa23851049a14ccec123dc5422492d8f1}\label{classIEncoder_aa23851049a14ccec123dc5422492d8f1} 
 \index{IEncoder@{IEncoder}!encode@{encode}}
 \index{encode@{encode}!IEncoder@{IEncoder}}
@@ -71,6 +97,28 @@ The encoded vector of floats
 
 
 Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_ad75c401e0d8b6965b2c3806d6b752ac8}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}{Cycles\+Splitter\+Encoder}}, \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2}{Cycles\+Bounded\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesLogEncoder_a76713415233ff57f0c91cb28a623373c}{Cycles\+Log\+Encoder}}, \mbox{\hyperlink{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}{Cycles\+Sqrt\+Encoder}}, \mbox{\hyperlink{classNonEncoder_aa0351ec353a0100fe1b0f8dfdd5b3a42}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4}{Size\+Encoder}}.
+
+\Hypertarget{classIEncoder_a3aaa6183c492295962d835602ffe2afc}\label{classIEncoder_a3aaa6183c492295962d835602ffe2afc} 
+\index{IEncoder@{IEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!IEncoder@{IEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily virtual Eigen\+::\+Matrix\+Xf IEncoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Encode a matrix of floats into another matrix of floats. 
+
+\texorpdfstring{$\ast$}{*}
+\begin{DoxyParams}{Parameters}
+{\em input} & The matrix of floats to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encoded matrix of floats 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classCyclesNormaliserEncoder_a224ee28a2894683177316252b24ea01d}{Cycles\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesSplitterEncoder_a9fbc26fda47aa2340f377ccb16a0bd07}{Cycles\+Splitter\+Encoder}}, \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a803af40e706e72cae903af2b1a746e0a}{Cycles\+Bounded\+Normaliser\+Encoder}}, \mbox{\hyperlink{classCyclesLogEncoder_a165da5977a7e251fd326551998bbf1ce}{Cycles\+Log\+Encoder}}, \mbox{\hyperlink{classCyclesSqrtEncoder_a0bc2d988c75cb7f918cf9ab06afdddae}{Cycles\+Sqrt\+Encoder}}, \mbox{\hyperlink{classNonEncoder_aff9d4f0dcc4a5ff1e90beb7ba6be665d}{Non\+Encoder}}, and \mbox{\hyperlink{classSizeEncoder_a4486d1095cb3c7d91cc74990460fa0f4}{Size\+Encoder}}.
 
 
 

@@ -101,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8dc385d172fd28ffaa3ef41e347f2e15" id="r_a8dc385d172fd28ffaa3ef41e347f2e15"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dc385d172fd28ffaa3ef41e347f2e15">decode</a> (std::vector&lt; float &gt; &amp;input) const override</td></tr>
 <tr class="memdesc:a8dc385d172fd28ffaa3ef41e347f2e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing.  <br /></td></tr>
 <tr class="separator:a8dc385d172fd28ffaa3ef41e347f2e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff9d4f0dcc4a5ff1e90beb7ba6be665d" id="r_aff9d4f0dcc4a5ff1e90beb7ba6be665d"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff9d4f0dcc4a5ff1e90beb7ba6be665d">encode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:aff9d4f0dcc4a5ff1e90beb7ba6be665d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing.  <br /></td></tr>
+<tr class="separator:aff9d4f0dcc4a5ff1e90beb7ba6be665d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33d79c52ab38c633bce917d967bd60c" id="r_aa33d79c52ab38c633bce917d967bd60c"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa33d79c52ab38c633bce917d967bd60c">decode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:aa33d79c52ab38c633bce917d967bd60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing.  <br /></td></tr>
+<tr class="separator:aa33d79c52ab38c633bce917d967bd60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An encoder that does not transform the input. </p>
@@ -134,6 +140,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa33d79c52ab38c633bce917d967bd60c" name="aa33d79c52ab38c633bce917d967bd60c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa33d79c52ab38c633bce917d967bd60c">&#9670;&#160;</a></span>decode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf NonEncoder::decode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does nothing. </p>
+
+<p>Implements <a class="el" href="classIEncoder.html#a9c55134620ad058884f720bef7a56f59">IEncoder</a>.</p>
+
+</div>
+</div>
 <a id="aa0351ec353a0100fe1b0f8dfdd5b3a42" name="aa0351ec353a0100fe1b0f8dfdd5b3a42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0351ec353a0100fe1b0f8dfdd5b3a42">&#9670;&#160;</a></span>encode()</h2>
 
@@ -160,6 +195,35 @@ Public Member Functions</h2></td></tr>
 <p>Does nothing. </p>
 
 <p>Implements <a class="el" href="classIEncoder.html#aa23851049a14ccec123dc5422492d8f1">IEncoder</a>.</p>
+
+</div>
+</div>
+<a id="aff9d4f0dcc4a5ff1e90beb7ba6be665d" name="aff9d4f0dcc4a5ff1e90beb7ba6be665d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff9d4f0dcc4a5ff1e90beb7ba6be665d">&#9670;&#160;</a></span>encode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf NonEncoder::encode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does nothing. </p>
+
+<p>Implements <a class="el" href="classIEncoder.html#a3aaa6183c492295962d835602ffe2afc">IEncoder</a>.</p>
 
 </div>
 </div>

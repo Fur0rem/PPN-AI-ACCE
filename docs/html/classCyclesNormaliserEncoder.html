@@ -101,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9f3dc0c87d9592347960341995f9b04" id="r_aa9f3dc0c87d9592347960341995f9b04"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9f3dc0c87d9592347960341995f9b04">decode</a> (std::vector&lt; float &gt; &amp;input) const override</td></tr>
 <tr class="memdesc:aa9f3dc0c87d9592347960341995f9b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode the number of cycles by denormalising it (multiplying by the maximum number of cycles)  <br /></td></tr>
 <tr class="separator:aa9f3dc0c87d9592347960341995f9b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224ee28a2894683177316252b24ea01d" id="r_a224ee28a2894683177316252b24ea01d"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a224ee28a2894683177316252b24ea01d">encode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:a224ee28a2894683177316252b24ea01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a batch of cycles by normalising it (dividing by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value)  <br /></td></tr>
+<tr class="separator:a224ee28a2894683177316252b24ea01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6287effb278383b7c0388d0eb0384fd7" id="r_a6287effb278383b7c0388d0eb0384fd7"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6287effb278383b7c0388d0eb0384fd7">decode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:a6287effb278383b7c0388d0eb0384fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a batch of cycles by denormalising it (multiplying by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value)  <br /></td></tr>
+<tr class="separator:a6287effb278383b7c0388d0eb0384fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to encode and decode the number of cycles by normalising it (dividing by the maximum number of cycles), to have a value between 0 and 1. </p>
@@ -141,6 +147,42 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6287effb278383b7c0388d0eb0384fd7" name="a6287effb278383b7c0388d0eb0384fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6287effb278383b7c0388d0eb0384fd7">&#9670;&#160;</a></span>decode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf CyclesNormaliserEncoder::decode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decode a batch of cycles by denormalising it (multiplying by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of cycles </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The denormalised batch of cycles, a matrix of size Y times 1 </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a9c55134620ad058884f720bef7a56f59">IEncoder</a>.</p>
+
+</div>
+</div>
 <a id="ad75c401e0d8b6965b2c3806d6b752ac8" name="ad75c401e0d8b6965b2c3806d6b752ac8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad75c401e0d8b6965b2c3806d6b752ac8">&#9670;&#160;</a></span>encode()</h2>
 
@@ -174,6 +216,42 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The normalised number of cycles, a vector containing a single value between 0 and 1 </dd></dl>
 
 <p>Implements <a class="el" href="classIEncoder.html#aa23851049a14ccec123dc5422492d8f1">IEncoder</a>.</p>
+
+</div>
+</div>
+<a id="a224ee28a2894683177316252b24ea01d" name="a224ee28a2894683177316252b24ea01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a224ee28a2894683177316252b24ea01d">&#9670;&#160;</a></span>encode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf CyclesNormaliserEncoder::encode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encode a batch of cycles by normalising it (dividing by the maximum number of cycles). The matrix is expected to be of size Y times 1 (because each cycle is a single value) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of cycles </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalised batch of cycles, a matrix of size Y times 1 </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a3aaa6183c492295962d835602ffe2afc">IEncoder</a>.</p>
 
 </div>
 </div>

@@ -39,6 +39,20 @@ class SizeEncoder : public IEncoder {
 	 * @return The decoded vector
 	 */
 	std::vector<float> decode(std::vector<float>& input) const override;
+
+	/**
+	 * @brief Encode a batch of vectors by adding a size token at the beginning and a filler value at the end
+	 * @param input The batch of vectors to encode
+	 * @return The encoded batch of vectors
+	 */
+	Eigen::MatrixXf encode_batch(const Eigen::MatrixXf& input) const override;
+
+	/**
+	 * @brief Decode a batch of vectors by removing the size token at the beginning and the filler value at the end
+	 * @param input The batch of vectors to decode
+	 * @return The decoded batch of vectors
+	 */
+	Eigen::MatrixXf decode_batch(const Eigen::MatrixXf& input) const override;
 };
 
 #endif // SIZE_ENCODER_HPP
