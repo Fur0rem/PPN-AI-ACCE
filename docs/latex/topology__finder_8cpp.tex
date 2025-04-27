@@ -16,6 +16,7 @@ Uses a genetic algorithm to find the best topology for a neural network.
 {\ttfamily \#include $<$omp.\+h$>$}\newline
 {\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$nanobench.\+h$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,8 +37,13 @@ class \mbox{\hyperlink{classCandidate}{Candidate}}
 \item 
 std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \mbox{\hyperlink{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a}{find\+\_\+best\+\_\+topology}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, size\+\_\+t population\+\_\+size, size\+\_\+t nb\+\_\+generations, float selection\+\_\+rate)
 \begin{DoxyCompactList}\small\item\em Find the best topology for a neural network using a genetic algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \mbox{\hyperlink{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55}{find\+\_\+best\+\_\+topology\+\_\+no\+\_\+early\+\_\+stop}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, int nb\+\_\+epochs, size\+\_\+t population\+\_\+size, size\+\_\+t nb\+\_\+generations, float selection\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Find the best topology for a neural network using a genetic algorithm without early stopping. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}{log\+\_\+metrics}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \&metrics, const std\+::string \&filename)
 \begin{DoxyCompactList}\small\item\em Log metrics over time in a CSV file of the form\+: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology. \end{DoxyCompactList}\item 
+\Hypertarget{topology__finder_8cpp_aee690c7fa84a3eb0247f2d21ca28dedd}\label{topology__finder_8cpp_aee690c7fa84a3eb0247f2d21ca28dedd} 
+void {\bfseries strong\+\_\+scaling\+\_\+benchmark} ()
+\item 
 \Hypertarget{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{topology__finder_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 int {\bfseries main} ()
 \begin{DoxyCompactList}\small\item\em Main function to run the topology finder. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -58,7 +64,7 @@ Uses a genetic algorithm to find the best topology for a neural network.
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (LOG)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
 \DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}
@@ -77,20 +83,49 @@ Find the best topology for a neural network using a genetic algorithm.
 
 
 \begin{DoxyParams}{Parameters}
-{\em dataset} & The dataset to use for evaluation \\
+{\em dataset} & The dataset to use for training \\
 \hline
-{\em nb\+\_\+epochs} & The number of epochs to train each candidate for \\
+{\em nb\+\_\+epochs} & The number of epochs to train for (May not be trained for the full number of epochs if it\textquotesingle{}s really bad) \\
 \hline
-{\em population\+\_\+size} & The size of the population of each generation \\
+{\em population\+\_\+size} & The size of the population \\
 \hline
-{\em nb\+\_\+generations} & The number of generations to run the genetic algorithm for \\
+{\em nb\+\_\+generations} & The number of generations to run \\
 \hline
-{\em selection\+\_\+rate} & How many candidates to select for the next generation \\
+{\em selection\+\_\+rate} & The rate of selection for the genetic algorithm \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector containing the evolution of all the candidates and their metrics through time 
+A vector of metrics for each generation 
 \end{DoxyReturn}
+\Hypertarget{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55}\label{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55} 
+\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology\_no\_early\_stop@{find\_best\_topology\_no\_early\_stop}}
+\index{find\_best\_topology\_no\_early\_stop@{find\_best\_topology\_no\_early\_stop}!topology\_finder.cpp@{topology\_finder.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_best\_topology\_no\_early\_stop()}{find\_best\_topology\_no\_early\_stop()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology\+\_\+no\+\_\+early\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Find the best topology for a neural network using a genetic algorithm without early stopping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The dataset to use for training \\
+\hline
+{\em nb\+\_\+epochs} & The number of epochs to train for \\
+\hline
+{\em population\+\_\+size} & The size of the population \\
+\hline
+{\em nb\+\_\+generations} & The number of generations to run \\
+\hline
+{\em selection\+\_\+rate} & The rate of selection for the genetic algorithm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of metrics for each generation 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function does not use early stopping, meaning that it will train the neural network for the full number of epochs 
+\end{DoxyNote}
 \Hypertarget{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}\label{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c} 
 \index{topology\_finder.cpp@{topology\_finder.cpp}!log\_metrics@{log\_metrics}}
 \index{log\_metrics@{log\_metrics}!topology\_finder.cpp@{topology\_finder.cpp}}

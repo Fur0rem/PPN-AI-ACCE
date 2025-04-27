@@ -64,7 +64,7 @@ add_executable(topology_finder
     ${SRCS}
     ${CMAKE_SOURCE_DIR}/src/topology_finder.cpp
 )
-target_link_libraries(topology_finder)
+target_link_libraries(topology_finder nanobench)
 target_compile_options(topology_finder PRIVATE ${RELEASE_FLAGS})
 
 # Add the extract data executable

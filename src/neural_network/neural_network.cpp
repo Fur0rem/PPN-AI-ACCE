@@ -219,7 +219,7 @@ Data into_data(Dataset& dataset, float training_proportion) {
 	size_t const train_size = (size_t)((double)data.size() * training_proportion);
 	size_t const validation_size = data.size() - train_size;
 
-	std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
+	// std::cout << "Training size: " << train_size << ", Validation size: " << validation_size << '\n';
 
 	std::vector<Eigen::VectorXf*> train_input_vectors(train_size);
 	std::vector<Eigen::VectorXf*> validation_input_vectors(validation_size);
@@ -562,6 +562,78 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 								optimiser);
 
 		log_file.close();
+	}
+
+	// Evaluate the model (accuracy of the training and validation sets)
+	double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+	double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
+	return std::make_pair(train_acc, validation_acc);
+}
+
+std::pair<float, float> NeuralNetwork::train_batch_for_topology_finder(Dataset& dataset, size_t nb_epochs, float training_proportion,
+																	   size_t batch_size, IOptimiser& optimiser,
+																	   float train_acc_threshold_at_half,
+																	   float validation_acc_threshold_at_half) {
+	// Get the data
+	Data data = into_data(dataset, training_proportion);
+	auto& train_input_matrix = data.train_input_matrix;
+	auto& train_target_matrix = data.train_target_matrix;
+	auto& validation_input_matrix = data.validation_input_matrix;
+	auto& validation_target_matrix = data.validation_target_matrix;
+	size_t train_size = data.train_size;
+	size_t validation_size = data.validation_size;
+
+	// Reset the neural network to avoid using the previous weights
+	this->reset();
+
+	// Training the neural network
+	for (size_t i = 0; i < nb_epochs; i++) {
+		// Shuffle data
+		std::vector<size_t> indices(train_input_matrix.rows());
+		for (size_t i = 0; i < train_input_matrix.rows(); i++) {
+			indices[i] = i;
+		}
+		std::shuffle(indices.begin(), indices.end(), std::mt19937(std::random_device()()));
+		Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
+		Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
+		for (size_t i = 0; i < train_input_matrix.rows(); i++) {
+			for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+				x_shuffled(i, j) = train_input_matrix(indices[i], j);
+			}
+			for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+				y_shuffled(i, j) = train_target_matrix(indices[i], j);
+			}
+		}
+
+		// Mini-batch gradient descent
+		for (size_t i = 0; i < train_input_matrix.rows(); i += batch_size) {
+			size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
+			Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
+			Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
+			for (size_t j = i; j < end; j++) {
+				for (size_t k = 0; k < train_input_matrix.cols(); k++) {
+					x_batch(j - i, k) = x_shuffled(j, k);
+				}
+				for (size_t k = 0; k < train_target_matrix.cols(); k++) {
+					y_batch(j - i, k) = y_shuffled(j, k);
+				}
+			}
+			// Forward pass
+			this->feed_forward(x_batch);
+			// Backward pass
+			Gradients grads = this->backward(x_batch, y_batch);
+			// Update weights
+			optimiser.update_weights(grads, *this);
+		}
+
+		// If you're at half the epochs, check if the accuracy is good enough
+		if (i == nb_epochs / 2) {
+			double train_acc = get_acc_mrae(train_input_matrix, train_target_matrix, dataset.get_output_encoder());
+			double validation_acc = get_acc_mrae(validation_input_matrix, validation_target_matrix, dataset.get_output_encoder());
+			if (train_acc < train_acc_threshold_at_half || validation_acc < validation_acc_threshold_at_half) {
+				return std::make_pair(train_acc, validation_acc);
+			}
+		}
 	}
 
 	// Evaluate the model (accuracy of the training and validation sets)

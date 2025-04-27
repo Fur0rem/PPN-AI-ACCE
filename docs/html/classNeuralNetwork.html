@@ -108,6 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a769264b6424463724390ef9a0b18741c" id="r_a769264b6424463724390ef9a0b18741c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a769264b6424463724390ef9a0b18741c">train_batch</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
 <tr class="memdesc:a769264b6424463724390ef9a0b18741c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1.  <br /></td></tr>
 <tr class="separator:a769264b6424463724390ef9a0b18741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1952a76041cb0e50d6535a6682df66c" id="r_ab1952a76041cb0e50d6535a6682df66c"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1952a76041cb0e50d6535a6682df66c">train_batch_for_topology_finder</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t batch_size, <a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;optimiser, float train_acc_threshold_at_half, float validation_acc_threshold_at_half)</td></tr>
+<tr class="memdesc:ab1952a76041cb0e50d6535a6682df66c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Train the neural network using the given dataset with batch training and return the accuracy of training and validation data. Used in the topology finder.  <br /></td></tr>
+<tr class="separator:ab1952a76041cb0e50d6535a6682df66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02bd65c5db701c3301788e2bb9dc5027" id="r_a02bd65c5db701c3301788e2bb9dc5027"><td class="memItemLeft" align="right" valign="top">std::pair&lt; float, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02bd65c5db701c3301788e2bb9dc5027">train_local_search</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, size_t nb_epochs, float training_proportion, size_t nb_samples, std::string &amp;&amp;logging_dir, size_t nb_trains)</td></tr>
 <tr class="memdesc:a02bd65c5db701c3301788e2bb9dc5027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains the neural network through local search.  <br /></td></tr>
 <tr class="separator:a02bd65c5db701c3301788e2bb9dc5027"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -907,6 +910,67 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AMSGrad</b></td></tr
     <tr><td class="paramname">optimiser</td><td>Optimiser to use for training </td></tr>
     <tr><td class="paramname">logging_dir</td><td>Directory to log results </td></tr>
     <tr><td class="paramname">nb_trains</td><td>Number of training runs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pair of floats containing the training and validation accuracy </dd></dl>
+
+</div>
+</div>
+<a id="ab1952a76041cb0e50d6535a6682df66c" name="ab1952a76041cb0e50d6535a6682df66c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1952a76041cb0e50d6535a6682df66c">&#9670;&#160;</a></span>train_batch_for_topology_finder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; float, float &gt; NeuralNetwork::train_batch_for_topology_finder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_epochs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>training_proportion</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>batch_size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIOptimiser.html">IOptimiser</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>optimiser</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>train_acc_threshold_at_half</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>validation_acc_threshold_at_half</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Train the neural network using the given dataset with batch training and return the accuracy of training and validation data. Used in the topology finder. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataset</td><td>The dataset to train on </td></tr>
+    <tr><td class="paramname">nb_epochs</td><td>Number of epochs to train for </td></tr>
+    <tr><td class="paramname">training_proportion</td><td>Proportion of data to use for training (The rest will be used for validation) </td></tr>
+    <tr><td class="paramname">batch_size</td><td>Size of the batch for training </td></tr>
+    <tr><td class="paramname">optimiser</td><td>Optimiser to use for training </td></tr>
+    <tr><td class="paramname">train_acc_threshold_at_half</td><td>If the training accuracy is below this value at half the training, stop the training (early stopping) </td></tr>
+    <tr><td class="paramname">validation_acc_threshold_at_half</td><td>If the validation accuracy is below this value at half the training, stop the training (early stopping) </td></tr>
   </table>
   </dd>
 </dl>

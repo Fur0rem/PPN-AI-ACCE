@@ -10,8 +10,9 @@ var searchData=
   ['train_7',['train',['../classNeuralNetwork.html#aab78d40f586338dad53b7c29255dfdcd',1,'NeuralNetwork']]],
   ['train_5facc_8',['train_acc',['../structMetrics.html#a642f650572618f747f53c892dae37258',1,'Metrics']]],
   ['train_5fbatch_9',['train_batch',['../classNeuralNetwork.html#a769264b6424463724390ef9a0b18741c',1,'NeuralNetwork']]],
-  ['train_5flocal_5fsearch_10',['train_local_search',['../classNeuralNetwork.html#a02bd65c5db701c3301788e2bb9dc5027',1,'NeuralNetwork']]],
-  ['train_5fsimulated_5fannealing_11',['train_simulated_annealing',['../classNeuralNetwork.html#aa1b39b03fa993f0d62b5fce966d977b0',1,'NeuralNetwork']]],
-  ['train_5fsimulated_5fannealing_5fand_5fgradient_12',['train_simulated_annealing_and_gradient',['../classNeuralNetwork.html#a70644d4bdfd0812f44e7d1c989ae170a',1,'NeuralNetwork']]],
-  ['trainingnoise_13',['TrainingNoise',['../classTrainingNoise.html',1,'TrainingNoise'],['../classTrainingNoise.html#a684b41c6ba1afa47f4984c6453e28f87',1,'TrainingNoise::TrainingNoise()']]]
+  ['train_5fbatch_5ffor_5ftopology_5ffinder_10',['train_batch_for_topology_finder',['../classNeuralNetwork.html#ab1952a76041cb0e50d6535a6682df66c',1,'NeuralNetwork']]],
+  ['train_5flocal_5fsearch_11',['train_local_search',['../classNeuralNetwork.html#a02bd65c5db701c3301788e2bb9dc5027',1,'NeuralNetwork']]],
+  ['train_5fsimulated_5fannealing_12',['train_simulated_annealing',['../classNeuralNetwork.html#aa1b39b03fa993f0d62b5fce966d977b0',1,'NeuralNetwork']]],
+  ['train_5fsimulated_5fannealing_5fand_5fgradient_13',['train_simulated_annealing_and_gradient',['../classNeuralNetwork.html#a70644d4bdfd0812f44e7d1c989ae170a',1,'NeuralNetwork']]],
+  ['trainingnoise_14',['TrainingNoise',['../classTrainingNoise.html',1,'TrainingNoise'],['../classTrainingNoise.html#a684b41c6ba1afa47f4984c6453e28f87',1,'TrainingNoise::TrainingNoise()']]]
 ];

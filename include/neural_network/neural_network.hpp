@@ -149,6 +149,24 @@ class NeuralNetwork {
 										IOptimiser& optimiser, std::string&& logging_dir, size_t nb_trains);
 
 	/**
+	 * @brief Train the neural network using the given dataset with batch training and return the accuracy of training and validation data.
+	 * Used in the topology finder
+	 * @param dataset The dataset to train on
+	 * @param nb_epochs Number of epochs to train for
+	 * @param training_proportion Proportion of data to use for training (The rest will be used for validation)
+	 * @param batch_size Size of the batch for training
+	 * @param optimiser Optimiser to use for training
+	 * @param train_acc_threshold_at_half If the training accuracy is below this value at half the training, stop the training (early
+	 * stopping)
+	 * @param validation_acc_threshold_at_half If the validation accuracy is below this value at half the training, stop the training (early
+	 * stopping)
+	 * @return A pair of floats containing the training and validation accuracy
+	 */
+	std::pair<float, float> train_batch_for_topology_finder(Dataset& dataset, size_t nb_epochs, float training_proportion,
+															size_t batch_size, IOptimiser& optimiser, float train_acc_threshold_at_half,
+															float validation_acc_threshold_at_half);
+
+	/**
 	 * @brief Trains the neural network through local search
 	 * @param dataset The dataset to train on
 	 * @param nb_epochs Number of epochs to train for

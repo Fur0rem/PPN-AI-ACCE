@@ -26,6 +26,8 @@ std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_aab78d40f586
 \begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset and return the accuracy of training and validation data (MRAE) Does backpropagation for each input and updates the weights and biases 1 by 1. \end{DoxyCompactList}\item 
 std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}{train\+\_\+batch}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
 \begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset with batch training and return the accuracy of training and validation data (MRAE) This means it will compute the gradients for a batch of data and then update the weights and biases instead of 1 by 1. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c}{train\+\_\+batch\+\_\+for\+\_\+topology\+\_\+finder}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t batch\+\_\+size, \mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&optimiser, float train\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half, float validation\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half)
+\begin{DoxyCompactList}\small\item\em Train the neural network using the given dataset with batch training and return the accuracy of training and validation data. Used in the topology finder. \end{DoxyCompactList}\item 
 std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_a02bd65c5db701c3301788e2bb9dc5027}{train\+\_\+local\+\_\+search}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, size\+\_\+t nb\+\_\+samples, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
 \begin{DoxyCompactList}\small\item\em Trains the neural network through local search. \end{DoxyCompactList}\item 
 std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classNeuralNetwork_aa1b39b03fa993f0d62b5fce966d977b0}{train\+\_\+simulated\+\_\+annealing}} (\mbox{\hyperlink{classDataset}{Dataset}} \&dataset, size\+\_\+t nb\+\_\+epochs, float training\+\_\+proportion, float decay\+\_\+rate, size\+\_\+t nb\+\_\+tracked, float initial\+\_\+temp, std\+::string \&\&logging\+\_\+dir, size\+\_\+t nb\+\_\+trains)
@@ -492,6 +494,36 @@ Train the neural network using the given dataset with batch training and return 
 {\em logging\+\_\+dir} & Directory to log results \\
 \hline
 {\em nb\+\_\+trains} & Number of training runs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of floats containing the training and validation accuracy 
+\end{DoxyReturn}
+\Hypertarget{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c}\label{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c} 
+\index{NeuralNetwork@{NeuralNetwork}!train\_batch\_for\_topology\_finder@{train\_batch\_for\_topology\_finder}}
+\index{train\_batch\_for\_topology\_finder@{train\_batch\_for\_topology\_finder}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{train\_batch\_for\_topology\_finder()}{train\_batch\_for\_topology\_finder()}}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch\+\_\+for\+\_\+topology\+\_\+finder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{float}]{train\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half,  }\item[{float}]{validation\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half }\end{DoxyParamCaption})}
+
+
+
+Train the neural network using the given dataset with batch training and return the accuracy of training and validation data. Used in the topology finder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The dataset to train on \\
+\hline
+{\em nb\+\_\+epochs} & Number of epochs to train for \\
+\hline
+{\em training\+\_\+proportion} & Proportion of data to use for training (The rest will be used for validation) \\
+\hline
+{\em batch\+\_\+size} & Size of the batch for training \\
+\hline
+{\em optimiser} & Optimiser to use for training \\
+\hline
+{\em train\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half} & If the training accuracy is below this value at half the training, stop the training (early stopping) \\
+\hline
+{\em validation\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half} & If the validation accuracy is below this value at half the training, stop the training (early stopping) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
