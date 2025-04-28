@@ -8,8 +8,18 @@ if (len(sys.argv) < 2):
     exit()
 
 training = sys.argv[1]
+name1 =None
+name2 =None  
 if (len(sys.argv) > 2):
     reference = sys.argv[2]
+
+    name1 = sys.argv[3]
+    name2 = sys.argv[4]
+    
+    print(f'\n {name1}  {name2} \n ')
+
+
+
     
 # Read the training results
 from matplotlib import pyplot as plt
@@ -25,6 +35,7 @@ def load_results(directory: str) -> tuple[list[dict], list[float]]:
     results = []
     training_times = []
     print(f"Loading results from {directory}")
+
     for filename in os.listdir(directory):
         if filename.endswith(".log"):
             filepath = os.path.join(directory, filename)
@@ -124,29 +135,63 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     ax_plot.set_ylim(0, 1)
 
     # Plot training accuracy
-    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label="New Training Accuracy", color="blue")
+    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label= name2+" Training Accuracy",color="blue")
     ax_plot.fill_between(new_train_acc["Epoch"], new_train_acc["Min"], new_train_acc["Max"], color="blue", alpha=0.33)
 
     # Plot validation accuracy
-    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"], label="New Validation Accuracy", color="orange")
+    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label=name2+ " Validation Accuracy" ,color="orange")
     ax_plot.fill_between(new_valid_acc["Epoch"], new_valid_acc["Min"], new_valid_acc["Max"], color="orange", alpha=0.33)
 
     # Add reference lines
-    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-.", label="Reference Training Accuracy")
-    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-.", label="Reference Validation Accuracy")
+    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-." , label= name1+ " Training Accuracy") 
+    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-." ,label=name1+ " Validation Accuracy")
 
     training_name = os.path.basename(training)
     reference_name = os.path.basename(reference) if reference else "N/A"
+
+    # Add labels and title
+    ax_plot.set_xlabel("Epoch")
+    ax_plot.set_ylabel("Accuracy (MRAE)")
+    ax_plot.set_title(f"Training and Validation accuracy over epochs for New ({training_name}) and Reference ({reference_name}) models")
+
+    # Add text labels manually
+
+    # Pick a good x position (for example, last epoch)
+    last_epoch = new_train_acc["Epoch"].max()
+
+    # Find corresponding y values
+    train_y = new_train_acc["Mean"].iloc[-1]
+    valid_y = new_valid_acc["Mean"].iloc[-1]
+    decalage_train_new = -0.15
+    decalage_validation_new = -0.08 
+
+    decalage_train_ref = -0.05
+    decalage_validation_ref = 0.05 
     
+
+    # Place labels near the curve
+    # ax_plot.text(last_epoch*0.8, train_y+ 0.1, "New Training Accuracy", color="blue", fontsize=9, va='bottom', ha='left')
+    # ax_plot.text(last_epoch*0.8, valid_y+ 0.1, "New Validation Accuracy", color="orange", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, train_y+ decalage_train_new, name1 +" Training", color="blue", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, valid_y+ decalage_validation_new, name1 +" Validation", color="orange", fontsize=9, va='bottom', ha='left')
+
+    # For reference lines
+    ax_plot.text(last_epoch*1.075, ref_train_acc_last + decalage_train_ref, name2+" Training", color="#1e66a3", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, ref_valid_acc_last + decalage_validation_ref, name2+" Validation", color="#bb5e0d", fontsize=9, va='bottom', ha='left')
+
+
     # Add labels, title, and legend
     ax_plot.set_xlabel("Epoch")
     ax_plot.set_ylabel("Accuracy (MRAE)")
     ax_plot.set_title(f"Training and Validation accuracy over epochs for New ({training_name}) and Reference ({reference_name}) models")
     ax_plot.legend()
+    # Remove the corner legend
+    ax_plot.legend()
 
     # Table (bottom section)
     ax_table = fig.add_subplot(gs[1])
     ax_table.axis("off")  # Turn off the axis for the table
+
 
     # Table data
     table_data = [
