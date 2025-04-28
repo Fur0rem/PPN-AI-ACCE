@@ -27,7 +27,7 @@
 \DoxyCodeLine{00030\ \ \ \ \ std::bernoulli\_distribution\ m\_dist;\ }
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classTrainingNoise_a684b41c6ba1afa47f4984c6453e28f87}{TrainingNoise}}(\textcolor{keywordtype}{float}\ dropout\_rate,\ \textcolor{keywordtype}{float}\ add\_noise,\ \textcolor{keywordtype}{float}\ mult\_noise,\ \textcolor{keywordtype}{float}\ regularisation\_term);}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classTrainingNoise}{TrainingNoise}}(\textcolor{keywordtype}{float}\ dropout\_rate,\ \textcolor{keywordtype}{float}\ add\_noise,\ \textcolor{keywordtype}{float}\ mult\_noise,\ \textcolor{keywordtype}{float}\ regularisation\_term);}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTrainingNoise}{TrainingNoise}}\ \mbox{\hyperlink{classTrainingNoise_af8116529c85172388500224074bc70f9}{none}}();}
 \DoxyCodeLine{00047\ }
@@ -54,7 +54,7 @@
 \DoxyCodeLine{00081\ \ \ \ \ std::unique\_ptr<TrainingNoise>\ m\_training\_noise;\ \ \ }
 \DoxyCodeLine{00082\ }
 \DoxyCodeLine{00083\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b}{NeuralNetwork}}(\textcolor{keyword}{const}\ std::vector<size\_t>\&\ topology,\ std::unique\_ptr<ActivationFunc>\ activation\_func,}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}(\textcolor{keyword}{const}\ std::vector<size\_t>\&\ topology,\ std::unique\_ptr<ActivationFunc>\ activation\_func,}
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<TrainingNoise>\ training\_noise);}
 \DoxyCodeLine{00092\ }
 \DoxyCodeLine{00098\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4}{predict}}(\textcolor{keyword}{const}\ std::vector<float>\&\ input);}

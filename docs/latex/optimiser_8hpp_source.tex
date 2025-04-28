@@ -28,7 +28,7 @@
 \DoxyCodeLine{00048\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_vB;\ }
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classSGD_a20541c4b59f2b2caffc9fc5162975d46}{SGD}}(\textcolor{keywordtype}{float}\ learning\_rate);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classSGD}{SGD}}(\textcolor{keywordtype}{float}\ learning\_rate);}
 \DoxyCodeLine{00056\ }
 \DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSGD_a6e909e3d245a8aafa1edf8e5ab602a73}{update\_weights}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGradients}{Gradients}}\&\ grads,\ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00063\ }
@@ -49,7 +49,7 @@
 \DoxyCodeLine{00090\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_vB;\ }
 \DoxyCodeLine{00091\ }
 \DoxyCodeLine{00092\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classAdam_acffa63cd532030741babaed6b3222555}{Adam}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta1,\ \textcolor{keywordtype}{float}\ beta2,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classAdam}{Adam}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta1,\ \textcolor{keywordtype}{float}\ beta2,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAdam_ad9582bc631beaee205e458230b325e1d}{update\_weights}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGradients}{Gradients}}\&\ grads,\ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00109\ }
@@ -66,7 +66,7 @@
 \DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_learning\_rate;\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00133\ }
 \DoxyCodeLine{00134\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classMomentum_a5525e6805c17ccc2b46975889eb241e2}{Momentum}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta,\ \textcolor{keywordtype}{float}\ learning\_rate);}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classMomentum}{Momentum}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta,\ \textcolor{keywordtype}{float}\ learning\_rate);}
 \DoxyCodeLine{00142\ }
 \DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMomentum_a0f5fb135f71d914454c578497e098725}{update\_weights}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGradients}{Gradients}}\&\ grads,\ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00149\ }
@@ -84,7 +84,7 @@
 \DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_learning\_rate;\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00174\ }
 \DoxyCodeLine{00175\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classRMSProp_ad68b4478e7bb40d4dc28b4b21fae0a24}{RMSProp}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classRMSProp}{RMSProp}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
 \DoxyCodeLine{00184\ }
 \DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRMSProp_ac38b540eb9a7530720098847c29fcb75}{update\_weights}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGradients}{Gradients}}\&\ grads,\ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00191\ }
@@ -107,7 +107,7 @@
 \DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_learning\_rate;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00221\ }
 \DoxyCodeLine{00222\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{classAMSGrad_af79c0009f42af710836847fed4fa7b59}{AMSGrad}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta1,\ \textcolor{keywordtype}{float}\ beta2,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{classAMSGrad}{AMSGrad}}(\mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn,\ \textcolor{keywordtype}{float}\ beta1,\ \textcolor{keywordtype}{float}\ beta2,\ \textcolor{keywordtype}{float}\ epsilon,\ \textcolor{keywordtype}{float}\ learning\_rate);}
 \DoxyCodeLine{00232\ }
 \DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAMSGrad_a40747905e30c59c576ab531a682fcfdc}{update\_weights}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classGradients}{Gradients}}\&\ grads,\ \mbox{\hyperlink{classNeuralNetwork}{NeuralNetwork}}\&\ nn)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00239\ }
