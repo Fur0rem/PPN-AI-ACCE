@@ -22,6 +22,16 @@ class NonEncoder : public IEncoder {
 	 * @brief Does nothing
 	 */
 	std::vector<float> decode(std::vector<float>& input) const override;
+
+	/**
+	 * @brief Does nothing
+	 */
+	Eigen::MatrixXf encode_batch(const Eigen::MatrixXf& input) const override;
+
+	/**
+	 * @brief Does nothing
+	 */
+	Eigen::MatrixXf decode_batch(const Eigen::MatrixXf& input) const override;
 };
 
 #endif // NON_ENCODER_HPP

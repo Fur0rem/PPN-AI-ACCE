@@ -23,7 +23,11 @@ Inheritance diagram for Size\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode a vector by adding a size token at the beginning and a filler value at the end. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classSizeEncoder_ad7af63479e030cdb6c6c6c75c6583806}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode a vector by removing the size token at the beginning and the filler value at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode a vector by removing the size token at the beginning and the filler value at the end. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classSizeEncoder_a4486d1095cb3c7d91cc74990460fa0f4}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of vectors by adding a size token at the beginning and a filler value at the end. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classSizeEncoder_a0e6659e8012a71c4c29f84d7ea15cc94}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of vectors by removing the size token at the beginning and the filler value at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -70,6 +74,28 @@ The decoded vector
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classSizeEncoder_a0e6659e8012a71c4c29f84d7ea15cc94}\label{classSizeEncoder_a0e6659e8012a71c4c29f84d7ea15cc94} 
+\index{SizeEncoder@{SizeEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!SizeEncoder@{SizeEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Size\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of vectors by removing the size token at the beginning and the filler value at the end. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of vectors to decode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded batch of vectors 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4}\label{classSizeEncoder_a196f02e373a710c48b97daf3aa48c5d4} 
 \index{SizeEncoder@{SizeEncoder}!encode@{encode}}
 \index{encode@{encode}!SizeEncoder@{SizeEncoder}}
@@ -91,6 +117,28 @@ The encoded vector
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classSizeEncoder_a4486d1095cb3c7d91cc74990460fa0f4}\label{classSizeEncoder_a4486d1095cb3c7d91cc74990460fa0f4} 
+\index{SizeEncoder@{SizeEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!SizeEncoder@{SizeEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Size\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of vectors by adding a size token at the beginning and a filler value at the end. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of vectors to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The encoded batch of vectors 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

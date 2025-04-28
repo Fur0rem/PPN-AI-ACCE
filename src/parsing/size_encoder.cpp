@@ -48,3 +48,31 @@ std::vector<float> SizeEncoder::decode(std::vector<float>& input) const {
 	}
 	return result;
 }
+
+Eigen::MatrixXf SizeEncoder::encode_batch(const Eigen::MatrixXf& input) const {
+	Eigen::MatrixXf result(input.rows(), m_size);
+	result.setConstant(NO_MORE_VALUE);
+
+	for (size_t i = 0; i < input.rows(); i++) {
+		result(i, 0) = static_cast<float>(input.cols()) / static_cast<float>(m_size - 1);
+		for (size_t j = 0; j < input.cols(); j++) {
+			result(i, j + 1) = input(i, j);
+		}
+	}
+	return result;
+}
+
+Eigen::MatrixXf SizeEncoder::decode_batch(const Eigen::MatrixXf& input) const {
+	Eigen::MatrixXf result(input.rows(), m_size - 1);
+	result.setConstant(NO_MORE_VALUE);
+
+	for (size_t i = 0; i < input.rows(); i++) {
+		for (size_t j = 1; j < input.cols(); j++) {
+			if (input(i, j) == NO_MORE_VALUE) {
+				break;
+			}
+			result(i, j - 1) = input(i, j);
+		}
+	}
+	return result;
+}

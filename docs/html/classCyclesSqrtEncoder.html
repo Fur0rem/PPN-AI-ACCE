@@ -104,6 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4707f8c2243428668a0108881a524f3e" id="r_a4707f8c2243428668a0108881a524f3e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4707f8c2243428668a0108881a524f3e">decode</a> (std::vector&lt; float &gt; &amp;input) const override</td></tr>
 <tr class="memdesc:a4707f8c2243428668a0108881a524f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode the number of cycles by using the square of the value.  <br /></td></tr>
 <tr class="separator:a4707f8c2243428668a0108881a524f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bc2d988c75cb7f918cf9ab06afdddae" id="r_a0bc2d988c75cb7f918cf9ab06afdddae"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bc2d988c75cb7f918cf9ab06afdddae">encode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:a0bc2d988c75cb7f918cf9ab06afdddae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a batch of cycles by using the square root of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value)  <br /></td></tr>
+<tr class="separator:a0bc2d988c75cb7f918cf9ab06afdddae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc085fbc609f4c5723471023c37eb122" id="r_adc085fbc609f4c5723471023c37eb122"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc085fbc609f4c5723471023c37eb122">decode_batch</a> (const Eigen::MatrixXf &amp;input) const override</td></tr>
+<tr class="memdesc:adc085fbc609f4c5723471023c37eb122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a batch of cycles by using the square of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value)  <br /></td></tr>
+<tr class="separator:adc085fbc609f4c5723471023c37eb122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to encode and decode the number of cycles by using the square root of the value. </p>
@@ -170,6 +176,42 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="adc085fbc609f4c5723471023c37eb122" name="adc085fbc609f4c5723471023c37eb122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc085fbc609f4c5723471023c37eb122">&#9670;&#160;</a></span>decode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf CyclesSqrtEncoder::decode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decode a batch of cycles by using the square of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of cycles </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The denormalised batch of cycles, a matrix of size Y times 1 </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a9c55134620ad058884f720bef7a56f59">IEncoder</a>.</p>
+
+</div>
+</div>
 <a id="a184d112b28617bc46453c8f992f0c1f4" name="a184d112b28617bc46453c8f992f0c1f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a184d112b28617bc46453c8f992f0c1f4">&#9670;&#160;</a></span>encode()</h2>
 
@@ -203,6 +245,42 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The normalised number of cycles, a vector containing a single value </dd></dl>
 
 <p>Implements <a class="el" href="classIEncoder.html#aa23851049a14ccec123dc5422492d8f1">IEncoder</a>.</p>
+
+</div>
+</div>
+<a id="a0bc2d988c75cb7f918cf9ab06afdddae" name="a0bc2d988c75cb7f918cf9ab06afdddae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bc2d988c75cb7f918cf9ab06afdddae">&#9670;&#160;</a></span>encode_batch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf CyclesSqrtEncoder::encode_batch </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encode a batch of cycles by using the square root of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The batch of cycles </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalised batch of cycles, a matrix of size Y times 1 </dd></dl>
+
+<p>Implements <a class="el" href="classIEncoder.html#a3aaa6183c492295962d835602ffe2afc">IEncoder</a>.</p>
 
 </div>
 </div>

@@ -97,6 +97,7 @@ $(function() {
 <code>#include &lt;omp.h&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;nanobench.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -120,9 +121,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a3dc86711f5a66aaabc7d1d9f8e1a7d5a" id="r_a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dc86711f5a66aaabc7d1d9f8e1a7d5a">find_best_topology</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, size_t population_size, size_t nb_generations, float selection_rate)</td></tr>
 <tr class="memdesc:a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the best topology for a neural network using a genetic algorithm.  <br /></td></tr>
 <tr class="separator:a3dc86711f5a66aaabc7d1d9f8e1a7d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735b4dc3aee3ca325eaaaa9e16ddeb55" id="r_a735b4dc3aee3ca325eaaaa9e16ddeb55"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a735b4dc3aee3ca325eaaaa9e16ddeb55">find_best_topology_no_early_stop</a> (<a class="el" href="classDataset.html">Dataset</a> &amp;dataset, int nb_epochs, size_t population_size, size_t nb_generations, float selection_rate)</td></tr>
+<tr class="memdesc:a735b4dc3aee3ca325eaaaa9e16ddeb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the best topology for a neural network using a genetic algorithm without early stopping.  <br /></td></tr>
+<tr class="separator:a735b4dc3aee3ca325eaaaa9e16ddeb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1355153cdbc6f99a82f66ef58b4da4c" id="r_ad1355153cdbc6f99a82f66ef58b4da4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1355153cdbc6f99a82f66ef58b4da4c">log_metrics</a> (const std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt; &amp;metrics, const std::string &amp;filename)</td></tr>
 <tr class="memdesc:ad1355153cdbc6f99a82f66ef58b4da4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log metrics over time in a CSV file of the form: Generation,Train Accuracy,Validation Accuracy,Fitness,Topology.  <br /></td></tr>
 <tr class="separator:ad1355153cdbc6f99a82f66ef58b4da4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee690c7fa84a3eb0247f2d21ca28dedd" id="r_aee690c7fa84a3eb0247f2d21ca28dedd"><td class="memItemLeft" align="right" valign="top"><a id="aee690c7fa84a3eb0247f2d21ca28dedd" name="aee690c7fa84a3eb0247f2d21ca28dedd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>strong_scaling_benchmark</b> ()</td></tr>
+<tr class="separator:aee690c7fa84a3eb0247f2d21ca28dedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function to run the topology finder. <br /></td></tr>
@@ -146,7 +153,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span> (LOG) {                                                                                                                             \</div>
-<div class="line">        std::cout &lt;&lt; x;                                                                                                                    \</div>
+<div class="line">        x                                                                                                                                  \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -189,15 +196,65 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <p>Find the best topology for a neural network using a genetic algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dataset</td><td>The dataset to use for evaluation </td></tr>
-    <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train each candidate for </td></tr>
-    <tr><td class="paramname">population_size</td><td>The size of the population of each generation </td></tr>
-    <tr><td class="paramname">nb_generations</td><td>The number of generations to run the genetic algorithm for </td></tr>
-    <tr><td class="paramname">selection_rate</td><td>How many candidates to select for the next generation </td></tr>
+    <tr><td class="paramname">dataset</td><td>The dataset to use for training </td></tr>
+    <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for (May not be trained for the full number of epochs if it's really bad) </td></tr>
+    <tr><td class="paramname">population_size</td><td>The size of the population </td></tr>
+    <tr><td class="paramname">nb_generations</td><td>The number of generations to run </td></tr>
+    <tr><td class="paramname">selection_rate</td><td>The rate of selection for the genetic algorithm </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector containing the evolution of all the candidates and their metrics through time </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of metrics for each generation </dd></dl>
+
+</div>
+</div>
+<a id="a735b4dc3aee3ca325eaaaa9e16ddeb55" name="a735b4dc3aee3ca325eaaaa9e16ddeb55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735b4dc3aee3ca325eaaaa9e16ddeb55">&#9670;&#160;</a></span>find_best_topology_no_early_stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; <a class="el" href="structMetrics.html">Metrics</a> &gt; &gt; find_best_topology_no_early_stop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDataset.html">Dataset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dataset</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nb_epochs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>population_size</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>nb_generations</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>selection_rate</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the best topology for a neural network using a genetic algorithm without early stopping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataset</td><td>The dataset to use for training </td></tr>
+    <tr><td class="paramname">nb_epochs</td><td>The number of epochs to train for </td></tr>
+    <tr><td class="paramname">population_size</td><td>The size of the population </td></tr>
+    <tr><td class="paramname">nb_generations</td><td>The number of generations to run </td></tr>
+    <tr><td class="paramname">selection_rate</td><td>The rate of selection for the genetic algorithm </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of metrics for each generation </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function does not use early stopping, meaning that it will train the neural network for the full number of epochs </dd></dl>
 
 </div>
 </div>

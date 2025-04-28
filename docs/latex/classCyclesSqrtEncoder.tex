@@ -23,7 +23,11 @@ Inheritance diagram for Cycles\+Sqrt\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by using the square root of the value. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSqrtEncoder_a4707f8c2243428668a0108881a524f3e}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode the number of cycles by using the square of the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by using the square of the value. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesSqrtEncoder_a0bc2d988c75cb7f918cf9ab06afdddae}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of cycles by using the square root of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesSqrtEncoder_adc085fbc609f4c5723471023c37eb122}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of cycles by using the square of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -70,6 +74,28 @@ The denormalised number of cycles, a vector containing a single value
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classCyclesSqrtEncoder_adc085fbc609f4c5723471023c37eb122}\label{classCyclesSqrtEncoder_adc085fbc609f4c5723471023c37eb122} 
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Sqrt\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of cycles by using the square of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4}\label{classCyclesSqrtEncoder_a184d112b28617bc46453c8f992f0c1f4} 
 \index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
@@ -91,6 +117,28 @@ The normalised number of cycles, a vector containing a single value
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classCyclesSqrtEncoder_a0bc2d988c75cb7f918cf9ab06afdddae}\label{classCyclesSqrtEncoder_a0bc2d988c75cb7f918cf9ab06afdddae} 
+\index{CyclesSqrtEncoder@{CyclesSqrtEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!CyclesSqrtEncoder@{CyclesSqrtEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Sqrt\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of cycles by using the square root of the value. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

@@ -21,7 +21,11 @@ Inheritance diagram for Cycles\+Splitter\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by splitting it into 4 values, billions, millions, thousands and units. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesSplitterEncoder_a532c47d76bceacf59936298b91c21d98}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode the number of cycles by merging the 4 values into a single one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by merging the 4 values into a single one. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesSplitterEncoder_a9fbc26fda47aa2340f377ccb16a0bd07}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of cycles by splitting it into 4 values, billions, millions, thousands and units. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesSplitterEncoder_a4a62d89f6958eb083ad96d8080b5de23}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of cycles by merging the 4 values into a single one. The matrix is expected to be of size Y times 4 (because each cycle is a single value) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,6 +54,28 @@ The merged number of cycles, a vector containing a single value
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classCyclesSplitterEncoder_a4a62d89f6958eb083ad96d8080b5de23}\label{classCyclesSplitterEncoder_a4a62d89f6958eb083ad96d8080b5de23} 
+\index{CyclesSplitterEncoder@{CyclesSplitterEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!CyclesSplitterEncoder@{CyclesSplitterEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Splitter\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of cycles by merging the 4 values into a single one. The matrix is expected to be of size Y times 4 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The merged batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b}\label{classCyclesSplitterEncoder_a299f551fe7bdb2a69488f92edd4dc81b} 
 \index{CyclesSplitterEncoder@{CyclesSplitterEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesSplitterEncoder@{CyclesSplitterEncoder}}
@@ -71,6 +97,28 @@ The split number of cycles, a vector containing 4 values
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classCyclesSplitterEncoder_a9fbc26fda47aa2340f377ccb16a0bd07}\label{classCyclesSplitterEncoder_a9fbc26fda47aa2340f377ccb16a0bd07} 
+\index{CyclesSplitterEncoder@{CyclesSplitterEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!CyclesSplitterEncoder@{CyclesSplitterEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Splitter\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of cycles by splitting it into 4 values, billions, millions, thousands and units. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The split batch of cycles, a matrix of size Y times 4 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

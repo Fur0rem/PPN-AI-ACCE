@@ -21,7 +21,11 @@ Inheritance diagram for Cycles\+Bounded\+Normaliser\+Encoder\+:\begin{figure}[H]
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2}{encode}} (std\+::vector$<$ float $>$ \&input) const override
 \begin{DoxyCompactList}\small\item\em Encode the number of cycles by normalising it, but between 0.\+15 and 0.\+85. \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a14d471b32f36ac2feb9e8dcce55d5cc0}{decode}} (std\+::vector$<$ float $>$ \&input) const override
-\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it, but between 0.\+15 and 0.\+85. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Decode the number of cycles by denormalising it, but between 0.\+15 and 0.\+85. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a803af40e706e72cae903af2b1a746e0a}{encode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Encode a batch of cycles by normalising it, but between 0.\+15 and 0.\+85. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{classCyclesBoundedNormaliserEncoder_a2fdd1cbd26e768fd920f73b4e645eee7}{decode\+\_\+batch}} (const Eigen\+::\+Matrix\+Xf \&input) const override
+\begin{DoxyCompactList}\small\item\em Decode a batch of cycles by denormalising it, but between 0.\+15 and 0.\+85. The matrix is expected to be of size Y times 1 (because each cycle is a single value) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,6 +54,28 @@ The denormalised number of cycles, a vector containing a single value
 
 Implements \mbox{\hyperlink{classIEncoder_a89bd34ee87c740cab12f020a18239f8e}{IEncoder}}.
 
+\Hypertarget{classCyclesBoundedNormaliserEncoder_a2fdd1cbd26e768fd920f73b4e645eee7}\label{classCyclesBoundedNormaliserEncoder_a2fdd1cbd26e768fd920f73b4e645eee7} 
+\index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}!decode\_batch@{decode\_batch}}
+\index{decode\_batch@{decode\_batch}!CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{decode\_batch()}{decode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Bounded\+Normaliser\+Encoder\+::decode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decode a batch of cycles by denormalising it, but between 0.\+15 and 0.\+85. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The denormalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a9c55134620ad058884f720bef7a56f59}{IEncoder}}.
+
 \Hypertarget{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2}\label{classCyclesBoundedNormaliserEncoder_a6c64b648f84075f1e1fab55c971d5ce2} 
 \index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}!encode@{encode}}
 \index{encode@{encode}!CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
@@ -71,6 +97,28 @@ The normalised number of cycles, a vector containing a single value between 0.\+
 
 
 Implements \mbox{\hyperlink{classIEncoder_aa23851049a14ccec123dc5422492d8f1}{IEncoder}}.
+
+\Hypertarget{classCyclesBoundedNormaliserEncoder_a803af40e706e72cae903af2b1a746e0a}\label{classCyclesBoundedNormaliserEncoder_a803af40e706e72cae903af2b1a746e0a} 
+\index{CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}!encode\_batch@{encode\_batch}}
+\index{encode\_batch@{encode\_batch}!CyclesBoundedNormaliserEncoder@{CyclesBoundedNormaliserEncoder}}
+\doxysubsubsection{\texorpdfstring{encode\_batch()}{encode\_batch()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Cycles\+Bounded\+Normaliser\+Encoder\+::encode\+\_\+batch (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encode a batch of cycles by normalising it, but between 0.\+15 and 0.\+85. The matrix is expected to be of size Y times 1 (because each cycle is a single value) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The batch of cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The normalised batch of cycles, a matrix of size Y times 1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIEncoder_a3aaa6183c492295962d835602ffe2afc}{IEncoder}}.
 
 
 

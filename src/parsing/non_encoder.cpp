@@ -12,3 +12,11 @@ std::vector<float> NonEncoder::encode(std::vector<float>& input) const {
 std::vector<float> NonEncoder::decode(std::vector<float>& input) const {
 	return input;
 }
+
+Eigen::MatrixXf NonEncoder::encode_batch(const Eigen::MatrixXf& input) const {
+	return input;
+}
+
+Eigen::MatrixXf NonEncoder::decode_batch(const Eigen::MatrixXf& input) const {
+	return input;
+}

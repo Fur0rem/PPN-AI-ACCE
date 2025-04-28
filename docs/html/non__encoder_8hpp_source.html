@@ -96,14 +96,20 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::vector&lt;float&gt; <a class="code hl_function" href="classNonEncoder.html#aa0351ec353a0100fe1b0f8dfdd5b3a42">encode</a>(std::vector&lt;float&gt;&amp; input) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;float&gt; <a class="code hl_function" href="classNonEncoder.html#a8dc385d172fd28ffaa3ef41e347f2e15">decode</a>(std::vector&lt;float&gt;&amp; input) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    Eigen::MatrixXf <a class="code hl_function" href="classNonEncoder.html#aff9d4f0dcc4a5ff1e90beb7ba6be665d">encode_batch</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; input) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Eigen::MatrixXf <a class="code hl_function" href="classNonEncoder.html#aa33d79c52ab38c633bce917d967bd60c">decode_batch</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; input) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">// NON_ENCODER_HPP</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif </span><span class="comment">// NON_ENCODER_HPP</span></div>
 <div class="ttc" id="aclassIEncoder_html"><div class="ttname"><a href="classIEncoder.html">IEncoder</a></div><div class="ttdoc">Interface for encoding and decoding data.</div><div class="ttdef"><b>Definition</b> iencoder.hpp:14</div></div>
 <div class="ttc" id="aclassNonEncoder_html"><div class="ttname"><a href="classNonEncoder.html">NonEncoder</a></div><div class="ttdoc">An encoder that does not transform the input.</div><div class="ttdef"><b>Definition</b> non_encoder.hpp:14</div></div>
 <div class="ttc" id="aclassNonEncoder_html_a8dc385d172fd28ffaa3ef41e347f2e15"><div class="ttname"><a href="classNonEncoder.html#a8dc385d172fd28ffaa3ef41e347f2e15">NonEncoder::decode</a></div><div class="ttdeci">std::vector&lt; float &gt; decode(std::vector&lt; float &gt; &amp;input) const override</div><div class="ttdoc">Does nothing.</div><div class="ttdef"><b>Definition</b> non_encoder.cpp:12</div></div>
 <div class="ttc" id="aclassNonEncoder_html_aa0351ec353a0100fe1b0f8dfdd5b3a42"><div class="ttname"><a href="classNonEncoder.html#aa0351ec353a0100fe1b0f8dfdd5b3a42">NonEncoder::encode</a></div><div class="ttdeci">std::vector&lt; float &gt; encode(std::vector&lt; float &gt; &amp;input) const override</div><div class="ttdoc">Does nothing.</div><div class="ttdef"><b>Definition</b> non_encoder.cpp:8</div></div>
+<div class="ttc" id="aclassNonEncoder_html_aa33d79c52ab38c633bce917d967bd60c"><div class="ttname"><a href="classNonEncoder.html#aa33d79c52ab38c633bce917d967bd60c">NonEncoder::decode_batch</a></div><div class="ttdeci">Eigen::MatrixXf decode_batch(const Eigen::MatrixXf &amp;input) const override</div><div class="ttdoc">Does nothing.</div><div class="ttdef"><b>Definition</b> non_encoder.cpp:20</div></div>
+<div class="ttc" id="aclassNonEncoder_html_aff9d4f0dcc4a5ff1e90beb7ba6be665d"><div class="ttname"><a href="classNonEncoder.html#aff9d4f0dcc4a5ff1e90beb7ba6be665d">NonEncoder::encode_batch</a></div><div class="ttdeci">Eigen::MatrixXf encode_batch(const Eigen::MatrixXf &amp;input) const override</div><div class="ttdoc">Does nothing.</div><div class="ttdef"><b>Definition</b> non_encoder.cpp:16</div></div>
 <div class="ttc" id="aiencoder_8hpp_html"><div class="ttname"><a href="iencoder_8hpp.html">iencoder.hpp</a></div><div class="ttdoc">The header for an interface class for encoding and decoding data.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

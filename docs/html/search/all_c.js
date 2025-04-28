@@ -8,6 +8,7 @@ var searchData=
   ['no_5fmore_5fvalue_5',['NO_MORE_VALUE',['../size__encoder_8hpp.html#a84e92db2ecca96cc2a0a0b52e641b741',1,'size_encoder.hpp']]],
   ['non_5fencoder_2ecpp_6',['non_encoder.cpp',['../non__encoder_8cpp.html',1,'']]],
   ['non_5fencoder_2ehpp_7',['non_encoder.hpp',['../non__encoder_8hpp.html',1,'']]],
-  ['nonencoder_8',['NonEncoder',['../classNonEncoder.html',1,'']]],
-  ['numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_9',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
+  ['none_8',['none',['../classTrainingNoise.html#af8116529c85172388500224074bc70f9',1,'TrainingNoise']]],
+  ['nonencoder_9',['NonEncoder',['../classNonEncoder.html',1,'']]],
+  ['numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_10',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
 ];
