@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['relu_0',['ReLU',['../classReLU.html',1,'']]],
-  ['rmsprop_1',['RMSProp',['../classRMSProp.html',1,'']]]
+  ['sgd_0',['SGD',['../classSGD.html',1,'']]],
+  ['sigmoid_1',['Sigmoid',['../classSigmoid.html',1,'']]],
+  ['sizeencoder_2',['SizeEncoder',['../classSizeEncoder.html',1,'']]]
 ];

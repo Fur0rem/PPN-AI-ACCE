@@ -13,7 +13,7 @@ set(RELEASE_FLAGS -Og -g3)
 
 set(TEST_FLAGS --coverage ${SANITIZER_LIB})
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include -fno-eliminate-unused-debug-types)
-set(BENCHMARK_FLAGS -lm ${NANOBENCH_LINK_FLAGS} -O3)
+set(CODELET_FLAGS -lm ${NANOBENCH_LINK_FLAGS} -O3)
 
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -49,6 +49,7 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/neural_network/gradients.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/optimiser.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
+    ${CMAKE_SOURCE_DIR}/src/neural_network/sparse_multiplication.cpp
     ${CMAKE_SOURCE_DIR}/src/dataset/dataset.cpp
 )
 # Add the main executable
@@ -56,7 +57,7 @@ add_executable(main
     ${SRCS}
     ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
-target_link_libraries(main)
+target_link_libraries(main nanobench)
 target_compile_options(main PRIVATE ${RELEASE_FLAGS})
 
 # Add the topology_finder executable
@@ -87,6 +88,7 @@ set(TESTS
     xor_parser
     recognises_xor
     cycles_encoders
+    sparse_multiplication
 )
 
 foreach(TEST ${TESTS})
@@ -99,9 +101,9 @@ foreach(TEST ${TESTS})
 )
 endforeach()
 
-# Add the benchmark executables
-# PPN-AI-ACCE/build]$ find ../benchmarks -type f -name "*.cpp" | sed 's/\.cpp$//' | sed 's|../benchmarks/||' | sort | grep -v dummy
-set(BENCHMARKS
+# Add the codelets executables for the dataset
+# PPN-AI-ACCE/build]$ find ../codelets -type f -name "*.cpp" | sed 's/\.cpp$//' | sed 's|../codelets/||' | sort | grep -v dummy
+set(CODELETS
     array_add
     array_copy
     array_min
@@ -382,11 +384,11 @@ set(BENCHMARKS
 )
 
 
-foreach(BENCHMARK ${BENCHMARKS})
-    add_executable(benchmark_${BENCHMARK} ${CMAKE_SOURCE_DIR}/benchmarks/${BENCHMARK}.cpp)
-    target_link_libraries(benchmark_${BENCHMARK} nanobench)
-    target_compile_options(benchmark_${BENCHMARK} PRIVATE ${RELEASE_FLAGS} -mavx2)
-    target_link_options(benchmark_${BENCHMARK} PRIVATE ${BENCHMARK_FLAGS})
+foreach(CODELET ${CODELETS})
+    add_executable(codelet_${CODELET} ${CMAKE_SOURCE_DIR}/codelets/${CODELET}.cpp)
+    target_link_libraries(codelet_${CODELET} nanobench)
+    target_compile_options(codelet_${CODELET} PRIVATE ${RELEASE_FLAGS} -mavx2)
+    target_link_options(codelet_${CODELET} PRIVATE ${CODELET_FLAGS})
 endforeach()
 
 
@@ -413,3 +415,16 @@ file(WRITE ${CMAKE_BINARY_DIR}/cmake_clean.cmake
 )
 
 enable_testing()
+
+set(BENCHMARKS 
+    training
+    sparse_multiplication
+)
+
+foreach(BENCHMARK ${BENCHMARKS})
+    add_executable(benchmark_${BENCHMARK} ${CMAKE_SOURCE_DIR}/benchmarks/${BENCHMARK}.cpp)
+    target_sources(benchmark_${BENCHMARK} PRIVATE ${SRCS})
+    target_link_libraries(benchmark_${BENCHMARK} nanobench)
+    target_compile_options(benchmark_${BENCHMARK} PRIVATE ${RELEASE_FLAGS})
+    target_link_options(benchmark_${BENCHMARK} PRIVATE ${CODELET_FLAGS})
+endforeach()

@@ -16,7 +16,6 @@
 #include <eigen3/Eigen/Dense>
 
 void log_useless_data(Dataset* dataset) {
-
 	Eigen::MatrixXf kernels_data = dataset->get_input_data();
 	std::fstream file_proportion;
 	std::fstream file_raw;
@@ -39,7 +38,6 @@ void log_useless_data(Dataset* dataset) {
 
 	file_proportion.close();
 	file_raw.close();
-	return;
 }
 
 int main() {
@@ -58,15 +56,9 @@ int main() {
 							  std::make_unique<SizeEncoder>(topology[0]),
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
-	log_useless_data(&dataset);
-
-	NeuralNetwork nn(topology, std::make_unique<Sigmoid>(), std::make_unique<TrainingNoise>(0.0F, 0.001F, 0.1F, 0.0F));
-	nn.train_simulated_annealing(dataset, 200, 0.8, 0.993F, 32, 3.0F, std::string("training_results/simulated_annealing"), 1);
-	nn.train_local_search(dataset, 200, 0.8, 32, std::string("training_results/local_search"), 1);
-	IOptimiser* optimiser = new AMSGrad(nn, 0.3, 0.7, 1e-8, 0.0003);
-	nn.train_simulated_annealing_and_gradient(
-		dataset, 200, 0.8, 0.993F, 32, 3.0F, *optimiser, 20, 4, std::string("training_results/simulated_annealing_and_gradient"), 1);
-	delete optimiser;
+	NeuralNetwork nn(topology, std::make_unique<Sigmoid>(), std::make_unique<TrainingNoise>(0.0F, 0.0F, 0.0F, 0.0F));
+	std::unique_ptr<IOptimiser> optimiser = std::make_unique<Adam>(nn, 0.001F, 0.9F, 0.999F, 1e-8F);
+	nn.train_batch(dataset, 2000, 0.8, 16, *optimiser, "training_results/XXX", 3);
 
 	exit(EXIT_SUCCESS);
 }

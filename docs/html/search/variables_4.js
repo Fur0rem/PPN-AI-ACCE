@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rng_0',['rng',['../dataset_8cpp.html#af200073b3d4db5813c00cf99d414689b',1,'dataset.cpp']]]
+  ['topology_0',['topology',['../structMetrics.html#a01423d226db1f853a68637bf956b6572',1,'Metrics']]],
+  ['train_5facc_1',['train_acc',['../structMetrics.html#a642f650572618f747f53c892dae37258',1,'Metrics']]]
 ];

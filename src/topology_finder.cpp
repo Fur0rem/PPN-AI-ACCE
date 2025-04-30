@@ -15,7 +15,7 @@
 #include <utility>
 #include <vector>
 
-#define LOG 1
+#define LOG 0
 #define LOG_PRINT(x)                                                                                                                       \
 	if (LOG) {                                                                                                                             \
 		x                                                                                                                                  \
@@ -460,35 +460,11 @@ void strong_scaling_benchmark() {
 							  std::make_unique<SizeEncoder>(MAX_TOKENS_NN / 8),
 							  std::make_unique<CyclesLogEncoder>(2, 0));
 
-	// // Benchmark the topology finder with and without early stopping
-	// std::ostringstream oss;
-	// auto result = ankerl::nanobench::Bench()
-	// 				  .epochs(2)
-	// 				  .performanceCounters(true)
-	// 				  .output(&oss)
-	// 				  .run("Topology finder with early stopping",
-	// 					   [&]() {
-	// 						   find_best_topology(dataset, 5, 16, 4, 0.4F);
-	// 					   })
-	// 				  .run("Topology finder without early stopping",
-	// 					   [&]() {
-	// 						   find_best_topology_no_early_stop(dataset, 5, 16, 4, 0.4F);
-	// 					   })
-	// 				  .results();
-
-	// // Print oss
-	// // std::cout << oss.str() << '\n';
-
-	// for (auto const& res : result) {
-	// 	auto measure = res.fromString("elapsed");
-	// 	auto name = res.config().mBenchmarkName;
-	// 	std::cout << name << ", Min: " << res.minimum(measure) << "s, Max: " << res.maximum(measure) << "s, Med: " << res.median(measure)
-	// 			  << "s\n";
-	// }
-
-	constexpr int max_threads = 6;
-
-	for (int nb_threads = 1; nb_threads <= max_threads; nb_threads++) {
+	// Benchmark the topology finder with and without early stopping
+	// size_t max_threads = 8;
+	// for (int nb_threads = 8; nb_threads <= max_threads; nb_threads++) {
+	auto all_threads = {2, 3, 5, 7};
+	for (auto nb_threads : all_threads) {
 		omp_set_num_threads(nb_threads);
 		std::string name_with = "Topology finder with early stopping (nb_threads = " + std::to_string(nb_threads) + ")";
 		std::string name_without = "Topology finder without early stopping (nb_threads = " + std::to_string(nb_threads) + ")";
@@ -499,11 +475,11 @@ void strong_scaling_benchmark() {
 						  .output(&oss)
 						  .run(name_with,
 							   [&]() {
-								   find_best_topology(dataset, 5, 4, 4, 0.4F);
+								   find_best_topology(dataset, 100, 12, 4, 0.4F);
 							   })
 						  .run(name_without,
 							   [&]() {
-								   find_best_topology_no_early_stop(dataset, 5, 4, 4, 0.4F);
+								   find_best_topology_no_early_stop(dataset, 100, 12, 4, 0.4F);
 							   })
 						  .results();
 		// Print oss

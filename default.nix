@@ -21,5 +21,7 @@ pkgs.stdenv.mkDerivation {
     eigen
     texliveFull
     openssl
+    linuxPackages_latest.perf
   ];
+  NIX_ENFORCE_NO_NATIVE=0;
 }

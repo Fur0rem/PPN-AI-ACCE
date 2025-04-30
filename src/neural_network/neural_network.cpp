@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <cxxabi.h>
 #include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/src/Core/Matrix.h>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -45,8 +46,8 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 		std::mt19937 gen(rd());									// Mersenne Twister random number generator
 		std::bernoulli_distribution dist(1.0 - m_dropout_rate); // Bernoulli distribution for dropout
 
-		for (size_t i = 0; i < matrix.rows(); i++) {
-			for (size_t j = 0; j < matrix.cols(); j++) {
+		for (size_t j = 0; j < matrix.cols(); j++) {
+			for (size_t i = 0; i < matrix.rows(); i++) {
 				if (dist(gen)) {
 					matrix(i, j) = 0.0f;
 				}
@@ -57,8 +58,8 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 	// Apply noise
 	if (m_add_noise > 0.0f) {
 		std::uniform_real_distribution<float> dist(-m_add_noise, m_add_noise);
-		for (size_t i = 0; i < matrix.rows(); i++) {
-			for (size_t j = 0; j < matrix.cols(); j++) {
+		for (size_t j = 0; j < matrix.cols(); j++) {
+			for (size_t i = 0; i < matrix.rows(); i++) {
 				matrix(i, j) += dist(m_gen);
 			}
 		}
@@ -66,8 +67,8 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 
 	if (m_mult_noise > 0.0f) {
 		std::uniform_real_distribution<float> dist(1.0 - m_mult_noise, 1.0 + m_mult_noise);
-		for (size_t i = 0; i < matrix.rows(); i++) {
-			for (size_t j = 0; j < matrix.cols(); j++) {
+		for (size_t j = 0; j < matrix.cols(); j++) {
+			for (size_t i = 0; i < matrix.rows(); i++) {
 				matrix(i, j) *= dist(m_gen);
 			}
 		}
@@ -84,8 +85,8 @@ NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_pt
 	for (size_t i = 0; i < topology.size() - 1; i++) {
 		// Initialize weights with small random values
 		m_weights.push_back(Eigen::MatrixXf(topology[i], topology[i + 1]));
-		for (size_t j = 0; j < topology[i]; j++) {
-			for (size_t k = 0; k < topology[i + 1]; k++) {
+		for (size_t k = 0; k < topology[i + 1]; k++) {
+			for (size_t j = 0; j < topology[i]; j++) {
 				// In interval [-0.01, 0.01]
 				m_weights[i](j, k) = 0.02F * (static_cast<float>(rand()) / RAND_MAX) - 0.01F;
 
@@ -139,8 +140,8 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 		Eigen::MatrixXf last_a = m_a_values.back();
 		Eigen::MatrixXf z = last_a * m_weights[i];
 		// Add biases
-		for (size_t j = 0; j < z.rows(); j++) {
-			for (size_t k = 0; k < z.cols(); k++) {
+		for (size_t k = 0; k < z.cols(); k++) {
+			for (size_t j = 0; j < z.rows(); j++) {
 				z(j, k) += m_biases[i](0, k);
 			}
 		}
@@ -148,8 +149,8 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 
 		// Make it go through the activation function
 		Eigen::MatrixXf a(z.rows(), z.cols());
-		for (size_t j = 0; j < z.rows(); j++) {
-			for (size_t k = 0; k < z.cols(); k++) {
+		for (size_t k = 0; k < z.cols(); k++) {
+			for (size_t j = 0; j < z.rows(); j++) {
 				a(j, k) = m_activation_func->func(z(j, k));
 			}
 		}
@@ -176,24 +177,17 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 	Gradients grads(0);
 	for (ssize_t i = (ssize_t)m_topology.size() - 2; i >= 0; i--) {
 		// Compute the derivative of the activation function
-		Eigen::MatrixXf derivative(m_z_values[i].rows(), m_z_values[i].cols());
-		for (size_t j = 0; j < m_z_values[i].rows(); j++) {
-			for (size_t k = 0; k < m_z_values[i].cols(); k++) {
-				derivative(j, k) = m_activation_func->deriv(m_z_values[i](j, k));
-			}
-		}
+		Eigen::MatrixXf derivative = m_z_values[i].unaryExpr([this](float z) {
+			return m_activation_func->deriv(z);
+		});
 
 		// Compute the gradients
 		Eigen::MatrixXf dz = loss_grad.cwiseProduct(derivative);
 		Eigen::MatrixXf dw = m_a_values[i].transpose() * dz;
 		dw /= (float)m;
 		Eigen::MatrixXf db(1, dz.cols());
-		for (size_t j = 0; j < dz.cols(); j++) {
-			db(0, j) = 0.0f;
-			for (size_t k = 0; k < dz.rows(); k++) {
-				db(0, j) += dz(k, j);
-			}
-			db(0, j) /= (float)m;
+		for (size_t k = 0; k < dz.cols(); k++) {
+			db(0, k) = dz.col(k).sum() / (float)m;
 		}
 		loss_grad = dz * m_weights[i].transpose();
 		grads.d_w().insert(grads.d_w().begin(), dw);
@@ -256,21 +250,19 @@ Data into_data(Dataset& dataset, float training_proportion) {
 	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
 	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
 
-	for (size_t i = 0; i < train_size; i++) {
-		for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
-			// std::cout << "Accessing train input vector " << i << ", index " << j << '\n';
-			// std::cout << "Writing to train input matrix (" << i << ", " << j << ")\n";
+	for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < train_size; i++) {
 			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
 		}
-		for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
-			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
-		}
-	}
-	for (size_t i = 0; i < validation_size; i++) {
-		for (size_t j = 0; j < validation_input_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < validation_size; i++) {
 			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
 		}
-		for (size_t j = 0; j < validation_target_vectors[0]->size(); j++) {
+	}
+	for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < train_size; i++) {
+			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
+		}
+		for (size_t i = 0; i < validation_size; i++) {
 			validation_target_matrix(i, j) = (*validation_target_vectors[i])(j);
 		}
 	}
@@ -338,19 +330,19 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
 	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
 
-	for (size_t i = 0; i < train_size; i++) {
-		for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
+	for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < train_size; i++) {
 			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
 		}
-		for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
-			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
-		}
-	}
-	for (size_t i = 0; i < validation_size; i++) {
-		for (size_t j = 0; j < validation_input_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < validation_size; i++) {
 			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
 		}
-		for (size_t j = 0; j < validation_target_vectors[0]->size(); j++) {
+	}
+	for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
+		for (size_t i = 0; i < train_size; i++) {
+			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
+		}
+		for (size_t i = 0; i < validation_size; i++) {
 			validation_target_matrix(i, j) = (*validation_target_vectors[i])(j);
 		}
 	}
@@ -483,13 +475,13 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 
 			Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
 			Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
-			for (size_t i = 0; i < train_input_matrix.rows(); i++) {
-				for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+			for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+				for (size_t i = 0; i < train_input_matrix.rows(); i++) {
 					x_shuffled(i, j) = train_input_matrix(indices[i], j);
 				}
 			}
-			for (size_t i = 0; i < train_target_matrix.rows(); i++) {
-				for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+			for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+				for (size_t i = 0; i < train_target_matrix.rows(); i++) {
 					y_shuffled(i, j) = train_target_matrix(indices[i], j);
 				}
 			}
@@ -499,11 +491,13 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 				size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
 				Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
 				Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
-				for (size_t j = i; j < end; j++) {
-					for (size_t k = 0; k < train_input_matrix.cols(); k++) {
+				for (size_t k = 0; k < train_input_matrix.cols(); k++) {
+					for (size_t j = i; j < end; j++) {
 						x_batch(j - i, k) = x_shuffled(j, k);
 					}
-					for (size_t k = 0; k < train_target_matrix.cols(); k++) {
+				}
+				for (size_t k = 0; k < train_target_matrix.cols(); k++) {
+					for (size_t j = i; j < end; j++) {
 						y_batch(j - i, k) = y_shuffled(j, k);
 					}
 				}
@@ -596,11 +590,13 @@ std::pair<float, float> NeuralNetwork::train_batch_for_topology_finder(Dataset& 
 		std::shuffle(indices.begin(), indices.end(), std::mt19937(std::random_device()()));
 		Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
 		Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
-		for (size_t i = 0; i < train_input_matrix.rows(); i++) {
-			for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+		for (size_t j = 0; j < train_input_matrix.cols(); j++) {
+			for (size_t i = 0; i < train_input_matrix.rows(); i++) {
 				x_shuffled(i, j) = train_input_matrix(indices[i], j);
 			}
-			for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+		}
+		for (size_t j = 0; j < train_target_matrix.cols(); j++) {
+			for (size_t i = 0; i < train_target_matrix.rows(); i++) {
 				y_shuffled(i, j) = train_target_matrix(indices[i], j);
 			}
 		}
@@ -610,11 +606,13 @@ std::pair<float, float> NeuralNetwork::train_batch_for_topology_finder(Dataset& 
 			size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
 			Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
 			Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
-			for (size_t j = i; j < end; j++) {
-				for (size_t k = 0; k < train_input_matrix.cols(); k++) {
+			for (size_t k = 0; k < train_input_matrix.cols(); k++) {
+				for (size_t j = i; j < end; j++) {
 					x_batch(j - i, k) = x_shuffled(j, k);
 				}
-				for (size_t k = 0; k < train_target_matrix.cols(); k++) {
+			}
+			for (size_t k = 0; k < train_target_matrix.cols(); k++) {
+				for (size_t j = i; j < end; j++) {
 					y_batch(j - i, k) = y_shuffled(j, k);
 				}
 			}
@@ -686,8 +684,13 @@ std::pair<float, float> NeuralNetwork::train_local_search(Dataset& dataset, size
 				m_biases = original_biases;
 
 				for (size_t j = 0; j < m_weights.size(); j++) {
-					for (size_t k = 0; k < m_weights[j].rows(); k++) {
-						for (size_t l = 0; l < m_weights[j].cols(); l++) {
+					// for (size_t k = 0; k < m_weights[j].rows(); k++) {
+					// 	for (size_t l = 0; l < m_weights[j].cols(); l++) {
+					// 		m_weights[j](k, l) += ((float)rand() / RAND_MAX - 0.5F) * 0.03F;
+					// 	}
+					// }
+					for (size_t l = 0; l < m_weights[j].cols(); l++) {
+						for (size_t k = 0; k < m_weights[j].rows(); k++) {
 							m_weights[j](k, l) += ((float)rand() / RAND_MAX - 0.5F) * 0.03F;
 						}
 					}

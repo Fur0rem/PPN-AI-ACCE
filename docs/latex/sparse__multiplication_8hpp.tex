@@ -1,0 +1,109 @@
+\doxysection{include/neural\+\_\+network/sparse\+\_\+multiplication.hpp File Reference}
+\hypertarget{sparse__multiplication_8hpp}{}\label{sparse__multiplication_8hpp}\index{include/neural\_network/sparse\_multiplication.hpp@{include/neural\_network/sparse\_multiplication.hpp}}
+
+
+Header file for sparse matrix multiplication functions.  
+
+
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{sparse__multiplication_8hpp_aef135e50c97cf9b962b46849c3780735}{naive\+\_\+multiplication}} (const Eigen\+::\+Matrix\+Xf \&sparse\+\_\+matrix, const Eigen\+::\+Matrix\+Xf \&dense\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Naive matrix multiplication. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{sparse__multiplication_8hpp_aac602bcacc951fb209623eddead197aa}{sparse\+\_\+multiplication}} (const Eigen\+::\+Matrix\+Xf \&sparse\+\_\+matrix, const Eigen\+::\+Matrix\+Xf \&dense\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Sparse matrix multiplication. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{sparse__multiplication_8hpp_a48bb01974645a378932e3eb15f7103eb}{sparse\+\_\+multiplication\+\_\+blocked}} (const Eigen\+::\+Matrix\+Xf \&sparse\+\_\+matrix, const Eigen\+::\+Matrix\+Xf \&dense\+\_\+matrix, size\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Cache-\/blocked sparse matrix multiplication. Similar to sparse\+\_\+multiplication but uses cache-\/blocking for better performance. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix\+Xf \mbox{\hyperlink{sparse__multiplication_8hpp_a1a5c72389fb1429d8ae5ed5a0cedb303}{eigen\+\_\+sparse\+\_\+multiplication}} (const Eigen\+::\+Matrix\+Xf \&sparse\+\_\+matrix, const Eigen\+::\+Matrix\+Xf \&dense\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Eigen sparse matrix multiplication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for sparse matrix multiplication functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sparse__multiplication_8hpp_a1a5c72389fb1429d8ae5ed5a0cedb303}\label{sparse__multiplication_8hpp_a1a5c72389fb1429d8ae5ed5a0cedb303} 
+\index{sparse\_multiplication.hpp@{sparse\_multiplication.hpp}!eigen\_sparse\_multiplication@{eigen\_sparse\_multiplication}}
+\index{eigen\_sparse\_multiplication@{eigen\_sparse\_multiplication}!sparse\_multiplication.hpp@{sparse\_multiplication.hpp}}
+\doxysubsubsection{\texorpdfstring{eigen\_sparse\_multiplication()}{eigen\_sparse\_multiplication()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf eigen\+\_\+sparse\+\_\+multiplication (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{sparse\+\_\+matrix,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{dense\+\_\+matrix }\end{DoxyParamCaption})}
+
+
+
+Eigen sparse matrix multiplication. 
+
+This function multiplies a sparse matrix with a dense matrix using Eigen\textquotesingle{}s built-\/in functions. 
+\begin{DoxyParams}{Parameters}
+{\em sparse\+\_\+matrix} & The sparse matrix \\
+\hline
+{\em dense\+\_\+matrix} & The dense matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the multiplication 
+\end{DoxyReturn}
+\Hypertarget{sparse__multiplication_8hpp_aef135e50c97cf9b962b46849c3780735}\label{sparse__multiplication_8hpp_aef135e50c97cf9b962b46849c3780735} 
+\index{sparse\_multiplication.hpp@{sparse\_multiplication.hpp}!naive\_multiplication@{naive\_multiplication}}
+\index{naive\_multiplication@{naive\_multiplication}!sparse\_multiplication.hpp@{sparse\_multiplication.hpp}}
+\doxysubsubsection{\texorpdfstring{naive\_multiplication()}{naive\_multiplication()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf naive\+\_\+multiplication (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{sparse\+\_\+matrix,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{dense\+\_\+matrix }\end{DoxyParamCaption})}
+
+
+
+Naive matrix multiplication. 
+
+This function multiplies a sparse matrix with a dense matrix without any optimisation on neither the non-\/zero values nor the cache. 
+\begin{DoxyParams}{Parameters}
+{\em sparse\+\_\+matrix} & The sparse matrix \\
+\hline
+{\em dense\+\_\+matrix} & The dense matrix \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sparse__multiplication_8hpp_aac602bcacc951fb209623eddead197aa}\label{sparse__multiplication_8hpp_aac602bcacc951fb209623eddead197aa} 
+\index{sparse\_multiplication.hpp@{sparse\_multiplication.hpp}!sparse\_multiplication@{sparse\_multiplication}}
+\index{sparse\_multiplication@{sparse\_multiplication}!sparse\_multiplication.hpp@{sparse\_multiplication.hpp}}
+\doxysubsubsection{\texorpdfstring{sparse\_multiplication()}{sparse\_multiplication()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf sparse\+\_\+multiplication (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{sparse\+\_\+matrix,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{dense\+\_\+matrix }\end{DoxyParamCaption})}
+
+
+
+Sparse matrix multiplication. 
+
+This function multiplies a sparse matrix with a dense matrix. The sparse matrix has, for each row, all of its non-\/zero values at the beginning of the row and the rest are zeros. The number of zeroes is stored in the first element of each row. Example \+: 2/5 X X 0 0 0 1/5 X 0 0 0 0 3/5 X X X 0 0 
+\begin{DoxyParams}{Parameters}
+{\em sparse\+\_\+matrix} & The sparse matrix \\
+\hline
+{\em dense\+\_\+matrix} & The dense matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the multiplication 
+\end{DoxyReturn}
+\Hypertarget{sparse__multiplication_8hpp_a48bb01974645a378932e3eb15f7103eb}\label{sparse__multiplication_8hpp_a48bb01974645a378932e3eb15f7103eb} 
+\index{sparse\_multiplication.hpp@{sparse\_multiplication.hpp}!sparse\_multiplication\_blocked@{sparse\_multiplication\_blocked}}
+\index{sparse\_multiplication\_blocked@{sparse\_multiplication\_blocked}!sparse\_multiplication.hpp@{sparse\_multiplication.hpp}}
+\doxysubsubsection{\texorpdfstring{sparse\_multiplication\_blocked()}{sparse\_multiplication\_blocked()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf sparse\+\_\+multiplication\+\_\+blocked (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{sparse\+\_\+matrix,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{dense\+\_\+matrix,  }\item[{size\+\_\+t}]{block\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Cache-\/blocked sparse matrix multiplication. Similar to sparse\+\_\+multiplication but uses cache-\/blocking for better performance. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{sparse__multiplication_8hpp_aac602bcacc951fb209623eddead197aa}{sparse\+\_\+multiplication} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em sparse\+\_\+matrix} & The sparse matrix \\
+\hline
+{\em dense\+\_\+matrix} & The dense matrix \\
+\hline
+{\em block\+\_\+size} & The size of the blocks to use for the multiplication \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the multiplication 
+\end{DoxyReturn}
