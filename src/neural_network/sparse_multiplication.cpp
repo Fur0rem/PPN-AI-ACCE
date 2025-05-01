@@ -130,21 +130,15 @@ Eigen::MatrixXf eigen_sparse_multiplication(const Eigen::MatrixXf& sparse_matrix
 	Eigen::MatrixXf result = Eigen::MatrixXf::Zero(m_dim, n_dim);
 
 	// Compute the thresholds for each row
-	std::vector<size_t> thresholds(m_dim);
+	// std::vector<size_t> thresholds(m_dim);
+	size_t threshold = 0;
 	for (size_t i = 0; i < m_dim; i++) {
-		thresholds[i] = (sparse_matrix.cols() * (float)sparse_matrix(i, 0)) + 1.0F;
+		// thresholds[i] = (sparse_matrix.cols() * (float)sparse_matrix(i, 0)) + 1.0F;
+		threshold = std::max(threshold, (size_t)((sparse_matrix.cols() * (float)sparse_matrix(i, 0)) + 1.0F));
 	}
 
-	// Use Eigen's built-in sparse matrix multiplication
-	Eigen::SparseMatrix<float> sparse_eigen(m_dim, k_dim);
-	for (size_t i = 0; i < m_dim; i++) {
-		for (size_t j = 0; j < thresholds[i]; j++) {
-			sparse_eigen.insert(i, j) = sparse_matrix(i, j);
-		}
-	}
-	sparse_eigen.makeCompressed();
-
-	result = sparse_eigen * dense_matrix;
+	// Eigen's block feature to only the multiplication of the non-zero elements
+	result.block(0, 0, m_dim, n_dim) = sparse_matrix.block(0, 0, m_dim, threshold) * dense_matrix.block(0, 0, threshold, n_dim);
 
 	return result;
 }

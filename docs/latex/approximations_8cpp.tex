@@ -1,0 +1,60 @@
+\doxysection{benchmarks/approximations.cpp File Reference}
+\hypertarget{approximations_8cpp}{}\label{approximations_8cpp}\index{benchmarks/approximations.cpp@{benchmarks/approximations.cpp}}
+
+
+Benchmark for different approximations of mathematical functions.  
+
+
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include "{}../nanobench/src/include/nanobench.\+h"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{approximations_8cpp_ac55582c73612eae3129a2346642a9043}\label{approximations_8cpp_ac55582c73612eae3129a2346642a9043} 
+\#define {\bfseries ANKERL\+\_\+\+NANOBENCH\+\_\+\+IMPLEMENT}
+\begin{DoxyCompactList}\small\item\em Needed to use nanobench. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{approximations_8cpp_a2cca7473e19aeabf2795cd97c3bb5d85}\label{approximations_8cpp_a2cca7473e19aeabf2795cd97c3bb5d85} 
+float {\bfseries baseline\+\_\+sigmoid} (float x)
+\item 
+\Hypertarget{approximations_8cpp_af02b14ed1c33e2e67c3e1eb1e5aac8f8}\label{approximations_8cpp_af02b14ed1c33e2e67c3e1eb1e5aac8f8} 
+float {\bfseries baseline\+\_\+sigmoid\+\_\+derivative} (float x)
+\item 
+\Hypertarget{approximations_8cpp_a69c51b7641eeee985644dde2a61bde17}\label{approximations_8cpp_a69c51b7641eeee985644dde2a61bde17} 
+float {\bfseries truncated\+\_\+product\+\_\+exp} (float x)
+\item 
+\Hypertarget{approximations_8cpp_a5e30eeb55eaae1fa2f6d427f7d4584c4}\label{approximations_8cpp_a5e30eeb55eaae1fa2f6d427f7d4584c4} 
+float {\bfseries truncated\+\_\+product\+\_\+sigmoid} (float x)
+\item 
+\Hypertarget{approximations_8cpp_ad0a9cb75ecc3c1eb94ca9cf13ef266ae}\label{approximations_8cpp_ad0a9cb75ecc3c1eb94ca9cf13ef266ae} 
+float {\bfseries truncated\+\_\+product\+\_\+sigmoid\+\_\+derivative} (float x)
+\item 
+\Hypertarget{approximations_8cpp_ab95722ab5261aa5a3fc7e22c3c520188}\label{approximations_8cpp_ab95722ab5261aa5a3fc7e22c3c520188} 
+float {\bfseries polynomial\+\_\+exp} (float x)
+\item 
+\Hypertarget{approximations_8cpp_a71387d016162c2336250ab968dcf4750}\label{approximations_8cpp_a71387d016162c2336250ab968dcf4750} 
+float {\bfseries polynomial\+\_\+sigmoid} (float x)
+\item 
+\Hypertarget{approximations_8cpp_ad0801898792e43d6adb0f1f3d46dcee0}\label{approximations_8cpp_ad0801898792e43d6adb0f1f3d46dcee0} 
+float {\bfseries polynomial\+\_\+sigmoid\+\_\+derivative} (float x)
+\item 
+\Hypertarget{approximations_8cpp_ab62a71f4d4491ec1ae0f83bb58600a0d}\label{approximations_8cpp_ab62a71f4d4491ec1ae0f83bb58600a0d} 
+float {\bfseries schraudolph\+\_\+exp} (float x)
+\item 
+\Hypertarget{approximations_8cpp_a100d4e8ac3dbd5c9c3155f11a2e47978}\label{approximations_8cpp_a100d4e8ac3dbd5c9c3155f11a2e47978} 
+float {\bfseries schraudolph\+\_\+sigmoid} (float x)
+\item 
+\Hypertarget{approximations_8cpp_aefd2e1cc8f60b092287a189fcea0e337}\label{approximations_8cpp_aefd2e1cc8f60b092287a189fcea0e337} 
+float {\bfseries schraudolph\+\_\+sigmoid\+\_\+derivative} (float x)
+\item 
+\Hypertarget{approximations_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{approximations_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Benchmark for different approximations of mathematical functions. 
+

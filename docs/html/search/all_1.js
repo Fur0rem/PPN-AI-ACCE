@@ -8,10 +8,11 @@ var searchData=
   ['adam_5',['Adam',['../classAdam.html',1,'Adam'],['../classAdam.html#acffa63cd532030741babaed6b3222555',1,'Adam::Adam()']]],
   ['ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_6',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
   ['amsgrad_7',['AMSGrad',['../classAMSGrad.html',1,'AMSGrad'],['../classAMSGrad.html#af79c0009f42af710836847fed4fa7b59',1,'AMSGrad::AMSGrad()']]],
-  ['ankerl_5fnanobench_5fimplement_8',['ANKERL_NANOBENCH_IMPLEMENT',['../benchmarks_2sparse__multiplication_8cpp.html#ac55582c73612eae3129a2346642a9043',1,'ANKERL_NANOBENCH_IMPLEMENT:&#160;sparse_multiplication.cpp'],['../training_8cpp.html#ac55582c73612eae3129a2346642a9043',1,'ANKERL_NANOBENCH_IMPLEMENT:&#160;training.cpp']]],
+  ['ankerl_5fnanobench_5fimplement_8',['ANKERL_NANOBENCH_IMPLEMENT',['../approximations_8cpp.html#ac55582c73612eae3129a2346642a9043',1,'ANKERL_NANOBENCH_IMPLEMENT:&#160;approximations.cpp'],['../benchmarks_2sparse__multiplication_8cpp.html#ac55582c73612eae3129a2346642a9043',1,'ANKERL_NANOBENCH_IMPLEMENT:&#160;sparse_multiplication.cpp'],['../training_8cpp.html#ac55582c73612eae3129a2346642a9043',1,'ANKERL_NANOBENCH_IMPLEMENT:&#160;training.cpp']]],
   ['apply_5fnoise_9',['apply_noise',['../classTrainingNoise.html#adc69be0ea8f9ec07c3be0c4a6e7ab31f',1,'TrainingNoise']]],
-  ['asm_5fparser_2ecpp_10',['asm_parser.cpp',['../src_2parsing_2asm__parser_8cpp.html',1,'(Global Namespace)'],['../tests_2asm__parser_8cpp.html',1,'(Global Namespace)']]],
-  ['asm_5fparser_2ehpp_11',['asm_parser.hpp',['../asm__parser_8hpp.html',1,'']]],
-  ['asmparser_12',['AsmParser',['../classAsmParser.html',1,'AsmParser'],['../classAsmParser.html#a6f18d736598bda2cc6f6c530a90bd35e',1,'AsmParser::AsmParser()']]],
-  ['assembly_20code_20cycles_20estimator_13',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
+  ['approximations_2ecpp_10',['approximations.cpp',['../approximations_8cpp.html',1,'']]],
+  ['asm_5fparser_2ecpp_11',['asm_parser.cpp',['../src_2parsing_2asm__parser_8cpp.html',1,'(Global Namespace)'],['../tests_2asm__parser_8cpp.html',1,'(Global Namespace)']]],
+  ['asm_5fparser_2ehpp_12',['asm_parser.hpp',['../asm__parser_8hpp.html',1,'']]],
+  ['asmparser_13',['AsmParser',['../classAsmParser.html',1,'AsmParser'],['../classAsmParser.html#a6f18d736598bda2cc6f6c530a90bd35e',1,'AsmParser::AsmParser()']]],
+  ['assembly_20code_20cycles_20estimator_14',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
 ];

@@ -7,6 +7,7 @@
 #include "neural_network/activation_functions.hpp"
 #include "neural_network/gradients.hpp"
 #include "neural_network/optimiser.hpp"
+#include "neural_network/sparse_multiplication.hpp"
 #include <cmath>
 #include <cstdlib>
 #include <cxxabi.h>
@@ -21,6 +22,7 @@
 
 std::vector<float> get_row(const Eigen::MatrixXf& matrix, size_t row) {
 	std::vector<float> result(matrix.cols());
+	// #pragma omp parallel for
 	for (size_t i = 0; i < matrix.cols(); i++) {
 		result[i] = matrix(row, i);
 	}
@@ -46,6 +48,7 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 		std::mt19937 gen(rd());									// Mersenne Twister random number generator
 		std::bernoulli_distribution dist(1.0 - m_dropout_rate); // Bernoulli distribution for dropout
 
+		// #pragma omp parallel for
 		for (size_t j = 0; j < matrix.cols(); j++) {
 			for (size_t i = 0; i < matrix.rows(); i++) {
 				if (dist(gen)) {
@@ -56,8 +59,9 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 	}
 
 	// Apply noise
-	if (m_add_noise > 0.0f) {
+	if (m_add_noise > 0.0F) {
 		std::uniform_real_distribution<float> dist(-m_add_noise, m_add_noise);
+		// #pragma omp parallel for
 		for (size_t j = 0; j < matrix.cols(); j++) {
 			for (size_t i = 0; i < matrix.rows(); i++) {
 				matrix(i, j) += dist(m_gen);
@@ -65,8 +69,9 @@ void TrainingNoise::apply_noise(Eigen::MatrixXf& matrix) {
 		}
 	}
 
-	if (m_mult_noise > 0.0f) {
-		std::uniform_real_distribution<float> dist(1.0 - m_mult_noise, 1.0 + m_mult_noise);
+	if (m_mult_noise > 0.0F) {
+		std::uniform_real_distribution<float> dist(1.0F - m_mult_noise, 1.0F + m_mult_noise);
+		// #pragma omp parallel for
 		for (size_t j = 0; j < matrix.cols(); j++) {
 			for (size_t i = 0; i < matrix.rows(); i++) {
 				matrix(i, j) *= dist(m_gen);
@@ -85,6 +90,7 @@ NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_pt
 	for (size_t i = 0; i < topology.size() - 1; i++) {
 		// Initialize weights with small random values
 		m_weights.push_back(Eigen::MatrixXf(topology[i], topology[i + 1]));
+		// #pragma omp parallel for
 		for (size_t k = 0; k < topology[i + 1]; k++) {
 			for (size_t j = 0; j < topology[i]; j++) {
 				// In interval [-0.01, 0.01]
@@ -104,6 +110,7 @@ NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, std::unique_pt
 
 std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
 	Eigen::MatrixXf input_matrix(1, input.size());
+	// #pragma omp parallel for
 	for (size_t i = 0; i < input.size(); i++) {
 		input_matrix(0, i) = input[i];
 	}
@@ -115,6 +122,7 @@ std::vector<float> NeuralNetwork::predict(const std::vector<float>& input) {
 	m_training_noise = std::move(temp_noise); // Re-enable noise
 
 	std::vector<float> result(output.cols());
+	// #pragma omp parallel for
 	for (size_t i = 0; i < output.cols(); i++) {
 		result[i] = output(0, i);
 	}
@@ -138,8 +146,19 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 	for (size_t i = 0; i < m_topology.size() - 1; i++) {
 		// Pass the input through the layer
 		Eigen::MatrixXf last_a = m_a_values.back();
-		Eigen::MatrixXf z = last_a * m_weights[i];
+		Eigen::MatrixXf z;
+
+		if (i == 0) {
+			// Use sparse multiplication for the first layer, since it is sparse
+			z = eigen_sparse_multiplication(last_a, m_weights[i]);
+		}
+		else {
+			// Use dense multiplication for other layers
+			z = last_a * m_weights[i];
+		}
+
 		// Add biases
+		// #pragma omp parallel for
 		for (size_t k = 0; k < z.cols(); k++) {
 			for (size_t j = 0; j < z.rows(); j++) {
 				z(j, k) += m_biases[i](0, k);
@@ -149,6 +168,7 @@ Eigen::MatrixXf NeuralNetwork::feed_forward(const Eigen::MatrixXf& input) {
 
 		// Make it go through the activation function
 		Eigen::MatrixXf a(z.rows(), z.cols());
+		// #pragma omp parallel for
 		for (size_t k = 0; k < z.cols(); k++) {
 			for (size_t j = 0; j < z.rows(); j++) {
 				a(j, k) = m_activation_func->func(z(j, k));
@@ -177,15 +197,22 @@ Gradients NeuralNetwork::backward(const Eigen::MatrixXf& inputs, const Eigen::Ma
 	Gradients grads(0);
 	for (ssize_t i = (ssize_t)m_topology.size() - 2; i >= 0; i--) {
 		// Compute the derivative of the activation function
-		Eigen::MatrixXf derivative = m_z_values[i].unaryExpr([this](float z) {
-			return m_activation_func->deriv(z);
-		});
+		// Eigen::MatrixXf derivative = m_z_values[i].unaryExpr([this](float z) {
+		// 	return m_activation_func->deriv(z);
+		// });
+		Eigen::MatrixXf derivative(m_z_values[i].rows(), m_z_values[i].cols());
+		for (size_t k = 0; k < m_z_values[i].cols(); k++) {
+			for (size_t j = 0; j < m_z_values[i].rows(); j++) {
+				derivative(j, k) = m_activation_func->deriv(m_z_values[i](j, k));
+			}
+		}
 
 		// Compute the gradients
 		Eigen::MatrixXf dz = loss_grad.cwiseProduct(derivative);
 		Eigen::MatrixXf dw = m_a_values[i].transpose() * dz;
 		dw /= (float)m;
 		Eigen::MatrixXf db(1, dz.cols());
+		// #pragma omp parallel for
 		for (size_t k = 0; k < dz.cols(); k++) {
 			db(0, k) = dz.col(k).sum() / (float)m;
 		}
@@ -222,6 +249,7 @@ Data into_data(Dataset& dataset, float training_proportion) {
 	std::vector<std::string> train_names(train_size);
 	std::vector<std::string> validation_names(validation_size);
 
+	// #pragma omp parallel for
 	for (size_t i = 0; i < data.size(); i++) {
 		// Put the input and target in the right set
 		if (i < train_size) {
@@ -250,6 +278,7 @@ Data into_data(Dataset& dataset, float training_proportion) {
 	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
 	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
 
+	// #pragma omp parallel for
 	for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
 		for (size_t i = 0; i < train_size; i++) {
 			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
@@ -258,6 +287,7 @@ Data into_data(Dataset& dataset, float training_proportion) {
 			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
 		}
 	}
+	// #pragma omp parallel for
 	for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
 		for (size_t i = 0; i < train_size; i++) {
 			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
@@ -306,6 +336,7 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 	std::vector<std::string> train_names(train_size);
 	std::vector<std::string> validation_names(validation_size);
 
+	// #pragma omp parallel for
 	for (size_t i = 0; i < data.size(); i++) {
 		if (std::get<1>(data[i]).size() == 0 || std::get<2>(data[i]).size() == 0) {
 			throw std::runtime_error("Invalid data point: Input or target vector is empty.");
@@ -330,6 +361,7 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 	Eigen::MatrixXf validation_input_matrix(validation_size, train_input_vectors[0]->size());
 	Eigen::MatrixXf validation_target_matrix(validation_size, matrix_y_for_validation);
 
+	// #pragma omp parallel for
 	for (size_t j = 0; j < train_input_vectors[0]->size(); j++) {
 		for (size_t i = 0; i < train_size; i++) {
 			train_input_matrix(i, j) = (*train_input_vectors[i])(j);
@@ -338,6 +370,7 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 			validation_input_matrix(i, j) = (*validation_input_vectors[i])(j);
 		}
 	}
+	// #pragma omp parallel for
 	for (size_t j = 0; j < train_target_vectors[0]->size(); j++) {
 		for (size_t i = 0; i < train_size; i++) {
 			train_target_matrix(i, j) = (*train_target_vectors[i])(j);
@@ -367,10 +400,12 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 				Eigen::VectorXf* target = train_target_vectors[j];
 				// Forward pass
 				Eigen::MatrixXf input_matrix(1, input->size());
+				// #pragma omp parallel for
 				for (size_t k = 0; k < input->size(); k++) {
 					input_matrix(0, k) = (*input)(k);
 				}
 				Eigen::MatrixXf target_matrix(1, target->size());
+				// #pragma omp parallel for
 				for (size_t k = 0; k < target->size(); k++) {
 					target_matrix(0, k) = (*target)(k);
 				}
@@ -380,10 +415,12 @@ std::pair<float, float> NeuralNetwork::train(Dataset& dataset, size_t nb_epochs,
 				Gradients grads = this->backward(input_matrix, target_matrix);
 				// Update weights and biases
 				Eigen::MatrixXf errors(1, target->size());
+				// #pragma omp parallel for
 				for (size_t k = 0; k < target->size(); k++) {
 					errors(0, k) = (*target)(k)-output(0, k);
 				}
 				// Update weights and biases
+				// #pragma omp parallel for
 				for (size_t k = 0; k < m_topology.size() - 1; k++) {
 					m_weights[k] = m_weights[k] - (grads.d_w()[k] * learning_rate);
 					m_biases[k] = m_biases[k] - (grads.d_b()[k] * learning_rate);
@@ -475,11 +512,13 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 
 			Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
 			Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
+			// #pragma omp parallel for
 			for (size_t j = 0; j < train_input_matrix.cols(); j++) {
 				for (size_t i = 0; i < train_input_matrix.rows(); i++) {
 					x_shuffled(i, j) = train_input_matrix(indices[i], j);
 				}
 			}
+			// #pragma omp parallel for
 			for (size_t j = 0; j < train_target_matrix.cols(); j++) {
 				for (size_t i = 0; i < train_target_matrix.rows(); i++) {
 					y_shuffled(i, j) = train_target_matrix(indices[i], j);
@@ -489,18 +528,10 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 			// Mini-batch gradient descent
 			for (size_t i = 0; i < train_input_matrix.rows(); i += batch_size) {
 				size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
-				Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
-				Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
-				for (size_t k = 0; k < train_input_matrix.cols(); k++) {
-					for (size_t j = i; j < end; j++) {
-						x_batch(j - i, k) = x_shuffled(j, k);
-					}
-				}
-				for (size_t k = 0; k < train_target_matrix.cols(); k++) {
-					for (size_t j = i; j < end; j++) {
-						y_batch(j - i, k) = y_shuffled(j, k);
-					}
-				}
+
+				// Get the batch
+				auto x_batch = x_shuffled.block(i, 0, end - i, train_input_matrix.cols());
+				auto y_batch = y_shuffled.block(i, 0, end - i, train_target_matrix.cols());
 
 				// Forward pass
 				this->feed_forward(x_batch);
@@ -512,6 +543,7 @@ std::pair<float, float> NeuralNetwork::train_batch(Dataset& dataset, size_t nb_e
 
 				// Add regularisation term (L2 regularisation), penalises large weights
 				if (regularisation_term > 0.0) {
+					// #pragma omp parallel for
 					for (size_t i = 0; i < m_topology.size() - 1; i++) {
 						grads.d_w()[i] += regularisation_term * m_weights[i].cwiseProduct(m_weights[i]);
 					}
@@ -590,11 +622,13 @@ std::pair<float, float> NeuralNetwork::train_batch_for_topology_finder(Dataset& 
 		std::shuffle(indices.begin(), indices.end(), std::mt19937(std::random_device()()));
 		Eigen::MatrixXf x_shuffled(train_input_matrix.rows(), train_input_matrix.cols());
 		Eigen::MatrixXf y_shuffled(train_target_matrix.rows(), train_target_matrix.cols());
+		// #pragma omp parallel for
 		for (size_t j = 0; j < train_input_matrix.cols(); j++) {
 			for (size_t i = 0; i < train_input_matrix.rows(); i++) {
 				x_shuffled(i, j) = train_input_matrix(indices[i], j);
 			}
 		}
+		// #pragma omp parallel for
 		for (size_t j = 0; j < train_target_matrix.cols(); j++) {
 			for (size_t i = 0; i < train_target_matrix.rows(); i++) {
 				y_shuffled(i, j) = train_target_matrix(indices[i], j);
@@ -604,23 +638,14 @@ std::pair<float, float> NeuralNetwork::train_batch_for_topology_finder(Dataset& 
 		// Mini-batch gradient descent
 		for (size_t i = 0; i < train_input_matrix.rows(); i += batch_size) {
 			size_t end = std::min(i + batch_size, (size_t)train_input_matrix.rows());
-			Eigen::MatrixXf x_batch(end - i, train_input_matrix.cols());
-			Eigen::MatrixXf y_batch(end - i, train_target_matrix.cols());
-			for (size_t k = 0; k < train_input_matrix.cols(); k++) {
-				for (size_t j = i; j < end; j++) {
-					x_batch(j - i, k) = x_shuffled(j, k);
-				}
-			}
-			for (size_t k = 0; k < train_target_matrix.cols(); k++) {
-				for (size_t j = i; j < end; j++) {
-					y_batch(j - i, k) = y_shuffled(j, k);
-				}
-			}
-			// Forward pass
+
+			// Get the batch
+			auto x_batch = x_shuffled.block(i, 0, end - i, train_input_matrix.cols());
+			auto y_batch = y_shuffled.block(i, 0, end - i, train_target_matrix.cols());
+
+			// Feed it into the neural network
 			this->feed_forward(x_batch);
-			// Backward pass
 			Gradients grads = this->backward(x_batch, y_batch);
-			// Update weights
 			optimiser.update_weights(grads, *this);
 		}
 
@@ -1173,6 +1198,7 @@ double NeuralNetwork::get_acc_mrae(const Eigen::MatrixXf& inputs, const Eigen::M
 	Eigen::MatrixXf targets_decoded = encoder->decode_batch(targets);
 	Eigen::MatrixXf predictions_decoded = encoder->decode_batch(predictions);
 	double error = 0.0;
+	// #pragma omp parallel for reduction(+ : error)
 	for (size_t i = 0; i < inputs.rows(); i++) {
 		double relative_error = 0.0F;
 		for (size_t j = 0; j < targets_decoded.cols(); j++) {
@@ -1188,6 +1214,7 @@ double NeuralNetwork::get_acc_mrae(const Eigen::MatrixXf& inputs, const Eigen::M
 
 double NeuralNetwork::get_acc_mae(const Eigen::MatrixXf& inputs, const Eigen::MatrixXf& targets, const IEncoder* encoder) {
 	double error = 0.0;
+	// #pragma omp parallel for reduction(+ : error)
 	for (size_t i = 0; i < inputs.rows(); i++) {
 		auto input_vector = get_row(inputs, i);
 		auto target_vector = get_row(targets, i);
@@ -1198,9 +1225,10 @@ double NeuralNetwork::get_acc_mae(const Eigen::MatrixXf& inputs, const Eigen::Ma
 }
 
 void NeuralNetwork::reset() {
+	// #pragma omp parallel for
 	for (size_t i = 0; i < m_weights.size(); i++) {
-		for (size_t j = 0; j < m_weights[i].rows(); j++) {
-			for (size_t k = 0; k < m_weights[i].cols(); k++) {
+		for (size_t k = 0; k < m_weights[i].cols(); k++) {
+			for (size_t j = 0; j < m_weights[i].rows(); j++) {
 				m_weights[i](j, k) = 0.02F * (static_cast<float>(rand()) / RAND_MAX) - 0.01F;
 			}
 		}

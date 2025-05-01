@@ -7,8 +7,35 @@
 #include <cmath>
 #include <eigen3/Eigen/Dense>
 
+// Taken from https://gist.github.com/jrade/293a73f89dfef51da6522428c857802d
+// Paper : https://nic.schraudolph.org/pubs/Schraudolph99.pdf
+inline float schraudolph_exp(float x) {
+	constexpr float a = (1 << 23) / 0.69314718f;
+	constexpr float b = (1 << 23) * (127 - 0.043677448f);
+	x = a * x + b;
+
+	// Bounds checking
+	constexpr float c = (1 << 23);
+	constexpr float d = (1 << 23) * 255;
+	if (x < c || x > d) {
+		x = (x < c) ? 0.0f : d;
+	}
+
+	// Cast it as int
+	uint32_t n = static_cast<uint32_t>(x);
+	// Transmute the bits to float
+	union {
+		int i;
+		float f;
+	} transmute_device;
+	transmute_device.i = n;
+	x = transmute_device.f;
+
+	return x;
+}
+
 float Sigmoid::func(float x) {
-	return 1.0F / (1 + std::exp(-x));
+	return 1.0F / (1 + schraudolph_exp(-x));
 }
 
 float Sigmoid::deriv(float x) {
@@ -64,7 +91,7 @@ float ELU::func(float x) {
 		return x;
 	}
 	else {
-		return 0.01F * (std::exp(x) - 1);
+		return 0.01F * (schraudolph_exp(x) - 1);
 	}
 }
 
@@ -73,7 +100,7 @@ float ELU::deriv(float x) {
 		return 1;
 	}
 	else {
-		return 0.01F * std::exp(x);
+		return 0.01F * schraudolph_exp(x);
 	}
 }
 
@@ -83,5 +110,5 @@ float GELU::func(float x) {
 
 float GELU::deriv(float x) {
 	float cdf = 0.5F * (1.0F + std::tanh(sqrtf(2.0F / M_PI) * (x + 0.044715F * x * x * x)));
-	return 0.5F * (1 + cdf + x * (1 - cdf * cdf) * std::exp(-0.5F * x * x));
+	return 0.5F * (1 + cdf + x * (1 - cdf * cdf) * schraudolph_exp(-0.5F * x * x));
 }

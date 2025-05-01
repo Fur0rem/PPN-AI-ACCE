@@ -11,6 +11,7 @@
 SGD::SGD(float learning_rate) : m_learning_rate(learning_rate) {}
 
 void SGD::update_weights(const Gradients& grads, NeuralNetwork& nn) {
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		nn.m_weights[i] -= m_learning_rate * grads.d_w()[i];
 		for (size_t j = 0; j < nn.m_biases[i].cols(); j++) {
@@ -39,6 +40,7 @@ Momentum::Momentum(NeuralNetwork& nn, float beta, float learning_rate) : m_beta(
 }
 
 void Momentum::update_weights(const Gradients& grads, NeuralNetwork& nn) {
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		// Calculate the new momentum with accumulation to the previous momentum
 		m_vW[i] = m_vW[i] * m_beta + grads.d_w()[i] * (1 - m_beta);
@@ -73,7 +75,8 @@ AMSGrad::AMSGrad(NeuralNetwork& nn, float beta1, float beta2, float epsilon, flo
 	m_vW_hat = std::vector<Eigen::MatrixXf>(nn.m_weights.size());
 	m_vB_hat = std::vector<Eigen::MatrixXf>(nn.m_biases.size());
 
-	// Initialise the momentum and velocity vectors to 0
+// Initialise the momentum and velocity vectors to 0
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		size_t layer_rows = nn.m_weights[i].rows();
 		size_t layer_cols = nn.m_weights[i].cols();
@@ -81,6 +84,7 @@ AMSGrad::AMSGrad(NeuralNetwork& nn, float beta1, float beta2, float epsilon, flo
 		m_vW[i] = Eigen::MatrixXf::Zero(layer_rows, layer_cols);
 		m_vW_hat[i] = Eigen::MatrixXf::Zero(layer_rows, layer_cols);
 	}
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_biases.size(); i++) {
 		size_t layer_rows = nn.m_biases[i].rows();
 		size_t layer_cols = nn.m_biases[i].cols();
@@ -91,6 +95,7 @@ AMSGrad::AMSGrad(NeuralNetwork& nn, float beta1, float beta2, float epsilon, flo
 }
 
 void AMSGrad::update_weights(const Gradients& grads, NeuralNetwork& nn) {
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		auto gdwi = grads.d_w()[i];
 		auto gdbi = grads.d_b()[i];
@@ -133,7 +138,8 @@ Adam::Adam(NeuralNetwork& nn, float beta1, float beta2, float epsilon, float lea
 	m_vW = std::vector<Eigen::MatrixXf>(nn.m_weights.size());
 	m_vB = std::vector<Eigen::MatrixXf>(nn.m_biases.size());
 
-	// Initialise the momentum and velocity vectors to 0
+// Initialise the momentum and velocity vectors to 0
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		size_t layer_x = nn.m_weights[i].rows();
 		size_t layer_y = nn.m_weights[i].cols();
@@ -141,6 +147,7 @@ Adam::Adam(NeuralNetwork& nn, float beta1, float beta2, float epsilon, float lea
 		m_vW[i] = Eigen::MatrixXf::Zero(layer_x, layer_y);
 	}
 
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_biases.size(); i++) {
 		size_t layer_x = nn.m_biases[i].rows();
 		size_t layer_y = nn.m_biases[i].cols();
@@ -149,7 +156,18 @@ Adam::Adam(NeuralNetwork& nn, float beta1, float beta2, float epsilon, float lea
 	}
 }
 
+inline float fast_inv_sqrt(float x) {
+	union {
+		float f;
+		int i;
+	} u;
+	u.f = x;
+	u.i = 0x5f3759df - (u.i >> 1);
+	return u.f * (1.5F - (x * 0.5F * u.f * u.f));
+}
+
 void Adam::update_weights(const Gradients& grads, NeuralNetwork& nn) {
+#pragma omp parallel for
 	for (size_t i = 0; i < nn.m_weights.size(); i++) {
 		// Calculate the new momentum and velocity with accumulation to the previous momentum
 		m_mW[i] = m_mW[i] * m_beta1 + grads.d_w()[i] * (1 - m_beta1);
@@ -158,19 +176,21 @@ void Adam::update_weights(const Gradients& grads, NeuralNetwork& nn) {
 		m_vB[i] = m_vB[i] * m_beta2 + grads.d_b()[i].cwiseProduct(grads.d_b()[i]) * (1 - m_beta2);
 
 		// Compute the bias-corrected estimates with exponential decay
-		Eigen::MatrixXf m_w_hat = m_mW[i] / (1.0f - std::pow(m_beta1, 1));
-		Eigen::MatrixXf m_b_hat = m_mB[i] / (1.0f - std::pow(m_beta1, 1));
-		Eigen::MatrixXf v_w_hat = m_vW[i] / (1.0f - std::pow(m_beta2, 1));
-		Eigen::MatrixXf v_b_hat = m_vB[i] / (1.0f - std::pow(m_beta2, 1));
+		Eigen::MatrixXf m_w_hat = m_mW[i] / (1.0F - m_beta1);
+		Eigen::MatrixXf m_b_hat = m_mB[i] / (1.0F - m_beta1);
+		Eigen::MatrixXf v_w_hat = m_vW[i] / (1.0F - m_beta2);
+		Eigen::MatrixXf v_b_hat = m_vB[i] / (1.0F - m_beta2);
 
 		// Update weights and biases
 		for (int k = 0; k < nn.m_weights[i].cols(); k++) {
 			for (int j = 0; j < nn.m_weights[i].rows(); j++) {
 				nn.m_weights[i](j, k) -= m_learning_rate * m_w_hat(j, k) / (std::sqrt(v_w_hat(j, k)) + m_epsilon);
+				// nn.m_weights[i](j, k) -= m_learning_rate * m_mW[i](j, k) * fast_inv_sqrt(v_w_hat(j, k)); // Turned out to be slower :(
 			}
 		}
 		for (int j = 0; j < nn.m_biases[i].cols(); j++) {
 			nn.m_biases[i](0, j) -= m_learning_rate * m_b_hat(0, j) / (std::sqrt(v_b_hat(0, j)) + m_epsilon);
+			// nn.m_biases[i](0, j) -= m_learning_rate * m_mB[i](0, j) * fast_inv_sqrt(v_b_hat(0, j));
 		}
 	}
 }

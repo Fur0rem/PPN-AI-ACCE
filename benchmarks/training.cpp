@@ -8,6 +8,7 @@
 #include "parsing/hexadecimal_parser.hpp"
 #include "parsing/size_encoder.hpp"
 
+#include <eigen3/Eigen/src/Core/products/Parallelizer.h>
 #include <iostream>
 #include <memory>
 #include <sstream>
@@ -35,6 +36,8 @@ int main() {
 
 	NeuralNetwork nn(topology, std::make_unique<Sigmoid>(), std::make_unique<TrainingNoise>(0.0F, 0.0F, 0.0F, 0.0F));
 	std::unique_ptr<IOptimiser> optimiser = std::make_unique<Adam>(nn, 0.001F, 0.9F, 0.999F, 1e-8F);
+
+	Eigen::setNbThreads(6);
 
 	std::ostringstream oss;
 	auto result = ankerl::nanobench::Bench()

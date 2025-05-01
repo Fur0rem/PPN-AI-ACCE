@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # set(SANITIZER_LIB -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer -fsanitize=undefined)
 set(SANITIZER_LIB -Og -g3)
 set(DEBUG_FLAGS -Og -g -Wall -Wextra ${SANITIZER_LIB})
-set(RELEASE_FLAGS -Og -g3)
+set(RELEASE_FLAGS -Og -g3 -ffast-math -funsafe-math-optimizations)
 
 set(TEST_FLAGS --coverage ${SANITIZER_LIB})
 set(NANOBENCH_LINK_FLAGS -I${CMAKE_SOURCE_DIR}/nanobench/src/include -fno-eliminate-unused-debug-types)
@@ -57,8 +57,8 @@ add_executable(main
     ${SRCS}
     ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
-target_link_libraries(main nanobench)
-target_compile_options(main PRIVATE ${RELEASE_FLAGS})
+target_link_libraries(main nanobench OpenMP::OpenMP_CXX)
+target_compile_options(main PRIVATE ${RELEASE_FLAGS} -fopenmp)
 
 # Add the topology_finder executable
 add_executable(topology_finder
@@ -419,6 +419,7 @@ enable_testing()
 set(BENCHMARKS 
     training
     sparse_multiplication
+    approximations
 )
 
 foreach(BENCHMARK ${BENCHMARKS})

@@ -1,92 +1,101 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Train, Min: 25.659s, Max: 25.6969s, Med: 25.6779s
-# ----------------------------
-
-#  Performance counter stats for './build/benchmark_training':
-
-#     11 926 657 067      cache-references:u                                                      (93,53%)
-#        698 897 930      cache-misses:u                   #    5,86% of all cache refs           (93,54%)
-
-#       51,442786478 seconds time elapsed
-
-#      251,841462000 seconds user
-#       10,344400000 seconds sys
-
-# Train, Min: 21.6034s, Max: 21.8576s, Med: 21.7305s
-# ----------------------------
-
-#  Performance counter stats for './build/benchmark_training':
-
-#      6 486 469 596      cache-references:u                                                      (94,08%)
-#        392 340 524      cache-misses:u                   #    6,05% of all cache refs           (94,08%)
-
-#       43,536131111 seconds time elapsed
-
-#      232,703776000 seconds user
-#        9,975374000 seconds sys
-
-
 # In seconds
 nb_epochs = 20
 results = {
-	# Train, Min: 25.2005s, Max: 27.0017s, Med: 26.1011s
+	# Train, Min: 27.1807s, Max: 27.3425s, Med: 27.2616s
 	"Baseline": {
-		"Min": 25.9005,
-		"Max": 27.0017,
-		"Median": 26.2011,
+		"Min": 27.1807,
+		"Max": 27.3425,
+		"Median": 27.2616,
 	},
-	# Train, Min: 21.2048s, Max: 22.0654s, Med: 21.6351s
+	# Train, Min: 22.7219s, Max: 22.7406s, Med: 22.7312s
 	"Swapped Loops": {
-		"Min": 21.2048,
-		"Max": 22.0654,
-		"Median": 21.6351,
+		"Min": 22.7219,
+		"Max": 22.7406,
+		"Median": 22.7312,
+	},
+	# 4 : Train, Min: 20.2409s, Max: 20.3506s, Med: 20.2957s
+	"Parallel Matrix Multiplication": {
+		"Min": 20.2409,
+		"Max": 20.3506,
+		"Median": 20.2957,
+	},
+	# Train, Min: 17.932s, Max: 17.9976s, Med: 17.9648s
+	"Parallel Optimisers": {
+		"Min": 17.932,
+		"Max": 17.9976,
+		"Median": 17.9648,
+	},
+	# Train, Min: 17.5122s, Max: 17.6001s, Med: 17.5561s
+	"Sparse Computation": {
+		"Min": 17.5122,
+		"Max": 17.6001,
+		"Median": 17.5561,
+	},
+	# Train, Min: 16.8776s, Max: 16.8805s, Med: 16.879s
+	"Mathemetical Approximations": {
+		"Min": 16.8776,
+		"Max": 16.8805,
+		"Median": 16.879,
 	},
 }
 
-# def plot_comparaison(name_ref: str, name_new: str) :
-# 	"""
-# 	Plot the number of epochs in can do per second using bar plots
-# 	"""
-# 	fig, ax = plt.subplots(figsize=(6, 6))
-# 	# Plot the average training time for each method
-# 	labels = [name_ref, name_new]
-# 	x = np.arange(len(labels))
-# 	width = 0.35  # the width of the bars
-# 	avg_times = [results[name_ref]["Average"], results[name_new]["Average"]]
-# 	avg_times = [nb_epochs / t for t in avg_times]
-# 	rects1 = ax.bar(x, avg_times, width, label='Average')
-# 	# Change the color of the bars
-# 	rects1[0].set_color('red')
-# 	rects1[1].set_color('green')
+def plot_before_after(baseline: str, optimised: str):
+	"""
+	Plot the number of epochs it can do per second using bar plots with error as text.
+	"""
+	fig, ax = plt.subplots(figsize=(8, 8))
+	# Plot the median training time for each method
+	labels = [baseline, optimised]
+	x = np.arange(len(labels))
+	width = 0.4  # the width of the bars
+	avg_times = [results[name]["Median"] for name in labels]
+	avg_times = [nb_epochs / t for t in avg_times]
 
-# 	# Add labels under the bars
-# 	ax.set_xticks(x)
-# 	ax.set_xticklabels(labels)
+	# Calculate errors
+	errors = [
+		[
+			nb_epochs / results[name]["Median"] - nb_epochs / results[name]["Max"],  # Lower error
+			nb_epochs / results[name]["Min"] - nb_epochs / results[name]["Median"],  # Upper error
+		]
+		for name in labels
+	]
 
-# 	# Put the values on top of the bars
-# 	def autolabel(rects):
-# 		"""Attach a text label above each bar in *rects*, displaying its height."""
-# 		for rect in rects:
-# 			height = rect.get_height()
-# 			ax.annotate(f"{height:.2f} epochs/s",
-# 						xy=(rect.get_x() + rect.get_width() / 2, height),
-# 						xytext=(0, 3),  # 3 points vertical offset
-# 						textcoords="offset points",
-# 						ha='center', va='bottom', size=12)
-# 	autolabel(rects1)
+	# Plot bars
+	rects1 = ax.bar(x, avg_times, width, label='Median')
+	# Change the color of the bars
+	rects1[0].set_color('red')
+	rects1[1].set_color('green')
 
-# 	# Make the ticks bigger
-# 	ax.tick_params(axis='both', which='major', labelsize=14)
-# 	# Make the labels bigger
-# 	ax.set_xlabel("Optimisation method", fontsize=16)
-# 	ax.set_ylabel("Epochs per second", fontsize=16)
+	# Add labels under the bars
+	ax.set_xticks(x)
+	ax.set_xticklabels(["Before", "After"])
+
+	# Put the values on top of the bars with error
+	def autolabel(rects, errors):
+		"""Attach a text label above each bar in *rects*, displaying its height ± error."""
+		for rect, error in zip(rects, errors):
+			height = rect.get_height()
+			lower_error = abs(error[0])  # Lower error
+			upper_error = abs(error[1])  # Upper error
+			ax.annotate(f"{height:.4f} ± {max(lower_error, upper_error):.4f} epochs/s",
+						xy=(rect.get_x() + rect.get_width() / 2, height),
+						xytext=(0, 3),  # 3 points vertical offset
+						textcoords="offset points",
+						ha='center', va='bottom', size=12)
+
+	autolabel(rects1, errors)
+
+	# Make the ticks bigger
+	ax.tick_params(axis='both', which='major', labelsize=12)
+	# Make the labels bigger
+	ax.set_xlabel(f"Before and after {optimised} optimisation", fontsize=18)
+	ax.set_ylabel("Epochs per second", fontsize=16)
 	
-	
-# 	plt.tight_layout()
-# 	plt.show()
-
+	plt.tight_layout()
+	plt.show()
 
 def plot_comparaison(all_names: list[str]):
 	"""
@@ -100,9 +109,6 @@ def plot_comparaison(all_names: list[str]):
 	avg_times = [results[name]["Median"] for name in all_names]
 	avg_times = [nb_epochs / t for t in avg_times]
 	rects1 = ax.bar(x, avg_times, width, label='Median')
-	# Change the color of the bars
-	rects1[0].set_color('red')
-	rects1[1].set_color('green')
 
 	# Add labels under the bars
 	ax.set_xticks(x)
@@ -130,4 +136,5 @@ def plot_comparaison(all_names: list[str]):
 	plt.show()
 	
 
-plot_comparaison(["Baseline", "Sparse Computation", "Sparse Computation (no cache)"])
+plot_before_after("Baseline", "Swapped Loops")
+plot_comparaison(["Baseline", "Swapped Loops", "Parallel Matrix Multiplication", "Parallel Optimisers", "Sparse Computation", "Mathemetical Approximations"])
