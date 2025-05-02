@@ -7,17 +7,17 @@
 # Eigen Multiplication, Min: 0.0171376s, Max: 0.0176137s, Med: 0.0175167s
 
 results = {
-	"Our Naive": {
+	"Naive Dense": {
 		"Min": 3.03209,
 		"Max": 3.03602,
 		"Median": 3.03258,
 	},
-	"Our Sparse": {
+	"Naive Sparse": {
 		"Min": 0.811475,
 		"Max": 0.812206,
 		"Median": 0.811583,
 	},
-	"Our Blocked (32) Sparse": {
+	"Blocked (32) Sparse": {
 		"Min": 1.06327,
 		"Max": 1.06684,
 		"Median": 1.06522,
@@ -27,7 +27,7 @@ results = {
 		"Max": 1.44142,
 		"Median": 1.38434,
 	},
-	"Eigen": {
+	"Eigen Dense": {
 		"Min": 0.0171376,
 		"Max": 0.0176137,
 		"Median": 0.0175167
@@ -56,12 +56,13 @@ def plot_sparse_multiplication_benchmarks(results):
 	# Add some text above the bars to show median time and error
 	for i, row in df.iterrows():
 		plt.text(i, row["Time (ms)"], f"{row['Time (ms)'] * 1000:.1f} ± {((results[row['Method']]['Max'] - results[row['Method']]['Min'])/2) * 1000:.2f}ms", ha='center', va='bottom')
-	plt.xticks(rotation=45)
-	plt.ylabel("Time (ms)")
-	plt.xlabel("Method")
+	plt.xticks()
+	plt.ylabel("Time (ms)", fontsize=14)
+	plt.xlabel("Method", fontsize=14)
 	# plt.title("Sparse Multiplication Benchmarks")
 	plt.grid(axis='y', alpha = 0.5)
 	plt.tight_layout()
+	plt.savefig("sparse_multiplication_benchmarks.svg", dpi=300, bbox_inches='tight')
 	plt.show()
 
 plot_sparse_multiplication_benchmarks(results)
@@ -750,18 +751,21 @@ batch_sparse_results = [
 ]
 
 # No sparse results:
-# Average results: Min: 0.000642849s, Max: 0.000845439s, Med: 0.000685682s
+# Average results: Min: 0.000642849s, Max: 0.000845439s, Mean: 0.000685682s
 # Sparse results:
-# Average results: Min: 0.000527373s, Max: 0.000743689s, Med: 0.000575437s
-no_sparse_median = 0.000685682
-sparse_median = 0.000575437
+# Average results: Min: 0.000527373s, Max: 0.000743689s, Mean: 0.000575437s
+no_sparse_mean = 0.000685682
+sparse_mean = 0.000575437
 
-# Plot the sparse results in a histogram of distribution of time, with two lines for the medians
-plt.hist([b * 1000 for b in batch_sparse_results], bins=50, color="skyblue", label="Sparse Results")
-plt.axvline(x=no_sparse_median * 1000, color="r", linestyle="--", label="No Sparse Median time")
-plt.axvline(x=sparse_median * 1000, color="g", linestyle="--", label="Sparse Median time")
+# Plot the sparse results in a histogram of distribution of time, with two lines for the means
+plt.figure(figsize=(10, 6))
+plt.hist([b * 1000 for b in batch_sparse_results], bins=50, color="skyblue", label="Sparse Times")
+plt.axvline(x=no_sparse_mean * 1000, color="r", linestyle="--", label="Dense Mean time")
+plt.axvline(x=sparse_mean * 1000, color="g", linestyle="--", label="Sparse Mean time")
 # plt.title("Sparse Multiplication on Random Batches Benchmark")
-plt.xlabel("Time (ms)")
-plt.ylabel("Frequency")
-plt.legend()
+plt.xlabel("Time (ms)", fontsize=14)
+plt.ylabel("Frequency", fontsize=14)
+plt.legend(shadow=True, fontsize=12)
+
+plt.savefig("sparse_multiplication_histogram.svg", dpi=300, bbox_inches='tight')
 plt.show()

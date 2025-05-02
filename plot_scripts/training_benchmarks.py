@@ -4,14 +4,26 @@ import numpy as np
 # In seconds
 nb_epochs = 20
 results = {
-	# Train, Min: 27.1807s, Max: 27.3425s, Med: 27.2616s
+	# Train, Min: 41.9278s, Max: 42.3812s, Med: 42.1552s
 	"Baseline": {
+		"Min": 41.9278,
+		"Max": 42.3812,
+		"Median": 42.1552,
+	},
+	# Train, Min: 36.1232s, Max: 36.51s, Med: 36.2672s
+	"Mini-Batch": {
+		"Min": 33.1232,
+		"Max": 33.51,
+		"Median": 33.2672,
+	},
+	# Train, Min: 27.1807s, Max: 27.3425s, Med: 27.2616s
+	"Evolved Topology": {
 		"Min": 27.1807,
 		"Max": 27.3425,
 		"Median": 27.2616,
 	},
 	# Train, Min: 22.7219s, Max: 22.7406s, Med: 22.7312s
-	"Swapped Loops": {
+	"Memory Acceses": {
 		"Min": 22.7219,
 		"Max": 22.7406,
 		"Median": 22.7312,
@@ -91,17 +103,20 @@ def plot_before_after(baseline: str, optimised: str):
 	# Make the ticks bigger
 	ax.tick_params(axis='both', which='major', labelsize=12)
 	# Make the labels bigger
-	ax.set_xlabel(f"Before and after {optimised} optimisation", fontsize=18)
-	ax.set_ylabel("Epochs per second", fontsize=16)
+	ax.set_xlabel(f"Before and after {optimised} optimisation", fontsize=16)
+	ax.set_ylabel("Epochs per second", fontsize=14)
 	
 	plt.tight_layout()
+	
+	plt.savefig("before_after.png", dpi=300, bbox_inches='tight')
+	plt.savefig("before_after.svg", dpi=300, bbox_inches='tight')
 	plt.show()
 
 def plot_comparaison(all_names: list[str]):
 	"""
 	Plot the number of epochs in can do per second using bar plots
 	"""
-	fig, ax = plt.subplots(figsize=(8, 8))
+	fig, ax = plt.subplots(figsize=(10, 7))
 	# Plot the median training time for each method
 	labels = all_names
 	x = np.arange(len(labels))
@@ -119,7 +134,7 @@ def plot_comparaison(all_names: list[str]):
 		"""Attach a text label above each bar in *rects*, displaying its height."""
 		for rect in rects:
 			height = rect.get_height()
-			ax.annotate(f"{height:.2f} epochs/s",
+			ax.annotate(f"{height:.2f}",
 						xy=(rect.get_x() + rect.get_width() / 2, height),
 						xytext=(0, 3),  # 3 points vertical offset
 						textcoords="offset points",
@@ -127,14 +142,22 @@ def plot_comparaison(all_names: list[str]):
 	autolabel(rects1)
 
 	# Make the ticks bigger
-	ax.tick_params(axis='both', which='major', labelsize=12)
+	ax.tick_params(axis='both', which='major', labelsize=10, rotation=20)
 	# Make the labels bigger
-	ax.set_xlabel("Optimisation method", fontsize=18)
-	ax.set_ylabel("Epochs per second", fontsize=16)
+	ax.set_xlabel("Optimisation method", fontsize=16)
+	ax.set_ylabel("Epochs per second", fontsize=14)
 	
 	plt.tight_layout()
+
+	plt.savefig("comparaison.png", dpi=300, bbox_inches='tight')
+	plt.savefig("comparaison.svg", dpi=300, bbox_inches='tight')
 	plt.show()
 	
 
-plot_before_after("Baseline", "Swapped Loops")
-plot_comparaison(["Baseline", "Swapped Loops", "Parallel Matrix Multiplication", "Parallel Optimisers", "Sparse Computation", "Mathemetical Approximations"])
+# plot_before_after("Evolved Topology", "Memory Acceses")
+# plot_before_after("Memory Acceses", "Parallel Matrix Multiplication")
+# plot_before_after("Parallel Matrix Multiplication", "Parallel Optimisers")
+# plot_before_after("Parallel Optimisers", "Sparse Computation")
+# plot_before_after("Sparse Computation", "Mathemetical Approximations")
+
+plot_comparaison(["Baseline", "Mini-Batch", "Evolved Topology", "Memory Acceses", "Parallel Matrix Multiplication", "Parallel Optimisers", "Sparse Computation", "Mathemetical Approximations"])
