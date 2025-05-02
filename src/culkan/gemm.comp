@@ -1,0 +1,78 @@
+#version 450
+
+
+// Uniforms for matrix dimensions
+layout(binding = 0) uniform nBlock {
+    uint n_size; // Number of columns in C and B
+};
+
+layout(binding = 1) uniform mBlock {
+    uint m_size; // Number of rows in C and A
+};
+
+layout(binding = 2) uniform kBlock {
+    uint k_size; // Number of columns in A and rows in B
+};
+
+// Of size m * k, col-major
+layout(binding = 3) buffer ABlock {
+    float A_data[];
+};
+
+// Of size k * n, col-major
+layout(binding = 4) buffer BBlock {
+    float B_data[];
+};
+
+// Of size m * n, col-major
+layout(binding = 5) buffer CBlock {
+    float C_data[];
+};
+
+// Workgroup size
+layout(local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
+
+void main() {
+	// Global thread indices
+	uint global_row = gl_GlobalInvocationID.x; // Row index in C
+	uint global_col = gl_GlobalInvocationID.y; // Column index in C
+
+	// Ensure we don't go out of bounds
+	if (global_row >= m_size || global_col >= n_size) {
+		return;
+	}
+
+	// Accumulate the result for C[global_row, global_col]
+	float sum = 0.0;
+
+	// Loop over tiles of size 32x32 in the shared dimension (k_size)
+	for (uint tile = 0; tile < (k_size + 31) / 32; tile++) {
+		// Local row and column indices within the tile
+		uint local_row = gl_LocalInvocationID.x;
+		uint local_col = gl_LocalInvocationID.y;
+
+		// Compute the global indices for the current tile
+		uint a_row = global_row; // Row in A
+		uint a_col = tile * 32 + local_col; // Column in A
+		uint b_row = tile * 32 + local_row; // Row in B
+		uint b_col = global_col; // Column in B
+
+		// Load elements from A and B into shared memory (if within bounds)
+		float a_value = (a_col < k_size && a_row < m_size) ? A_data[a_col * m_size + a_row] : 0.0;
+		float b_value = (b_row < k_size && b_col < n_size) ? B_data[b_col * k_size + b_row] : 0.0;
+
+		// Synchronize to ensure all threads have loaded their data
+		barrier();
+
+		// Perform the multiplication for the current tile
+		for (uint k = 0; k < 32; k++) {
+			sum += a_value * b_value;
+		}
+
+		// Synchronize to ensure all threads have completed the computation for this tile
+		barrier();
+	}
+
+	// Write the result to C in column-major order
+	C_data[global_col * m_size + global_row] = sum;
+}

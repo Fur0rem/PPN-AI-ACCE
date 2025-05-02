@@ -85,11 +85,11 @@ Neural Network class.
 This class implements a feedforward neural network with backpropagation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b}\label{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b} 
-\index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
+\Hypertarget{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b}\index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \index{NeuralNetwork@{NeuralNetwork}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{NeuralNetwork()}{NeuralNetwork()}}
-{\footnotesize\ttfamily Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$}]{activation\+\_\+func,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTrainingNoise}{Training\+Noise}} $>$}]{training\+\_\+noise }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_ac12a81e6cb73e864e63eab78e9d3df8b} 
+Neural\+Network\+::\+Neural\+Network (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{topology}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classActivationFunc}{Activation\+Func}} $>$}]{activation\+\_\+func}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTrainingNoise}{Training\+Noise}} $>$}]{training\+\_\+noise}{}\end{DoxyParamCaption})}
 
 
 
@@ -107,11 +107,11 @@ Constructor for \doxylink{classNeuralNetwork}{Neural\+Network} class.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9}\label{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9} 
-\index{NeuralNetwork@{NeuralNetwork}!absolute\_error@{absolute\_error}}
+\Hypertarget{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9}\index{NeuralNetwork@{NeuralNetwork}!absolute\_error@{absolute\_error}}
 \index{absolute\_error@{absolute\_error}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{absolute\_error()}{absolute\_error()}}
-{\footnotesize\ttfamily double Neural\+Network\+::absolute\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction,  }\item[{std\+::vector$<$ float $>$ \&}]{target,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_ac8c1cba779e5c2eba780aa8b4ed46ad9} 
+double Neural\+Network\+::absolute\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction}{, }\item[{std\+::vector$<$ float $>$ \&}]{target}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -129,11 +129,11 @@ Compute the mean absolute error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean absolute error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}\label{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134} 
-\index{NeuralNetwork@{NeuralNetwork}!backward@{backward}}
+\Hypertarget{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134}\index{NeuralNetwork@{NeuralNetwork}!backward@{backward}}
 \index{backward@{backward}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{backward()}{backward()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGradients}{Gradients}} Neural\+Network\+::backward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_abc20c216225113fe5ed400c8a61d4134} 
+\mbox{\hyperlink{classGradients}{Gradients}} Neural\+Network\+::backward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets}{}\end{DoxyParamCaption})}
 
 
 
@@ -149,11 +149,11 @@ Backpropagation algorithm to compute gradients.
 \begin{DoxyReturn}{Returns}
 \doxylink{classGradients}{Gradients} for weights and biases 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7}\label{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7} 
-\index{NeuralNetwork@{NeuralNetwork}!feed\_forward@{feed\_forward}}
+\Hypertarget{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7}\index{NeuralNetwork@{NeuralNetwork}!feed\_forward@{feed\_forward}}
 \index{feed\_forward@{feed\_forward}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Neural\+Network\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a6d0c02bd3d2f3056f717847f3a8e36c7} 
+Eigen\+::\+Matrix\+Xf Neural\+Network\+::feed\+\_\+forward (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input}{}\end{DoxyParamCaption})}
 
 
 
@@ -167,11 +167,11 @@ Feed forward the input through the neural network.
 \begin{DoxyReturn}{Returns}
 Output matrix resulting from the feed forward 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c}\label{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c} 
-\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mae@{get\_acc\_mae}}
+\Hypertarget{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c}\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mae@{get\_acc\_mae}}
 \index{get\_acc\_mae@{get\_acc\_mae}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{get\_acc\_mae()}{get\_acc\_mae()}}
-{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+acc\+\_\+mae (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_aea39f4830c1e2061f7142a099ef4646c} 
+double Neural\+Network\+::get\+\_\+acc\+\_\+mae (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -189,11 +189,11 @@ Get the overall accuracy of the neural network using mean absolute error.
 \begin{DoxyReturn}{Returns}
 The mean absolute error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3}\label{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3} 
-\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mrae@{get\_acc\_mrae}}
+\Hypertarget{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3}\index{NeuralNetwork@{NeuralNetwork}!get\_acc\_mrae@{get\_acc\_mrae}}
 \index{get\_acc\_mrae@{get\_acc\_mrae}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{get\_acc\_mrae()}{get\_acc\_mrae()}}
-{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+acc\+\_\+mrae (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a9a15238ea0ce3cb14687588f6db3ffc3} 
+double Neural\+Network\+::get\+\_\+acc\+\_\+mrae (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -211,11 +211,11 @@ Get the overall accuracy of the neural network using mean relative absolute erro
 \begin{DoxyReturn}{Returns}
 The mean relative absolute error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750}\label{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750} 
-\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mrse@{get\_loss\_mrse}}
+\Hypertarget{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750}\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mrse@{get\_loss\_mrse}}
 \index{get\_loss\_mrse@{get\_loss\_mrse}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{get\_loss\_mrse()}{get\_loss\_mrse()}}
-{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+loss\+\_\+mrse (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a13371d9e2af79bf76d4c8400ced49750} 
+double Neural\+Network\+::get\+\_\+loss\+\_\+mrse (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -233,11 +233,11 @@ Get the overall loss of the neural network using mean relative squared error.
 \begin{DoxyReturn}{Returns}
 The mean relative squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a22bce90f6f04becff364a118608af773}\label{classNeuralNetwork_a22bce90f6f04becff364a118608af773} 
-\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mse@{get\_loss\_mse}}
+\Hypertarget{classNeuralNetwork_a22bce90f6f04becff364a118608af773}\index{NeuralNetwork@{NeuralNetwork}!get\_loss\_mse@{get\_loss\_mse}}
 \index{get\_loss\_mse@{get\_loss\_mse}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{get\_loss\_mse()}{get\_loss\_mse()}}
-{\footnotesize\ttfamily double Neural\+Network\+::get\+\_\+loss\+\_\+mse (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a22bce90f6f04becff364a118608af773} 
+double Neural\+Network\+::get\+\_\+loss\+\_\+mse (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{targets}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -255,11 +255,11 @@ Get the overall loss of the neural network using mean squared error.
 \begin{DoxyReturn}{Returns}
 The mean squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7}\label{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7} 
-\index{NeuralNetwork@{NeuralNetwork}!log\_epoch\_metrics@{log\_epoch\_metrics}}
+\Hypertarget{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7}\index{NeuralNetwork@{NeuralNetwork}!log\_epoch\_metrics@{log\_epoch\_metrics}}
 \index{log\_epoch\_metrics@{log\_epoch\_metrics}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{log\_epoch\_metrics()}{log\_epoch\_metrics()}}
-{\footnotesize\ttfamily void Neural\+Network\+::log\+\_\+epoch\+\_\+metrics (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{epoch,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+targets,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+targets,  }\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{std\+::ofstream \&}]{log\+\_\+file,  }\item[{const std\+::string \&}]{file\+\_\+name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a1d6854f374769491c08c2e426c6d28f7} 
+void Neural\+Network\+::log\+\_\+epoch\+\_\+metrics (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{epoch}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+targets}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+targets}{, }\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{std\+::ofstream \&}]{log\+\_\+file}{, }\item[{const std\+::string \&}]{file\+\_\+name}{}\end{DoxyParamCaption})}
 
 
 
@@ -292,11 +292,11 @@ Log the results of the training.
 {\em optimiser} & The optimiser used for training \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc}\label{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc} 
-\index{NeuralNetwork@{NeuralNetwork}!log\_final\_results@{log\_final\_results}}
+\Hypertarget{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc}\index{NeuralNetwork@{NeuralNetwork}!log\_final\_results@{log\_final\_results}}
 \index{log\_final\_results@{log\_final\_results}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{log\_final\_results()}{log\_final\_results()}}
-{\footnotesize\ttfamily void Neural\+Network\+::log\+\_\+final\+\_\+results (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{log\+\_\+file,  }\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+targets,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{train\+\_\+names,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+inputs,  }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+targets,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{validation\+\_\+names,  }\item[{size\+\_\+t}]{train\+\_\+size,  }\item[{size\+\_\+t}]{validation\+\_\+size,  }\item[{std\+::chrono\+::duration$<$ double $>$}]{total\+\_\+time,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a2ab8cdad24b0705cb49c2392a23997bc} 
+void Neural\+Network\+::log\+\_\+final\+\_\+results (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{log\+\_\+file}{, }\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{train\+\_\+targets}{, }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{train\+\_\+names}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+inputs}{, }\item[{const Eigen\+::\+Matrix\+Xf \&}]{validation\+\_\+targets}{, }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{validation\+\_\+names}{, }\item[{size\+\_\+t}]{train\+\_\+size}{, }\item[{size\+\_\+t}]{validation\+\_\+size}{, }\item[{std\+::chrono\+::duration$<$ double $>$}]{total\+\_\+time}{, }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser}{}\end{DoxyParamCaption})}
 
 
 
@@ -329,11 +329,11 @@ Log the final results of the training.
 {\em optimiser} & The optimiser used for training \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classNeuralNetwork_a33c50d558598b59a33674c12dff24d75}\label{classNeuralNetwork_a33c50d558598b59a33674c12dff24d75} 
-\index{NeuralNetwork@{NeuralNetwork}!predict@{predict}}
+\Hypertarget{classNeuralNetwork_a33c50d558598b59a33674c12dff24d75}\index{NeuralNetwork@{NeuralNetwork}!predict@{predict}}
 \index{predict@{predict}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xf Neural\+Network\+::predict (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a33c50d558598b59a33674c12dff24d75} 
+Eigen\+::\+Matrix\+Xf Neural\+Network\+::predict (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Xf \&}]{input}{}\end{DoxyParamCaption})}
 
 
 
@@ -347,11 +347,11 @@ Predict the output of the neural network for a given input.
 \begin{DoxyReturn}{Returns}
 Output matrix resulting from the prediction 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4}\label{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4} 
-\index{NeuralNetwork@{NeuralNetwork}!predict@{predict}}
+\Hypertarget{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4}\index{NeuralNetwork@{NeuralNetwork}!predict@{predict}}
 \index{predict@{predict}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::vector$<$ float $>$ Neural\+Network\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_ad4ba2cdffa852f86885e1f18cbeeb4e4} 
+std\+::vector$<$ float $>$ Neural\+Network\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{input}{}\end{DoxyParamCaption})}
 
 
 
@@ -365,11 +365,11 @@ Predict the output of the neural network for a given input.
 \begin{DoxyReturn}{Returns}
 Output vector resulting from the prediction 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28}\label{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28} 
-\index{NeuralNetwork@{NeuralNetwork}!relative\_absolute\_error@{relative\_absolute\_error}}
+\Hypertarget{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28}\index{NeuralNetwork@{NeuralNetwork}!relative\_absolute\_error@{relative\_absolute\_error}}
 \index{relative\_absolute\_error@{relative\_absolute\_error}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{relative\_absolute\_error()}{relative\_absolute\_error()}}
-{\footnotesize\ttfamily double Neural\+Network\+::relative\+\_\+absolute\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction,  }\item[{std\+::vector$<$ float $>$ \&}]{target,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a1c920457c478addf1a5c2ad981cf8f28} 
+double Neural\+Network\+::relative\+\_\+absolute\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction}{, }\item[{std\+::vector$<$ float $>$ \&}]{target}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -387,11 +387,11 @@ Compute the mean relative absolute error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean relative absolute error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2}\label{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2} 
-\index{NeuralNetwork@{NeuralNetwork}!relative\_squared\_error@{relative\_squared\_error}}
+\Hypertarget{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2}\index{NeuralNetwork@{NeuralNetwork}!relative\_squared\_error@{relative\_squared\_error}}
 \index{relative\_squared\_error@{relative\_squared\_error}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{relative\_squared\_error()}{relative\_squared\_error()}}
-{\footnotesize\ttfamily double Neural\+Network\+::relative\+\_\+squared\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction,  }\item[{std\+::vector$<$ float $>$ \&}]{target,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a146ca44ada660e0619bfc462e2fcced2} 
+double Neural\+Network\+::relative\+\_\+squared\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction}{, }\item[{std\+::vector$<$ float $>$ \&}]{target}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -409,21 +409,21 @@ Compute the mean relative squared error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean relative squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091}\label{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091} 
-\index{NeuralNetwork@{NeuralNetwork}!reset@{reset}}
+\Hypertarget{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091}\index{NeuralNetwork@{NeuralNetwork}!reset@{reset}}
 \index{reset@{reset}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
-{\footnotesize\ttfamily void Neural\+Network\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a3e41ea08d6d8d80ba178322d1e0f1091} 
+void Neural\+Network\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Reset the neural network to its initial state. 
 
-This function resets the weights and biases of the neural network to their initial values. \Hypertarget{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}\label{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49} 
-\index{NeuralNetwork@{NeuralNetwork}!squared\_error@{squared\_error}}
+This function resets the weights and biases of the neural network to their initial values. \Hypertarget{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49}\index{NeuralNetwork@{NeuralNetwork}!squared\_error@{squared\_error}}
 \index{squared\_error@{squared\_error}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{squared\_error()}{squared\_error()}}
-{\footnotesize\ttfamily double Neural\+Network\+::squared\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction,  }\item[{std\+::vector$<$ float $>$ \&}]{target,  }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a3fb5ece18f9e2cd67c540b1cfcb3da49} 
+double Neural\+Network\+::squared\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{prediction}{, }\item[{std\+::vector$<$ float $>$ \&}]{target}{, }\item[{const \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*}}]{encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -441,11 +441,11 @@ Compute the mean relative squared error between the prediction and target.
 \begin{DoxyReturn}{Returns}
 The mean relative squared error 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}\label{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd} 
-\index{NeuralNetwork@{NeuralNetwork}!train@{train}}
+\Hypertarget{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd}\index{NeuralNetwork@{NeuralNetwork}!train@{train}}
 \index{train@{train}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{learning\+\_\+rate,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_aab78d40f586338dad53b7c29255dfdcd} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{float}]{learning\+\_\+rate}{, }\item[{std\+::string \&\&}]{logging\+\_\+dir}{, }\item[{size\+\_\+t}]{nb\+\_\+trains}{}\end{DoxyParamCaption})}
 
 
 
@@ -469,11 +469,11 @@ Train the neural network using the given dataset and return the accuracy of trai
 \begin{DoxyReturn}{Returns}
 A pair of floats containing the training and validation accuracy 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}\label{classNeuralNetwork_a769264b6424463724390ef9a0b18741c} 
-\index{NeuralNetwork@{NeuralNetwork}!train\_batch@{train\_batch}}
+\Hypertarget{classNeuralNetwork_a769264b6424463724390ef9a0b18741c}\index{NeuralNetwork@{NeuralNetwork}!train\_batch@{train\_batch}}
 \index{train\_batch@{train\_batch}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_batch()}{train\_batch()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a769264b6424463724390ef9a0b18741c} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{size\+\_\+t}]{batch\+\_\+size}{, }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser}{, }\item[{std\+::string \&\&}]{logging\+\_\+dir}{, }\item[{size\+\_\+t}]{nb\+\_\+trains}{}\end{DoxyParamCaption})}
 
 
 
@@ -499,11 +499,11 @@ Train the neural network using the given dataset with batch training and return 
 \begin{DoxyReturn}{Returns}
 A pair of floats containing the training and validation accuracy 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c}\label{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c} 
-\index{NeuralNetwork@{NeuralNetwork}!train\_batch\_for\_topology\_finder@{train\_batch\_for\_topology\_finder}}
+\Hypertarget{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c}\index{NeuralNetwork@{NeuralNetwork}!train\_batch\_for\_topology\_finder@{train\_batch\_for\_topology\_finder}}
 \index{train\_batch\_for\_topology\_finder@{train\_batch\_for\_topology\_finder}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_batch\_for\_topology\_finder()}{train\_batch\_for\_topology\_finder()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch\+\_\+for\+\_\+topology\+\_\+finder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{batch\+\_\+size,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{float}]{train\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half,  }\item[{float}]{validation\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_ab1952a76041cb0e50d6535a6682df66c} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+batch\+\_\+for\+\_\+topology\+\_\+finder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{size\+\_\+t}]{batch\+\_\+size}{, }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser}{, }\item[{float}]{train\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half}{, }\item[{float}]{validation\+\_\+acc\+\_\+threshold\+\_\+at\+\_\+half}{}\end{DoxyParamCaption})}
 
 
 
@@ -529,11 +529,11 @@ Train the neural network using the given dataset with batch training and return 
 \begin{DoxyReturn}{Returns}
 A pair of floats containing the training and validation accuracy 
 \end{DoxyReturn}
-\Hypertarget{classNeuralNetwork_a02bd65c5db701c3301788e2bb9dc5027}\label{classNeuralNetwork_a02bd65c5db701c3301788e2bb9dc5027} 
-\index{NeuralNetwork@{NeuralNetwork}!train\_local\_search@{train\_local\_search}}
+\Hypertarget{classNeuralNetwork_a02bd65c5db701c3301788e2bb9dc5027}\index{NeuralNetwork@{NeuralNetwork}!train\_local\_search@{train\_local\_search}}
 \index{train\_local\_search@{train\_local\_search}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_local\_search()}{train\_local\_search()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+local\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{size\+\_\+t}]{nb\+\_\+samples,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a02bd65c5db701c3301788e2bb9dc5027} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+local\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{size\+\_\+t}]{nb\+\_\+samples}{, }\item[{std\+::string \&\&}]{logging\+\_\+dir}{, }\item[{size\+\_\+t}]{nb\+\_\+trains}{}\end{DoxyParamCaption})}
 
 
 
@@ -554,11 +554,11 @@ Trains the neural network through local search.
 {\em nb\+\_\+trains} & Number of training runs \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classNeuralNetwork_aa1b39b03fa993f0d62b5fce966d977b0}\label{classNeuralNetwork_aa1b39b03fa993f0d62b5fce966d977b0} 
-\index{NeuralNetwork@{NeuralNetwork}!train\_simulated\_annealing@{train\_simulated\_annealing}}
+\Hypertarget{classNeuralNetwork_aa1b39b03fa993f0d62b5fce966d977b0}\index{NeuralNetwork@{NeuralNetwork}!train\_simulated\_annealing@{train\_simulated\_annealing}}
 \index{train\_simulated\_annealing@{train\_simulated\_annealing}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_simulated\_annealing()}{train\_simulated\_annealing()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+simulated\+\_\+annealing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{decay\+\_\+rate,  }\item[{size\+\_\+t}]{nb\+\_\+tracked,  }\item[{float}]{initial\+\_\+temp,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_aa1b39b03fa993f0d62b5fce966d977b0} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+simulated\+\_\+annealing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{float}]{decay\+\_\+rate}{, }\item[{size\+\_\+t}]{nb\+\_\+tracked}{, }\item[{float}]{initial\+\_\+temp}{, }\item[{std\+::string \&\&}]{logging\+\_\+dir}{, }\item[{size\+\_\+t}]{nb\+\_\+trains}{}\end{DoxyParamCaption})}
 
 
 
@@ -583,11 +583,11 @@ Trains the network through simulated annealing.
 {\em nb\+\_\+trains} & Number of training runs \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classNeuralNetwork_a70644d4bdfd0812f44e7d1c989ae170a}\label{classNeuralNetwork_a70644d4bdfd0812f44e7d1c989ae170a} 
-\index{NeuralNetwork@{NeuralNetwork}!train\_simulated\_annealing\_and\_gradient@{train\_simulated\_annealing\_and\_gradient}}
+\Hypertarget{classNeuralNetwork_a70644d4bdfd0812f44e7d1c989ae170a}\index{NeuralNetwork@{NeuralNetwork}!train\_simulated\_annealing\_and\_gradient@{train\_simulated\_annealing\_and\_gradient}}
 \index{train\_simulated\_annealing\_and\_gradient@{train\_simulated\_annealing\_and\_gradient}!NeuralNetwork@{NeuralNetwork}}
 \doxysubsubsection{\texorpdfstring{train\_simulated\_annealing\_and\_gradient()}{train\_simulated\_annealing\_and\_gradient()}}
-{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+simulated\+\_\+annealing\+\_\+and\+\_\+gradient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{size\+\_\+t}]{nb\+\_\+epochs,  }\item[{float}]{training\+\_\+proportion,  }\item[{float}]{decay\+\_\+rate,  }\item[{size\+\_\+t}]{nb\+\_\+tracked,  }\item[{float}]{initial\+\_\+temp,  }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser,  }\item[{size\+\_\+t}]{nb\+\_\+epochs\+\_\+gradient,  }\item[{size\+\_\+t}]{batch\+\_\+size\+\_\+gradient,  }\item[{std\+::string \&\&}]{logging\+\_\+dir,  }\item[{size\+\_\+t}]{nb\+\_\+trains }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classNeuralNetwork_a70644d4bdfd0812f44e7d1c989ae170a} 
+std\+::pair$<$ float, float $>$ Neural\+Network\+::train\+\_\+simulated\+\_\+annealing\+\_\+and\+\_\+gradient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs}{, }\item[{float}]{training\+\_\+proportion}{, }\item[{float}]{decay\+\_\+rate}{, }\item[{size\+\_\+t}]{nb\+\_\+tracked}{, }\item[{float}]{initial\+\_\+temp}{, }\item[{\mbox{\hyperlink{classIOptimiser}{IOptimiser}} \&}]{optimiser}{, }\item[{size\+\_\+t}]{nb\+\_\+epochs\+\_\+gradient}{, }\item[{size\+\_\+t}]{batch\+\_\+size\+\_\+gradient}{, }\item[{std\+::string \&\&}]{logging\+\_\+dir}{, }\item[{size\+\_\+t}]{nb\+\_\+trains}{}\end{DoxyParamCaption})}
 
 
 

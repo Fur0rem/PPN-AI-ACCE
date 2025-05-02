@@ -55,11 +55,11 @@ Uses a genetic algorithm to find the best topology for a neural network.
 
 
 \doxysubsection{Macro Definition Documentation}
-\Hypertarget{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288}\label{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288} 
-\index{topology\_finder.cpp@{topology\_finder.cpp}!LOG\_PRINT@{LOG\_PRINT}}
+\Hypertarget{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288}\index{topology\_finder.cpp@{topology\_finder.cpp}!LOG\_PRINT@{LOG\_PRINT}}
 \index{LOG\_PRINT@{LOG\_PRINT}!topology\_finder.cpp@{topology\_finder.cpp}}
 \doxysubsubsection{\texorpdfstring{LOG\_PRINT}{LOG\_PRINT}}
-{\footnotesize\ttfamily \#define LOG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{topology__finder_8cpp_a7f816530adeca0ac26f3517ab1ca0288} 
+\#define LOG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
@@ -71,11 +71,11 @@ Uses a genetic algorithm to find the best topology for a neural network.
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a}\label{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a} 
-\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology@{find\_best\_topology}}
+\Hypertarget{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a}\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology@{find\_best\_topology}}
 \index{find\_best\_topology@{find\_best\_topology}!topology\_finder.cpp@{topology\_finder.cpp}}
 \doxysubsubsection{\texorpdfstring{find\_best\_topology()}{find\_best\_topology()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{topology__finder_8cpp_a3dc86711f5a66aaabc7d1d9f8e1a7d5a} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{int}]{nb\+\_\+epochs}{, }\item[{size\+\_\+t}]{population\+\_\+size}{, }\item[{size\+\_\+t}]{nb\+\_\+generations}{, }\item[{float}]{selection\+\_\+rate}{}\end{DoxyParamCaption})}
 
 
 
@@ -97,11 +97,11 @@ Find the best topology for a neural network using a genetic algorithm.
 \begin{DoxyReturn}{Returns}
 A vector of metrics for each generation 
 \end{DoxyReturn}
-\Hypertarget{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55}\label{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55} 
-\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology\_no\_early\_stop@{find\_best\_topology\_no\_early\_stop}}
+\Hypertarget{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55}\index{topology\_finder.cpp@{topology\_finder.cpp}!find\_best\_topology\_no\_early\_stop@{find\_best\_topology\_no\_early\_stop}}
 \index{find\_best\_topology\_no\_early\_stop@{find\_best\_topology\_no\_early\_stop}!topology\_finder.cpp@{topology\_finder.cpp}}
 \doxysubsubsection{\texorpdfstring{find\_best\_topology\_no\_early\_stop()}{find\_best\_topology\_no\_early\_stop()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology\+\_\+no\+\_\+early\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset,  }\item[{int}]{nb\+\_\+epochs,  }\item[{size\+\_\+t}]{population\+\_\+size,  }\item[{size\+\_\+t}]{nb\+\_\+generations,  }\item[{float}]{selection\+\_\+rate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{topology__finder_8cpp_a735b4dc3aee3ca325eaaaa9e16ddeb55} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ find\+\_\+best\+\_\+topology\+\_\+no\+\_\+early\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataset}{Dataset}} \&}]{dataset}{, }\item[{int}]{nb\+\_\+epochs}{, }\item[{size\+\_\+t}]{population\+\_\+size}{, }\item[{size\+\_\+t}]{nb\+\_\+generations}{, }\item[{float}]{selection\+\_\+rate}{}\end{DoxyParamCaption})}
 
 
 
@@ -126,11 +126,11 @@ A vector of metrics for each generation
 \begin{DoxyNote}{Note}
 This function does not use early stopping, meaning that it will train the neural network for the full number of epochs 
 \end{DoxyNote}
-\Hypertarget{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}\label{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c} 
-\index{topology\_finder.cpp@{topology\_finder.cpp}!log\_metrics@{log\_metrics}}
+\Hypertarget{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c}\index{topology\_finder.cpp@{topology\_finder.cpp}!log\_metrics@{log\_metrics}}
 \index{log\_metrics@{log\_metrics}!topology\_finder.cpp@{topology\_finder.cpp}}
 \doxysubsubsection{\texorpdfstring{log\_metrics()}{log\_metrics()}}
-{\footnotesize\ttfamily void log\+\_\+metrics (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \&}]{metrics,  }\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{topology__finder_8cpp_ad1355153cdbc6f99a82f66ef58b4da4c} 
+void log\+\_\+metrics (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structMetrics}{Metrics}} $>$ $>$ \&}]{metrics}{, }\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
 
 
 

@@ -36,11 +36,11 @@ Eigen\+::\+Matrix\+Xf {\bfseries get\+\_\+output\+\_\+data} ()
 Class representing a dataset (inputs and outputs) 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a}\label{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a} 
-\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\Hypertarget{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a}\index{Dataset@{Dataset}!Dataset@{Dataset}}
 \index{Dataset@{Dataset}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}}]{parser,  }\item[{std\+::string}]{dir\+\_\+path,  }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{input\+\_\+encoder,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{output\+\_\+encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classDataset_af4b5f6b343419f6ea4ea2d2f2c35ed1a} 
+Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIParser}{IParser}} \texorpdfstring{$\ast$}{*}}]{parser}{, }\item[{std\+::string}]{dir\+\_\+path}{, }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{input\+\_\+encoder}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{output\+\_\+encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -59,11 +59,11 @@ Construct a new \doxylink{classDataset}{Dataset} object.
 {\em output\+\_\+encoder} & The encoder used to encode the output data \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classDataset_af3890422a709a0787b06348d2ca74ad6}\label{classDataset_af3890422a709a0787b06348d2ca74ad6} 
-\index{Dataset@{Dataset}!Dataset@{Dataset}}
+\Hypertarget{classDataset_af3890422a709a0787b06348d2ca74ad6}\index{Dataset@{Dataset}!Dataset@{Dataset}}
 \index{Dataset@{Dataset}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{Dataset()}{Dataset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{inputs,  }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{target\+\_\+outputs,  }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{input\+\_\+encoder,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{output\+\_\+encoder }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classDataset_af3890422a709a0787b06348d2ca74ad6} 
+Dataset\+::\+Dataset (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{inputs}{, }\item[{std\+::vector$<$ std\+::vector$<$ float $>$ $>$}]{target\+\_\+outputs}{, }\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{topology}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{input\+\_\+encoder}{, }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIEncoder}{IEncoder}} $>$}]{output\+\_\+encoder}{}\end{DoxyParamCaption})}
 
 
 
@@ -85,11 +85,11 @@ Construct a new \doxylink{classDataset}{Dataset} object from already parsed data
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classDataset_a53dfacec2dc85697a137b908c199ecd1}\label{classDataset_a53dfacec2dc85697a137b908c199ecd1} 
-\index{Dataset@{Dataset}!get\_all\_data@{get\_all\_data}}
+\Hypertarget{classDataset_a53dfacec2dc85697a137b908c199ecd1}\index{Dataset@{Dataset}!get\_all\_data@{get\_all\_data}}
 \index{get\_all\_data@{get\_all\_data}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{get\_all\_data()}{get\_all\_data()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::tuple$<$ std\+::string, Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ Dataset\+::get\+\_\+all\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classDataset_a53dfacec2dc85697a137b908c199ecd1} 
+std\+::vector$<$ std\+::tuple$<$ std\+::string, Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ Dataset\+::get\+\_\+all\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -98,11 +98,11 @@ Get all the data from the dataset.
 \begin{DoxyReturn}{Returns}
 A vector of tuples containing the name, input and output data 
 \end{DoxyReturn}
-\Hypertarget{classDataset_ac26ae42c722ca90cd5fb92c5c3e2f55e}\label{classDataset_ac26ae42c722ca90cd5fb92c5c3e2f55e} 
-\index{Dataset@{Dataset}!get\_data@{get\_data}}
+\Hypertarget{classDataset_ac26ae42c722ca90cd5fb92c5c3e2f55e}\index{Dataset@{Dataset}!get\_data@{get\_data}}
 \index{get\_data@{get\_data}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{get\_data()}{get\_data()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::tuple$<$ std\+::string, Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ Dataset\+::get\+\_\+data (\begin{DoxyParamCaption}\item[{double}]{proportion }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classDataset_ac26ae42c722ca90cd5fb92c5c3e2f55e} 
+std\+::vector$<$ std\+::tuple$<$ std\+::string, Eigen\+::\+Vector\+Xf, Eigen\+::\+Vector\+Xf $>$ $>$ Dataset\+::get\+\_\+data (\begin{DoxyParamCaption}\item[{double}]{proportion}{}\end{DoxyParamCaption})}
 
 
 
@@ -116,11 +116,11 @@ Get the data from the dataset.
 \begin{DoxyReturn}{Returns}
 A vector of pairs containing the input and output data 
 \end{DoxyReturn}
-\Hypertarget{classDataset_abccdca5465ab9328f1a07cbfe2a7a81f}\label{classDataset_abccdca5465ab9328f1a07cbfe2a7a81f} 
-\index{Dataset@{Dataset}!get\_input\_encoder@{get\_input\_encoder}}
+\Hypertarget{classDataset_abccdca5465ab9328f1a07cbfe2a7a81f}\index{Dataset@{Dataset}!get\_input\_encoder@{get\_input\_encoder}}
 \index{get\_input\_encoder@{get\_input\_encoder}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{get\_input\_encoder()}{get\_input\_encoder()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*} Dataset\+::get\+\_\+input\+\_\+encoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classDataset_abccdca5465ab9328f1a07cbfe2a7a81f} 
+\mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*} Dataset\+::get\+\_\+input\+\_\+encoder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -129,11 +129,11 @@ Get the input encoder.
 \begin{DoxyReturn}{Returns}
 The input encoder 
 \end{DoxyReturn}
-\Hypertarget{classDataset_aa70945f2b0908066d2f4e090bfb076a5}\label{classDataset_aa70945f2b0908066d2f4e090bfb076a5} 
-\index{Dataset@{Dataset}!get\_output\_encoder@{get\_output\_encoder}}
+\Hypertarget{classDataset_aa70945f2b0908066d2f4e090bfb076a5}\index{Dataset@{Dataset}!get\_output\_encoder@{get\_output\_encoder}}
 \index{get\_output\_encoder@{get\_output\_encoder}!Dataset@{Dataset}}
 \doxysubsubsection{\texorpdfstring{get\_output\_encoder()}{get\_output\_encoder()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*} Dataset\+::get\+\_\+output\+\_\+encoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classDataset_aa70945f2b0908066d2f4e090bfb076a5} 
+\mbox{\hyperlink{classIEncoder}{IEncoder}} \texorpdfstring{$\ast$}{*} Dataset\+::get\+\_\+output\+\_\+encoder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 

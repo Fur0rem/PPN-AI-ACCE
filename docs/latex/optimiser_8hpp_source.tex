@@ -3,6 +3,7 @@
 \mbox{\hyperlink{optimiser_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ OPTIMISER\_HPP}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ OPTIMISER\_HPP}}
 \DoxyCodeLine{00008\ }
@@ -21,7 +22,7 @@
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classIOptimiser_a705f5a50c7f09582bc7a0988baa75f93}{get\_learning\_rate}}()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00037\ \};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSGD}{SGD}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSGD_a20541c4b59f2b2caffc9fc5162975d46}{SGD}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
 \DoxyCodeLine{00045\ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_learning\_rate;\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00047\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_vW;\ }
@@ -37,7 +38,7 @@
 \DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classSGD_aff412cd4938de5105e9f2b3b4ece0665}{get\_learning\_rate}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00074\ \};}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00081\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAdam}{Adam}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
+\DoxyCodeLine{00081\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAdam_acffa63cd532030741babaed6b3222555}{Adam}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
 \DoxyCodeLine{00082\ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_learning\_rate;\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_beta1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
@@ -58,7 +59,7 @@
 \DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classAdam_a6f03ecb0b835cf0faef4113319065359}{get\_learning\_rate}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00120\ \};}
 \DoxyCodeLine{00121\ }
-\DoxyCodeLine{00127\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMomentum}{Momentum}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
+\DoxyCodeLine{00127\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMomentum_a5525e6805c17ccc2b46975889eb241e2}{Momentum}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
 \DoxyCodeLine{00128\ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_beta;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00130\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_vW;\ }
@@ -75,7 +76,7 @@
 \DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classMomentum_a02428654a3e28d49f956dd3d2bcebe3f}{get\_learning\_rate}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00160\ \};}
 \DoxyCodeLine{00161\ }
-\DoxyCodeLine{00167\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRMSProp}{RMSProp}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
+\DoxyCodeLine{00167\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRMSProp_ad68b4478e7bb40d4dc28b4b21fae0a24}{RMSProp}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
 \DoxyCodeLine{00168\ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_beta;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_epsilon;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
@@ -93,7 +94,7 @@
 \DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classRMSProp_a895b06ad5747b629eb361b8cce028362}{get\_learning\_rate}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00202\ \};}
 \DoxyCodeLine{00203\ }
-\DoxyCodeLine{00209\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAMSGrad}{AMSGrad}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
+\DoxyCodeLine{00209\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAMSGrad_af79c0009f42af710836847fed4fa7b59}{AMSGrad}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIOptimiser}{IOptimiser}}\ \{}
 \DoxyCodeLine{00210\ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00211\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_mW;\ \ \ \ \ }
 \DoxyCodeLine{00212\ \ \ \ \ std::vector<Eigen::MatrixXf>\ m\_mB;\ \ \ \ \ }

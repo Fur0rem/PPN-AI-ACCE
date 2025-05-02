@@ -57,8 +57,12 @@ int main() {
 
 	auto input_matrix = dataset.get_input_data();
 
+	// Print the size
+	std::cout << "Input matrix size: " << input_matrix.rows() << "x" << input_matrix.cols() << '\n';
+
 	// Generate a random matrix of size of input matrix to be able to multiply it with it
 	Eigen::MatrixXf random_matrix(input_matrix.cols(), input_matrix.cols());
+
 	random_matrix.setRandom();
 
 	std::ostringstream oss;
@@ -173,7 +177,7 @@ int main() {
 			// std::cout << "----------------------------\n";
 		}
 	}
-	std::cout << "No sparse results:\n";
+	std::cout << "Dense results:\n";
 	print_average_results(no_sparse_results);
 	std::cout << "Sparse results:\n";
 	print_average_results(sparse_results);

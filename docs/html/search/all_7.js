@@ -12,7 +12,8 @@ var searchData=
   ['get_5foutput_5fencoder_9',['get_output_encoder',['../classDataset.html#aa70945f2b0908066d2f4e090bfb076a5',1,'Dataset']]],
   ['get_5fregularisation_5fterm_10',['get_regularisation_term',['../classTrainingNoise.html#ae3d7a1645fa36f83afe2d1806c835997',1,'TrainingNoise']]],
   ['get_5ftopology_11',['get_topology',['../classCandidate.html#a1cc115e6d0bc3628566c78a5d7686b84',1,'Candidate']]],
-  ['gradients_12',['Gradients',['../classGradients.html',1,'Gradients'],['../classGradients.html#a76c7047eb84cabadc4acffc802d2ab08',1,'Gradients::Gradients()']]],
-  ['gradients_2ecpp_13',['gradients.cpp',['../gradients_8cpp.html',1,'']]],
-  ['gradients_2ehpp_14',['gradients.hpp',['../gradients_8hpp.html',1,'']]]
+  ['gpu_2ecpp_12',['gpu.cpp',['../benchmarks_2gpu_8cpp.html',1,'(Global Namespace)'],['../tests_2gpu_8cpp.html',1,'(Global Namespace)']]],
+  ['gradients_13',['Gradients',['../classGradients.html',1,'Gradients'],['../classGradients.html#a76c7047eb84cabadc4acffc802d2ab08',1,'Gradients::Gradients()']]],
+  ['gradients_2ecpp_14',['gradients.cpp',['../gradients_8cpp.html',1,'']]],
+  ['gradients_2ehpp_15',['gradients.hpp',['../gradients_8hpp.html',1,'']]]
 ];

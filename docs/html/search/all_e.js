@@ -7,7 +7,7 @@ var searchData=
   ['ppn_20projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_4',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
   ['predict_5',['predict',['../classNeuralNetwork.html#ad4ba2cdffa852f86885e1f18cbeeb4e4',1,'NeuralNetwork::predict(const std::vector&lt; float &gt; &amp;input)'],['../classNeuralNetwork.html#a33c50d558598b59a33674c12dff24d75',1,'NeuralNetwork::predict(const Eigen::MatrixXf &amp;input)']]],
   ['programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_6',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
-  ['project_7',['Project',['../index.html#autotoc_md1',1,'Current status of the project'],['../index.html#autotoc_md3',1,'How to run the project']]],
+  ['project_7',['project',['../index.html#autotoc_md1',1,'Current status of the project'],['../index.html#autotoc_md3',1,'How to run the project']]],
   ['project_20structure_8',['Project structure',['../index.html#autotoc_md4',1,'']]],
   ['projet_20de_20programmation_20numérique_20_3a_20ai_20acce_20ai_20based_20assembly_20code_20cycles_20estimator_9',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]]
 ];

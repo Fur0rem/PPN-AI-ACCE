@@ -30,6 +30,9 @@ if (OPENMP_FOUND)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
+# Use Vulkan for GPU implementation
+find_package(Vulkan REQUIRED)
+
 # Add the nanobench library
 add_library(nanobench STATIC ${CMAKE_SOURCE_DIR}/nanobench/src/test/app/nanobench.cpp)
 target_include_directories(nanobench PUBLIC ${CMAKE_SOURCE_DIR}/nanobench/src/include)
@@ -51,13 +54,15 @@ set(SRCS
     ${CMAKE_SOURCE_DIR}/src/neural_network/neural_network.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network/sparse_multiplication.cpp
     ${CMAKE_SOURCE_DIR}/src/dataset/dataset.cpp
+    ${CMAKE_SOURCE_DIR}/src/culkan/culkan.cpp
 )
 # Add the main executable
 add_executable(main 
     ${SRCS}
     ${CMAKE_SOURCE_DIR}/src/main.cpp
 )
-target_link_libraries(main nanobench OpenMP::OpenMP_CXX)
+target_include_directories(main PRIVATE ${Vulkan_INCLUDE_DIRS})
+target_link_libraries(main nanobench OpenMP::OpenMP_CXX ${Vulkan_LIBRARIES})
 target_compile_options(main PRIVATE ${RELEASE_FLAGS} -fopenmp)
 
 # Add the topology_finder executable
@@ -89,12 +94,15 @@ set(TESTS
     recognises_xor
     cycles_encoders
     sparse_multiplication
+    gpu
 )
 
 foreach(TEST ${TESTS})
     add_executable(test_${TEST} ${CMAKE_SOURCE_DIR}/tests/${TEST}.cpp)
     target_sources(test_${TEST} PRIVATE ${SRCS})
-    target_link_libraries(test_${TEST} PUBLIC GTest::GTest GTest::Main)
+    target_sources(test_${TEST} PRIVATE ${CMAKE_SOURCE_DIR}/src/culkan/culkan.cpp)
+    target_link_libraries(test_${TEST} PUBLIC GTest::GTest GTest::Main ${Vulkan_LIBRARIES})
+    target_include_directories(test_${TEST} PRIVATE ${Vulkan_INCLUDE_DIRS})
     target_compile_options(test_${TEST} PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
     target_link_options(test_${TEST} PRIVATE ${DEBUG_FLAGS} ${TEST_FLAGS})
     add_test(NAME test_${TEST} COMMAND test_${TEST}
@@ -420,12 +428,14 @@ set(BENCHMARKS
     training
     sparse_multiplication
     approximations
+    gpu
 )
 
 foreach(BENCHMARK ${BENCHMARKS})
     add_executable(benchmark_${BENCHMARK} ${CMAKE_SOURCE_DIR}/benchmarks/${BENCHMARK}.cpp)
     target_sources(benchmark_${BENCHMARK} PRIVATE ${SRCS})
-    target_link_libraries(benchmark_${BENCHMARK} nanobench)
+    target_link_libraries(benchmark_${BENCHMARK} nanobench OpenMP::OpenMP_CXX ${Vulkan_LIBRARIES})
+    target_include_directories(benchmark_${BENCHMARK} PRIVATE ${Vulkan_INCLUDE_DIRS})
     target_compile_options(benchmark_${BENCHMARK} PRIVATE ${RELEASE_FLAGS})
     target_link_options(benchmark_${BENCHMARK} PRIVATE ${CODELET_FLAGS})
 endforeach()
