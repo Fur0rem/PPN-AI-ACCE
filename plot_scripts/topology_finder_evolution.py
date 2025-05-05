@@ -1,11 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-results = pd.read_csv("training_results/topology_finder.csv")
+results = pd.read_csv("topology_finder.csv")
 
 
 # Plot the average Test accuracy over generations
-def plot_metric_over_time(metric_name: str, bounds: tuple = None):
+def plot_metric_over_time(metric_name: str, color: str, bounds: tuple = None):
 	"""
 	Plot the average metric over generations.
 	Args:
@@ -18,8 +18,8 @@ def plot_metric_over_time(metric_name: str, bounds: tuple = None):
 
 	# Plot the mean accuracy as a line and the range as a filled area
 	mean_metric = metric.mean()
-	plt.plot(mean_metric, label=f"Average {metric_name}")
-	plt.fill_between(mean_metric.index, metric.min(), metric.max(), alpha=0.2, label=f"{metric_name} Range")
+	plt.plot(mean_metric, label=f"Average {metric_name}", color=color)
+	plt.fill_between(mean_metric.index, metric.min(), metric.max(), alpha=0.2, label=f"{metric_name} Range", color=color)
 	
 	# Set the y-axis bounds if provided
 	if bounds:
@@ -28,9 +28,10 @@ def plot_metric_over_time(metric_name: str, bounds: tuple = None):
 	# Add the labels and title
 	plt.xlabel("Generation")
 	plt.ylabel(metric_name)
-	plt.title(f"{metric_name} over Generations")
+	# plt.title(f"{metric_name} over Generations")
 	plt.xticks(mean_metric.index)
 	plt.legend()
+	plt.savefig(f"{metric_name}_over_generations.svg", format="svg", dpi=300)
 	plt.show()
 
 # Add a column for the average hidden layer size
@@ -73,15 +74,18 @@ def plot_hidden_layers():
 
 	# Plot the number of hidden layers as stacked bars
 	fig, ax = plt.subplots()
+
+	# Make the colours go from light blue for 1 hidden layer to dark blue for 6 hidden layers
+	colors = plt.cm.Blues([(i + 1) / (max_nb_hidden_layers + 1) for i in range(max_nb_hidden_layers)])
 	
 	# Compute the proportions
 	dataframe["Count"] = dataframe["Count"] / dataframe.groupby("Generation")["Count"].transform("sum")
 	dataframe = dataframe.pivot(index="Generation", columns="Number of Hidden Layers", values="Count").fillna(0)
-	dataframe.plot(kind="area", stacked=True, ax=ax)
+	dataframe.plot(kind="area", stacked=True, ax=ax, color=colors, alpha=0.9)
 	
 	# Have the x-axis be the generations
 	ax.set_xlabel("Generation")
-	ax.set_title("Proportion of number of hidden layers over generations")
+	# ax.set_title("Proportion of number of hidden layers over generations")
 	ax.set_xticks(dataframe.index)
 	ax.set_xlim(1, dataframe.index.max())
 
@@ -94,11 +98,12 @@ def plot_hidden_layers():
 	
 	ax.legend(title="Number of Hidden Layers")
 	plt.xticks(rotation=0)
+	plt.savefig("hidden_layers_over_generations.svg", format="svg", dpi=300)
 	plt.show()
 	
 	
-plot_metric_over_time("Train Accuracy", (0.0, 1))
-plot_metric_over_time("Validation Accuracy", (0.0, 1))
-plot_metric_over_time("Fitness")
-plot_metric_over_time("Mean Hidden Layer Size")
+plot_metric_over_time("Train Accuracy", "blue", (0.0, 1))
+plot_metric_over_time("Validation Accuracy", "orange", (0.0, 1))
+plot_metric_over_time("Fitness", "green")
+plot_metric_over_time("Mean Hidden Layer Size", "red", (0, 1375))
 plot_hidden_layers()

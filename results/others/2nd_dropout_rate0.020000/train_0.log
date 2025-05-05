@@ -1,0 +1,796 @@
+Epoch: 0	,Training loss (MRSE): 0.987414	,Validation loss (MRSE): 1.00102	,Training loss (MSE): 1.52893e+17	,Validation loss (MSE): 1.93035e+17	,Training accuracy (MAE): -6.03901e+07	,Validation accuracy (MAE): -7.46129e+07	,Training accuracy (MRAE): 0.00844692	,Validation accuracy (MRAE): -0.000252799
+Epoch: 8	,Training loss (MRSE): 0.720248	,Validation loss (MRSE): 0.820885	,Training loss (MSE): 1.52833e+17	,Validation loss (MSE): 1.93033e+17	,Training accuracy (MAE): -6.03359e+07	,Validation accuracy (MAE): -7.46545e+07	,Training accuracy (MRAE): 0.195489	,Validation accuracy (MRAE): 0.123545
+Epoch: 16	,Training loss (MRSE): 0.667631	,Validation loss (MRSE): 0.79742	,Training loss (MSE): 1.52687e+17	,Validation loss (MSE): 1.93019e+17	,Training accuracy (MAE): -6.01585e+07	,Validation accuracy (MAE): -7.47403e+07	,Training accuracy (MRAE): 0.219322	,Validation accuracy (MRAE): 0.135248
+Epoch: 24	,Training loss (MRSE): 0.63878	,Validation loss (MRSE): 0.80037	,Training loss (MSE): 1.52393e+17	,Validation loss (MSE): 1.93018e+17	,Training accuracy (MAE): -6.00274e+07	,Validation accuracy (MAE): -7.46917e+07	,Training accuracy (MRAE): 0.239178	,Validation accuracy (MRAE): 0.132555
+Epoch: 32	,Training loss (MRSE): 0.533427	,Validation loss (MRSE): 0.787207	,Training loss (MSE): 1.16795e+17	,Validation loss (MSE): 1.92986e+17	,Training accuracy (MAE): -5.17617e+07	,Validation accuracy (MAE): -7.50371e+07	,Training accuracy (MRAE): 0.333328	,Validation accuracy (MRAE): 0.144276
+Epoch: 40	,Training loss (MRSE): 0.477613	,Validation loss (MRSE): 0.782783	,Training loss (MSE): 1.07296e+17	,Validation loss (MSE): 1.93001e+17	,Training accuracy (MAE): -4.78628e+07	,Validation accuracy (MAE): -7.48286e+07	,Training accuracy (MRAE): 0.38424	,Validation accuracy (MRAE): 0.149806
+Epoch: 48	,Training loss (MRSE): 0.675811	,Validation loss (MRSE): 0.832481	,Training loss (MSE): 1.4393e+17	,Validation loss (MSE): 1.93032e+17	,Training accuracy (MAE): -5.8312e+07	,Validation accuracy (MAE): -7.46502e+07	,Training accuracy (MRAE): 0.219623	,Validation accuracy (MRAE): 0.11086
+Epoch: 56	,Training loss (MRSE): 0.49917	,Validation loss (MRSE): 0.780089	,Training loss (MSE): 3.23485e+18	,Validation loss (MSE): 1.92999e+17	,Training accuracy (MAE): -1.79178e+08	,Validation accuracy (MAE): -7.52909e+07	,Training accuracy (MRAE): 0.360514	,Validation accuracy (MRAE): 0.158453
+Epoch: 64	,Training loss (MRSE): 0.405848	,Validation loss (MRSE): 0.772202	,Training loss (MSE): 5.58116e+16	,Validation loss (MSE): 1.93008e+17	,Training accuracy (MAE): -3.30135e+07	,Validation accuracy (MAE): -7.48248e+07	,Training accuracy (MRAE): 0.447843	,Validation accuracy (MRAE): 0.165216
+Epoch: 72	,Training loss (MRSE): 0.566198	,Validation loss (MRSE): 0.819302	,Training loss (MSE): 9.95011e+16	,Validation loss (MSE): 1.93029e+17	,Training accuracy (MAE): -4.84597e+07	,Validation accuracy (MAE): -7.46989e+07	,Training accuracy (MRAE): 0.292921	,Validation accuracy (MRAE): 0.11775
+Epoch: 80	,Training loss (MRSE): 0.498632	,Validation loss (MRSE): 0.779852	,Training loss (MSE): 1.12843e+17	,Validation loss (MSE): 1.93021e+17	,Training accuracy (MAE): -5.16144e+07	,Validation accuracy (MAE): -7.46989e+07	,Training accuracy (MRAE): 0.345274	,Validation accuracy (MRAE): 0.144885
+Epoch: 88	,Training loss (MRSE): 0.397303	,Validation loss (MRSE): 0.787872	,Training loss (MSE): 3.74519e+16	,Validation loss (MSE): 1.93024e+17	,Training accuracy (MAE): -2.60733e+07	,Validation accuracy (MAE): -7.48696e+07	,Training accuracy (MRAE): 0.438374	,Validation accuracy (MRAE): 0.141978
+Epoch: 96	,Training loss (MRSE): 0.360491	,Validation loss (MRSE): 0.779061	,Training loss (MSE): 5.56165e+16	,Validation loss (MSE): 1.93015e+17	,Training accuracy (MAE): -2.94646e+07	,Validation accuracy (MAE): -7.48962e+07	,Training accuracy (MRAE): 0.49483	,Validation accuracy (MRAE): 0.152277
+Epoch: 104	,Training loss (MRSE): 0.4374	,Validation loss (MRSE): 0.801458	,Training loss (MSE): 5.37377e+16	,Validation loss (MSE): 1.93025e+17	,Training accuracy (MAE): -3.2913e+07	,Validation accuracy (MAE): -7.48301e+07	,Training accuracy (MRAE): 0.407369	,Validation accuracy (MRAE): 0.128981
+Epoch: 112	,Training loss (MRSE): 0.358989	,Validation loss (MRSE): 0.78458	,Training loss (MSE): 4.65518e+16	,Validation loss (MSE): 1.93019e+17	,Training accuracy (MAE): -3.02125e+07	,Validation accuracy (MAE): -7.48344e+07	,Training accuracy (MRAE): 0.479179	,Validation accuracy (MRAE): 0.143608
+Epoch: 120	,Training loss (MRSE): 0.332619	,Validation loss (MRSE): 0.771489	,Training loss (MSE): 3.66405e+16	,Validation loss (MSE): 1.93003e+17	,Training accuracy (MAE): -2.59906e+07	,Validation accuracy (MAE): -7.48756e+07	,Training accuracy (MRAE): 0.51645	,Validation accuracy (MRAE): 0.168862
+Epoch: 128	,Training loss (MRSE): 0.325101	,Validation loss (MRSE): 0.778593	,Training loss (MSE): 3.04811e+16	,Validation loss (MSE): 1.93003e+17	,Training accuracy (MAE): -2.29436e+07	,Validation accuracy (MAE): -7.4936e+07	,Training accuracy (MRAE): 0.526263	,Validation accuracy (MRAE): 0.153231
+Epoch: 136	,Training loss (MRSE): 0.507917	,Validation loss (MRSE): 0.814405	,Training loss (MSE): 7.50653e+16	,Validation loss (MSE): 1.93028e+17	,Training accuracy (MAE): -4.09384e+07	,Validation accuracy (MAE): -7.47273e+07	,Training accuracy (MRAE): 0.331762	,Validation accuracy (MRAE): 0.121276
+Epoch: 144	,Training loss (MRSE): 0.492305	,Validation loss (MRSE): 0.786806	,Training loss (MSE): 1.0994e+17	,Validation loss (MSE): 1.93024e+17	,Training accuracy (MAE): -5.06732e+07	,Validation accuracy (MAE): -7.47199e+07	,Training accuracy (MRAE): 0.343468	,Validation accuracy (MRAE): 0.140809
+Epoch: 152	,Training loss (MRSE): 0.293028	,Validation loss (MRSE): 0.775165	,Training loss (MSE): 1.7324e+16	,Validation loss (MSE): 1.93012e+17	,Training accuracy (MAE): -1.78958e+07	,Validation accuracy (MAE): -7.49074e+07	,Training accuracy (MRAE): 0.556181	,Validation accuracy (MRAE): 0.156479
+Epoch: 160	,Training loss (MRSE): 0.385152	,Validation loss (MRSE): 0.781568	,Training loss (MSE): 6.59813e+16	,Validation loss (MSE): 1.93015e+17	,Training accuracy (MAE): -3.84379e+07	,Validation accuracy (MAE): -7.47672e+07	,Training accuracy (MRAE): 0.439385	,Validation accuracy (MRAE): 0.150988
+Epoch: 168	,Training loss (MRSE): 0.311145	,Validation loss (MRSE): 0.772625	,Training loss (MSE): 4.04751e+16	,Validation loss (MSE): 1.93013e+17	,Training accuracy (MAE): -2.90631e+07	,Validation accuracy (MAE): -7.48729e+07	,Training accuracy (MRAE): 0.527616	,Validation accuracy (MRAE): 0.157247
+Epoch: 176	,Training loss (MRSE): 0.288575	,Validation loss (MRSE): 0.774229	,Training loss (MSE): 7.28533e+16	,Validation loss (MSE): 1.92976e+17	,Training accuracy (MAE): -2.86648e+07	,Validation accuracy (MAE): -7.49744e+07	,Training accuracy (MRAE): 0.560367	,Validation accuracy (MRAE): 0.162347
+Epoch: 184	,Training loss (MRSE): 0.354665	,Validation loss (MRSE): 0.800556	,Training loss (MSE): 2.59512e+16	,Validation loss (MSE): 1.92961e+17	,Training accuracy (MAE): -1.93124e+07	,Validation accuracy (MAE): -7.48742e+07	,Training accuracy (MRAE): 0.495257	,Validation accuracy (MRAE): 0.136111
+Epoch: 192	,Training loss (MRSE): 0.391214	,Validation loss (MRSE): 0.773482	,Training loss (MSE): 7.79375e+16	,Validation loss (MSE): 1.93014e+17	,Training accuracy (MAE): -4.23784e+07	,Validation accuracy (MAE): -7.47621e+07	,Training accuracy (MRAE): 0.423339	,Validation accuracy (MRAE): 0.156003
+Epoch: 200	,Training loss (MRSE): 0.456717	,Validation loss (MRSE): 0.783059	,Training loss (MSE): 1.2537e+17	,Validation loss (MSE): 1.93017e+17	,Training accuracy (MAE): -5.42761e+07	,Validation accuracy (MAE): -7.47047e+07	,Training accuracy (MRAE): 0.37845	,Validation accuracy (MRAE): 0.149916
+Epoch: 208	,Training loss (MRSE): 0.291908	,Validation loss (MRSE): 0.785372	,Training loss (MSE): 5.32179e+16	,Validation loss (MSE): 1.93008e+17	,Training accuracy (MAE): -3.46964e+07	,Validation accuracy (MAE): -7.48729e+07	,Training accuracy (MRAE): 0.548512	,Validation accuracy (MRAE): 0.146278
+Epoch: 216	,Training loss (MRSE): 0.273747	,Validation loss (MRSE): 0.779411	,Training loss (MSE): 3.30251e+16	,Validation loss (MSE): 1.92982e+17	,Training accuracy (MAE): -2.63843e+07	,Validation accuracy (MAE): -7.48738e+07	,Training accuracy (MRAE): 0.573053	,Validation accuracy (MRAE): 0.156819
+Epoch: 224	,Training loss (MRSE): 0.286016	,Validation loss (MRSE): 0.787877	,Training loss (MSE): 2.55471e+16	,Validation loss (MSE): 1.92955e+17	,Training accuracy (MAE): -1.97576e+07	,Validation accuracy (MAE): -7.5065e+07	,Training accuracy (MRAE): 0.555854	,Validation accuracy (MRAE): 0.144916
+Epoch: 232	,Training loss (MRSE): 0.283747	,Validation loss (MRSE): 0.782276	,Training loss (MSE): 3.84312e+16	,Validation loss (MSE): 1.93013e+17	,Training accuracy (MAE): -2.89561e+07	,Validation accuracy (MAE): -7.4887e+07	,Training accuracy (MRAE): 0.558436	,Validation accuracy (MRAE): 0.147671
+Epoch: 240	,Training loss (MRSE): 0.353801	,Validation loss (MRSE): 0.781997	,Training loss (MSE): 4.37468e+16	,Validation loss (MSE): 1.93006e+17	,Training accuracy (MAE): -2.98006e+07	,Validation accuracy (MAE): -7.48733e+07	,Training accuracy (MRAE): 0.471201	,Validation accuracy (MRAE): 0.148171
+Epoch: 248	,Training loss (MRSE): 0.333238	,Validation loss (MRSE): 0.782634	,Training loss (MSE): 7.95958e+16	,Validation loss (MSE): 1.93011e+17	,Training accuracy (MAE): -4.29748e+07	,Validation accuracy (MAE): -7.48094e+07	,Training accuracy (MRAE): 0.490854	,Validation accuracy (MRAE): 0.148516
+Epoch: 256	,Training loss (MRSE): 0.281762	,Validation loss (MRSE): 0.776029	,Training loss (MSE): 4.43252e+16	,Validation loss (MSE): 1.92998e+17	,Training accuracy (MAE): -3.10256e+07	,Validation accuracy (MAE): -7.49048e+07	,Training accuracy (MRAE): 0.553742	,Validation accuracy (MRAE): 0.158841
+Epoch: 264	,Training loss (MRSE): 0.267781	,Validation loss (MRSE): 0.791864	,Training loss (MSE): 1.38511e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -1.55955e+07	,Validation accuracy (MAE): -7.50302e+07	,Training accuracy (MRAE): 0.578371	,Validation accuracy (MRAE): 0.142875
+Epoch: 272	,Training loss (MRSE): 0.254508	,Validation loss (MRSE): 0.787326	,Training loss (MSE): 9.05883e+15	,Validation loss (MSE): 1.92997e+17	,Training accuracy (MAE): -1.30393e+07	,Validation accuracy (MAE): -7.49919e+07	,Training accuracy (MRAE): 0.598038	,Validation accuracy (MRAE): 0.14814
+Epoch: 280	,Training loss (MRSE): 0.242892	,Validation loss (MRSE): 0.780366	,Training loss (MSE): 2.79928e+16	,Validation loss (MSE): 1.92996e+17	,Training accuracy (MAE): -2.38497e+07	,Validation accuracy (MAE): -7.50063e+07	,Training accuracy (MRAE): 0.608621	,Validation accuracy (MRAE): 0.155808
+Epoch: 288	,Training loss (MRSE): 0.34572	,Validation loss (MRSE): 0.779721	,Training loss (MSE): 5.19641e+16	,Validation loss (MSE): 1.93013e+17	,Training accuracy (MAE): -3.40312e+07	,Validation accuracy (MAE): -7.48144e+07	,Training accuracy (MRAE): 0.466081	,Validation accuracy (MRAE): 0.151801
+Epoch: 296	,Training loss (MRSE): 0.269879	,Validation loss (MRSE): 0.803971	,Training loss (MSE): 1.64594e+16	,Validation loss (MSE): 1.92982e+17	,Training accuracy (MAE): -1.65391e+07	,Validation accuracy (MAE): -7.5003e+07	,Training accuracy (MRAE): 0.5814	,Validation accuracy (MRAE): 0.129302
+Epoch: 304	,Training loss (MRSE): 0.272283	,Validation loss (MRSE): 0.781554	,Training loss (MSE): 2.18913e+16	,Validation loss (MSE): 1.93e+17	,Training accuracy (MAE): -2.13714e+07	,Validation accuracy (MAE): -7.49031e+07	,Training accuracy (MRAE): 0.561469	,Validation accuracy (MRAE): 0.150677
+Epoch: 312	,Training loss (MRSE): 0.323285	,Validation loss (MRSE): 0.778335	,Training loss (MSE): 9.22618e+16	,Validation loss (MSE): 1.92998e+17	,Training accuracy (MAE): -4.6087e+07	,Validation accuracy (MAE): -7.48111e+07	,Training accuracy (MRAE): 0.501821	,Validation accuracy (MRAE): 0.157361
+Epoch: 320	,Training loss (MRSE): 0.269789	,Validation loss (MRSE): 0.791523	,Training loss (MSE): 2.06482e+16	,Validation loss (MSE): 1.92998e+17	,Training accuracy (MAE): -2.06577e+07	,Validation accuracy (MAE): -7.4929e+07	,Training accuracy (MRAE): 0.565256	,Validation accuracy (MRAE): 0.136546
+Epoch: 328	,Training loss (MRSE): 0.244088	,Validation loss (MRSE): 0.783283	,Training loss (MSE): 2.15035e+16	,Validation loss (MSE): 1.93e+17	,Training accuracy (MAE): -2.08748e+07	,Validation accuracy (MAE): -7.49597e+07	,Training accuracy (MRAE): 0.599423	,Validation accuracy (MRAE): 0.14879
+Epoch: 336	,Training loss (MRSE): 0.325398	,Validation loss (MRSE): 0.784681	,Training loss (MSE): 7.1825e+16	,Validation loss (MSE): 1.92999e+17	,Training accuracy (MAE): -4.04901e+07	,Validation accuracy (MAE): -7.48116e+07	,Training accuracy (MRAE): 0.484979	,Validation accuracy (MRAE): 0.144744
+Epoch: 344	,Training loss (MRSE): 0.269392	,Validation loss (MRSE): 0.777176	,Training loss (MSE): 4.86879e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -3.3184e+07	,Validation accuracy (MAE): -7.48937e+07	,Training accuracy (MRAE): 0.556304	,Validation accuracy (MRAE): 0.15945
+Epoch: 352	,Training loss (MRSE): 0.315645	,Validation loss (MRSE): 0.781979	,Training loss (MSE): 9.13008e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -4.59842e+07	,Validation accuracy (MAE): -7.48178e+07	,Training accuracy (MRAE): 0.506551	,Validation accuracy (MRAE): 0.152609
+Epoch: 360	,Training loss (MRSE): 0.267104	,Validation loss (MRSE): 0.781361	,Training loss (MSE): 1.98488e+16	,Validation loss (MSE): 1.93003e+17	,Training accuracy (MAE): -1.90359e+07	,Validation accuracy (MAE): -7.5014e+07	,Training accuracy (MRAE): 0.565855	,Validation accuracy (MRAE): 0.152159
+Epoch: 368	,Training loss (MRSE): 0.254511	,Validation loss (MRSE): 0.782293	,Training loss (MSE): 1.74396e+16	,Validation loss (MSE): 1.92995e+17	,Training accuracy (MAE): -1.88269e+07	,Validation accuracy (MAE): -7.49309e+07	,Training accuracy (MRAE): 0.573131	,Validation accuracy (MRAE): 0.148728
+Epoch: 376	,Training loss (MRSE): 0.286632	,Validation loss (MRSE): 0.773879	,Training loss (MSE): 6.3833e+16	,Validation loss (MSE): 1.92995e+17	,Training accuracy (MAE): -3.74016e+07	,Validation accuracy (MAE): -7.48791e+07	,Training accuracy (MRAE): 0.532889	,Validation accuracy (MRAE): 0.162784
+Epoch: 384	,Training loss (MRSE): 0.24364	,Validation loss (MRSE): 0.786934	,Training loss (MSE): 1.8616e+16	,Validation loss (MSE): 1.92967e+17	,Training accuracy (MAE): -1.93405e+07	,Validation accuracy (MAE): -7.51259e+07	,Training accuracy (MRAE): 0.593013	,Validation accuracy (MRAE): 0.150256
+Epoch: 392	,Training loss (MRSE): 0.29227	,Validation loss (MRSE): 0.793916	,Training loss (MSE): 4.8156e+16	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -3.2477e+07	,Validation accuracy (MAE): -7.48997e+07	,Training accuracy (MRAE): 0.526486	,Validation accuracy (MRAE): 0.135558
+Epoch: 400	,Training loss (MRSE): 0.315627	,Validation loss (MRSE): 0.792584	,Training loss (MSE): 5.85484e+16	,Validation loss (MSE): 1.92989e+17	,Training accuracy (MAE): -3.53594e+07	,Validation accuracy (MAE): -7.48423e+07	,Training accuracy (MRAE): 0.503121	,Validation accuracy (MRAE): 0.135919
+Epoch: 408	,Training loss (MRSE): 0.29555	,Validation loss (MRSE): 0.793185	,Training loss (MSE): 5.68222e+16	,Validation loss (MSE): 1.93009e+17	,Training accuracy (MAE): -3.5372e+07	,Validation accuracy (MAE): -7.48764e+07	,Training accuracy (MRAE): 0.530353	,Validation accuracy (MRAE): 0.134269
+Epoch: 416	,Training loss (MRSE): 0.225569	,Validation loss (MRSE): 0.788666	,Training loss (MSE): 9.04444e+15	,Validation loss (MSE): 1.92983e+17	,Training accuracy (MAE): -1.33388e+07	,Validation accuracy (MAE): -7.51373e+07	,Training accuracy (MRAE): 0.624366	,Validation accuracy (MRAE): 0.146931
+Epoch: 424	,Training loss (MRSE): 0.23599	,Validation loss (MRSE): 0.781582	,Training loss (MSE): 2.91825e+16	,Validation loss (MSE): 1.92991e+17	,Training accuracy (MAE): -2.39373e+07	,Validation accuracy (MAE): -7.49891e+07	,Training accuracy (MRAE): 0.603058	,Validation accuracy (MRAE): 0.150879
+Epoch: 432	,Training loss (MRSE): 0.235855	,Validation loss (MRSE): 0.786559	,Training loss (MSE): 1.03613e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -1.38327e+07	,Validation accuracy (MAE): -7.50031e+07	,Training accuracy (MRAE): 0.606688	,Validation accuracy (MRAE): 0.150335
+Epoch: 440	,Training loss (MRSE): 0.244505	,Validation loss (MRSE): 0.790294	,Training loss (MSE): 4.79107e+16	,Validation loss (MSE): 1.92965e+17	,Training accuracy (MAE): -3.20077e+07	,Validation accuracy (MAE): -7.49574e+07	,Training accuracy (MRAE): 0.588887	,Validation accuracy (MRAE): 0.144543
+Epoch: 448	,Training loss (MRSE): 0.339761	,Validation loss (MRSE): 0.785427	,Training loss (MSE): 7.0703e+16	,Validation loss (MSE): 1.93009e+17	,Training accuracy (MAE): -3.90624e+07	,Validation accuracy (MAE): -7.48487e+07	,Training accuracy (MRAE): 0.46861	,Validation accuracy (MRAE): 0.143313
+Epoch: 456	,Training loss (MRSE): 0.433814	,Validation loss (MRSE): 0.786315	,Training loss (MSE): 1.14048e+17	,Validation loss (MSE): 1.93013e+17	,Training accuracy (MAE): -5.17585e+07	,Validation accuracy (MAE): -7.47616e+07	,Training accuracy (MRAE): 0.382312	,Validation accuracy (MRAE): 0.142104
+Epoch: 464	,Training loss (MRSE): 0.264363	,Validation loss (MRSE): 0.786434	,Training loss (MSE): 5.55499e+16	,Validation loss (MSE): 1.93e+17	,Training accuracy (MAE): -3.39796e+07	,Validation accuracy (MAE): -7.48983e+07	,Training accuracy (MRAE): 0.564941	,Validation accuracy (MRAE): 0.150221
+Epoch: 472	,Training loss (MRSE): 0.230701	,Validation loss (MRSE): 0.78591	,Training loss (MSE): 3.41193e+16	,Validation loss (MSE): 1.92994e+17	,Training accuracy (MAE): -2.75209e+07	,Validation accuracy (MAE): -7.49931e+07	,Training accuracy (MRAE): 0.607559	,Validation accuracy (MRAE): 0.148501
+Epoch: 480	,Training loss (MRSE): 0.327394	,Validation loss (MRSE): 0.800033	,Training loss (MSE): 6.41625e+16	,Validation loss (MSE): 1.93012e+17	,Training accuracy (MAE): -3.7788e+07	,Validation accuracy (MAE): -7.48941e+07	,Training accuracy (MRAE): 0.488931	,Validation accuracy (MRAE): 0.134204
+Epoch: 488	,Training loss (MRSE): 0.368168	,Validation loss (MRSE): 0.788127	,Training loss (MSE): 9.62302e+16	,Validation loss (MSE): 1.93014e+17	,Training accuracy (MAE): -4.72567e+07	,Validation accuracy (MAE): -7.48003e+07	,Training accuracy (MRAE): 0.444591	,Validation accuracy (MRAE): 0.140665
+Epoch: 496	,Training loss (MRSE): 0.298022	,Validation loss (MRSE): 0.800569	,Training loss (MSE): 2.78517e+16	,Validation loss (MSE): 1.92982e+17	,Training accuracy (MAE): -2.33826e+07	,Validation accuracy (MAE): -7.49417e+07	,Training accuracy (MRAE): 0.534739	,Validation accuracy (MRAE): 0.137919
+Epoch: 504	,Training loss (MRSE): 0.334145	,Validation loss (MRSE): 0.789562	,Training loss (MSE): 7.75488e+16	,Validation loss (MSE): 1.93005e+17	,Training accuracy (MAE): -4.22476e+07	,Validation accuracy (MAE): -7.48683e+07	,Training accuracy (MRAE): 0.465385	,Validation accuracy (MRAE): 0.139252
+Epoch: 512	,Training loss (MRSE): 0.269956	,Validation loss (MRSE): 0.784012	,Training loss (MSE): 4.49135e+16	,Validation loss (MSE): 1.92995e+17	,Training accuracy (MAE): -3.13773e+07	,Validation accuracy (MAE): -7.49087e+07	,Training accuracy (MRAE): 0.54679	,Validation accuracy (MRAE): 0.151281
+Epoch: 520	,Training loss (MRSE): 0.276865	,Validation loss (MRSE): 0.78775	,Training loss (MSE): 4.08793e+16	,Validation loss (MSE): 1.93002e+17	,Training accuracy (MAE): -3.04256e+07	,Validation accuracy (MAE): -7.4942e+07	,Training accuracy (MRAE): 0.541918	,Validation accuracy (MRAE): 0.142785
+Epoch: 528	,Training loss (MRSE): 0.20638	,Validation loss (MRSE): 0.790584	,Training loss (MSE): 2.94859e+16	,Validation loss (MSE): 1.92962e+17	,Training accuracy (MAE): -2.44153e+07	,Validation accuracy (MAE): -7.50732e+07	,Training accuracy (MRAE): 0.64957	,Validation accuracy (MRAE): 0.146474
+Epoch: 536	,Training loss (MRSE): 0.26895	,Validation loss (MRSE): 0.780623	,Training loss (MSE): 8.01947e+16	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -4.25585e+07	,Validation accuracy (MAE): -7.48838e+07	,Training accuracy (MRAE): 0.553575	,Validation accuracy (MRAE): 0.154764
+Epoch: 544	,Training loss (MRSE): 0.19815	,Validation loss (MRSE): 0.78762	,Training loss (MSE): 1.47619e+16	,Validation loss (MSE): 1.92964e+17	,Training accuracy (MAE): -1.65301e+07	,Validation accuracy (MAE): -7.50705e+07	,Training accuracy (MRAE): 0.658432	,Validation accuracy (MRAE): 0.14972
+Epoch: 552	,Training loss (MRSE): 0.410145	,Validation loss (MRSE): 0.785719	,Training loss (MSE): 1.22672e+17	,Validation loss (MSE): 1.92997e+17	,Training accuracy (MAE): -5.35187e+07	,Validation accuracy (MAE): -7.47653e+07	,Training accuracy (MRAE): 0.408945	,Validation accuracy (MRAE): 0.144002
+Epoch: 560	,Training loss (MRSE): 0.237062	,Validation loss (MRSE): 0.793918	,Training loss (MSE): 4.45788e+16	,Validation loss (MSE): 1.92968e+17	,Training accuracy (MAE): -3.06992e+07	,Validation accuracy (MAE): -7.49524e+07	,Training accuracy (MRAE): 0.596915	,Validation accuracy (MRAE): 0.141494
+Epoch: 568	,Training loss (MRSE): 0.268371	,Validation loss (MRSE): 0.785093	,Training loss (MSE): 7.51672e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -4.14322e+07	,Validation accuracy (MAE): -7.49118e+07	,Training accuracy (MRAE): 0.555359	,Validation accuracy (MRAE): 0.150072
+Epoch: 576	,Training loss (MRSE): 0.210584	,Validation loss (MRSE): 0.795275	,Training loss (MSE): 3.50356e+16	,Validation loss (MSE): 1.92944e+17	,Training accuracy (MAE): -2.18942e+07	,Validation accuracy (MAE): -7.51518e+07	,Training accuracy (MRAE): 0.638233	,Validation accuracy (MRAE): 0.143802
+Epoch: 584	,Training loss (MRSE): 0.365665	,Validation loss (MRSE): 0.793531	,Training loss (MSE): 9.2578e+16	,Validation loss (MSE): 1.93004e+17	,Training accuracy (MAE): -4.65302e+07	,Validation accuracy (MAE): -7.47951e+07	,Training accuracy (MRAE): 0.44111	,Validation accuracy (MRAE): 0.132452
+Epoch: 592	,Training loss (MRSE): 0.214382	,Validation loss (MRSE): 0.79283	,Training loss (MSE): 2.9444e+16	,Validation loss (MSE): 1.92988e+17	,Training accuracy (MAE): -2.39214e+07	,Validation accuracy (MAE): -7.50441e+07	,Training accuracy (MRAE): 0.624668	,Validation accuracy (MRAE): 0.141664
+Epoch: 600	,Training loss (MRSE): 0.25829	,Validation loss (MRSE): 0.788358	,Training loss (MSE): 5.67964e+16	,Validation loss (MSE): 1.92975e+17	,Training accuracy (MAE): -3.58779e+07	,Validation accuracy (MAE): -7.49381e+07	,Training accuracy (MRAE): 0.554795	,Validation accuracy (MRAE): 0.150119
+Epoch: 608	,Training loss (MRSE): 0.266189	,Validation loss (MRSE): 0.787959	,Training loss (MSE): 2.90431e+16	,Validation loss (MSE): 1.93e+17	,Training accuracy (MAE): -2.36659e+07	,Validation accuracy (MAE): -7.501e+07	,Training accuracy (MRAE): 0.559239	,Validation accuracy (MRAE): 0.143633
+Epoch: 616	,Training loss (MRSE): 0.18771	,Validation loss (MRSE): 0.795123	,Training loss (MSE): 2.53813e+16	,Validation loss (MSE): 1.92966e+17	,Training accuracy (MAE): -2.19086e+07	,Validation accuracy (MAE): -7.51362e+07	,Training accuracy (MRAE): 0.675907	,Validation accuracy (MRAE): 0.141456
+Epoch: 624	,Training loss (MRSE): 0.317257	,Validation loss (MRSE): 0.789295	,Training loss (MSE): 1.01974e+17	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -4.85628e+07	,Validation accuracy (MAE): -7.48729e+07	,Training accuracy (MRAE): 0.499524	,Validation accuracy (MRAE): 0.143361
+Epoch: 632	,Training loss (MRSE): 0.328258	,Validation loss (MRSE): 0.786639	,Training loss (MSE): 8.33014e+16	,Validation loss (MSE): 1.92984e+17	,Training accuracy (MAE): -4.2906e+07	,Validation accuracy (MAE): -7.48259e+07	,Training accuracy (MRAE): 0.479592	,Validation accuracy (MRAE): 0.146031
+Epoch: 640	,Training loss (MRSE): 0.282304	,Validation loss (MRSE): 0.790644	,Training loss (MSE): 4.8008e+16	,Validation loss (MSE): 1.92986e+17	,Training accuracy (MAE): -3.28271e+07	,Validation accuracy (MAE): -7.49393e+07	,Training accuracy (MRAE): 0.52308	,Validation accuracy (MRAE): 0.139163
+Epoch: 648	,Training loss (MRSE): 0.190321	,Validation loss (MRSE): 0.791403	,Training loss (MSE): 4.65073e+16	,Validation loss (MSE): 1.92936e+17	,Training accuracy (MAE): -3.15677e+07	,Validation accuracy (MAE): -7.50631e+07	,Training accuracy (MRAE): 0.668401	,Validation accuracy (MRAE): 0.147525
+Epoch: 656	,Training loss (MRSE): 0.188975	,Validation loss (MRSE): 0.791428	,Training loss (MSE): 9.08106e+15	,Validation loss (MSE): 1.92963e+17	,Training accuracy (MAE): -1.383e+07	,Validation accuracy (MAE): -7.5235e+07	,Training accuracy (MRAE): 0.668741	,Validation accuracy (MRAE): 0.148808
+Epoch: 664	,Training loss (MRSE): 0.244888	,Validation loss (MRSE): 0.802386	,Training loss (MSE): 1.65786e+16	,Validation loss (MSE): 1.92862e+17	,Training accuracy (MAE): -1.8326e+07	,Validation accuracy (MAE): -7.52411e+07	,Training accuracy (MRAE): 0.573383	,Validation accuracy (MRAE): 0.132497
+Epoch: 672	,Training loss (MRSE): 0.217695	,Validation loss (MRSE): 0.792974	,Training loss (MSE): 2.56144e+16	,Validation loss (MSE): 1.92951e+17	,Training accuracy (MAE): -2.22959e+07	,Validation accuracy (MAE): -7.53433e+07	,Training accuracy (MRAE): 0.619855	,Validation accuracy (MRAE): 0.148212
+Epoch: 680	,Training loss (MRSE): 0.457115	,Validation loss (MRSE): 0.797337	,Training loss (MSE): 1.16454e+17	,Validation loss (MSE): 1.93014e+17	,Training accuracy (MAE): -5.23098e+07	,Validation accuracy (MAE): -7.47318e+07	,Training accuracy (MRAE): 0.368299	,Validation accuracy (MRAE): 0.137706
+Epoch: 688	,Training loss (MRSE): 0.176056	,Validation loss (MRSE): 0.793875	,Training loss (MSE): 1.02754e+16	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -1.38327e+07	,Validation accuracy (MAE): -7.51622e+07	,Training accuracy (MRAE): 0.690101	,Validation accuracy (MRAE): 0.143555
+Epoch: 696	,Training loss (MRSE): 0.194047	,Validation loss (MRSE): 0.796397	,Training loss (MSE): 1.2811e+16	,Validation loss (MSE): 1.92972e+17	,Training accuracy (MAE): -1.50582e+07	,Validation accuracy (MAE): -7.51246e+07	,Training accuracy (MRAE): 0.659354	,Validation accuracy (MRAE): 0.142475
+Epoch: 704	,Training loss (MRSE): 0.274195	,Validation loss (MRSE): 0.814391	,Training loss (MSE): 2.36476e+16	,Validation loss (MSE): 1.92888e+17	,Training accuracy (MAE): -2.18441e+07	,Validation accuracy (MAE): -7.51481e+07	,Training accuracy (MRAE): 0.554031	,Validation accuracy (MRAE): 0.121069
+Epoch: 712	,Training loss (MRSE): 0.175089	,Validation loss (MRSE): 0.788806	,Training loss (MSE): 1.11357e+16	,Validation loss (MSE): 1.92925e+17	,Training accuracy (MAE): -1.38007e+07	,Validation accuracy (MAE): -7.51051e+07	,Training accuracy (MRAE): 0.688351	,Validation accuracy (MRAE): 0.147708
+Epoch: 720	,Training loss (MRSE): 0.171576	,Validation loss (MRSE): 0.799722	,Training loss (MSE): 9.03065e+15	,Validation loss (MSE): 1.92945e+17	,Training accuracy (MAE): -1.42995e+07	,Validation accuracy (MAE): -7.51411e+07	,Training accuracy (MRAE): 0.697276	,Validation accuracy (MRAE): 0.138503
+Epoch: 728	,Training loss (MRSE): 0.225925	,Validation loss (MRSE): 0.792545	,Training loss (MSE): 6.27297e+16	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -3.75709e+07	,Validation accuracy (MAE): -7.49798e+07	,Training accuracy (MRAE): 0.608802	,Validation accuracy (MRAE): 0.139044
+Epoch: 736	,Training loss (MRSE): 0.178561	,Validation loss (MRSE): 0.79487	,Training loss (MSE): 3.2265e+16	,Validation loss (MSE): 1.92961e+17	,Training accuracy (MAE): -2.59596e+07	,Validation accuracy (MAE): -7.50786e+07	,Training accuracy (MRAE): 0.673672	,Validation accuracy (MRAE): 0.142458
+Epoch: 744	,Training loss (MRSE): 0.195156	,Validation loss (MRSE): 0.790486	,Training loss (MSE): 4.83352e+16	,Validation loss (MSE): 1.92979e+17	,Training accuracy (MAE): -3.2339e+07	,Validation accuracy (MAE): -7.50391e+07	,Training accuracy (MRAE): 0.652016	,Validation accuracy (MRAE): 0.148257
+Epoch: 752	,Training loss (MRSE): 0.42177	,Validation loss (MRSE): 0.790049	,Training loss (MSE): 1.10801e+17	,Validation loss (MSE): 1.92971e+17	,Training accuracy (MAE): -5.08562e+07	,Validation accuracy (MAE): -7.47514e+07	,Training accuracy (MRAE): 0.392059	,Validation accuracy (MRAE): 0.148155
+Epoch: 760	,Training loss (MRSE): 0.199198	,Validation loss (MRSE): 0.792877	,Training loss (MSE): 4.136e+16	,Validation loss (MSE): 1.92973e+17	,Training accuracy (MAE): -2.99214e+07	,Validation accuracy (MAE): -7.50314e+07	,Training accuracy (MRAE): 0.637926	,Validation accuracy (MRAE): 0.140218
+Epoch: 768	,Training loss (MRSE): 0.198356	,Validation loss (MRSE): 0.795643	,Training loss (MSE): 2.12103e+16	,Validation loss (MSE): 1.92962e+17	,Training accuracy (MAE): -1.98231e+07	,Validation accuracy (MAE): -7.50744e+07	,Training accuracy (MRAE): 0.640716	,Validation accuracy (MRAE): 0.142622
+Epoch: 776	,Training loss (MRSE): 0.214626	,Validation loss (MRSE): 0.807396	,Training loss (MSE): 1.42472e+17	,Validation loss (MSE): 1.92937e+17	,Training accuracy (MAE): -5.5586e+07	,Validation accuracy (MAE): -7.56063e+07	,Training accuracy (MRAE): 0.60409	,Validation accuracy (MRAE): 0.129942
+Epoch: 784	,Training loss (MRSE): 0.189414	,Validation loss (MRSE): 0.806186	,Training loss (MSE): 1.47047e+16	,Validation loss (MSE): 1.92931e+17	,Training accuracy (MAE): -1.70414e+07	,Validation accuracy (MAE): -7.52936e+07	,Training accuracy (MRAE): 0.648975	,Validation accuracy (MRAE): 0.129988
+Epoch: 792	,Training loss (MRSE): 0.208286	,Validation loss (MRSE): 0.796861	,Training loss (MSE): 5.8401e+16	,Validation loss (MSE): 1.92972e+17	,Training accuracy (MAE): -3.25717e+07	,Validation accuracy (MAE): -7.50019e+07	,Training accuracy (MRAE): 0.615333	,Validation accuracy (MRAE): 0.139482
+Epoch: 800	,Training loss (MRSE): 0.185131	,Validation loss (MRSE): 0.791706	,Training loss (MSE): 3.5666e+16	,Validation loss (MSE): 1.92944e+17	,Training accuracy (MAE): -2.39247e+07	,Validation accuracy (MAE): -7.516e+07	,Training accuracy (MRAE): 0.661417	,Validation accuracy (MRAE): 0.146613
+Epoch: 808	,Training loss (MRSE): 0.169481	,Validation loss (MRSE): 0.797759	,Training loss (MSE): 1.85652e+16	,Validation loss (MSE): 1.92965e+17	,Training accuracy (MAE): -1.8233e+07	,Validation accuracy (MAE): -7.50945e+07	,Training accuracy (MRAE): 0.687943	,Validation accuracy (MRAE): 0.138692
+Epoch: 816	,Training loss (MRSE): 0.368397	,Validation loss (MRSE): 0.793563	,Training loss (MSE): 6.75263e+16	,Validation loss (MSE): 1.93006e+17	,Training accuracy (MAE): -3.94434e+07	,Validation accuracy (MAE): -7.48816e+07	,Training accuracy (MRAE): 0.44182	,Validation accuracy (MRAE): 0.1423
+Epoch: 824	,Training loss (MRSE): 0.23843	,Validation loss (MRSE): 0.789944	,Training loss (MSE): 7.66474e+16	,Validation loss (MSE): 1.92997e+17	,Training accuracy (MAE): -4.16761e+07	,Validation accuracy (MAE): -7.49544e+07	,Training accuracy (MRAE): 0.585283	,Validation accuracy (MRAE): 0.145085
+Epoch: 832	,Training loss (MRSE): 0.187578	,Validation loss (MRSE): 0.7952	,Training loss (MSE): 3.09752e+16	,Validation loss (MSE): 1.92968e+17	,Training accuracy (MAE): -2.53939e+07	,Validation accuracy (MAE): -7.50305e+07	,Training accuracy (MRAE): 0.657208	,Validation accuracy (MRAE): 0.142538
+Epoch: 840	,Training loss (MRSE): 0.172224	,Validation loss (MRSE): 0.800546	,Training loss (MSE): 1.0446e+16	,Validation loss (MSE): 1.92971e+17	,Training accuracy (MAE): -1.35105e+07	,Validation accuracy (MAE): -7.52723e+07	,Training accuracy (MRAE): 0.676076	,Validation accuracy (MRAE): 0.138792
+Epoch: 848	,Training loss (MRSE): 0.162592	,Validation loss (MRSE): 0.797444	,Training loss (MSE): 6.04688e+15	,Validation loss (MSE): 1.92981e+17	,Training accuracy (MAE): -1.12333e+07	,Validation accuracy (MAE): -7.52066e+07	,Training accuracy (MRAE): 0.707301	,Validation accuracy (MRAE): 0.138463
+Epoch: 856	,Training loss (MRSE): 0.26038	,Validation loss (MRSE): 0.794475	,Training loss (MSE): 8.00788e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -4.27441e+07	,Validation accuracy (MAE): -7.4917e+07	,Training accuracy (MRAE): 0.55457	,Validation accuracy (MRAE): 0.134798
+Epoch: 864	,Training loss (MRSE): 0.332305	,Validation loss (MRSE): 0.795482	,Training loss (MSE): 3.89266e+16	,Validation loss (MSE): 1.93011e+17	,Training accuracy (MAE): -2.92263e+07	,Validation accuracy (MAE): -7.49951e+07	,Training accuracy (MRAE): 0.477266	,Validation accuracy (MRAE): 0.138754
+Epoch: 872	,Training loss (MRSE): 0.168935	,Validation loss (MRSE): 0.79817	,Training loss (MSE): 1.42023e+16	,Validation loss (MSE): 1.92985e+17	,Training accuracy (MAE): -1.5567e+07	,Validation accuracy (MAE): -7.52422e+07	,Training accuracy (MRAE): 0.68464	,Validation accuracy (MRAE): 0.139034
+Epoch: 880	,Training loss (MRSE): 0.261852	,Validation loss (MRSE): 0.79297	,Training loss (MSE): 9.51181e+16	,Validation loss (MSE): 1.92987e+17	,Training accuracy (MAE): -4.67141e+07	,Validation accuracy (MAE): -7.48841e+07	,Training accuracy (MRAE): 0.557996	,Validation accuracy (MRAE): 0.141878
+Epoch: 888	,Training loss (MRSE): 0.281218	,Validation loss (MRSE): 0.790984	,Training loss (MSE): 6.52852e+16	,Validation loss (MSE): 1.92991e+17	,Training accuracy (MAE): -3.84997e+07	,Validation accuracy (MAE): -7.48844e+07	,Training accuracy (MRAE): 0.515247	,Validation accuracy (MRAE): 0.140691
+Epoch: 896	,Training loss (MRSE): 0.183242	,Validation loss (MRSE): 0.797948	,Training loss (MSE): 2.77344e+16	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -2.2113e+07	,Validation accuracy (MAE): -7.53166e+07	,Training accuracy (MRAE): 0.66887	,Validation accuracy (MRAE): 0.140641
+Epoch: 904	,Training loss (MRSE): 0.193116	,Validation loss (MRSE): 0.796425	,Training loss (MSE): 2.24157e+17	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -3.36945e+07	,Validation accuracy (MAE): -7.53477e+07	,Training accuracy (MRAE): 0.664651	,Validation accuracy (MRAE): 0.141632
+Epoch: 912	,Training loss (MRSE): 0.356749	,Validation loss (MRSE): 0.799027	,Training loss (MSE): 2.46336e+16	,Validation loss (MSE): 1.92979e+17	,Training accuracy (MAE): -1.82841e+07	,Validation accuracy (MAE): -7.50462e+07	,Training accuracy (MRAE): 0.472927	,Validation accuracy (MRAE): 0.140303
+Epoch: 920	,Training loss (MRSE): 0.24099	,Validation loss (MRSE): 0.798792	,Training loss (MSE): 5.53628e+16	,Validation loss (MSE): 1.92976e+17	,Training accuracy (MAE): -3.52559e+07	,Validation accuracy (MAE): -7.49939e+07	,Training accuracy (MRAE): 0.575761	,Validation accuracy (MRAE): 0.137455
+Epoch: 928	,Training loss (MRSE): 0.159261	,Validation loss (MRSE): 0.803181	,Training loss (MSE): 2.53394e+16	,Validation loss (MSE): 1.92961e+17	,Training accuracy (MAE): -2.27913e+07	,Validation accuracy (MAE): -7.50757e+07	,Training accuracy (MRAE): 0.698799	,Validation accuracy (MRAE): 0.134987
+Epoch: 936	,Training loss (MRSE): 0.163365	,Validation loss (MRSE): 0.799615	,Training loss (MSE): 2.35185e+16	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -2.1328e+07	,Validation accuracy (MAE): -7.51414e+07	,Training accuracy (MRAE): 0.70146	,Validation accuracy (MRAE): 0.137384
+Epoch: 944	,Training loss (MRSE): 0.145658	,Validation loss (MRSE): 0.802485	,Training loss (MSE): 1.01981e+16	,Validation loss (MSE): 1.92952e+17	,Training accuracy (MAE): -1.27137e+07	,Validation accuracy (MAE): -7.52443e+07	,Training accuracy (MRAE): 0.727764	,Validation accuracy (MRAE): 0.134901
+Epoch: 952	,Training loss (MRSE): 0.284038	,Validation loss (MRSE): 0.830595	,Training loss (MSE): 8.67554e+16	,Validation loss (MSE): 1.92767e+17	,Training accuracy (MAE): -4.42575e+07	,Validation accuracy (MAE): -7.55941e+07	,Training accuracy (MRAE): 0.52136	,Validation accuracy (MRAE): 0.107829
+Epoch: 960	,Training loss (MRSE): 0.204008	,Validation loss (MRSE): 0.793474	,Training loss (MSE): 1.36636e+16	,Validation loss (MSE): 1.93001e+17	,Training accuracy (MAE): -1.45769e+07	,Validation accuracy (MAE): -7.51236e+07	,Training accuracy (MRAE): 0.642488	,Validation accuracy (MRAE): 0.141904
+Epoch: 968	,Training loss (MRSE): 0.198107	,Validation loss (MRSE): 0.80084	,Training loss (MSE): 6.28736e+16	,Validation loss (MSE): 1.92963e+17	,Training accuracy (MAE): -3.75978e+07	,Validation accuracy (MAE): -7.49836e+07	,Training accuracy (MRAE): 0.635759	,Validation accuracy (MRAE): 0.137476
+Epoch: 976	,Training loss (MRSE): 0.319907	,Validation loss (MRSE): 0.795854	,Training loss (MSE): 1.01444e+17	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -4.85658e+07	,Validation accuracy (MAE): -7.47985e+07	,Training accuracy (MRAE): 0.486013	,Validation accuracy (MRAE): 0.135233
+Epoch: 984	,Training loss (MRSE): 0.400462	,Validation loss (MRSE): 0.799316	,Training loss (MSE): 1.24292e+17	,Validation loss (MSE): 1.92999e+17	,Training accuracy (MAE): -5.3967e+07	,Validation accuracy (MAE): -7.47411e+07	,Training accuracy (MRAE): 0.418672	,Validation accuracy (MRAE): 0.126757
+Epoch: 992	,Training loss (MRSE): 0.226377	,Validation loss (MRSE): 0.799881	,Training loss (MSE): 3.26143e+16	,Validation loss (MSE): 1.92987e+17	,Training accuracy (MAE): -2.66613e+07	,Validation accuracy (MAE): -7.49977e+07	,Training accuracy (MRAE): 0.580072	,Validation accuracy (MRAE): 0.134575
+Epoch: 1000	,Training loss (MRSE): 0.361311	,Validation loss (MRSE): 0.795178	,Training loss (MSE): 1.00927e+17	,Validation loss (MSE): 1.92994e+17	,Training accuracy (MAE): -4.83985e+07	,Validation accuracy (MAE): -7.4786e+07	,Training accuracy (MRAE): 0.442771	,Validation accuracy (MRAE): 0.135198
+Epoch: 1008	,Training loss (MRSE): 0.175718	,Validation loss (MRSE): 0.796413	,Training loss (MSE): 3.11118e+16	,Validation loss (MSE): 1.92979e+17	,Training accuracy (MAE): -2.44997e+07	,Validation accuracy (MAE): -7.50713e+07	,Training accuracy (MRAE): 0.665188	,Validation accuracy (MRAE): 0.138305
+Epoch: 1016	,Training loss (MRSE): 0.178185	,Validation loss (MRSE): 0.793302	,Training loss (MSE): 4.73465e+16	,Validation loss (MSE): 1.9299e+17	,Training accuracy (MAE): -2.95748e+07	,Validation accuracy (MAE): -7.50872e+07	,Training accuracy (MRAE): 0.66839	,Validation accuracy (MRAE): 0.143183
+Epoch: 1024	,Training loss (MRSE): 0.165643	,Validation loss (MRSE): 0.804019	,Training loss (MSE): 2.50268e+16	,Validation loss (MSE): 1.92963e+17	,Training accuracy (MAE): -2.20668e+07	,Validation accuracy (MAE): -7.51147e+07	,Training accuracy (MRAE): 0.684453	,Validation accuracy (MRAE): 0.131846
+Epoch: 1032	,Training loss (MRSE): 0.207695	,Validation loss (MRSE): 0.813523	,Training loss (MSE): 1.13065e+16	,Validation loss (MSE): 1.92932e+17	,Training accuracy (MAE): -1.30373e+07	,Validation accuracy (MAE): -7.52478e+07	,Training accuracy (MRAE): 0.639857	,Validation accuracy (MRAE): 0.131823
+Epoch: 1040	,Training loss (MRSE): 0.199086	,Validation loss (MRSE): 0.801146	,Training loss (MSE): 3.73352e+16	,Validation loss (MSE): 1.92975e+17	,Training accuracy (MAE): -2.87257e+07	,Validation accuracy (MAE): -7.49792e+07	,Training accuracy (MRAE): 0.621901	,Validation accuracy (MRAE): 0.134572
+Epoch: 1048	,Training loss (MRSE): 0.194502	,Validation loss (MRSE): 0.800087	,Training loss (MSE): 4.04201e+16	,Validation loss (MSE): 1.92984e+17	,Training accuracy (MAE): -2.82091e+07	,Validation accuracy (MAE): -7.50502e+07	,Training accuracy (MRAE): 0.638233	,Validation accuracy (MRAE): 0.129835
+Epoch: 1056	,Training loss (MRSE): 0.283338	,Validation loss (MRSE): 0.791185	,Training loss (MSE): 5.4973e+16	,Validation loss (MSE): 1.92997e+17	,Training accuracy (MAE): -3.54218e+07	,Validation accuracy (MAE): -7.49233e+07	,Training accuracy (MRAE): 0.512636	,Validation accuracy (MRAE): 0.145659
+Epoch: 1064	,Training loss (MRSE): 0.205315	,Validation loss (MRSE): 0.797488	,Training loss (MSE): 4.87266e+16	,Validation loss (MSE): 1.92988e+17	,Training accuracy (MAE): -3.28201e+07	,Validation accuracy (MAE): -7.49944e+07	,Training accuracy (MRAE): 0.613211	,Validation accuracy (MRAE): 0.135697
+Epoch: 1072	,Training loss (MRSE): 0.19997	,Validation loss (MRSE): 0.803213	,Training loss (MSE): 5.06414e+16	,Validation loss (MSE): 1.92983e+17	,Training accuracy (MAE): -3.37155e+07	,Validation accuracy (MAE): -7.49776e+07	,Training accuracy (MRAE): 0.627496	,Validation accuracy (MRAE): 0.131077
+Epoch: 1080	,Training loss (MRSE): 0.145565	,Validation loss (MRSE): 0.811921	,Training loss (MSE): 1.72352e+16	,Validation loss (MSE): 1.9295e+17	,Training accuracy (MAE): -1.75203e+07	,Validation accuracy (MAE): -7.52346e+07	,Training accuracy (MRAE): 0.722201	,Validation accuracy (MRAE): 0.124417
+Epoch: 1088	,Training loss (MRSE): 0.199001	,Validation loss (MRSE): 0.797745	,Training loss (MSE): 2.55402e+16	,Validation loss (MSE): 1.92998e+17	,Training accuracy (MAE): -2.21191e+07	,Validation accuracy (MAE): -7.50756e+07	,Training accuracy (MRAE): 0.636009	,Validation accuracy (MRAE): 0.134923
+Epoch: 1096	,Training loss (MRSE): 0.20997	,Validation loss (MRSE): 0.808957	,Training loss (MSE): 5.00901e+16	,Validation loss (MSE): 1.9292e+17	,Training accuracy (MAE): -3.30256e+07	,Validation accuracy (MAE): -7.50471e+07	,Training accuracy (MRAE): 0.626521	,Validation accuracy (MRAE): 0.135462
+Epoch: 1104	,Training loss (MRSE): 0.22866	,Validation loss (MRSE): 0.789557	,Training loss (MSE): 2.86813e+16	,Validation loss (MSE): 1.92993e+17	,Training accuracy (MAE): -2.41084e+07	,Validation accuracy (MAE): -7.50625e+07	,Training accuracy (MRAE): 0.577147	,Validation accuracy (MRAE): 0.146841
+Epoch: 1112	,Training loss (MRSE): 0.172545	,Validation loss (MRSE): 0.799329	,Training loss (MSE): 2.47204e+16	,Validation loss (MSE): 1.92984e+17	,Training accuracy (MAE): -2.07705e+07	,Validation accuracy (MAE): -7.5515e+07	,Training accuracy (MRAE): 0.661531	,Validation accuracy (MRAE): 0.136819
+Epoch: 1120	,Training loss (MRSE): 0.17725	,Validation loss (MRSE): 0.791745	,Training loss (MSE): 2.31747e+16	,Validation loss (MSE): 1.92977e+17	,Training accuracy (MAE): -2.17275e+07	,Validation accuracy (MAE): -7.50622e+07	,Training accuracy (MRAE): 0.658276	,Validation accuracy (MRAE): 0.1475
+Epoch: 1128	,Training loss (MRSE): 0.225045	,Validation loss (MRSE): 0.80694	,Training loss (MSE): 7.95435e+16	,Validation loss (MSE): 1.92942e+17	,Training accuracy (MAE): -4.26147e+07	,Validation accuracy (MAE): -7.49068e+07	,Training accuracy (MRAE): 0.600142	,Validation accuracy (MRAE): 0.129899
+Epoch: 1136	,Training loss (MRSE): 0.276556	,Validation loss (MRSE): 0.794556	,Training loss (MSE): 8.0018e+16	,Validation loss (MSE): 1.92982e+17	,Training accuracy (MAE): -4.23871e+07	,Validation accuracy (MAE): -7.48787e+07	,Training accuracy (MRAE): 0.524055	,Validation accuracy (MRAE): 0.14052
+Epoch: 1144	,Training loss (MRSE): 0.202516	,Validation loss (MRSE): 0.802356	,Training loss (MSE): 5.37205e+16	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -3.47484e+07	,Validation accuracy (MAE): -7.50031e+07	,Training accuracy (MRAE): 0.613646	,Validation accuracy (MRAE): 0.130631
+Epoch: 1152	,Training loss (MRSE): 0.178756	,Validation loss (MRSE): 0.802097	,Training loss (MSE): 3.62358e+16	,Validation loss (MSE): 1.92961e+17	,Training accuracy (MAE): -2.82988e+07	,Validation accuracy (MAE): -7.50083e+07	,Training accuracy (MRAE): 0.64651	,Validation accuracy (MRAE): 0.131511
+Epoch: 1160	,Training loss (MRSE): 0.151017	,Validation loss (MRSE): 0.804003	,Training loss (MSE): 3.23074e+16	,Validation loss (MSE): 1.9296e+17	,Training accuracy (MAE): -2.5941e+07	,Validation accuracy (MAE): -7.5099e+07	,Training accuracy (MRAE): 0.704897	,Validation accuracy (MRAE): 0.131616
+Epoch: 1168	,Training loss (MRSE): 0.131554	,Validation loss (MRSE): 0.812302	,Training loss (MSE): 4.77664e+15	,Validation loss (MSE): 1.92954e+17	,Training accuracy (MAE): -9.83025e+06	,Validation accuracy (MAE): -7.53401e+07	,Training accuracy (MRAE): 0.741978	,Validation accuracy (MRAE): 0.125787
+Epoch: 1176	,Training loss (MRSE): 0.306043	,Validation loss (MRSE): 0.797835	,Training loss (MSE): 1.08508e+17	,Validation loss (MSE): 1.92979e+17	,Training accuracy (MAE): -5.00114e+07	,Validation accuracy (MAE): -7.4847e+07	,Training accuracy (MRAE): 0.50301	,Validation accuracy (MRAE): 0.137307
+Epoch: 1184	,Training loss (MRSE): 0.200914	,Validation loss (MRSE): 0.806092	,Training loss (MSE): 5.88288e+16	,Validation loss (MSE): 1.9296e+17	,Training accuracy (MAE): -3.63967e+07	,Validation accuracy (MAE): -7.49821e+07	,Training accuracy (MRAE): 0.61893	,Validation accuracy (MRAE): 0.128892
+Epoch: 1192	,Training loss (MRSE): 0.21173	,Validation loss (MRSE): 0.804118	,Training loss (MSE): 6.21018e+16	,Validation loss (MSE): 1.92982e+17	,Training accuracy (MAE): -3.74187e+07	,Validation accuracy (MAE): -7.49385e+07	,Training accuracy (MRAE): 0.6016	,Validation accuracy (MRAE): 0.130223
+Epoch: 1200	,Training loss (MRSE): 0.149735	,Validation loss (MRSE): 0.801998	,Training loss (MSE): 1.73528e+16	,Validation loss (MSE): 1.92947e+17	,Training accuracy (MAE): -1.76108e+07	,Validation accuracy (MAE): -7.51107e+07	,Training accuracy (MRAE): 0.705374	,Validation accuracy (MRAE): 0.130762
+Epoch: 1208	,Training loss (MRSE): 0.249839	,Validation loss (MRSE): 0.821844	,Training loss (MSE): 3.78184e+17	,Validation loss (MSE): 1.92842e+17	,Training accuracy (MAE): -8.87517e+07	,Validation accuracy (MAE): -7.59127e+07	,Training accuracy (MRAE): 0.541723	,Validation accuracy (MRAE): 0.117811
+Epoch: 1216	,Training loss (MRSE): 0.251574	,Validation loss (MRSE): 0.799766	,Training loss (MSE): 4.12424e+16	,Validation loss (MSE): 1.92976e+17	,Training accuracy (MAE): -2.87081e+07	,Validation accuracy (MAE): -7.50968e+07	,Training accuracy (MRAE): 0.553134	,Validation accuracy (MRAE): 0.136441
+Epoch: 1224	,Training loss (MRSE): 0.293687	,Validation loss (MRSE): 0.788698	,Training loss (MSE): 4.754e+16	,Validation loss (MSE): 1.92999e+17	,Training accuracy (MAE): -3.29022e+07	,Validation accuracy (MAE): -7.49504e+07	,Training accuracy (MRAE): 0.5048	,Validation accuracy (MRAE): 0.151449
+Epoch: 1232	,Training loss (MRSE): 0.189343	,Validation loss (MRSE): 0.823973	,Training loss (MSE): 8.17126e+16	,Validation loss (MSE): 1.92915e+17	,Training accuracy (MAE): -4.12746e+07	,Validation accuracy (MAE): -7.57411e+07	,Training accuracy (MRAE): 0.626879	,Validation accuracy (MRAE): 0.114888
+Epoch: 1240	,Training loss (MRSE): 0.128532	,Validation loss (MRSE): 0.812171	,Training loss (MSE): 7.66311e+15	,Validation loss (MSE): 1.92941e+17	,Training accuracy (MAE): -1.2235e+07	,Validation accuracy (MAE): -7.52913e+07	,Training accuracy (MRAE): 0.748854	,Validation accuracy (MRAE): 0.124011
+Epoch: 1248	,Training loss (MRSE): 0.149125	,Validation loss (MRSE): 0.806893	,Training loss (MSE): 3.46293e+16	,Validation loss (MSE): 1.92956e+17	,Training accuracy (MAE): -2.6884e+07	,Validation accuracy (MAE): -7.51129e+07	,Training accuracy (MRAE): 0.699803	,Validation accuracy (MRAE): 0.127534
+Epoch: 1256	,Training loss (MRSE): 0.144928	,Validation loss (MRSE): 0.79906	,Training loss (MSE): 8.21934e+15	,Validation loss (MSE): 1.92939e+17	,Training accuracy (MAE): -1.30559e+07	,Validation accuracy (MAE): -7.53397e+07	,Training accuracy (MRAE): 0.717832	,Validation accuracy (MRAE): 0.13796
+Epoch: 1264	,Training loss (MRSE): 0.139085	,Validation loss (MRSE): 0.814055	,Training loss (MSE): 1.23295e+16	,Validation loss (MSE): 1.9288e+17	,Training accuracy (MAE): -1.37552e+07	,Validation accuracy (MAE): -7.53792e+07	,Training accuracy (MRAE): 0.725299	,Validation accuracy (MRAE): 0.125029
+Epoch: 1272	,Training loss (MRSE): 0.142048	,Validation loss (MRSE): 0.807192	,Training loss (MSE): 2.68752e+16	,Validation loss (MSE): 1.92913e+17	,Training accuracy (MAE): -2.26005e+07	,Validation accuracy (MAE): -7.5141e+07	,Training accuracy (MRAE): 0.722349	,Validation accuracy (MRAE): 0.130277
+Epoch: 1280	,Training loss (MRSE): 0.176125	,Validation loss (MRSE): 0.800734	,Training loss (MSE): 5.39764e+16	,Validation loss (MSE): 1.9297e+17	,Training accuracy (MAE): -3.44427e+07	,Validation accuracy (MAE): -7.50664e+07	,Training accuracy (MRAE): 0.652526	,Validation accuracy (MRAE): 0.134472
+Epoch: 1288	,Training loss (MRSE): 0.129533	,Validation loss (MRSE): 0.809321	,Training loss (MSE): 3.09337e+16	,Validation loss (MSE): 1.92929e+17	,Training accuracy (MAE): -1.91574e+07	,Validation accuracy (MAE): -7.52239e+07	,Training accuracy (MRAE): 0.74533	,Validation accuracy (MRAE): 0.12682
+Epoch: 1296	,Training loss (MRSE): 0.187736	,Validation loss (MRSE): 0.814223	,Training loss (MSE): 1.29548e+17	,Validation loss (MSE): 1.92898e+17	,Training accuracy (MAE): -3.34857e+07	,Validation accuracy (MAE): -7.55179e+07	,Training accuracy (MRAE): 0.627208	,Validation accuracy (MRAE): 0.124109
+Epoch: 1304	,Training loss (MRSE): 0.144111	,Validation loss (MRSE): 0.800574	,Training loss (MSE): 3.07801e+16	,Validation loss (MSE): 1.92966e+17	,Training accuracy (MAE): -2.44642e+07	,Validation accuracy (MAE): -7.51566e+07	,Training accuracy (MRAE): 0.714493	,Validation accuracy (MRAE): 0.134641
+Epoch: 1312	,Training loss (MRSE): 0.157292	,Validation loss (MRSE): 0.81795	,Training loss (MSE): 5.01296e+16	,Validation loss (MSE): 1.92869e+17	,Training accuracy (MAE): -3.12552e+07	,Validation accuracy (MAE): -7.54901e+07	,Training accuracy (MRAE): 0.684304	,Validation accuracy (MRAE): 0.120868
+Epoch: 1320	,Training loss (MRSE): 0.159356	,Validation loss (MRSE): 0.797356	,Training loss (MSE): 2.20298e+16	,Validation loss (MSE): 1.92934e+17	,Training accuracy (MAE): -2.09577e+07	,Validation accuracy (MAE): -7.51376e+07	,Training accuracy (MRAE): 0.69091	,Validation accuracy (MRAE): 0.13819
+Epoch: 1328	,Training loss (MRSE): 0.343334	,Validation loss (MRSE): 0.789671	,Training loss (MSE): 9.45142e+16	,Validation loss (MSE): 1.92985e+17	,Training accuracy (MAE): -4.66677e+07	,Validation accuracy (MAE): -7.48149e+07	,Training accuracy (MRAE): 0.447791	,Validation accuracy (MRAE): 0.146886
+Epoch: 1336	,Training loss (MRSE): 0.373415	,Validation loss (MRSE): 0.796923	,Training loss (MSE): 1.04183e+17	,Validation loss (MSE): 1.9299e+17	,Training accuracy (MAE): -4.91356e+07	,Validation accuracy (MAE): -7.48049e+07	,Training accuracy (MRAE): 0.424868	,Validation accuracy (MRAE): 0.133903
+Epoch: 1344	,Training loss (MRSE): 0.224101	,Validation loss (MRSE): 0.796277	,Training loss (MSE): 6.6694e+16	,Validation loss (MSE): 1.9296e+17	,Training accuracy (MAE): -3.87387e+07	,Validation accuracy (MAE): -7.49185e+07	,Training accuracy (MRAE): 0.580983	,Validation accuracy (MRAE): 0.136842
+Epoch: 1352	,Training loss (MRSE): 0.285971	,Validation loss (MRSE): 0.796121	,Training loss (MSE): 8.25003e+16	,Validation loss (MSE): 1.92992e+17	,Training accuracy (MAE): -4.34936e+07	,Validation accuracy (MAE): -7.48863e+07	,Training accuracy (MRAE): 0.509835	,Validation accuracy (MRAE): 0.138668
+Epoch: 1360	,Training loss (MRSE): 0.182834	,Validation loss (MRSE): 0.803871	,Training loss (MSE): 6.3115e+16	,Validation loss (MSE): 1.92973e+17	,Training accuracy (MAE): -3.68899e+07	,Validation accuracy (MAE): -7.49986e+07	,Training accuracy (MRAE): 0.644988	,Validation accuracy (MRAE): 0.131038
+Epoch: 1368	,Training loss (MRSE): 0.232427	,Validation loss (MRSE): 0.796651	,Training loss (MSE): 7.87606e+16	,Validation loss (MSE): 1.92984e+17	,Training accuracy (MAE): -4.22103e+07	,Validation accuracy (MAE): -7.49122e+07	,Training accuracy (MRAE): 0.58218	,Validation accuracy (MRAE): 0.137824
+Epoch: 1376	,Training loss (MRSE): 0.200301	,Validation loss (MRSE): 0.807245	,Training loss (MSE): 3.45551e+16	,Validation loss (MSE): 1.92962e+17	,Training accuracy (MAE): -2.61485e+07	,Validation accuracy (MAE): -7.50247e+07	,Training accuracy (MRAE): 0.604814	,Validation accuracy (MRAE): 0.128519
+Epoch: 1384	,Training loss (MRSE): 0.13808	,Validation loss (MRSE): 0.812167	,Training loss (MSE): 4.16356e+16	,Validation loss (MSE): 1.92951e+17	,Training accuracy (MAE): -2.90344e+07	,Validation accuracy (MAE): -7.51602e+07	,Training accuracy (MRAE): 0.719524	,Validation accuracy (MRAE): 0.121605
+Epoch: 1392	,Training loss (MRSE): 0.143323	,Validation loss (MRSE): 0.811942	,Training loss (MSE): 2.72535e+16	,Validation loss (MSE): 1.92961e+17	,Training accuracy (MAE): -2.26829e+07	,Validation accuracy (MAE): -7.51305e+07	,Training accuracy (MRAE): 0.708795	,Validation accuracy (MRAE): 0.124228
+Epoch: 1400	,Training loss (MRSE): 0.182618	,Validation loss (MRSE): 0.812993	,Training loss (MSE): 5.84345e+16	,Validation loss (MSE): 1.92921e+17	,Training accuracy (MAE): -3.58603e+07	,Validation accuracy (MAE): -7.49735e+07	,Training accuracy (MRAE): 0.643723	,Validation accuracy (MRAE): 0.124092
+Epoch: 1408	,Training loss (MRSE): 0.158599	,Validation loss (MRSE): 0.801484	,Training loss (MSE): 3.86446e+16	,Validation loss (MSE): 1.92941e+17	,Training accuracy (MAE): -2.82137e+07	,Validation accuracy (MAE): -7.50359e+07	,Training accuracy (MRAE): 0.67738	,Validation accuracy (MRAE): 0.132661
+Epoch: 1416	,Training loss (MRSE): 0.202931	,Validation loss (MRSE): 0.7938	,Training loss (MSE): 6.8004e+16	,Validation loss (MSE): 1.92978e+17	,Training accuracy (MAE): -3.89177e+07	,Validation accuracy (MAE): -7.49658e+07	,Training accuracy (MRAE): 0.613999	,Validation accuracy (MRAE): 0.142516
+Epoch: 1424	,Training loss (MRSE): 0.210462	,Validation loss (MRSE): 0.79127	,Training loss (MSE): 6.95034e+16	,Validation loss (MSE): 1.92973e+17	,Training accuracy (MAE): -3.87298e+07	,Validation accuracy (MAE): -7.49676e+07	,Training accuracy (MRAE): 0.610418	,Validation accuracy (MRAE): 0.145274
+Epoch: 1432	,Training loss (MRSE): 0.125805	,Validation loss (MRSE): 0.81484	,Training loss (MSE): 9.24843e+15	,Validation loss (MSE): 1.92929e+17	,Training accuracy (MAE): -1.26649e+07	,Validation accuracy (MAE): -7.54318e+07	,Training accuracy (MRAE): 0.733012	,Validation accuracy (MRAE): 0.122693
+Epoch: 1440	,Training loss (MRSE): 0.236904	,Validation loss (MRSE): 0.796191	,Training loss (MSE): 4.84208e+16	,Validation loss (MSE): 1.92977e+17	,Training accuracy (MAE): -3.27392e+07	,Validation accuracy (MAE): -7.50325e+07	,Training accuracy (MRAE): 0.561022	,Validation accuracy (MRAE): 0.138865
+Epoch: 1448	,Training loss (MRSE): 0.126857	,Validation loss (MRSE): 0.806463	,Training loss (MSE): 4.23744e+16	,Validation loss (MSE): 1.92939e+17	,Training accuracy (MAE): -2.46723e+07	,Validation accuracy (MAE): -7.54728e+07	,Training accuracy (MRAE): 0.736107	,Validation accuracy (MRAE): 0.127443
+Epoch: 1456	,Training loss (MRSE): 0.159759	,Validation loss (MRSE): 0.812575	,Training loss (MSE): 4.64677e+16	,Validation loss (MSE): 1.92899e+17	,Training accuracy (MAE): -2.20648e+07	,Validation accuracy (MAE): -7.55235e+07	,Training accuracy (MRAE): 0.680175	,Validation accuracy (MRAE): 0.123343
+Epoch: 1464	,Training loss (MRSE): 0.202771	,Validation loss (MRSE): 0.80774	,Training loss (MSE): 7.01196e+16	,Validation loss (MSE): 1.92915e+17	,Training accuracy (MAE): -3.96751e+07	,Validation accuracy (MAE): -7.49486e+07	,Training accuracy (MRAE): 0.618636	,Validation accuracy (MRAE): 0.125972
+Epoch: 1472	,Training loss (MRSE): 0.132214	,Validation loss (MRSE): 0.807709	,Training loss (MSE): 5.64628e+15	,Validation loss (MSE): 1.92953e+17	,Training accuracy (MAE): -1.11398e+07	,Validation accuracy (MAE): -7.53873e+07	,Training accuracy (MRAE): 0.719792	,Validation accuracy (MRAE): 0.127016
+Epoch: 1480	,Training loss (MRSE): 0.155034	,Validation loss (MRSE): 0.797285	,Training loss (MSE): 2.75634e+16	,Validation loss (MSE): 1.92947e+17	,Training accuracy (MAE): -2.31469e+07	,Validation accuracy (MAE): -7.51178e+07	,Training accuracy (MRAE): 0.678819	,Validation accuracy (MRAE): 0.137828
+Epoch: 1488	,Training loss (MRSE): 0.115206	,Validation loss (MRSE): 0.813364	,Training loss (MSE): 1.29523e+16	,Validation loss (MSE): 1.9292e+17	,Training accuracy (MAE): -1.42632e+07	,Validation accuracy (MAE): -7.51933e+07	,Training accuracy (MRAE): 0.758441	,Validation accuracy (MRAE): 0.121139
+Epoch: 1496	,Training loss (MRSE): 0.138208	,Validation loss (MRSE): 0.802851	,Training loss (MSE): 1.51451e+16	,Validation loss (MSE): 1.92974e+17	,Training accuracy (MAE): -1.56585e+07	,Validation accuracy (MAE): -7.53981e+07	,Training accuracy (MRAE): 0.713794	,Validation accuracy (MRAE): 0.132241
+Epoch: 1504	,Training loss (MRSE): 0.129064	,Validation loss (MRSE): 0.814521	,Training loss (MSE): 1.90565e+16	,Validation loss (MSE): 1.92952e+17	,Training accuracy (MAE): -1.81306e+07	,Validation accuracy (MAE): -7.52061e+07	,Training accuracy (MRAE): 0.730135	,Validation accuracy (MRAE): 0.12177
+Epoch: 1512	,Training loss (MRSE): 0.162961	,Validation loss (MRSE): 0.810028	,Training loss (MSE): 5.92887e+16	,Validation loss (MSE): 1.9295e+17	,Training accuracy (MAE): -3.42972e+07	,Validation accuracy (MAE): -7.50075e+07	,Training accuracy (MRAE): 0.673116	,Validation accuracy (MRAE): 0.124952
+Epoch: 1520	,Training loss (MRSE): 0.127151	,Validation loss (MRSE): 0.818626	,Training loss (MSE): 2.62096e+16	,Validation loss (MSE): 1.92928e+17	,Training accuracy (MAE): -2.25873e+07	,Validation accuracy (MAE): -7.52616e+07	,Training accuracy (MRAE): 0.745901	,Validation accuracy (MRAE): 0.116455
+Epoch: 1528	,Training loss (MRSE): 0.160172	,Validation loss (MRSE): 0.793783	,Training loss (MSE): 4.48176e+16	,Validation loss (MSE): 1.92921e+17	,Training accuracy (MAE): -3.11002e+07	,Validation accuracy (MAE): -7.51109e+07	,Training accuracy (MRAE): 0.684033	,Validation accuracy (MRAE): 0.143542
+Epoch: 1536	,Training loss (MRSE): 0.113469	,Validation loss (MRSE): 0.809451	,Training loss (MSE): 1.87546e+16	,Validation loss (MSE): 1.92917e+17	,Training accuracy (MAE): -1.81342e+07	,Validation accuracy (MAE): -7.52371e+07	,Training accuracy (MRAE): 0.766488	,Validation accuracy (MRAE): 0.126462
+Epoch: 1544	,Training loss (MRSE): 0.130402	,Validation loss (MRSE): 0.807064	,Training loss (MSE): 5.8651e+15	,Validation loss (MSE): 1.92903e+17	,Training accuracy (MAE): -1.00096e+07	,Validation accuracy (MAE): -7.52946e+07	,Training accuracy (MRAE): 0.730384	,Validation accuracy (MRAE): 0.128001
+Epoch: 1552	,Training loss (MRSE): 0.311169	,Validation loss (MRSE): 0.807259	,Training loss (MSE): 1.18089e+17	,Validation loss (MSE): 1.92942e+17	,Training accuracy (MAE): -5.21667e+07	,Validation accuracy (MAE): -7.47914e+07	,Training accuracy (MRAE): 0.504773	,Validation accuracy (MRAE): 0.12512
+Epoch: 1560	,Training loss (MRSE): 0.200392	,Validation loss (MRSE): 0.789067	,Training loss (MSE): 1.18579e+16	,Validation loss (MSE): 1.92968e+17	,Training accuracy (MAE): -1.4892e+07	,Validation accuracy (MAE): -7.51977e+07	,Training accuracy (MRAE): 0.628559	,Validation accuracy (MRAE): 0.151632
+Epoch: 1568	,Training loss (MRSE): 0.2077	,Validation loss (MRSE): 0.800684	,Training loss (MSE): 7.09772e+16	,Validation loss (MSE): 1.92979e+17	,Training accuracy (MAE): -3.94713e+07	,Validation accuracy (MAE): -7.49905e+07	,Training accuracy (MRAE): 0.60159	,Validation accuracy (MRAE): 0.138062
+Epoch: 1576	,Training loss (MRSE): 0.182278	,Validation loss (MRSE): 0.792545	,Training loss (MSE): 1.76928e+16	,Validation loss (MSE): 1.92956e+17	,Training accuracy (MAE): -1.65762e+07	,Validation accuracy (MAE): -7.51782e+07	,Training accuracy (MRAE): 0.636871	,Validation accuracy (MRAE): 0.142096
+Epoch: 1584	,Training loss (MRSE): 0.112913	,Validation loss (MRSE): 0.806579	,Training loss (MSE): 8.9582e+15	,Validation loss (MSE): 1.92938e+17	,Training accuracy (MAE): -1.16054e+07	,Validation accuracy (MAE): -7.53267e+07	,Training accuracy (MRAE): 0.758483	,Validation accuracy (MRAE): 0.127071
+Epoch: 1592	,Training loss (MRSE): 0.19105	,Validation loss (MRSE): 0.792717	,Training loss (MSE): 5.86949e+16	,Validation loss (MSE): 1.9296e+17	,Training accuracy (MAE): -3.50936e+07	,Validation accuracy (MAE): -7.54882e+07	,Training accuracy (MRAE): 0.620038	,Validation accuracy (MRAE): 0.144187
+Epoch: 1600	,Training loss (MRSE): 0.234816	,Validation loss (MRSE): 0.792251	,Training loss (MSE): 5.88064e+16	,Validation loss (MSE): 1.9297e+17	,Training accuracy (MAE): -3.63591e+07	,Validation accuracy (MAE): -7.50194e+07	,Training accuracy (MRAE): 0.559379	,Validation accuracy (MRAE): 0.144334
+Epoch: 1608	,Training loss (MRSE): 0.124222	,Validation loss (MRSE): 0.815897	,Training loss (MSE): 1.9987e+16	,Validation loss (MSE): 1.92854e+17	,Training accuracy (MAE): -1.85855e+07	,Validation accuracy (MAE): -7.51842e+07	,Training accuracy (MRAE): 0.727543	,Validation accuracy (MRAE): 0.121868
+Epoch: 1616	,Training loss (MRSE): 0.137558	,Validation loss (MRSE): 0.803314	,Training loss (MSE): 3.05707e+16	,Validation loss (MSE): 1.92944e+17	,Training accuracy (MAE): -2.46609e+07	,Validation accuracy (MAE): -7.51123e+07	,Training accuracy (MRAE): 0.707063	,Validation accuracy (MRAE): 0.129042
+Epoch: 1624	,Training loss (MRSE): 0.133245	,Validation loss (MRSE): 0.805602	,Training loss (MSE): 4.39745e+16	,Validation loss (MSE): 1.9294e+17	,Training accuracy (MAE): -3.05967e+07	,Validation accuracy (MAE): -7.51019e+07	,Training accuracy (MRAE): 0.713237	,Validation accuracy (MRAE): 0.127223
+Epoch: 1632	,Training loss (MRSE): 0.221008	,Validation loss (MRSE): 0.792224	,Training loss (MSE): 7.52804e+16	,Validation loss (MSE): 1.92963e+17	,Training accuracy (MAE): -4.12699e+07	,Validation accuracy (MAE): -7.4954e+07	,Training accuracy (MRAE): 0.584756	,Validation accuracy (MRAE): 0.142604
+Epoch: 1640	,Training loss (MRSE): 0.117586	,Validation loss (MRSE): 0.800112	,Training loss (MSE): 9.61883e+15	,Validation loss (MSE): 1.92951e+17	,Training accuracy (MAE): -1.17266e+07	,Validation accuracy (MAE): -7.5275e+07	,Training accuracy (MRAE): 0.746532	,Validation accuracy (MRAE): 0.134165
+Epoch: 1648	,Training loss (MRSE): 0.226528	,Validation loss (MRSE): 0.798327	,Training loss (MSE): 7.58893e+16	,Validation loss (MSE): 1.92972e+17	,Training accuracy (MAE): -4.14379e+07	,Validation accuracy (MAE): -7.49507e+07	,Training accuracy (MRAE): 0.576037	,Validation accuracy (MRAE): 0.136893
+Epoch: 1656	,Training loss (MRSE): 0.185421	,Validation loss (MRSE): 0.800188	,Training loss (MSE): 2.80097e+16	,Validation loss (MSE): 1.92928e+17	,Training accuracy (MAE): -2.45162e+07	,Validation accuracy (MAE): -7.50978e+07	,Training accuracy (MRAE): 0.632858	,Validation accuracy (MRAE): 0.131901
+Epoch: 1664	,Training loss (MRSE): 0.145515	,Validation loss (MRSE): 0.810552	,Training loss (MSE): 3.86772e+16	,Validation loss (MSE): 1.9293e+17	,Training accuracy (MAE): -2.84966e+07	,Validation accuracy (MAE): -7.51238e+07	,Training accuracy (MRAE): 0.686834	,Validation accuracy (MRAE): 0.125479
+Epoch: 1672	,Training loss (MRSE): 0.136847	,Validation loss (MRSE): 0.812749	,Training loss (MSE): 4.19158e+16	,Validation loss (MSE): 1.92894e+17	,Training accuracy (MAE): -2.98757e+07	,Validation accuracy (MAE): -7.50719e+07	,Training accuracy (MRAE): 0.7122	,Validation accuracy (MRAE): 0.122811
+Epoch: 1680	,Training loss (MRSE): 0.159382	,Validation loss (MRSE): 0.801122	,Training loss (MSE): 1.0701e+16	,Validation loss (MSE): 1.92954e+17	,Training accuracy (MAE): -1.20776e+07	,Validation accuracy (MAE): -7.54184e+07	,Training accuracy (MRAE): 0.677272	,Validation accuracy (MRAE): 0.135509
+Epoch: 1688	,Training loss (MRSE): 0.176537	,Validation loss (MRSE): 0.793566	,Training loss (MSE): 5.72377e+16	,Validation loss (MSE): 1.92932e+17	,Training accuracy (MAE): -3.55034e+07	,Validation accuracy (MAE): -7.50334e+07	,Training accuracy (MRAE): 0.641496	,Validation accuracy (MRAE): 0.142027
+Epoch: 1696	,Training loss (MRSE): 0.13127	,Validation loss (MRSE): 0.801453	,Training loss (MSE): 2.56051e+16	,Validation loss (MSE): 1.92937e+17	,Training accuracy (MAE): -2.20056e+07	,Validation accuracy (MAE): -7.51095e+07	,Training accuracy (MRAE): 0.714537	,Validation accuracy (MRAE): 0.132837
+Epoch: 1704	,Training loss (MRSE): 0.112352	,Validation loss (MRSE): 0.811895	,Training loss (MSE): 6.18647e+15	,Validation loss (MSE): 1.92846e+17	,Training accuracy (MAE): -9.97397e+06	,Validation accuracy (MAE): -7.53441e+07	,Training accuracy (MRAE): 0.764651	,Validation accuracy (MRAE): 0.124486
+Epoch: 1712	,Training loss (MRSE): 0.243811	,Validation loss (MRSE): 0.797564	,Training loss (MSE): 5.99774e+16	,Validation loss (MSE): 1.92954e+17	,Training accuracy (MAE): -3.68268e+07	,Validation accuracy (MAE): -7.49245e+07	,Training accuracy (MRAE): 0.549971	,Validation accuracy (MRAE): 0.140897
+Epoch: 1720	,Training loss (MRSE): 0.142073	,Validation loss (MRSE): 0.802573	,Training loss (MSE): 2.76711e+16	,Validation loss (MSE): 1.92927e+17	,Training accuracy (MAE): -2.36879e+07	,Validation accuracy (MAE): -7.50875e+07	,Training accuracy (MRAE): 0.689142	,Validation accuracy (MRAE): 0.132366
+Epoch: 1728	,Training loss (MRSE): 0.119794	,Validation loss (MRSE): 0.813562	,Training loss (MSE): 3.33994e+15	,Validation loss (MSE): 1.92897e+17	,Training accuracy (MAE): -8.04146e+06	,Validation accuracy (MAE): -7.53464e+07	,Training accuracy (MRAE): 0.73608	,Validation accuracy (MRAE): 0.123914
+Epoch: 1736	,Training loss (MRSE): 0.127045	,Validation loss (MRSE): 0.800337	,Training loss (MSE): 1.08993e+16	,Validation loss (MSE): 1.92944e+17	,Training accuracy (MAE): -1.29956e+07	,Validation accuracy (MAE): -7.52972e+07	,Training accuracy (MRAE): 0.71818	,Validation accuracy (MRAE): 0.135446
+Epoch: 1744	,Training loss (MRSE): 0.177368	,Validation loss (MRSE): 0.789268	,Training loss (MSE): 3.60434e+16	,Validation loss (MSE): 1.92956e+17	,Training accuracy (MAE): -2.76661e+07	,Validation accuracy (MAE): -7.50699e+07	,Training accuracy (MRAE): 0.63189	,Validation accuracy (MRAE): 0.148205
+Epoch: 1752	,Training loss (MRSE): 0.192443	,Validation loss (MRSE): 0.794947	,Training loss (MSE): 5.38608e+16	,Validation loss (MSE): 1.9294e+17	,Training accuracy (MAE): -3.45573e+07	,Validation accuracy (MAE): -7.49655e+07	,Training accuracy (MRAE): 0.605202	,Validation accuracy (MRAE): 0.139521
+Epoch: 1760	,Training loss (MRSE): 0.14773	,Validation loss (MRSE): 0.82089	,Training loss (MSE): 2.7225e+16	,Validation loss (MSE): 1.92877e+17	,Training accuracy (MAE): -2.31131e+07	,Validation accuracy (MAE): -7.51949e+07	,Training accuracy (MRAE): 0.699034	,Validation accuracy (MRAE): 0.115003
+Epoch: 1768	,Training loss (MRSE): 0.192032	,Validation loss (MRSE): 0.785442	,Training loss (MSE): 2.76185e+16	,Validation loss (MSE): 1.9294e+17	,Training accuracy (MAE): -2.44269e+07	,Validation accuracy (MAE): -7.5093e+07	,Training accuracy (MRAE): 0.625185	,Validation accuracy (MRAE): 0.1514
+Epoch: 1776	,Training loss (MRSE): 0.127093	,Validation loss (MRSE): 0.809047	,Training loss (MSE): 2.32904e+16	,Validation loss (MSE): 1.92917e+17	,Training accuracy (MAE): -2.09502e+07	,Validation accuracy (MAE): -7.52566e+07	,Training accuracy (MRAE): 0.71855	,Validation accuracy (MRAE): 0.125032
+Epoch: 1784	,Training loss (MRSE): 0.218624	,Validation loss (MRSE): 0.798873	,Training loss (MSE): 6.74488e+16	,Validation loss (MSE): 1.9295e+17	,Training accuracy (MAE): -3.86344e+07	,Validation accuracy (MAE): -7.49259e+07	,Training accuracy (MRAE): 0.581796	,Validation accuracy (MRAE): 0.137476
+Epoch: 1792	,Training loss (MRSE): 0.149123	,Validation loss (MRSE): 0.800592	,Training loss (MSE): 4.8305e+16	,Validation loss (MSE): 1.92942e+17	,Training accuracy (MAE): -3.25998e+07	,Validation accuracy (MAE): -7.50668e+07	,Training accuracy (MRAE): 0.680225	,Validation accuracy (MRAE): 0.133484
+Epoch: 1800	,Training loss (MRSE): 0.263552	,Validation loss (MRSE): 0.787957	,Training loss (MSE): 6.94464e+16	,Validation loss (MSE): 1.92968e+17	,Training accuracy (MAE): -3.98768e+07	,Validation accuracy (MAE): -7.49161e+07	,Training accuracy (MRAE): 0.528765	,Validation accuracy (MRAE): 0.150593
+Epoch: 1808	,Training loss (MRSE): 0.173391	,Validation loss (MRSE): 0.798026	,Training loss (MSE): 5.59161e+16	,Validation loss (MSE): 1.92951e+17	,Training accuracy (MAE): -3.47525e+07	,Validation accuracy (MAE): -7.49962e+07	,Training accuracy (MRAE): 0.638275	,Validation accuracy (MRAE): 0.138815
+Epoch: 1816	,Training loss (MRSE): 0.106311	,Validation loss (MRSE): 0.80398	,Training loss (MSE): 6.10076e+15	,Validation loss (MSE): 1.92844e+17	,Training accuracy (MAE): -1.09059e+07	,Validation accuracy (MAE): -7.53745e+07	,Training accuracy (MRAE): 0.766092	,Validation accuracy (MRAE): 0.129697
+Epoch: 1824	,Training loss (MRSE): 0.261277	,Validation loss (MRSE): 0.790634	,Training loss (MSE): 9.07051e+16	,Validation loss (MSE): 1.92938e+17	,Training accuracy (MAE): -4.56292e+07	,Validation accuracy (MAE): -7.48671e+07	,Training accuracy (MRAE): 0.545055	,Validation accuracy (MRAE): 0.145173
+Epoch: 1832	,Training loss (MRSE): 0.163692	,Validation loss (MRSE): 0.799358	,Training loss (MSE): 4.13316e+16	,Validation loss (MSE): 1.92908e+17	,Training accuracy (MAE): -2.99238e+07	,Validation accuracy (MAE): -7.50498e+07	,Training accuracy (MRAE): 0.653586	,Validation accuracy (MRAE): 0.132219
+Epoch: 1840	,Training loss (MRSE): 0.115368	,Validation loss (MRSE): 0.794564	,Training loss (MSE): 5.78832e+15	,Validation loss (MSE): 1.92881e+17	,Training accuracy (MAE): -1.02814e+07	,Validation accuracy (MAE): -7.54283e+07	,Training accuracy (MRAE): 0.749375	,Validation accuracy (MRAE): 0.142378
+Epoch: 1848	,Training loss (MRSE): 0.227203	,Validation loss (MRSE): 0.791421	,Training loss (MSE): 7.0966e+16	,Validation loss (MSE): 1.92945e+17	,Training accuracy (MAE): -4.0137e+07	,Validation accuracy (MAE): -7.49295e+07	,Training accuracy (MRAE): 0.564804	,Validation accuracy (MRAE): 0.145095
+Epoch: 1856	,Training loss (MRSE): 0.105444	,Validation loss (MRSE): 0.810442	,Training loss (MSE): 2.0368e+16	,Validation loss (MSE): 1.92832e+17	,Training accuracy (MAE): -1.85004e+07	,Validation accuracy (MAE): -7.53766e+07	,Training accuracy (MRAE): 0.762171	,Validation accuracy (MRAE): 0.125642
+Epoch: 1864	,Training loss (MRSE): 0.151459	,Validation loss (MRSE): 0.81542	,Training loss (MSE): 7.26249e+15	,Validation loss (MSE): 1.92853e+17	,Training accuracy (MAE): -1.01157e+07	,Validation accuracy (MAE): -7.54272e+07	,Training accuracy (MRAE): 0.694459	,Validation accuracy (MRAE): 0.120689
+Epoch: 1872	,Training loss (MRSE): 0.243144	,Validation loss (MRSE): 0.787984	,Training loss (MSE): 7.33685e+16	,Validation loss (MSE): 1.92956e+17	,Training accuracy (MAE): -4.06462e+07	,Validation accuracy (MAE): -7.49707e+07	,Training accuracy (MRAE): 0.544221	,Validation accuracy (MRAE): 0.148411
+Epoch: 1880	,Training loss (MRSE): 0.141969	,Validation loss (MRSE): 0.807752	,Training loss (MSE): 4.95749e+16	,Validation loss (MSE): 1.92885e+17	,Training accuracy (MAE): -3.2872e+07	,Validation accuracy (MAE): -7.50535e+07	,Training accuracy (MRAE): 0.68639	,Validation accuracy (MRAE): 0.12597
+Epoch: 1888	,Training loss (MRSE): 0.149843	,Validation loss (MRSE): 0.792263	,Training loss (MSE): 2.48706e+16	,Validation loss (MSE): 1.92936e+17	,Training accuracy (MAE): -2.2619e+07	,Validation accuracy (MAE): -7.50916e+07	,Training accuracy (MRAE): 0.671572	,Validation accuracy (MRAE): 0.145118
+Epoch: 1896	,Training loss (MRSE): 0.107001	,Validation loss (MRSE): 0.79722	,Training loss (MSE): 1.51548e+16	,Validation loss (MSE): 1.92886e+17	,Training accuracy (MAE): -1.68454e+07	,Validation accuracy (MAE): -7.52616e+07	,Training accuracy (MRAE): 0.759211	,Validation accuracy (MRAE): 0.135401
+Epoch: 1904	,Training loss (MRSE): 0.153279	,Validation loss (MRSE): 0.793726	,Training loss (MSE): 4.33202e+16	,Validation loss (MSE): 1.92909e+17	,Training accuracy (MAE): -3.07235e+07	,Validation accuracy (MAE): -7.5078e+07	,Training accuracy (MRAE): 0.668979	,Validation accuracy (MRAE): 0.143177
+Epoch: 1912	,Training loss (MRSE): 0.133968	,Validation loss (MRSE): 0.795805	,Training loss (MSE): 1.31949e+16	,Validation loss (MSE): 1.92862e+17	,Training accuracy (MAE): -1.08235e+07	,Validation accuracy (MAE): -7.54343e+07	,Training accuracy (MRAE): 0.71383	,Validation accuracy (MRAE): 0.139237
+Epoch: 1920	,Training loss (MRSE): 0.149341	,Validation loss (MRSE): 0.793346	,Training loss (MSE): 3.85594e+16	,Validation loss (MSE): 1.92924e+17	,Training accuracy (MAE): -2.85966e+07	,Validation accuracy (MAE): -7.50284e+07	,Training accuracy (MRAE): 0.68176	,Validation accuracy (MRAE): 0.141056
+Epoch: 1928	,Training loss (MRSE): 0.181913	,Validation loss (MRSE): 0.79429	,Training loss (MSE): 1.87387e+16	,Validation loss (MSE): 1.92957e+17	,Training accuracy (MAE): -1.95165e+07	,Validation accuracy (MAE): -7.51565e+07	,Training accuracy (MRAE): 0.644614	,Validation accuracy (MRAE): 0.143318
+Epoch: 1936	,Training loss (MRSE): 0.218584	,Validation loss (MRSE): 0.792726	,Training loss (MSE): 9.19016e+16	,Validation loss (MSE): 1.92962e+17	,Training accuracy (MAE): -4.55764e+07	,Validation accuracy (MAE): -7.49524e+07	,Training accuracy (MRAE): 0.597149	,Validation accuracy (MRAE): 0.145742
+Epoch: 1944	,Training loss (MRSE): 0.331194	,Validation loss (MRSE): 0.792586	,Training loss (MSE): 1.14751e+17	,Validation loss (MSE): 1.9298e+17	,Training accuracy (MAE): -5.16186e+07	,Validation accuracy (MAE): -7.48007e+07	,Training accuracy (MRAE): 0.475333	,Validation accuracy (MRAE): 0.140621
+Epoch: 1952	,Training loss (MRSE): 0.187091	,Validation loss (MRSE): 0.797294	,Training loss (MSE): 6.72564e+16	,Validation loss (MSE): 1.92909e+17	,Training accuracy (MAE): -3.88344e+07	,Validation accuracy (MAE): -7.49794e+07	,Training accuracy (MRAE): 0.623618	,Validation accuracy (MRAE): 0.135936
+Epoch: 1960	,Training loss (MRSE): 0.246065	,Validation loss (MRSE): 0.783627	,Training loss (MSE): 5.36644e+16	,Validation loss (MSE): 1.9294e+17	,Training accuracy (MAE): -3.47972e+07	,Validation accuracy (MAE): -7.49668e+07	,Training accuracy (MRAE): 0.544246	,Validation accuracy (MRAE): 0.156509
+Epoch: 1968	,Training loss (MRSE): 0.111758	,Validation loss (MRSE): 0.80174	,Training loss (MSE): 2.2135e+16	,Validation loss (MSE): 1.92918e+17	,Training accuracy (MAE): -2.12151e+07	,Validation accuracy (MAE): -7.51621e+07	,Training accuracy (MRAE): 0.745138	,Validation accuracy (MRAE): 0.134566
+Epoch: 1976	,Training loss (MRSE): 0.187639	,Validation loss (MRSE): 0.802485	,Training loss (MSE): 7.20121e+16	,Validation loss (MSE): 1.92908e+17	,Training accuracy (MAE): -3.99115e+07	,Validation accuracy (MAE): -7.49754e+07	,Training accuracy (MRAE): 0.629519	,Validation accuracy (MRAE): 0.131691
+Epoch: 1984	,Training loss (MRSE): 0.0873282	,Validation loss (MRSE): 0.804696	,Training loss (MSE): 1.50435e+16	,Validation loss (MSE): 1.92875e+17	,Training accuracy (MAE): -1.56619e+07	,Validation accuracy (MAE): -7.52587e+07	,Training accuracy (MRAE): 0.803062	,Validation accuracy (MRAE): 0.130062
+Epoch: 1992	,Training loss (MRSE): 0.153902	,Validation loss (MRSE): 0.795535	,Training loss (MSE): 1.93618e+16	,Validation loss (MSE): 1.92897e+17	,Training accuracy (MAE): -1.94793e+07	,Validation accuracy (MAE): -7.51365e+07	,Training accuracy (MRAE): 0.670394	,Validation accuracy (MRAE): 0.140358
+Training time: 3804.59s
+
+Final results:
+Training data:
+For benchmark_array_add____array_add_f32_no_simd_2075:	Prediction: 	934.41 Target: 	2075 
+For benchmark_array_add____array_add_f32_simd128_337:	Prediction: 	1819.31 Target: 	337 
+For benchmark_array_add____array_add_f32_simd256_187:	Prediction: 	302.259 Target: 	187 
+For benchmark_array_add____array_add_f64_no_simd_1259:	Prediction: 	769.857 Target: 	1259 
+For benchmark_array_add____array_add_f64_simd128_669:	Prediction: 	1151.96 Target: 	669 
+For benchmark_array_add____array_add_f64_simd256_537:	Prediction: 	279.858 Target: 	537 
+For benchmark_array_copy____f32_copy_no_simd_534:	Prediction: 	155.154 Target: 	534 
+For benchmark_array_copy____f32_copy_simd128_134:	Prediction: 	155.18 Target: 	134 
+For benchmark_array_copy____f32_copy_simd256_46:	Prediction: 	155.154 Target: 	46 
+For benchmark_array_copy____f64_copy_duffs_device_1028:	Prediction: 	1248.53 Target: 	1028 
+For benchmark_array_copy____f64_copy_no_simd_163:	Prediction: 	155.154 Target: 	163 
+For benchmark_array_copy____f64_copy_simd128_78:	Prediction: 	155.154 Target: 	78 
+For benchmark_array_copy____f64_copy_simd256_46:	Prediction: 	155.154 Target: 	46 
+For benchmark_array_copy____u16_copy_no_simd_680:	Prediction: 	422.151 Target: 	680 
+For benchmark_array_copy____u16_copy_simd128_91:	Prediction: 	155.16 Target: 	91 
+For benchmark_array_copy____u16_copy_simd256_46:	Prediction: 	155.17 Target: 	46 
+For benchmark_array_copy____u32_copy_no_simd_354:	Prediction: 	543.293 Target: 	354 
+For benchmark_array_copy____u32_copy_simd128_78:	Prediction: 	155.154 Target: 	78 
+For benchmark_array_copy____u32_copy_simd256_46:	Prediction: 	155.154 Target: 	46 
+For benchmark_array_copy____u64_copy_no_simd_151:	Prediction: 	169.929 Target: 	151 
+For benchmark_array_copy____u64_copy_simd128_134:	Prediction: 	155.154 Target: 	134 
+For benchmark_array_copy____u64_copy_simd256_70:	Prediction: 	155.154 Target: 	70 
+For benchmark_array_copy____u8_copy_no_simd_2073:	Prediction: 	1934.66 Target: 	2073 
+For benchmark_array_copy____u8_copy_simd128_78:	Prediction: 	189.408 Target: 	78 
+For benchmark_array_copy____u8_copy_simd256_45:	Prediction: 	213.938 Target: 	45 
+For benchmark_array_min____f32_min_no_simd_2077:	Prediction: 	2738.38 Target: 	2077 
+For benchmark_array_min____f32_min_simd128_283:	Prediction: 	155.162 Target: 	283 
+For benchmark_array_min____f32_min_simd256_164:	Prediction: 	160.63 Target: 	164 
+For benchmark_array_min____f64_min_no_simd_2076:	Prediction: 	2589.53 Target: 	2076 
+For benchmark_array_min____f64_min_simd128_538:	Prediction: 	155.155 Target: 	538 
+For benchmark_array_min____f64_min_simd256_291:	Prediction: 	196.067 Target: 	291 
+For benchmark_array_min____u16_min_no_simd_2076:	Prediction: 	1697.4 Target: 	2076 
+For benchmark_array_min____u16_min_simd128_156:	Prediction: 	155.154 Target: 	156 
+For benchmark_array_min____u16_min_simd256_81:	Prediction: 	218.012 Target: 	81 
+For benchmark_array_min____u32_min_no_simd_2075:	Prediction: 	2213.15 Target: 	2075 
+For benchmark_array_min____u32_min_simd128_540:	Prediction: 	543.47 Target: 	540 
+For benchmark_array_min____u32_min_simd256_164:	Prediction: 	155.154 Target: 	164 
+For benchmark_array_min____u64_min_no_simd_2071:	Prediction: 	3161.44 Target: 	2071 
+For benchmark_array_min____u8_min_no_simd_2077:	Prediction: 	1821.73 Target: 	2077 
+For benchmark_array_min____u8_min_simd128_102:	Prediction: 	162.482 Target: 	102 
+For benchmark_array_min____u8_min_simd256_71:	Prediction: 	155.189 Target: 	71 
+For benchmark_codelet_c_k_means_line109____codelet_c_k_means_line109_69:	Prediction: 	3150.92 Target: 	69 
+For benchmark_codelet_crystal_cholesky____codelet_crystal_cholesky_line29_loop_0_187:	Prediction: 	208.422 Target: 	187 
+For benchmark_codelet_crystal_cholesky____codelet_crystal_cholesky_line29_loop_1_495:	Prediction: 	13046.1 Target: 	495 
+For benchmark_codelet_crystal_cholesky____codelet_crystal_div_line43_loop_54:	Prediction: 	155.154 Target: 	54 
+For benchmark_codelet_crystal_cholesky____codelet_crystal_div_line49_loop_125:	Prediction: 	204.5 Target: 	125 
+For benchmark_codelet_crystal_cholesky____codelet_crystal_div_line61_loop_125:	Prediction: 	16767.8 Target: 	125 
+For benchmark_codelet_generate_seq_laplacian_line73____codelet_generate_seq_laplacian_line73_196857:	Prediction: 	165795 Target: 	196857 
+For benchmark_codelet_kernels_serial_amr_c_main_line500_0____amr_c_main_line500_loop_c_0_c_822851:	Prediction: 	658311 Target: 	822852 
+For benchmark_codelet_kernels_serial_amr_c_main_line502_0____amr_c_main_line502_loop_c_0_c_819726:	Prediction: 	658311 Target: 	819727 
+For benchmark_codelet_kernels_serial_amr_c_main_line506_0____amr_c_main_line506_loop_c_0_c_838123:	Prediction: 	587833 Target: 	838124 
+For benchmark_codelet_kernels_serial_amr_c_main_line508_0____amr_c_main_line508_loop_c_0_c_838518:	Prediction: 	587833 Target: 	838518 
+For benchmark_codelet_kernels_serial_sparse_c_main_line236_0____sparse_c_main_line236_loop_c_0_c_4487190:	Prediction: 	3.38127e+06 Target: 	4.48719e+06 
+For benchmark_codelet_kernels_serial_sparse_c_main_line256_0____sparse_c_main_line256_loop_c_0_c_3146370:	Prediction: 	2.34141e+06 Target: 	3.14637e+06 
+For benchmark_codelet_kernels_serial_transpose_c_main_line176_0____transpose_c_main_line176_loop_c_0_c_13448000:	Prediction: 	8.12115e+06 Target: 	1.3448e+07 
+For benchmark_codelet_kernels_stencil_c_main_line259_0____stencil_c_main_line259_loop_c_0_c_12522800:	Prediction: 	8.85625e+06 Target: 	1.25228e+07 
+For benchmark_codelet_liblinear____c_l2r_l2_svc_fun_fun_line221_6955180:	Prediction: 	85173.7 Target: 	6.95518e+06 
+For benchmark_codelet_liblinear____c_l2r_l2_svc_fun_grad_line254_12561700:	Prediction: 	8.85198e+06 Target: 	1.25617e+07 
+For benchmark_codelet_liblinear____c_l2r_l2_svc_fun_hv_line275_12562300:	Prediction: 	8.76817e+06 Target: 	1.25623e+07 
+For benchmark_codelet_liblinear____c_l2r_l2_svc_fun_sub_xtv_line323_9370920:	Prediction: 	2.74657e+06 Target: 	9.37092e+06 
+For benchmark_codelet_liblinear____c_solve_l2r_l1l2_svc_line972_683402:	Prediction: 	663284 Target: 	683402 
+For benchmark_codelet_liblinear____c_tron_trcg_l2r_l2_svc_line417_30062200:	Prediction: 	1.87456e+07 Target: 	3.00622e+07 
+For benchmark_codelet_libraries_default_daala_dct_c_compute_mse_line8488_0____dct_c_compute_mse_line8488_loop_c_0_c_25846:	Prediction: 	32347.6 Target: 	25846 
+For benchmark_codelet_libraries_default_daala_dct_c_compute_mse_line8488_8____dct_c_compute_mse_line8488_loop_c_8_c_97832:	Prediction: 	102657 Target: 	97832 
+For benchmark_codelet_libraries_default_daala_dct_c_compute_mse_line8497_0____dct_c_compute_mse_line8497_loop_c_0_c_3192:	Prediction: 	2669.64 Target: 	3192 
+For benchmark_codelet_libraries_default_daala_dct_c_dynamic_range_line8685_0____dct_c_dynamic_range_line8685_loop_c_0_c_3104:	Prediction: 	3605.13 Target: 	3104 
+For benchmark_codelet_libraries_default_libsndfile_alac_c_alac_read_d_line575_0____alac_c_alac_read_d_line575_loop_c_0_c_2589:	Prediction: 	4354 Target: 	2589 
+For benchmark_codelet_libraries_default_twolame_encode_c_combine_lr_line330_0____encode_c_combine_lr_line330_loop_c_0_c_1743:	Prediction: 	1626.61 Target: 	1743 
+For benchmark_codelet_libraries_default_twolame_encode_c_combine_lr_line330_1____encode_c_combine_lr_line330_loop_c_1_c_1702:	Prediction: 	1591.02 Target: 	1702 
+For benchmark_codelet_libraries_default_twolame_psycho_1_c_psycho_1_hann_fft_pickmax_line184_0____psycho_1_c_psycho_1_hann_fft_pickmax_line184_loop_c_0_c_525:	Prediction: 	659.806 Target: 	525 
+For benchmark_codelet_libraries_default_twolame_psycho_3_c_psycho_3_fft_line89_0____psycho_3_c_psycho_3_fft_line89_loop_c_0_c_524:	Prediction: 	659.806 Target: 	524 
+For benchmark_codelet_livermore_default_lloops_c_endloop_line1795_0____lloops_c_endloop_line1795_loop_c_0_c_7584:	Prediction: 	7456.63 Target: 	7584 
+For benchmark_codelet_livermore_default_lloops_c_endloop_line1795_3____lloops_c_endloop_line1795_loop_c_3_c_7588:	Prediction: 	12608.3 Target: 	7588 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1031_0____lloops_c_kernels_line1031_loop_c_0_c_3064:	Prediction: 	2926.35 Target: 	3064 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1113_0____lloops_c_kernels_line1113_loop_c_0_c_8876:	Prediction: 	8370.1 Target: 	8876 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1113_3____lloops_c_kernels_line1113_loop_c_3_c_9050:	Prediction: 	8249.54 Target: 	9050 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1340_0____lloops_c_kernels_line1340_loop_c_0_c_2086:	Prediction: 	2680.92 Target: 	2086 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1351_0____lloops_c_kernels_line1351_loop_c_0_c_5256:	Prediction: 	6180.12 Target: 	5256 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1351_64____lloops_c_kernels_line1351_loop_c_64_c_5559:	Prediction: 	6015.79 Target: 	5559 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1444_0____lloops_c_kernels_line1444_loop_c_0_c_125961:	Prediction: 	190318 Target: 	125961 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1444_144____lloops_c_kernels_line1444_loop_c_144_c_70347:	Prediction: 	96595 Target: 	70347 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line1444_156____lloops_c_kernels_line1444_loop_c_156_c_98131:	Prediction: 	132459 Target: 	98131 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line771_0____lloops_c_kernels_line771_loop_c_0_c_631:	Prediction: 	645.768 Target: 	631 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line869_0____lloops_c_kernels_line869_loop_c_0_c_6099:	Prediction: 	7696.73 Target: 	6099 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line913_0____lloops_c_kernels_line913_loop_c_0_c_1649:	Prediction: 	2651.39 Target: 	1649 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line937_0____lloops_c_kernels_line937_loop_c_0_c_3140:	Prediction: 	4229.03 Target: 	3140 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line971_0____lloops_c_kernels_line971_loop_c_0_c_620:	Prediction: 	616.465 Target: 	620 
+For benchmark_codelet_livermore_default_lloops_c_kernels_line993_0____lloops_c_kernels_line993_loop_c_0_c_901:	Prediction: 	770.731 Target: 	901 
+For benchmark_codelet_netlib____cg_rc_prb_test02_line421_0_13808:	Prediction: 	10246.3 Target: 	13808 
+For benchmark_codelet_netlib____cg_rc_prb_test02_line432_0_108274:	Prediction: 	113502 Target: 	108274 
+For benchmark_codelet_netlib____chebyshev_prb_c_test01_line115_8358:	Prediction: 	7163.8 Target: 	8358.01 
+For benchmark_codelet_netlib____chebyshev_prb_c_test01_line115_rev_10023:	Prediction: 	11734.3 Target: 	10023 
+For benchmark_codelet_netlib____whetstone_c_main_line187_0_46810100:	Prediction: 	817231 Target: 	4.68101e+07 
+For benchmark_codelet_netlib____whetstone_c_main_line187_1_46810200:	Prediction: 	4.27395e+07 Target: 	4.68102e+07 
+For benchmark_codelet_neural_runcont____codelet_neural_c_runcont_line711_0_7046:	Prediction: 	10335.4 Target: 	7046 
+For benchmark_codelet_neural_runcont____codelet_neural_c_runcont_line720_0_3523:	Prediction: 	8978.84 Target: 	3523 
+For benchmark_codelet_nn_backpropagate_second_dervatives_line262____codelet_nn_backpropagate_second_dervatives_line262_1685:	Prediction: 	202417 Target: 	1685 
+For benchmark_codelet_npb_BT_bt_c_add_line179_0____bt_c_add_line179_loop_c_0_c_5368130:	Prediction: 	7.45543e+06 Target: 	5.36813e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1771_0____bt_c_compute_rhs_line1771_loop_c_0_c_6629650:	Prediction: 	5.95817e+06 Target: 	6.62965e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1808_0____bt_c_compute_rhs_line1808_loop_c_0_c_9944370:	Prediction: 	-0.19836 Target: 	9.94436e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1869_0____bt_c_compute_rhs_line1869_loop_c_0_c_22541:	Prediction: 	27045.4 Target: 	22541 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1881_0____bt_c_compute_rhs_line1881_loop_c_0_c_77690:	Prediction: 	66696.5 Target: 	77689.9 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1892_0____bt_c_compute_rhs_line1892_loop_c_0_c_5860490:	Prediction: 	8.87093e+06 Target: 	5.86049e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1892_352____bt_c_compute_rhs_line1892_loop_c_352_c_8259730:	Prediction: 	7.33709e+06 Target: 	8.25973e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1892_361____bt_c_compute_rhs_line1892_loop_c_361_c_8389460:	Prediction: 	1.01854e+07 Target: 	8.38946e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1892_id4o6_jl1f2_tl3s128_tl4s8____bt_c_compute_rhs_line1892_loop_c_361_c_8163960:	Prediction: 	9.80403e+06 Target: 	8.16396e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1907_0____bt_c_compute_rhs_line1907_loop_c_0_c_82355:	Prediction: 	75593.7 Target: 	82355 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1919_0____bt_c_compute_rhs_line1919_loop_c_0_c_56705:	Prediction: 	41946.4 Target: 	56705 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1933_0____bt_c_compute_rhs_line1933_loop_c_0_c_9726440:	Prediction: 	1.25444e+07 Target: 	9.72644e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1989_0____bt_c_compute_rhs_line1989_loop_c_0_c_23213:	Prediction: 	25281.9 Target: 	23213 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line1989_12____bt_c_compute_rhs_line1989_loop_c_12_c_49111:	Prediction: 	72259.7 Target: 	49111 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2001_0____bt_c_compute_rhs_line2001_loop_c_0_c_67782:	Prediction: 	58384 Target: 	67782 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2012_0____bt_c_compute_rhs_line2012_loop_c_0_c_6939240:	Prediction: 	5.98052e+06 Target: 	6.93924e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2012_18____bt_c_compute_rhs_line2012_loop_c_18_c_6910150:	Prediction: 	8.82076e+06 Target: 	6.91015e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2027_0____bt_c_compute_rhs_line2027_loop_c_0_c_82059:	Prediction: 	63331.9 Target: 	82058.9 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2039_0____bt_c_compute_rhs_line2039_loop_c_0_c_57121:	Prediction: 	46733.4 Target: 	57121 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2039_12____bt_c_compute_rhs_line2039_loop_c_12_c_52901:	Prediction: 	83558.6 Target: 	52901 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2053_0____bt_c_compute_rhs_line2053_loop_c_0_c_9000640:	Prediction: 	1.06825e+07 Target: 	9.00063e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2110_0____bt_c_compute_rhs_line2110_loop_c_0_c_96041:	Prediction: 	82365.9 Target: 	96041 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2122_0____bt_c_compute_rhs_line2122_loop_c_0_c_68923:	Prediction: 	95938 Target: 	68922.9 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2122_12____bt_c_compute_rhs_line2122_loop_c_12_c_132090:	Prediction: 	193919 Target: 	132090 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2133_0____bt_c_compute_rhs_line2133_loop_c_0_c_6057470:	Prediction: 	6.61652e+06 Target: 	6.05747e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2133_15____bt_c_compute_rhs_line2133_loop_c_15_c_6124420:	Prediction: 	7.86879e+06 Target: 	6.12442e+06 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2148_0____bt_c_compute_rhs_line2148_loop_c_0_c_72124:	Prediction: 	83773.5 Target: 	72124 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2148_12____bt_c_compute_rhs_line2148_loop_c_12_c_129607:	Prediction: 	164913 Target: 	129607 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2160_0____bt_c_compute_rhs_line2160_loop_c_0_c_97163:	Prediction: 	74488.5 Target: 	97163 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2171_0____bt_c_compute_rhs_line2171_loop_c_0_c_11486500:	Prediction: 	1.43266e+07 Target: 	1.14865e+07 
+For benchmark_codelet_npb_BT_bt_c_compute_rhs_line2171_1088____bt_c_compute_rhs_line2171_loop_c_1088_c_5272570:	Prediction: 	6.30916e+06 Target: 	5.27257e+06 
+For benchmark_codelet_npb_BT_bt_c_exact_rhs_line300_0____bt_c_exact_rhs_line300_loop_c_0_c_6916470:	Prediction: 	5.07885e+06 Target: 	6.91647e+06 
+For benchmark_codelet_npb_BT_bt_c_exact_rhs_line300_1____bt_c_exact_rhs_line300_loop_c_1_c_6948420:	Prediction: 	4.9612e+06 Target: 	6.94842e+06 
+For benchmark_codelet_npb_BT_bt_c_exact_rhs_line300_358____bt_c_exact_rhs_line300_loop_c_358_c_7468310:	Prediction: 	8.90653e+06 Target: 	7.46831e+06 
+For benchmark_codelet_npb_BT_bt_c_exact_rhs_line634_0____bt_c_exact_rhs_line634_loop_c_0_c_6573570:	Prediction: 	8.36525e+06 Target: 	6.57357e+06 
+For benchmark_codelet_npb_BT_bt_c_lhsy_line1191_0____bt_c_lhsy_line1191_loop_c_0_c_56372400:	Prediction: 	8.49438e+07 Target: 	5.63724e+07 
+For benchmark_codelet_npb_BT_bt_c_lhsy_line1293_0____bt_c_lhsy_line1293_loop_c_0_c_99001600:	Prediction: 	1.20531e+08 Target: 	9.90015e+07 
+For benchmark_codelet_npb_BT_bt_c_lhsz_line1485_0____bt_c_lhsz_line1485_loop_c_0_c_55127700:	Prediction: 	9.69139e+07 Target: 	5.51277e+07 
+For benchmark_codelet_npb_BT_bt_c_rhs_norm_line261_0____bt_c_rhs_norm_line261_loop_c_0_c_715948:	Prediction: 	540051 Target: 	715948 
+For benchmark_codelet_npb_BT_bt_c_rhs_norm_line261_3____bt_c_rhs_norm_line261_loop_c_3_c_946321:	Prediction: 	1.12489e+06 Target: 	946320 
+For benchmark_codelet_npb_BT_bt_c_x_solve_cell_line2730_0____bt_c_x_solve_cell_line2730_loop_c_0_c_189094:	Prediction: 	161550 Target: 	189094 
+For benchmark_codelet_npb_BT_bt_c_y_solve_cell_line2884_0____bt_c_y_solve_cell_line2884_loop_c_0_c_1934880:	Prediction: 	2.02857e+06 Target: 	1.93488e+06 
+For benchmark_codelet_npb_CG_cg_c_conj_grad_line373_0____cg_c_conj_grad_line373_loop_c_0_c_30806:	Prediction: 	21224.2 Target: 	30806 
+For benchmark_codelet_npb_CG_cg_c_conj_grad_line387_0____cg_c_conj_grad_line387_loop_c_0_c_42017:	Prediction: 	41309.2 Target: 	42017 
+For benchmark_codelet_npb_CG_cg_c_conj_grad_line549_0____cg_c_conj_grad_line549_loop_c_0_c_42016:	Prediction: 	36126.3 Target: 	42016 
+For benchmark_codelet_npb_CG_cg_c_main_line215_0____cg_c_main_line215_loop_c_0_c_42016:	Prediction: 	39372.2 Target: 	42016 
+For benchmark_codelet_npb_CG_cg_c_main_line227_0____cg_c_main_line227_loop_c_0_c_8317:	Prediction: 	7415.69 Target: 	8317 
+For benchmark_codelet_npb_CG_cg_c_main_line271_0____cg_c_main_line271_loop_c_0_c_42021:	Prediction: 	39372.2 Target: 	42021 
+For benchmark_codelet_npb_CG_cg_c_main_line290_0____cg_c_main_line290_loop_c_0_c_8308:	Prediction: 	7415.69 Target: 	8308.01 
+For benchmark_codelet_npb_CG_cg_c_sparse_line757_0____cg_c_sparse_line757_loop_c_0_c_5457:	Prediction: 	5530.12 Target: 	5457 
+For benchmark_codelet_npb_FT_ft_c_compute_indexmap_line422_0____ft_c_compute_indexmap_line422_loop_c_0_c_664264:	Prediction: 	565177 Target: 	664264 
+For benchmark_codelet_npb_LU_lu_c_blts_line193_0____lu_c_blts_line193_loop_c_0_c_126545:	Prediction: 	168199 Target: 	126545 
+For benchmark_codelet_npb_LU_lu_c_blts_line193_9____lu_c_blts_line193_loop_c_9_c_164855:	Prediction: 	202649 Target: 	164855 
+For benchmark_codelet_npb_LU_lu_c_erhs_line678_0____lu_c_erhs_line678_loop_c_0_c_6156670:	Prediction: 	7.84597e+06 Target: 	6.15667e+06 
+For benchmark_codelet_npb_LU_lu_c_erhs_line678_1____lu_c_erhs_line678_loop_c_1_c_6172510:	Prediction: 	7.83019e+06 Target: 	6.17251e+06 
+For benchmark_codelet_npb_LU_lu_c_erhs_line678_72____lu_c_erhs_line678_loop_c_72_c_6828340:	Prediction: 	6.21522e+06 Target: 	6.82834e+06 
+For benchmark_codelet_npb_LU_lu_c_erhs_line724_0____lu_c_erhs_line724_loop_c_0_c_5634680:	Prediction: 	5.64721e+06 Target: 	5.63468e+06 
+For benchmark_codelet_npb_LU_lu_c_erhs_line861_0____lu_c_erhs_line861_loop_c_0_c_5621730:	Prediction: 	5.84247e+06 Target: 	5.62173e+06 
+For benchmark_codelet_npb_LU_lu_c_l2norm_line1921_0____lu_c_l2norm_line1921_loop_c_0_c_1048460:	Prediction: 	1.11253e+06 Target: 	1.04846e+06 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line1988_0____lu_c_pintgr_line1988_loop_c_0_c_2283:	Prediction: 	2528.39 Target: 	2283 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line2019_0____lu_c_pintgr_line2019_loop_c_0_c_16034:	Prediction: 	14473.6 Target: 	16034 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line2037_0____lu_c_pintgr_line2037_loop_c_0_c_2282:	Prediction: 	2528.39 Target: 	2282 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line2073_0____lu_c_pintgr_line2073_loop_c_0_c_16101:	Prediction: 	15237.9 Target: 	16101 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line2092_0____lu_c_pintgr_line2092_loop_c_0_c_2293:	Prediction: 	2528.39 Target: 	2293 
+For benchmark_codelet_npb_LU_lu_c_pintgr_line2128_0____lu_c_pintgr_line2128_loop_c_0_c_15782:	Prediction: 	15237.9 Target: 	15782 
+For benchmark_codelet_npb_LU_lu_c_rhs_line2259_0____lu_c_rhs_line2259_loop_c_0_c_6502900:	Prediction: 	8.38143e+06 Target: 	6.5029e+06 
+For benchmark_codelet_npb_LU_lu_c_rhs_line2277_0____lu_c_rhs_line2277_loop_c_0_c_5601030:	Prediction: 	5.64721e+06 Target: 	5.60103e+06 
+For benchmark_codelet_npb_LU_lu_c_rhs_line2418_0____lu_c_rhs_line2418_loop_c_0_c_5663690:	Prediction: 	5.84247e+06 Target: 	5.66369e+06 
+For benchmark_codelet_npb_LU_lu_c_ssor_line2976_0____lu_c_ssor_line2976_loop_c_0_c_208397:	Prediction: 	295889 Target: 	208397 
+For benchmark_codelet_npb_LU_lu_c_ssor_line3018_0____lu_c_ssor_line3018_loop_c_0_c_5272090:	Prediction: 	6.84666e+06 Target: 	5.27209e+06 
+For benchmark_codelet_npb_LU_lu_c_ssor_line3067_0____lu_c_ssor_line3067_loop_c_0_c_5430960:	Prediction: 	7.61916e+06 Target: 	5.43096e+06 
+For benchmark_codelet_npb_SP_sp_c_add_line174_0____sp_c_add_line174_loop_c_0_c_5635830:	Prediction: 	8.334e+06 Target: 	5.63583e+06 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1327_0____sp_c_compute_rhs_line1327_loop_c_0_c_10279300:	Prediction: 	1.37138e+07 Target: 	1.02793e+07 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1387_0____sp_c_compute_rhs_line1387_loop_c_0_c_27166:	Prediction: 	32251.8 Target: 	27166 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1398_0____sp_c_compute_rhs_line1398_loop_c_0_c_36276:	Prediction: 	49740 Target: 	36276 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1409_0____sp_c_compute_rhs_line1409_loop_c_0_c_7780020:	Prediction: 	7.77524e+06 Target: 	7.78002e+06 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1424_0____sp_c_compute_rhs_line1424_loop_c_0_c_36250:	Prediction: 	42534.7 Target: 	36250 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1436_0____sp_c_compute_rhs_line1436_loop_c_0_c_59201:	Prediction: 	51992.4 Target: 	59201 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1452_0____sp_c_compute_rhs_line1452_loop_c_0_c_10287100:	Prediction: 	1.16068e+07 Target: 	1.02871e+07 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1508_0____sp_c_compute_rhs_line1508_loop_c_0_c_67536:	Prediction: 	64534.4 Target: 	67536 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1520_0____sp_c_compute_rhs_line1520_loop_c_0_c_41794:	Prediction: 	50005.4 Target: 	41794 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1531_0____sp_c_compute_rhs_line1531_loop_c_0_c_7341510:	Prediction: 	6.4071e+06 Target: 	7.34151e+06 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1546_0____sp_c_compute_rhs_line1546_loop_c_0_c_41998:	Prediction: 	50386.1 Target: 	41998 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1558_0____sp_c_compute_rhs_line1558_loop_c_0_c_36152:	Prediction: 	44012 Target: 	36152 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1573_0____sp_c_compute_rhs_line1573_loop_c_0_c_9020110:	Prediction: 	1.02116e+07 Target: 	9.02011e+06 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1630_0____sp_c_compute_rhs_line1630_loop_c_0_c_125047:	Prediction: 	161850 Target: 	125047 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1642_0____sp_c_compute_rhs_line1642_loop_c_0_c_140677:	Prediction: 	123344 Target: 	140677 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1653_0____sp_c_compute_rhs_line1653_loop_c_0_c_6284580:	Prediction: 	7.7098e+06 Target: 	6.28457e+06 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1668_0____sp_c_compute_rhs_line1668_loop_c_0_c_145442:	Prediction: 	111392 Target: 	145442 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1680_0____sp_c_compute_rhs_line1680_loop_c_0_c_121445:	Prediction: 	151730 Target: 	121445 
+For benchmark_codelet_npb_SP_sp_c_compute_rhs_line1691_0____sp_c_compute_rhs_line1691_loop_c_0_c_5525340:	Prediction: 	6.31684e+06 Target: 	5.52534e+06 
+For benchmark_codelet_npb_SP_sp_c_exact_rhs_line301_0____sp_c_exact_rhs_line301_loop_c_0_c_6113130:	Prediction: 	5.11024e+06 Target: 	6.11313e+06 
+For benchmark_codelet_npb_SP_sp_c_exact_rhs_line301_576____sp_c_exact_rhs_line301_loop_c_576_c_6081980:	Prediction: 	5.79516e+06 Target: 	6.08198e+06 
+For benchmark_codelet_npb_SP_sp_c_exact_rhs_line601_0____sp_c_exact_rhs_line601_loop_c_0_c_5464880:	Prediction: 	7.13943e+06 Target: 	5.46488e+06 
+For benchmark_codelet_npb_SP_sp_c_initialize_line635_0____sp_c_initialize_line635_loop_c_0_c_6005590:	Prediction: 	6.11183e+06 Target: 	6.00559e+06 
+For benchmark_codelet_npb_SP_sp_c_lhsinit_line811_0____sp_c_lhsinit_line811_loop_c_0_c_18410900:	Prediction: 	1.38779e+07 Target: 	1.84109e+07 
+For benchmark_codelet_npb_SP_sp_c_lhsinit_line811_612____sp_c_lhsinit_line811_loop_c_612_c_18735200:	Prediction: 	2.24066e+07 Target: 	1.87352e+07 
+For benchmark_codelet_npb_SP_sp_c_lhsx_line885_0____sp_c_lhsx_line885_loop_c_0_c_27753:	Prediction: 	23880.1 Target: 	27753 
+For benchmark_codelet_npb_SP_sp_c_lhsx_line898_0____sp_c_lhsx_line898_loop_c_0_c_5348940:	Prediction: 	6.05682e+06 Target: 	5.34894e+06 
+For benchmark_codelet_npb_SP_sp_c_lhsx_line912_0____sp_c_lhsx_line912_loop_c_0_c_27957:	Prediction: 	22768.4 Target: 	27957 
+For benchmark_codelet_npb_SP_sp_c_lhsx_line930_0____sp_c_lhsx_line930_loop_c_0_c_11467600:	Prediction: 	9.67496e+06 Target: 	1.14676e+07 
+For benchmark_codelet_npb_SP_sp_c_lhsy_line1014_0____sp_c_lhsy_line1014_loop_c_0_c_5377520:	Prediction: 	6.18627e+06 Target: 	5.37752e+06 
+For benchmark_codelet_npb_SP_sp_c_lhsy_line1028_0____sp_c_lhsy_line1028_loop_c_0_c_31240:	Prediction: 	26453.6 Target: 	31240 
+For benchmark_codelet_npb_SP_sp_c_lhsy_line1045_0____sp_c_lhsy_line1045_loop_c_0_c_11481800:	Prediction: 	1.08752e+07 Target: 	1.14818e+07 
+For benchmark_codelet_npb_SP_sp_c_lhsy_line999_0____sp_c_lhsy_line999_loop_c_0_c_31488:	Prediction: 	26672.1 Target: 	31488 
+For benchmark_codelet_npb_SP_sp_c_lhsz_line1114_0____sp_c_lhsz_line1114_loop_c_0_c_72426:	Prediction: 	75950.1 Target: 	72426 
+For benchmark_codelet_npb_SP_sp_c_lhsz_line1128_0____sp_c_lhsz_line1128_loop_c_0_c_5731820:	Prediction: 	6.59859e+06 Target: 	5.73182e+06 
+For benchmark_codelet_npb_SP_sp_c_lhsz_line1142_0____sp_c_lhsz_line1142_loop_c_0_c_73701:	Prediction: 	68899.6 Target: 	73701 
+For benchmark_codelet_npb_SP_sp_c_lhsz_line1159_0____sp_c_lhsz_line1159_loop_c_0_c_11573600:	Prediction: 	8.09544e+06 Target: 	1.15736e+07 
+For benchmark_codelet_npb_SP_sp_c_ninvr_line1196_0____sp_c_ninvr_line1196_loop_c_0_c_5719910:	Prediction: 	6.98905e+06 Target: 	5.71991e+06 
+For benchmark_codelet_npb_SP_sp_c_pinvr_line1235_0____sp_c_pinvr_line1235_loop_c_0_c_5721720:	Prediction: 	7.21438e+06 Target: 	5.72172e+06 
+For benchmark_codelet_npb_SP_sp_c_rhs_norm_line264_0____sp_c_rhs_norm_line264_loop_c_0_c_847476:	Prediction: 	1.04006e+06 Target: 	847476 
+For benchmark_codelet_npb_SP_sp_c_rhs_norm_line264_3____sp_c_rhs_norm_line264_loop_c_3_c_2760280:	Prediction: 	2.93786e+06 Target: 	2.76028e+06 
+For benchmark_codelet_npb_SP_sp_c_txinvr_line1919_0____sp_c_txinvr_line1919_loop_c_0_c_5972400:	Prediction: 	7.95037e+06 Target: 	5.97239e+06 
+For benchmark_codelet_npb_SP_sp_c_tzetar_line1968_0____sp_c_tzetar_line1968_loop_c_0_c_5994920:	Prediction: 	8.14077e+06 Target: 	5.99492e+06 
+For benchmark_codelet_npb_SP_sp_c_x_solve_line2449_0____sp_c_x_solve_line2449_loop_c_0_c_24773:	Prediction: 	20398.5 Target: 	24773 
+For benchmark_codelet_npb_SP_sp_c_x_solve_line2449_120____sp_c_x_solve_line2449_loop_c_120_c_9180:	Prediction: 	12014.7 Target: 	9180 
+For benchmark_codelet_npb_SP_sp_c_y_solve_line2675_0____sp_c_y_solve_line2675_loop_c_0_c_27289:	Prediction: 	23784.4 Target: 	27289 
+For benchmark_codelet_npb_SP_sp_c_y_solve_line2675_120____sp_c_y_solve_line2675_loop_c_120_c_11072:	Prediction: 	14129.8 Target: 	11072 
+For benchmark_codelet_npb_SP_sp_c_z_solve_line2901_0____sp_c_z_solve_line2901_loop_c_0_c_56853:	Prediction: 	62545.9 Target: 	56853 
+For benchmark_codelet_npb_SP_sp_c_z_solve_line2901_120____sp_c_z_solve_line2901_loop_c_120_c_46576:	Prediction: 	39453 Target: 	46576 
+For benchmark_codelet_npb_UA_SNU_adapt_c_remap_line868_0____adapt_c_remap_line868_loop_c_0_c_2171:	Prediction: 	3262.27 Target: 	2171 
+For benchmark_codelet_npb_UA_SNU_adapt_c_remap_line868_12____adapt_c_remap_line868_loop_c_12_c_2532:	Prediction: 	2756.54 Target: 	2532 
+For benchmark_codelet_npb_UA_SNU_adapt_c_remap_line894_0____adapt_c_remap_line894_loop_c_0_c_2944:	Prediction: 	4683.13 Target: 	2944 
+For benchmark_codelet_npb_UA_SNU_adapt_c_remap_line894_288____adapt_c_remap_line894_loop_c_288_c_2323:	Prediction: 	3016.74 Target: 	2323 
+For benchmark_codelet_npb_UA_SNU_adapt_c_remap_line894_306____adapt_c_remap_line894_loop_c_306_c_5058:	Prediction: 	7527.43 Target: 	5058 
+For benchmark_codelet_npb_UA_SNU_convect_c_convect_line223_0____convect_c_convect_line223_loop_c_0_c_140:	Prediction: 	155.16 Target: 	140 
+For benchmark_codelet_npb_UA_SNU_convect_c_convect_line223_30____convect_c_convect_line223_loop_c_30_c_156:	Prediction: 	155.172 Target: 	156 
+For benchmark_codelet_npb_UA_SNU_convect_c_convect_line223_36____convect_c_convect_line223_loop_c_36_c_123:	Prediction: 	159.043 Target: 	123 
+For benchmark_codelet_npb_UA_SNU_convect_c_convect_line243_0____convect_c_convect_line243_loop_c_0_c_106886:	Prediction: 	49589.9 Target: 	106886 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line142_0____diffuse_c_diffusion_line142_loop_c_0_c_751341:	Prediction: 	560820 Target: 	751341 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line142_9____diffuse_c_diffusion_line142_loop_c_9_c_751293:	Prediction: 	1.0089e+06 Target: 	751293 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line153_0____diffuse_c_diffusion_line153_loop_c_0_c_256822:	Prediction: 	190632 Target: 	256822 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line63_0____diffuse_c_diffusion_line63_loop_c_0_c_752377:	Prediction: 	579521 Target: 	752378 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line63_12____diffuse_c_diffusion_line63_loop_c_12_c_753378:	Prediction: 	1.08647e+06 Target: 	753378 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_diffusion_line75_0____diffuse_c_diffusion_line75_loop_c_0_c_256688:	Prediction: 	206677 Target: 	256688 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_laplacian_line190_0____diffuse_c_laplacian_line190_loop_c_0_c_1579:	Prediction: 	1370.12 Target: 	1579 
+For benchmark_codelet_npb_UA_SNU_diffuse_c_laplacian_line201_0____diffuse_c_laplacian_line201_loop_c_0_c_1530:	Prediction: 	1581.79 Target: 	1530 
+For benchmark_codelet_npb_UA_SNU_precond_c_setuppc_line63_0____precond_c_setuppc_line63_loop_c_0_c_1047:	Prediction: 	1377.97 Target: 	1047 
+For benchmark_codelet_npb_UA_SNU_precond_c_setuppc_line63_2____precond_c_setuppc_line63_loop_c_2_c_977:	Prediction: 	1146.26 Target: 	977 
+For benchmark_codelet_npb_UA_SNU_precond_c_setuppc_line87_0____precond_c_setuppc_line87_loop_c_0_c_106924:	Prediction: 	170246 Target: 	106924 
+For benchmark_codelet_npb_UA_SNU_ua_c_main_line363_0____ua_c_main_line363_loop_c_0_c_204630:	Prediction: 	282744 Target: 	204630 
+For benchmark_codelet_npb_UA_SNU_utils_c_add2_line170_0____init_arrays_572427:	Prediction: 	433839 Target: 	572427 
+For benchmark_codelet_npb_UA_SNU_utils_c_add2_line170_0____utils_c_add2_line170_loop_c_0_c_488200:	Prediction: 	401054 Target: 	488200 
+For benchmark_codelet_npb_UA_SNU_utils_c_adds1m1_line132_0____init_arrays_540991:	Prediction: 	434198 Target: 	540991 
+For benchmark_codelet_npb_UA_SNU_utils_c_adds1m1_line132_0____utils_c_adds1m1_line132_loop_c_0_c_473846:	Prediction: 	386720 Target: 	473846 
+For benchmark_codelet_npb_UA_SNU_utils_c_adds2m1_line120_0____init_arrays_498800:	Prediction: 	434198 Target: 	498800 
+For benchmark_codelet_npb_UA_SNU_utils_c_adds2m1_line120_0____utils_c_adds2m1_line120_loop_c_0_c_459911:	Prediction: 	389100 Target: 	459911 
+For benchmark_codelet_npb_UA_SNU_utils_c_col2_line145_0____init_arrays_line145_577047:	Prediction: 	460319 Target: 	577046 
+For benchmark_codelet_npb_UA_SNU_utils_c_col2_line145_0____utils_c_col2_line145_loop_c_0_c_488165:	Prediction: 	400651 Target: 	488165 
+For benchmark_codelet_npb_UA_SNU_utils_c_reciprocal_line43_0____init_arrays_line43_583180:	Prediction: 	460319 Target: 	583180 
+For benchmark_codelet_npb_UA_SNU_utils_c_reciprocal_line43_0____utils_c_reciprocal_line43_loop_c_0_c_313512:	Prediction: 	340876 Target: 	313512 
+For benchmark_codelet_pifft____codelet_pifft_46169400:	Prediction: 	3.41555e+07 Target: 	4.61693e+07 
+For benchmark_codelet_polybench_datamining_correlation_correlation_c_init_array_line35_0____correlation_c_init_array_line35_loop_c_0_c_7413490:	Prediction: 	7.6769e+06 Target: 	7.41349e+06 
+For benchmark_codelet_polybench_datamining_correlation_correlation_c_init_array_line35_8____correlation_c_init_array_line35_loop_c_8_c_7587890:	Prediction: 	6.94514e+06 Target: 	7.58788e+06 
+For benchmark_codelet_polybench_datamining_correlation_correlation_c_init_array_line35_jl0f4_tl1s128_tl2s128____correlation_c_init_array_line35_loop_c_8_c_654341:	Prediction: 	726516 Target: 	654341 
+For benchmark_codelet_polybench_datamining_covariance_covariance_c_init_array_line34_0____covariance_c_init_array_line34_loop_c_0_c_7591340:	Prediction: 	5.77247e+06 Target: 	7.59134e+06 
+For benchmark_codelet_polybench_datamining_covariance_covariance_c_kernel_covariance_line81_0____covariance_c_kernel_covariance_line81_loop_c_0_c_7243180:	Prediction: 	5.79386e+06 Target: 	7.24318e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_gemm_gemm_c_init_array_line37_0____gemm_c_init_array_line37_loop_c_0_c_19378300:	Prediction: 	1.52879e+07 Target: 	1.93783e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemm_gemm_c_init_array_line40_0____gemm_c_init_array_line40_loop_c_0_c_20595000:	Prediction: 	1.41181e+07 Target: 	2.0595e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemm_gemm_c_init_array_line43_0____gemm_c_init_array_line43_loop_c_0_c_22748200:	Prediction: 	1.55052e+07 Target: 	2.27482e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line101_0____gemver_c_kernel_gemver_line101_loop_c_0_c_17567100:	Prediction: 	1.62781e+07 Target: 	1.75671e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line105_0____gemver_c_kernel_gemver_line105_loop_c_0_c_12371900:	Prediction: 	1.18236e+07 Target: 	1.23719e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line105_36____gemver_c_kernel_gemver_line105_loop_c_36_c_1532240:	Prediction: 	1.93612e+06 Target: 	1.53224e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line105_44____gemver_c_kernel_gemver_line105_loop_c_44_c_1107170:	Prediction: 	1.41227e+06 Target: 	1.10717e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line105_id2o1_jl0f4_tl1s128_tl2s128____gemver_c_kernel_gemver_line105_loop_c_44_c_3243310:	Prediction: 	3.38277e+06 Target: 	3.24331e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line109_0____gemver_c_kernel_gemver_line109_loop_c_0_c_690:	Prediction: 	17764.4 Target: 	690 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line112_0____gemver_c_kernel_gemver_line112_loop_c_0_c_11813700:	Prediction: 	9.0049e+06 Target: 	1.18137e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line112_8____gemver_c_kernel_gemver_line112_loop_c_8_c_11975400:	Prediction: 	1.68033e+07 Target: 	1.19754e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gemver_gemver_c_kernel_gemver_line112_jl0f4_tl1s128_tl2s128____gemver_c_kernel_gemver_line112_loop_c_8_c_4900620:	Prediction: 	5.38232e+06 Target: 	4.90062e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_gesummv_gesummv_c_init_array_line37_0____gesummv_c_init_array_line37_loop_c_0_c_29479800:	Prediction: 	2.19834e+07 Target: 	2.94798e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_gesummv_gesummv_c_init_array_line37_1____gesummv_c_init_array_line37_loop_c_1_c_29467900:	Prediction: 	2.96422e+07 Target: 	2.94679e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_symm_symm_c_init_array_line37_0____symm_c_init_array_line37_loop_c_0_c_10365800:	Prediction: 	1.32892e+07 Target: 	1.03658e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_symm_symm_c_init_array_line37_8____symm_c_init_array_line37_loop_c_8_c_37479400:	Prediction: 	5.42546e+07 Target: 	3.74794e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_symm_symm_c_init_array_line37_jl0f4_tl1s128_tl2s128____symm_c_init_array_line37_loop_c_8_c_23205900:	Prediction: 	2.62346e+07 Target: 	2.32059e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_syr2k_syr2k_c_init_array_line37_0____syr2k_c_init_array_line37_loop_c_0_c_41808400:	Prediction: 	3.26455e+07 Target: 	4.18085e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_syr2k_syr2k_c_init_array_line42_0____syr2k_c_init_array_line42_loop_c_0_c_24898800:	Prediction: 	5.55139e+06 Target: 	2.48988e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_syr2k_syr2k_c_kernel_syr2k_line87_0____syr2k_c_kernel_syr2k_line87_loop_c_0_c_6093920:	Prediction: 	4.40141e+06 Target: 	6.09392e+06 
+For benchmark_codelet_polybench_linear_algebra_blas_syrk_syrk_c_init_array_line36_0____syrk_c_init_array_line36_loop_c_0_c_20590900:	Prediction: 	1.6205e+07 Target: 	2.05909e+07 
+For benchmark_codelet_polybench_linear_algebra_blas_syrk_syrk_c_init_array_line39_0____syrk_c_init_array_line39_loop_c_0_c_25653300:	Prediction: 	8.79094e+06 Target: 	2.56533e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_init_array_line38_0____2mm_c_init_array_line38_loop_c_0_c_15349300:	Prediction: 	1.56566e+07 Target: 	1.53493e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_init_array_line41_0____2mm_c_init_array_line41_loop_c_0_c_17362900:	Prediction: 	1.41665e+07 Target: 	1.73629e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_init_array_line44_0____2mm_c_init_array_line44_loop_c_0_c_18467400:	Prediction: 	1.61838e+07 Target: 	1.84674e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_init_array_line47_0____2mm_c_init_array_line47_loop_c_0_c_16341800:	Prediction: 	1.49149e+07 Target: 	1.63418e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_kernel_2mm_line89_0____2mm_c_kernel_2mm_line89_loop_c_0_c_2348529920:	Prediction: 	2.33879e+09 Target: 	2.34853e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_kernel_2mm_line96_0____2mm_c_kernel_2mm_line96_loop_c_0_c_2536369920:	Prediction: 	2.69639e+09 Target: 	2.53637e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_2mm_2mm_c_kernel_2mm_line96_8____2mm_c_kernel_2mm_line96_loop_c_8_c_2549659904:	Prediction: 	2.65313e+09 Target: 	2.54966e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_init_array_line34_0____3mm_c_init_array_line34_loop_c_0_c_13894000:	Prediction: 	9.46027e+06 Target: 	1.3894e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_init_array_line37_0____3mm_c_init_array_line37_loop_c_0_c_15753300:	Prediction: 	1.10067e+07 Target: 	1.57533e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_init_array_line40_0____3mm_c_init_array_line40_loop_c_0_c_18466800:	Prediction: 	1.70632e+07 Target: 	1.84668e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_init_array_line43_0____3mm_c_init_array_line43_loop_c_0_c_23441700:	Prediction: 	1.5901e+07 Target: 	2.34417e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line101_0____3mm_c_kernel_3mm_line101_loop_c_0_c_2325629952:	Prediction: 	2.87957e+09 Target: 	2.32563e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line101_8____3mm_c_kernel_3mm_line101_loop_c_8_c_2430569984:	Prediction: 	3.09182e+09 Target: 	2.43057e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line85_0____3mm_c_kernel_3mm_line85_loop_c_0_c_2118439936:	Prediction: 	2.70352e+09 Target: 	2.11844e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line85_8____3mm_c_kernel_3mm_line85_loop_c_8_c_2210840064:	Prediction: 	2.79128e+09 Target: 	2.21084e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line93_0____3mm_c_kernel_3mm_line93_loop_c_0_c_3535170048:	Prediction: 	3.09168e+09 Target: 	3.53517e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_3mm_3mm_c_kernel_3mm_line93_8____3mm_c_kernel_3mm_line93_loop_c_8_c_3683429888:	Prediction: 	3.0303e+09 Target: 	3.68343e+09 
+For benchmark_codelet_polybench_linear_algebra_kernels_atax_atax_c_init_array_line34_0____atax_c_init_array_line34_loop_c_0_c_2630:	Prediction: 	2654.08 Target: 	2630 
+For benchmark_codelet_polybench_linear_algebra_kernels_atax_atax_c_init_array_line36_0____atax_c_init_array_line36_loop_c_0_c_56032300:	Prediction: 	4.11982e+07 Target: 	5.60322e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_atax_atax_c_init_array_line36_4____atax_c_init_array_line36_loop_c_4_c_56073700:	Prediction: 	4.42644e+07 Target: 	5.60737e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_atax_atax_c_kernel_atax_line74_0____atax_c_kernel_atax_line74_loop_c_0_c_554:	Prediction: 	596.635 Target: 	554 
+For benchmark_codelet_polybench_linear_algebra_kernels_bicg_bicg_c_init_array_line33_0____bicg_c_init_array_line33_loop_c_0_c_26609:	Prediction: 	31217 Target: 	26609 
+For benchmark_codelet_polybench_linear_algebra_kernels_doitgen_doitgen_c_init_array_line32_0____doitgen_c_init_array_line32_loop_c_0_c_53176900:	Prediction: 	3.85159e+07 Target: 	5.31769e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_doitgen_doitgen_c_init_array_line36_0____doitgen_c_init_array_line36_loop_c_0_c_407790:	Prediction: 	800957 Target: 	407790 
+For benchmark_codelet_polybench_linear_algebra_kernels_mvt_mvt_c_kernel_mvt_line88_0____mvt_c_kernel_mvt_line88_loop_c_0_c_11822400:	Prediction: 	9.22439e+06 Target: 	1.18224e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_mvt_mvt_c_kernel_mvt_line91_0____mvt_c_kernel_mvt_line91_loop_c_0_c_12230600:	Prediction: 	1.22464e+07 Target: 	1.22306e+07 
+For benchmark_codelet_polybench_linear_algebra_kernels_mvt_mvt_c_kernel_mvt_line91_36____mvt_c_kernel_mvt_line91_loop_c_36_c_1373400:	Prediction: 	1.6245e+06 Target: 	1.3734e+06 
+For benchmark_codelet_polybench_linear_algebra_kernels_mvt_mvt_c_kernel_mvt_line91_44____mvt_c_kernel_mvt_line91_loop_c_44_c_1041740:	Prediction: 	1.25742e+06 Target: 	1.04174e+06 
+For benchmark_codelet_polybench_linear_algebra_kernels_mvt_mvt_c_kernel_mvt_line91_id2o1_jl0f4_tl1s128_tl2s128____mvt_c_kernel_mvt_line91_loop_c_44_c_3372660:	Prediction: 	3.70879e+06 Target: 	3.37266e+06 
+For benchmark_codelet_polybench_linear_algebra_solvers_durbin_durbin_c_init_array_line31_0____durbin_c_init_array_line31_loop_c_0_c_1290:	Prediction: 	1239.4 Target: 	1290 
+For benchmark_codelet_polybench_linear_algebra_solvers_gramschmidt_gramschmidt_c_init_array_line33_0____gramschmidt_c_init_array_line33_loop_c_0_c_25315100:	Prediction: 	1.84869e+07 Target: 	2.53151e+07 
+For benchmark_codelet_polybench_linear_algebra_solvers_gramschmidt_gramschmidt_c_init_array_line33_1____gramschmidt_c_init_array_line33_loop_c_1_c_21231600:	Prediction: 	2.66777e+07 Target: 	2.12316e+07 
+For benchmark_codelet_polybench_linear_algebra_solvers_gramschmidt_gramschmidt_c_init_array_line38_0____gramschmidt_c_init_array_line38_loop_c_0_c_6720340:	Prediction: 	1.75137e+06 Target: 	6.72034e+06 
+For benchmark_codelet_polybench_linear_algebra_solvers_ludcmp_ludcmp_c_init_array_line35_0____ludcmp_c_init_array_line35_loop_c_0_c_3582:	Prediction: 	5104.63 Target: 	3582 
+For benchmark_codelet_polybench_medley_deriche_deriche_c_init_array_line35_0____deriche_c_init_array_line35_loop_c_0_c_19186300:	Prediction: 	2.68859e+07 Target: 	1.91863e+07 
+For benchmark_codelet_polybench_medley_deriche_deriche_c_init_array_line35_4____deriche_c_init_array_line35_loop_c_4_c_139792000:	Prediction: 	7.87238e+07 Target: 	1.39792e+08 
+For benchmark_codelet_polybench_medley_deriche_deriche_c_init_array_line35_jl0f2_tl1s256_tl2s256____deriche_c_init_array_line35_loop_c_4_c_78730600:	Prediction: 	6.26751e+07 Target: 	7.87307e+07 
+For benchmark_codelet_polybench_medley_deriche_deriche_c_kernel_deriche_line118_0____deriche_c_kernel_deriche_line118_loop_c_0_c_22232400:	Prediction: 	2.23773e+07 Target: 	2.22324e+07 
+For benchmark_codelet_polybench_medley_deriche_deriche_c_kernel_deriche_line150_0____deriche_c_kernel_deriche_line150_loop_c_0_c_22362600:	Prediction: 	2.56125e+07 Target: 	2.23626e+07 
+For benchmark_codelet_polybench_medley_nussinov_nussinov_c_init_array_line42_0____nussinov_c_init_array_line42_loop_c_0_c_14500300:	Prediction: 	2.91091e+06 Target: 	1.45003e+07 
+For benchmark_codelet_polybench_stencils_adi_adi_c_init_array_line31_0____adi_c_init_array_line31_loop_c_0_c_4426060:	Prediction: 	5.81939e+06 Target: 	4.42606e+06 
+For benchmark_codelet_polybench_stencils_fdtd_2d_fdtd_2d_c_init_array_line38_0____fdtd_2d_c_init_array_line38_loop_c_0_c_15815800:	Prediction: 	1.96648e+07 Target: 	1.58158e+07 
+For benchmark_codelet_polybench_stencils_jacobi_1d_jacobi_1d_c_init_array_line32_0____jacobi_1d_c_init_array_line32_loop_c_0_c_5000:	Prediction: 	8711.88 Target: 	5000 
+For benchmark_codelet_polybench_stencils_jacobi_2d_jacobi_2d_c_init_array_line32_0____jacobi_2d_c_init_array_line32_loop_c_0_c_14713600:	Prediction: 	1.65035e+07 Target: 	1.47136e+07 
+For benchmark_codelet_polybench_stencils_seidel_2d_seidel_2d_c_init_array_line31_0____seidel_2d_c_init_array_line31_loop_c_0_c_17675900:	Prediction: 	2.36731e+07 Target: 	1.76759e+07 
+For benchmark_codelet_rbm_train____codelet_rbm_train_line191_115877:	Prediction: 	96673.7 Target: 	115877 
+For benchmark_codelet_spec2000____quake_c_main_line452_loop_92103:	Prediction: 	101418 Target: 	92103 
+For benchmark_codelet_spec2000____quake_c_main_line461_loop_122933:	Prediction: 	120750 Target: 	122933 
+For benchmark_codelet_spec2000____quake_c_main_line473_loop_455512:	Prediction: 	358530 Target: 	455512 
+For benchmark_codelet_spec2000____quake_c_mem_init_line1508_loop_16566600:	Prediction: 	5.98203e+06 Target: 	1.65666e+07 
+For benchmark_codelet_spec2000____scanner_c_init_td_line819_loop_21470:	Prediction: 	25735.4 Target: 	21470 
+For benchmark_codelet_spec2000____vpr_stats_routing_line88_1124:	Prediction: 	1370.81 Target: 	1124 
+For benchmark_codelet_srr_engine____codelet_srr_engine_matmul_line21_1_470:	Prediction: 	-0.19836 Target: 	470 
+For benchmark_codelet_srr_engine____codelet_srr_engine_matmul_line21_8_174:	Prediction: 	995.277 Target: 	174 
+For benchmark_codelet_tsvc____tsc_c_check_line166_loop_c_0_c_101882:	Prediction: 	83256 Target: 	101882 
+For benchmark_codelet_tsvc____tsc_c_check_line176_loop_c_0_c_196662:	Prediction: 	178577 Target: 	196662 
+For benchmark_codelet_tsvc____tsc_c_check_line185_loop_c_0_c_196666:	Prediction: 	52928.5 Target: 	196666 
+For benchmark_codelet_tsvc____tsc_c_init_line223_loop_c_0_c_22648:	Prediction: 	20877.5 Target: 	22648 
+For benchmark_codelet_tsvc____tsc_c_s000_line786_loop_c_0_c_8027:	Prediction: 	10148.4 Target: 	8027 
+For benchmark_codelet_tsvc____tsc_c_s1111_line838_loop_c_0_c_21080:	Prediction: 	26222.9 Target: 	21080 
+For benchmark_codelet_tsvc____tsc_c_s1115_line1031_loop_c_0_c_258330:	Prediction: 	335863 Target: 	258330 
+For benchmark_codelet_tsvc____tsc_c_s1115_line1031_loop_c_8_c2_119541:	Prediction: 	118259 Target: 	119541 
+For benchmark_codelet_tsvc____tsc_c_s1115_line1031_loop_c_8_c_74474:	Prediction: 	72374.5 Target: 	74474 
+For benchmark_codelet_tsvc____tsc_c_s1119_line1148_loop_c_0_c_20407:	Prediction: 	17932.1 Target: 	20407 
+For benchmark_codelet_tsvc____tsc_c_s1119_line1148_loop_c_32_c_25072:	Prediction: 	27775.1 Target: 	25072 
+For benchmark_codelet_tsvc____tsc_c_s113_line921_loop_c_0_c_10243:	Prediction: 	154492 Target: 	10243 
+For benchmark_codelet_tsvc____tsc_c_s119_line1119_loop_c_0_c_25043:	Prediction: 	16288.7 Target: 	25043 
+For benchmark_codelet_tsvc____tsc_c_s1213_line1909_loop_c_0_c_66169:	Prediction: 	80426 Target: 	66169 
+For benchmark_codelet_tsvc____tsc_c_s1221_line1962_loop_c_0_c_24841:	Prediction: 	29112 Target: 	24841 
+For benchmark_codelet_tsvc____tsc_c_s1244_line2304_loop_c_0_c_103543:	Prediction: 	17745.3 Target: 	103543 
+For benchmark_codelet_tsvc____tsc_c_s1251_line2386_loop_c_0_c_21747:	Prediction: 	17757.2 Target: 	21747 
+For benchmark_codelet_tsvc____tsc_c_s1281_line3194_loop_c_0_c_21748:	Prediction: 	21794.6 Target: 	21748 
+For benchmark_codelet_tsvc____tsc_c_s131_line1438_loop_c_0_c_64040:	Prediction: 	51249.7 Target: 	64040 
+For benchmark_codelet_tsvc____tsc_c_s131_line1438_loop_c_3_c_36033:	Prediction: 	44985.9 Target: 	36033 
+For benchmark_codelet_tsvc____tsc_c_s1421_line4344_loop_c_0_c2_6016:	Prediction: 	8094.21 Target: 	6016 
+For benchmark_codelet_tsvc____tsc_c_s1421_line4344_loop_c_0_c_6022:	Prediction: 	11571.5 Target: 	6022 
+For benchmark_codelet_tsvc____tsc_c_s1421_line4353_loop_c_0_c_48018:	Prediction: 	84020.9 Target: 	48018 
+For benchmark_codelet_tsvc____tsc_c_s151s_line1515_loop_c_0_c_64040:	Prediction: 	51249.7 Target: 	64040 
+For benchmark_codelet_tsvc____tsc_c_s151s_line1515_loop_c_3_c_36034:	Prediction: 	44985.9 Target: 	36034 
+For benchmark_codelet_tsvc____tsc_c_s173_line1740_loop_c_0_c_28704:	Prediction: 	77205.3 Target: 	28704 
+For benchmark_codelet_tsvc____tsc_c_s174_line1767_loop_c_0_c_32032:	Prediction: 	41834.4 Target: 	32032 
+For benchmark_codelet_tsvc____tsc_c_s176_line1822_loop_c_0_c_112035:	Prediction: 	146827 Target: 	112035 
+For benchmark_codelet_tsvc____tsc_c_s176_line1822_loop_c_36_c_48020:	Prediction: 	48503.4 Target: 	48020 
+For benchmark_codelet_tsvc____tsc_c_s176_line1822_loop_c_44_c2_12:	Prediction: 	155.154 Target: 	12 
+For benchmark_codelet_tsvc____tsc_c_s176_line1822_loop_c_44_c_48019:	Prediction: 	76977.7 Target: 	48019 
+For benchmark_codelet_tsvc____tsc_c_s2101_line3313_loop_c_0_c2_1504:	Prediction: 	1686.42 Target: 	1504 
+For benchmark_codelet_tsvc____tsc_c_s2111_line3368_loop_c_0_c_189745:	Prediction: 	166862 Target: 	189745 
+For benchmark_codelet_tsvc____tsc_c_s2111_line3368_loop_c_8_c_68833:	Prediction: 	54445.8 Target: 	68833 
+For benchmark_codelet_tsvc____tsc_c_s2111_line3379_loop_c_0_c_196664:	Prediction: 	170689 Target: 	196664 
+For benchmark_codelet_tsvc____tsc_c_s211_line1857_loop_c_0_c_96171:	Prediction: 	169315 Target: 	96171 
+For benchmark_codelet_tsvc____tsc_c_s212_line1884_loop_c_0_c_85366:	Prediction: 	109957 Target: 	85366 
+For benchmark_codelet_tsvc____tsc_c_s221_line1937_loop_c_0_c_196398:	Prediction: 	62530.2 Target: 	196398 
+For benchmark_codelet_tsvc____tsc_c_s222_line1989_loop_c_0_c_109921:	Prediction: 	88455.5 Target: 	109921 
+For benchmark_codelet_tsvc____tsc_c_s222_line1989_loop_c_24_c_113037:	Prediction: 	127836 Target: 	113037 
+For benchmark_codelet_tsvc____tsc_c_s2244_line2330_loop_c_0_c_20713:	Prediction: 	17693.3 Target: 	20713 
+For benchmark_codelet_tsvc____tsc_c_s2251_line2414_loop_c_0_c_91028:	Prediction: 	106440 Target: 	91028 
+For benchmark_codelet_tsvc____tsc_c_s2251_line2414_loop_c_3_c_41168:	Prediction: 	36433.6 Target: 	41168 
+For benchmark_codelet_tsvc____tsc_c_s231_line2017_loop_c_0_c_21850:	Prediction: 	20350 Target: 	21850 
+For benchmark_codelet_tsvc____tsc_c_s231_line2017_loop_c_32_c_23595:	Prediction: 	22955.6 Target: 	23595 
+For benchmark_codelet_tsvc____tsc_c_s241_line2193_loop_c_0_c_96418:	Prediction: 	94385.9 Target: 	96418 
+For benchmark_codelet_tsvc____tsc_c_s242_line2221_loop_c_0_c_493473:	Prediction: 	208663 Target: 	493473 
+For benchmark_codelet_tsvc____tsc_c_s243_line2248_loop_c_0_c_22801:	Prediction: 	19246.8 Target: 	22801 
+For benchmark_codelet_tsvc____tsc_c_s244_line2277_loop_c_0_c_96535:	Prediction: 	32078.8 Target: 	96535.1 
+For benchmark_codelet_tsvc____tsc_c_s244_line2277_loop_c_3_c_20546:	Prediction: 	24923.7 Target: 	20546 
+For benchmark_codelet_tsvc____tsc_c_s251_line2359_loop_c_0_c_16792:	Prediction: 	51413.4 Target: 	16792 
+For benchmark_codelet_tsvc____tsc_c_s252_line2471_loop_c_0_c_12178:	Prediction: 	11478.8 Target: 	12178 
+For benchmark_codelet_tsvc____tsc_c_s252_line2471_loop_c_3_c_40045:	Prediction: 	27838 Target: 	40045 
+For benchmark_codelet_tsvc____tsc_c_s254_line2535_loop_c_0_c_8466:	Prediction: 	7901.73 Target: 	8466 
+For benchmark_codelet_tsvc____tsc_c_s254_line2535_loop_c_3_c_28065:	Prediction: 	46733.3 Target: 	28065 
+For benchmark_codelet_tsvc____tsc_c_s255_line2566_loop_c_0_c_64045:	Prediction: 	79548.5 Target: 	64045 
+For benchmark_codelet_tsvc____tsc_c_s255_line2566_loop_c_2_c_32040:	Prediction: 	21002.1 Target: 	32040 
+For benchmark_codelet_tsvc____tsc_c_s256_line2595_loop_c_0_c_478262:	Prediction: 	322169 Target: 	478262 
+For benchmark_codelet_tsvc____tsc_c_s256_line2595_loop_c_1_c_468595:	Prediction: 	450916 Target: 	468595 
+For benchmark_codelet_tsvc____tsc_c_s257_line2625_loop_c_0_c_255602:	Prediction: 	223047 Target: 	255602 
+For benchmark_codelet_tsvc____tsc_c_s261_line2687_loop_c_0_c_86702:	Prediction: 	69942.9 Target: 	86702.1 
+For benchmark_codelet_tsvc____tsc_c_s261_line2687_loop_c_3_c_50168:	Prediction: 	63836.1 Target: 	50168 
+For benchmark_codelet_tsvc____tsc_c_s281_line3165_loop_c_0_c_65530:	Prediction: 	84375.2 Target: 	65530 
+For benchmark_codelet_tsvc____tsc_c_s281_line3165_loop_c_3_c_64987:	Prediction: 	51897.9 Target: 	64987 
+For benchmark_codelet_tsvc____tsc_c_s3112_line3856_loop_c_0_c_98771:	Prediction: 	96487.2 Target: 	98771 
+For benchmark_codelet_tsvc____tsc_c_s311_line3411_loop_c_0_c_96025:	Prediction: 	79976.4 Target: 	96025 
+For benchmark_codelet_tsvc____tsc_c_s312_line3480_loop_c_0_c_96026:	Prediction: 	98981.2 Target: 	96025.9 
+For benchmark_codelet_tsvc____tsc_c_s312_line3480_loop_c_1_c_96025:	Prediction: 	101117 Target: 	96025 
+For benchmark_codelet_tsvc____tsc_c_s313_line3509_loop_c_0_c_96026:	Prediction: 	66750.1 Target: 	96025.9 
+For benchmark_codelet_tsvc____tsc_c_s315_line3566_loop_c_0_c_28025:	Prediction: 	21271.6 Target: 	28025 
+For benchmark_codelet_tsvc____tsc_c_s317_line3642_loop_c_0_c_48017:	Prediction: 	33288.2 Target: 	48017 
+For benchmark_codelet_tsvc____tsc_c_s317_line3642_loop_c_3_c_48018:	Prediction: 	53648.8 Target: 	48018 
+For benchmark_codelet_tsvc____tsc_c_s319_line3714_loop_c_0_c_192067:	Prediction: 	127902 Target: 	192067 
+For benchmark_codelet_tsvc____tsc_c_s321_line3917_loop_c_0_c_191977:	Prediction: 	177081 Target: 	191977 
+For benchmark_codelet_tsvc____tsc_c_s322_line3944_loop_c_0_c_288104:	Prediction: 	248555 Target: 	288104 
+For benchmark_codelet_tsvc____tsc_c_s323_line3971_loop_c_0_c_196250:	Prediction: 	168829 Target: 	196250 
+For benchmark_codelet_tsvc____tsc_c_s3251_line2440_loop_c_0_c_105265:	Prediction: 	116326 Target: 	105265 
+For benchmark_codelet_tsvc____tsc_c_s421_line4315_loop_c_0_c_12102:	Prediction: 	6278.55 Target: 	12102 
+For benchmark_codelet_tsvc____tsc_c_s421_line4324_loop_c_0_c_96025:	Prediction: 	82929 Target: 	96025 
+For benchmark_codelet_tsvc____tsc_c_s422_line4387_loop_c_0_c_96025:	Prediction: 	82929 Target: 	96025 
+For benchmark_codelet_tsvc____tsc_c_s423_line4409_loop_c_0_c_12427:	Prediction: 	9732.23 Target: 	12427 
+For benchmark_codelet_tsvc____tsc_c_s423_line4419_loop_c_0_c_96024:	Prediction: 	82565.2 Target: 	96024 
+For benchmark_codelet_tsvc____tsc_c_s424_line4452_loop_c_0_c_96027:	Prediction: 	82929 Target: 	96026.9 
+For benchmark_codelet_tsvc____tsc_c_s431_line4477_loop_c_0_c_45433:	Prediction: 	52477.6 Target: 	45433 
+For benchmark_codelet_tsvc____tsc_c_s452_line4647_loop_c_0_c_11989:	Prediction: 	12705.2 Target: 	11989 
+For benchmark_codelet_tsvc____tsc_c_s453_line4675_loop_c_0_c_98315:	Prediction: 	22859.9 Target: 	98315 
+For benchmark_codelet_tsvc____tsc_c_s471_line4714_loop_c_0_c_96025:	Prediction: 	89086.8 Target: 	96025 
+For benchmark_codelet_tsvc____tsc_c_set1d_line82_loop_c_0_c_14007:	Prediction: 	16594.8 Target: 	14007 
+For benchmark_codelet_tsvc____tsc_c_set1d_line86_loop_c_0_c_14023:	Prediction: 	3634.68 Target: 	14023 
+For benchmark_codelet_tsvc____tsc_c_set1ds_line100_loop_c_0_c_14005:	Prediction: 	11675.6 Target: 	14005 
+For benchmark_codelet_tsvc____tsc_c_set2d_line121_loop_c_0_c_8925:	Prediction: 	14866 Target: 	8925 
+For benchmark_codelet_tsvc____tsc_c_set2d_line127_loop_c_0_c_8961:	Prediction: 	8362.85 Target: 	8961 
+For benchmark_codelet_tsvc____tsc_c_vbor_line5367_loop_c_0_c_591:	Prediction: 	730.699 Target: 	591 
+For benchmark_codelet_tsvc____tsc_c_vbor_line5389_loop_c_0_c_96026:	Prediction: 	89086.8 Target: 	96025.9 
+For benchmark_codelet_tsvc____tsc_c_vdotr_line5337_loop_c_0_c_96026:	Prediction: 	66750.1 Target: 	96025.9 
+For benchmark_codelet_tsvc____tsc_c_vpv_line5143_loop_c_0_c_8321:	Prediction: 	21358.9 Target: 	8321 
+
+Validation data:
+For benchmark_codelet_tsvc____tsc_c_vpvpv_line5252_loop_c_0_c_12170:	Prediction: 	36209.7 Target: 	12170 
+For benchmark_codelet_tsvc____tsc_c_vpvts_line5225_loop_c_0_c_8020:	Prediction: 	95377.7 Target: 	8020 
+For benchmark_codelet_tsvc____tsc_c_vpvtv_line5198_loop_c_0_c_12171:	Prediction: 	36223.7 Target: 	12171 
+For benchmark_codelet_tsvc____tsc_c_vsumr_line5308_loop_c_0_c_96026:	Prediction: 	79976.4 Target: 	96025.9 
+For benchmark_codelet_tsvc____tsc_c_vtv_line5171_loop_c_0_c_8342:	Prediction: 	21288.4 Target: 	8342 
+For benchmark_codelet_tsvc____tsc_c_vtvtv_line5279_loop_c_0_c_12287:	Prediction: 	39091.5 Target: 	12287 
+For benchmark_codelet_vector_c_hypre_seq_vector_axpy_line384____codelet_vector_c_hypre_seq_vector_axpy_line384_83244:	Prediction: 	77250.3 Target: 	83244 
+For benchmark_crypto____sha256_final_25:	Prediction: 	537691 Target: 	25 
+For benchmark_crypto____sha256_init_11:	Prediction: 	9270.32 Target: 	11 
+For benchmark_crypto____sha256_transform_1134:	Prediction: 	3.2495e+06 Target: 	1134 
+For benchmark_crypto____sha526_update_3593:	Prediction: 	35029.9 Target: 	3593 
+For benchmark_fibonacci____fib_float_fast_exp_4:	Prediction: 	2.49785e+06 Target: 	4 
+For benchmark_fibonacci____fib_float_slow_exp_51:	Prediction: 	46682.9 Target: 	51 
+For benchmark_fibonacci____fib_iter_42:	Prediction: 	273.915 Target: 	42 
+For benchmark_fibonacci____fib_recursive_44:	Prediction: 	155.154 Target: 	44 
+For benchmark_mat_mul____mat_mult_128_ijk_2049220:	Prediction: 	19213.8 Target: 	2.04922e+06 
+For benchmark_mat_mul____mat_mult_128_ikj_4510030:	Prediction: 	36594.8 Target: 	4.51003e+06 
+For benchmark_mat_mul____mat_mult_128_jik_8943190:	Prediction: 	1.27239e+06 Target: 	8.94319e+06 
+For benchmark_mat_mul____mat_mult_128_jki_8170040:	Prediction: 	539651 Target: 	8.17004e+06 
+For benchmark_mat_mul____mat_mult_128_kij_987436:	Prediction: 	475675 Target: 	987435 
+For benchmark_mat_mul____mat_mult_16_ijk_1006:	Prediction: 	105371 Target: 	1006 
+For benchmark_mat_mul____mat_mult_16_ikj_9824:	Prediction: 	16384.7 Target: 	9824 
+For benchmark_mat_mul____mat_mult_16_jik_1007:	Prediction: 	86802.2 Target: 	1007 
+For benchmark_mat_mul____mat_mult_16_jki_887:	Prediction: 	349208 Target: 	887 
+For benchmark_mat_mul____mat_mult_16_kij_1791:	Prediction: 	114279 Target: 	1791 
+For benchmark_mat_mul____mat_mult_256_ijk_33191800:	Prediction: 	23851.2 Target: 	3.31918e+07 
+For benchmark_mat_mul____mat_mult_256_ikj_22381800:	Prediction: 	30909.4 Target: 	2.23818e+07 
+For benchmark_mat_mul____mat_mult_256_jik_153019008:	Prediction: 	1.56978e+06 Target: 	1.53019e+08 
+For benchmark_mat_mul____mat_mult_256_jki_166239008:	Prediction: 	318744 Target: 	1.66239e+08 
+For benchmark_mat_mul____mat_mult_256_kij_9372320:	Prediction: 	750486 Target: 	9.37233e+06 
+For benchmark_mat_mul____mat_mult_32_ijk_19606:	Prediction: 	58855.5 Target: 	19606 
+For benchmark_mat_mul____mat_mult_32_ikj_70482:	Prediction: 	26199.1 Target: 	70482 
+For benchmark_mat_mul____mat_mult_32_jik_71834:	Prediction: 	1.02036e+06 Target: 	71834 
+For benchmark_mat_mul____mat_mult_32_jki_44075:	Prediction: 	444903 Target: 	44075 
+For benchmark_mat_mul____mat_mult_32_kij_12148:	Prediction: 	38992.9 Target: 	12148 
+For benchmark_mat_mul____mat_mult_4_ijk_22:	Prediction: 	31689 Target: 	22 
+For benchmark_mat_mul____mat_mult_4_ikj_199:	Prediction: 	8837.58 Target: 	199 
+For benchmark_mat_mul____mat_mult_4_jik_21:	Prediction: 	31689 Target: 	21 
+For benchmark_mat_mul____mat_mult_4_jki_23:	Prediction: 	1765.96 Target: 	23 
+For benchmark_mat_mul____mat_mult_4_kij_48:	Prediction: 	2588.98 Target: 	48 
+For benchmark_mat_mul____mat_mult_512_ijk_700243008:	Prediction: 	45847.6 Target: 	7.00243e+08 
+For benchmark_mat_mul____mat_mult_512_ikj_177560992:	Prediction: 	35525.9 Target: 	1.77561e+08 
+For benchmark_mat_mul____mat_mult_512_jik_3145669888:	Prediction: 	2.18103e+06 Target: 	3.14567e+09 
+For benchmark_mat_mul____mat_mult_512_jki_3187579904:	Prediction: 	278467 Target: 	3.18758e+09 
+For benchmark_mat_mul____mat_mult_512_kij_88750200:	Prediction: 	732621 Target: 	8.87502e+07 
+For benchmark_mat_mul____mat_mult_64_ijk_177585:	Prediction: 	70487.1 Target: 	177585 
+For benchmark_mat_mul____mat_mult_64_ikj_632514:	Prediction: 	30407.5 Target: 	632514 
+For benchmark_mat_mul____mat_mult_64_jik_579860:	Prediction: 	2.09506e+06 Target: 	579860 
+For benchmark_mat_mul____mat_mult_64_jki_525161:	Prediction: 	31114.4 Target: 	525161 
+For benchmark_mat_mul____mat_mult_64_kij_100362:	Prediction: 	32620.6 Target: 	100362 
+For benchmark_mat_mul____mat_mult_8_ijk_128:	Prediction: 	1.16833e+06 Target: 	128 
+For benchmark_mat_mul____mat_mult_8_ikj_785:	Prediction: 	35609.5 Target: 	785 
+For benchmark_mat_mul____mat_mult_8_jik_79:	Prediction: 	1.48856e+06 Target: 	79 
+For benchmark_mat_mul____mat_mult_8_jki_72:	Prediction: 	5.713e+06 Target: 	72 
+For benchmark_mat_mul____mat_mult_8_kij_170:	Prediction: 	38802.6 Target: 	170 
+For benchmark_nbody____advance_238338:	Prediction: 	496324 Target: 	238338 
+For benchmark_nbody____advance_simd_37600:	Prediction: 	36655.8 Target: 	37600 
+For benchmark_nbody____energy_137:	Prediction: 	1.32576e+07 Target: 	137 
+For benchmark_nbody____energy_simd_72:	Prediction: 	959564 Target: 	72 
+For benchmark_nbody____initialize_bodies_11:	Prediction: 	203459 Target: 	11 
+For benchmark_nbody____initialize_bodies_simd_13:	Prediction: 	732.891 Target: 	13 
+For benchmark_nbody____kernel_simd_51:	Prediction: 	1.89794e+07 Target: 	51 
+For benchmark_nbody____offset_momentum_52:	Prediction: 	77914.9 Target: 	52 
+For benchmark_nbody____rsqrt_simd_42:	Prediction: 	46740.8 Target: 	42 
+For benchmark_poisson____dgbmv_no_transposed_8539:	Prediction: 	281832 Target: 	8539 
+For benchmark_poisson____dgbmv_transposed_25415:	Prediction: 	3.33363e+06 Target: 	25415 
+For benchmark_poisson____dgbtrftridiag_116185:	Prediction: 	11527.6 Target: 	116185 
+For benchmark_poisson____eig_poisson_1d_127962:	Prediction: 	204981 Target: 	127962 
+For benchmark_poisson____relative_forward_error_26687:	Prediction: 	52141.2 Target: 	26687 
+For benchmark_poisson____residual_49992300:	Prediction: 	225897 Target: 	4.99922e+07 
+For benchmark_poisson____set_analytical_solution_dbc_1d_2501:	Prediction: 	365.046 Target: 	2501 
+For benchmark_poisson____set_dense_rhs_dbc_1d_1068:	Prediction: 	1984.77 Target: 	1068 
+For benchmark_poisson____set_gb_operator_col_major_poisson1d_5431:	Prediction: 	5813.42 Target: 	5431 
+For benchmark_poisson____set_gb_operator_col_major_poisson1d_id_7333:	Prediction: 	1852.28 Target: 	7333 
+For benchmark_poisson____set_grid_points_1d_2565:	Prediction: 	18758.9 Target: 	2565 
+For benchmark_repeated_hash____hash_1024_6179:	Prediction: 	155.155 Target: 	6179 
+For benchmark_repeated_hash____hash_1048576_6297100:	Prediction: 	155.155 Target: 	6.2971e+06 
+For benchmark_repeated_hash____hash_128_768:	Prediction: 	155.155 Target: 	768 
+For benchmark_repeated_hash____hash_131072_788179:	Prediction: 	155.155 Target: 	788179 
+For benchmark_repeated_hash____hash_16384_98854:	Prediction: 	155.165 Target: 	98854.1 
+For benchmark_repeated_hash____hash_16777216_100731000:	Prediction: 	155.155 Target: 	1.00731e+08 
+For benchmark_repeated_hash____hash_16_4:	Prediction: 	970659 Target: 	4 
+For benchmark_repeated_hash____hash_1_4:	Prediction: 	642158 Target: 	4 
+For benchmark_repeated_hash____hash_2048_12355:	Prediction: 	155.155 Target: 	12355 
+For benchmark_repeated_hash____hash_2097152_12589500:	Prediction: 	155.155 Target: 	1.25895e+07 
+For benchmark_repeated_hash____hash_256_1541:	Prediction: 	155.155 Target: 	1541 
+For benchmark_repeated_hash____hash_262144_1574510:	Prediction: 	155.155 Target: 	1.57451e+06 
+For benchmark_repeated_hash____hash_2_4:	Prediction: 	642158 Target: 	4 
+For benchmark_repeated_hash____hash_32768_197413:	Prediction: 	161.37 Target: 	197413 
+For benchmark_repeated_hash____hash_32_176:	Prediction: 	1587.41 Target: 	176 
+For benchmark_repeated_hash____hash_4096_24726:	Prediction: 	155.155 Target: 	24726 
+For benchmark_repeated_hash____hash_4194304_25185600:	Prediction: 	155.155 Target: 	2.51856e+07 
+For benchmark_repeated_hash____hash_4_4:	Prediction: 	642158 Target: 	4 
+For benchmark_repeated_hash____hash_512_3087:	Prediction: 	155.155 Target: 	3087 
+For benchmark_repeated_hash____hash_524288_3148840:	Prediction: 	155.155 Target: 	3.14884e+06 
+For benchmark_repeated_hash____hash_64_376:	Prediction: 	1610.13 Target: 	376 
+For benchmark_repeated_hash____hash_65536_394360:	Prediction: 	155.155 Target: 	394360 
+For benchmark_repeated_hash____hash_8192_49449:	Prediction: 	155.156 Target: 	49449 
+For benchmark_repeated_hash____hash_8388608_50360600:	Prediction: 	155.156 Target: 	5.03606e+07 
+For benchmark_repeated_hash____hash_8_4:	Prediction: 	844064 Target: 	4 
+For benchmark_reverse_complement____reverse_complement_225:	Prediction: 	2.33064e+07 Target: 	225 
+For benchmark_sorting____bubble_sort_6333160:	Prediction: 	5373.28 Target: 	6.33316e+06 
+For benchmark_sorting____init_arrays_89726:	Prediction: 	1631.03 Target: 	89726 
+For benchmark_sorting____insertion_sort_6164:	Prediction: 	9167.63 Target: 	6164 
+For benchmark_sorting____selection_sort_4856870:	Prediction: 	97665 Target: 	4.85687e+06 
+For benchmark_sorting_merge_sort_192088:	Prediction: 	1.18573e+07 Target: 	192088 
+For benchmark_sorting_quick_sort_8456340:	Prediction: 	82747.5 Target: 	8.45634e+06 
+
+Network topology:
+1375 1375 343 1 
+Optimiser: AMSGrad
+Learning rate: 0.001
+Activation function: ELU

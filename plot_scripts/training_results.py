@@ -8,8 +8,8 @@ if (len(sys.argv) < 2):
     exit()
 
 training = sys.argv[1]
-name1 =None
-name2 =None  
+name1 = None
+name2 = None  
 if (len(sys.argv) > 2):
     reference = sys.argv[2]
 
@@ -19,8 +19,18 @@ if (len(sys.argv) > 2):
     print(f'\n {name1}  {name2} \n ')
 
 
+# If there are two arguments, the first one is the training directory and the second one is for name
+if (len(sys.argv) == 3):
+    training = sys.argv[1]
+    name1 = sys.argv[2]
 
-    
+# If there are 4 arguments, the first one is the training directory, the second one is the reference directory and the third and fourth are for name
+if (len(sys.argv) == 5):
+    training = sys.argv[1]
+    reference = sys.argv[2]
+    name1 = sys.argv[3]
+    name2 = sys.argv[4]    
+
 # Read the training results
 from matplotlib import pyplot as plt
 from matplotlib.gridspec import GridSpec
@@ -69,8 +79,8 @@ reference_results = None
 if reference:
     reference_results = load_results(reference)
 
-print(new_results[0][0][-1])
-print(reference_results[0][0][-1])
+# print(new_results[0][0][-1])
+# print(reference_results[0][0][-1])
                     
 def mean_min_max_per_epoch(results: list[dict], key: str) -> pd.DataFrame:
     """
@@ -108,23 +118,21 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     Plot the training and validation accuracies over epochs. With the reference accuracies if provided.
     """
 
-    # Put some information at the bottom of the plot (accs of the last epoch for training and reference, training time for training and reference)
-    if ref_train_acc is not None and ref_valid_acc is not None:
-        # Do the average of the training times with relative error
-        training_times_avg = sum(new_train_times) / len(new_train_times)
-        reference_times_avg = sum(ref_train_times) / len(ref_train_times)
-        training_times_std = (sum([(x - training_times_avg) ** 2 for x in new_train_times]) / len(new_train_times)) ** 0.5
-        reference_times_std = (sum([(x - reference_times_avg) ** 2 for x in ref_train_times]) / len(ref_train_times)) ** 0.5
-        # Get the last accuracies of the training and reference
-        ref_train_acc_last = ref_train_acc["Mean"].iloc[-1]
-        ref_valid_acc_last = ref_valid_acc["Mean"].iloc[-1]
-        train_train_acc_last = new_train_acc["Mean"].iloc[-1]
-        train_valid_acc_last = new_valid_acc["Mean"].iloc[-1]
+    # Do the average of the training times with relative error
+    training_times_avg = sum(new_train_times) / len(new_train_times)
+    reference_times_avg = sum(ref_train_times) / len(ref_train_times)
+    training_times_std = (sum([(x - training_times_avg) ** 2 for x in new_train_times]) / len(new_train_times)) ** 0.5
+    reference_times_std = (sum([(x - reference_times_avg) ** 2 for x in ref_train_times]) / len(ref_train_times)) ** 0.5
+    # Get the last accuracies of the training and reference
+    ref_train_acc_last = ref_train_acc["Mean"].iloc[-1]
+    ref_valid_acc_last = ref_valid_acc["Mean"].iloc[-1]
+    train_train_acc_last = new_train_acc["Mean"].iloc[-1]
+    train_valid_acc_last = new_valid_acc["Mean"].iloc[-1]
 
-        # Compare the two training times
-        times_diff = training_times_avg - reference_times_avg
-        train_acc_diff = train_train_acc_last - ref_train_acc_last
-        valid_acc_diff = train_valid_acc_last - ref_valid_acc_last
+    # Compare the two training times
+    times_diff = training_times_avg - reference_times_avg
+    train_acc_diff = train_train_acc_last - ref_train_acc_last
+    valid_acc_diff = train_valid_acc_last - ref_valid_acc_last
 
     # Create a figure with a grid layout
     fig = plt.figure(figsize=(10, 8))
@@ -135,24 +143,23 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     ax_plot.set_ylim(0, 1)
 
     # Plot training accuracy
-    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label= name2+" Training Accuracy",color="blue")
+    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label=name2 + " Training Accuracy",color="blue")
     ax_plot.fill_between(new_train_acc["Epoch"], new_train_acc["Min"], new_train_acc["Max"], color="blue", alpha=0.33)
 
     # Plot validation accuracy
-    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label=name2+ " Validation Accuracy" ,color="orange")
+    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label=name2 + " Validation Accuracy" ,color="orange")
     ax_plot.fill_between(new_valid_acc["Epoch"], new_valid_acc["Min"], new_valid_acc["Max"], color="orange", alpha=0.33)
 
     # Add reference lines
-    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-." , label= name1+ " Training Accuracy") 
-    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-." ,label=name1+ " Validation Accuracy")
+    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-." , label=name1 + " Training Accuracy") 
+    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-." ,label=name1 + " Validation Accuracy")
 
     training_name = os.path.basename(training)
     reference_name = os.path.basename(reference) if reference else "N/A"
 
-    # Add labels and title
-    ax_plot.set_xlabel("Epoch")
-    ax_plot.set_ylabel("Accuracy (MRAE)")
-    ax_plot.set_title(f"Training and Validation accuracy over epochs for New ({training_name}) and Reference ({reference_name}) models")
+    # Print the time of new and ref
+    print(f"Training time for {name1}: {training_times_avg:.2f}s ± {training_times_std:.2f}s")
+    print(f"Training time for {name2}: {reference_times_avg:.2f}s ± {reference_times_std:.2f}s")
 
     # Add text labels manually
 
@@ -162,28 +169,30 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     # Find corresponding y values
     train_y = new_train_acc["Mean"].iloc[-1]
     valid_y = new_valid_acc["Mean"].iloc[-1]
-    decalage_train_new = -0.15
-    decalage_validation_new = -0.08 
+    
+    decalage_train_new = 0
+    decalage_validation_new = 0
 
-    decalage_train_ref = -0.05
-    decalage_validation_ref = 0.05 
+    decalage_train_ref = 0
+    decalage_validation_ref = 0
     
 
     # Place labels near the curve
     # ax_plot.text(last_epoch*0.8, train_y+ 0.1, "New Training Accuracy", color="blue", fontsize=9, va='bottom', ha='left')
     # ax_plot.text(last_epoch*0.8, valid_y+ 0.1, "New Validation Accuracy", color="orange", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, train_y+ decalage_train_new, name1 +" Training", color="blue", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, valid_y+ decalage_validation_new, name1 +" Validation", color="orange", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, train_y + decalage_train_new, name1 + " Training", color="blue", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, valid_y + decalage_validation_new, name1 + " Validation", color="orange", fontsize=9, va='bottom', ha='left')
 
     # For reference lines
-    ax_plot.text(last_epoch*1.075, ref_train_acc_last + decalage_train_ref, name2+" Training", color="#1e66a3", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, ref_valid_acc_last + decalage_validation_ref, name2+" Validation", color="#bb5e0d", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, ref_train_acc_last + decalage_train_ref, name2 + " Training", color="#1e66a3", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch*1.075, ref_valid_acc_last + decalage_validation_ref, name2 + " Validation", color="#bb5e0d", fontsize=9, va='bottom', ha='left')
 
 
     # Add labels, title, and legend
     ax_plot.set_xlabel("Epoch")
     ax_plot.set_ylabel("Accuracy (MRAE)")
-    ax_plot.set_title(f"Training and Validation accuracy over epochs for New ({training_name}) and Reference ({reference_name}) models")
+    ax_plot.set_title(f"Training and Validation accuracy over epochs for {name1} and {name2} models")
+    # ax_plot.set_title("Training and Validation accuracy over epochs for Old and New Topologies")
     ax_plot.legend()
     # Remove the corner legend
     ax_plot.legend()
@@ -195,7 +204,7 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
 
     # Table data
     table_data = [
-        ["Metric", "New", "Reference", "Difference"],
+        ["Metric", name1, name2, "Difference"],
         ["Training time", f"{training_times_avg:.2f}s ± {training_times_std:.2f}s", f"{reference_times_avg:.2f}s ± {reference_times_std:.2f}s", f"{times_diff:+.2f}s"],
         ["Training accuracy", f"{train_train_acc_last:.2f}", f"{ref_train_acc_last:.2f}", f"{train_acc_diff:+.2f}"],
         ["Validation accuracy", f"{train_valid_acc_last:.2f}", f"{ref_valid_acc_last:.2f}", f"{valid_acc_diff:+.2f}"],
@@ -223,23 +232,107 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     table.auto_set_font_size(False)
     table.set_fontsize(10)
     table.auto_set_column_width(col=list(range(len(table_data[0]))))
+    table.scale(1.4, 1.4)  # Scale the table for better visibility
 
     # Highlight positive/negative differences
     for i in range(1, len(table_data)):
         is_train_time = table_data[i][0] == "Training time"
         if is_train_time:
-            diff = float(table_data[i][3][1:-2]) # Extract the difference value and the s suffix
+            diff = table_data[i][3][0:-2]  # Extract the difference value and the 's' suffix
         else:
-            diff = float(table_data[i][3][1:])
+            diff = table_data[i][3]  # Extract the difference value for accuracy
         color = "black"
         if is_train_time:
-            color = "green" if diff < 0 else "red"
+            color = "green" if diff[0] == "-" else "red"  # Higher training time is worse
         else:
-            color = "green" if diff > 0 else "red"
+            color = "green" if diff[0] == "+" else "red"  # Higher accuracy is better
         table[(i, 3)].set_text_props(color=color)
+
     # Adjust layout and show the plot
     plt.tight_layout()
+    plt.savefig(f"{name1}_{name2}_training_results.svg", dpi=300)
     plt.show()
-    
-# Plot the training and validation accuracies
-plot_accuracy_over_epochs(new_train_acc, new_valid_acc, new_times, "Training and Validation Accuracies over Epochs", reference_train_acc, reference_valid_acc, reference_times)
+
+# Alone, no reference
+def plot_accuracy_over_epochs_no_ref(new_train_acc: pd.DataFrame, new_valid_acc: pd.DataFrame, new_train_times: list[float], title: str):
+    """
+    Plot the training and validation accuracies over epochs. Without reference accuracies.
+    """
+    # Do the average of the training times with relative error
+    training_times_avg = sum(new_train_times) / len(new_train_times)
+    training_times_std = (sum([(x - training_times_avg) ** 2 for x in new_train_times]) / len(new_train_times)) ** 0.5
+    # Get the last accuracies of the training and reference
+    train_train_acc_last = new_train_acc["Mean"].iloc[-1]
+    train_valid_acc_last = new_valid_acc["Mean"].iloc[-1]
+
+    # Create a figure with a grid layout
+    fig = plt.figure(figsize=(10, 8))
+    gs = GridSpec(2, 1, height_ratios=[3, 1])  # 3:1 ratio for plot and table
+
+    # Plot (top section)
+    ax_plot = fig.add_subplot(gs[0])
+    ax_plot.set_ylim(0, 1)
+
+    # Plot training accuracy
+    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label = name1 + " Training Accuracy",color="blue")
+    ax_plot.fill_between(new_train_acc["Epoch"], new_train_acc["Min"], new_train_acc["Max"], color="blue", alpha=0.33)
+
+    # Plot validation accuracy
+    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label= name1 + " Validation Accuracy" ,color="orange")
+    ax_plot.fill_between(new_valid_acc["Epoch"], new_valid_acc["Min"], new_valid_acc["Max"], color="orange", alpha=0.33)
+
+    training_name = os.path.basename(training)
+
+    # Add labels and title
+    ax_plot.set_xlabel("Epoch")
+    ax_plot.set_ylabel("Accuracy (MRAE)")
+    ax_plot.set_title(f"Training and Validation accuracy over epochs for {name1} model")
+
+    # Add labels, title, and legend
+    ax_plot.legend()
+
+    # Table (bottom section)
+    ax_table = fig.add_subplot(gs[1])
+    ax_table.axis("off")  # Turn off the axis for the table
+
+
+    table_data = [
+        ["Metric", f"{name1}"],
+        ["Training time", f"{training_times_avg:.2f}s ± {training_times_std:.2f}s"],
+        ["Training accuracy", f"{train_train_acc_last:.2f}"],
+        ["Validation accuracy", f"{train_valid_acc_last:.2f}"],
+    ]
+
+    # Add the table to the plot
+    table = ax_table.table(
+        cellText=table_data,
+        colLabels=None,
+        cellLoc="center",
+        loc="center",
+    )
+
+    ax_table.text(
+        0.5,
+        0.9,
+        "Summary of Training and Validation results",
+        ha="center",
+        va="center",
+        fontsize=14,
+        transform=ax_table.transAxes,
+    )
+
+    # Style the table
+    table.auto_set_font_size(False)
+    table.set_fontsize(10)
+    table.auto_set_column_width(col=list(range(len(table_data[0]))))
+    table.scale(1.4, 1.4)  # Scale the table for better visibility
+
+    plt.tight_layout()
+    # Save the plot
+    plt.savefig(f"{name1}_training_results.svg", dpi=300)
+    plt.show()
+
+if reference_results:
+    plot_accuracy_over_epochs(new_train_acc, new_valid_acc, new_times, "Training and Validation Accuracies over Epochs", reference_train_acc, reference_valid_acc, reference_times)
+else:
+    plot_accuracy_over_epochs_no_ref(new_train_acc, new_valid_acc, new_times, "Training and Validation Accuracies over Epochs")

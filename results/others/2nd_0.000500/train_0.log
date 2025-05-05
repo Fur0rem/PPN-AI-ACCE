@@ -1,0 +1,1 @@
+Epoch: 0	,Training loss (MRSE): 1.00046	,Validation loss (MRSE): 1.00822	,Training loss (MSE): 1.52893e+17	,Validation loss (MSE): 1.93035e+17	,Training accuracy (MAE): -6.03935e+07	,Validation accuracy (MAE): -7.46089e+07	,Training accuracy (MRAE): -0.000228951	,Validation accuracy (MRAE): -0.00403422

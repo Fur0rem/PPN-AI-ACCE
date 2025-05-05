@@ -104,11 +104,14 @@ Current status of the project</h1>
 </ul>
 <ul class="check">
 <li class="checked">Implement the AI model</li>
-<li class="unchecked">Improve accuracy of the AI model</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Improve speed of the AI model</li>
+<li class="checked">Improve accuracy of the AI model</li>
 </ul>
+<ul class="check">
+<li class="checked">Improve speed of the AI model</li>
+</ul>
+<p>Project is now finished.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h1>
 <ul>
@@ -131,17 +134,21 @@ How to run the project</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Project structure</h1>
-<div class="fragment"><div class="line">├── benchmarks              # Contains the benchmarks to generate the data</div>
+<div class="fragment"><div class="line">├── benchmarks              # Benchmarking the neural network</div>
+<div class="line">│   ├── bench.cpp           # Contains the code to benchmark the neural network</div>
+<div class="line">├── codelets                # Contains the kernels to generate the data</div>
 <div class="line">│   └── op.cpp</div>
 <div class="line">├── bin                     # Contains the compiled files (including the tests and benchmarks)</div>
 <div class="line">├── dataset                 # Contains the training data</div>
 <div class="line">│   ├── bench_bins          # Contains the binaries of the benchmarks along with the cycles count</div>
-<div class="line">│   ├── bench_srcs_small    # Contains a small subset of the benchmarks binaries for testing</div>
+<div class="line">│   ├── bench_bins_small    # Contains a small subset of the benchmarks binaries for testing</div>
 <div class="line">├── docs                    # Contains the documentation</div>
 <div class="line">├── nanobench               # Contains the nanobench submodule</div>
 <div class="line">├── experiments             # Contains several experiments using pre-made frameworks we did not related to the main project</div>
 <div class="line">├── include                 # Contains the header files</div>
 <div class="line">│   └── x.hpp</div>
+<div class="line">├── rapport                 # Contains the report of the project</div>
+<div class="line">├── results                 # Contains the results of the experiments</div>
 <div class="line">├── src                     # Contains the source code</div>
 <div class="line">│   └── x.cpp</div>
 <div class="line">├── tests                   # Contains the tests source code</div>

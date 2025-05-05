@@ -1,5 +1,5 @@
 results = {
-	"Early Stopping": {
+	"With Early Stopping": {
 		1: {
 			"min": 396.609,
 			"max": 532.555,
@@ -112,15 +112,15 @@ def plot_strong_scaling(results):
 	plt.figure(figsize=(10, 6))
 
 	# Plot the early stopping results
-	early_stopping = df[df["Type"] == "Early Stopping"]
-	plt.plot(early_stopping["Threads"], early_stopping["Time (s)"], marker='o', label="Early Stopping", color="blue")
+	early_stopping = df[df["Type"] == "With Early Stopping"]
+	plt.plot(early_stopping["Threads"], early_stopping["Time (s)"], marker='o', label="With Early Stopping", color="blue")
 	# Plot the without early stopping results
 	without_early_stopping = df[df["Type"] == "Without Early Stopping"]
 	plt.plot(without_early_stopping["Threads"], without_early_stopping["Time (s)"], marker='o', label="Without Early Stopping", color="orange")
 
 	# Plot the ideal scaling line for both cases
 	ideal_scaling_without = [results["Without Early Stopping"][1]["med"] / t for t in df["Threads"].unique()]
-	ideal_scaling_with = [results["Early Stopping"][1]["med"] / t for t in df["Threads"].unique()]
+	ideal_scaling_with = [results["With Early Stopping"][1]["med"] / t for t in df["Threads"].unique()]
 	plt.plot(df["Threads"].unique(), ideal_scaling_with, linestyle="dotted", label="Ideal Scaling With Early Stopping", color="blue")
 	plt.plot(df["Threads"].unique(), ideal_scaling_without, linestyle="dotted", label="Ideal Scaling Without Early Stopping", color="orange")
 	
@@ -138,7 +138,9 @@ def plot_strong_scaling(results):
 	plt.xlabel("Number of Threads", fontsize=16)
 	plt.ylabel("Time (s)", fontsize=16)
 	plt.grid(True)
-	plt.show()
+
+	plt.savefig("strong_scaling_topology_finder.svg", format="svg", dpi=300)
+	# plt.show()
 
 # Call the function to plot the strong scaling results
 plot_strong_scaling(results)

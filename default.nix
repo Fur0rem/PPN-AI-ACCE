@@ -31,6 +31,7 @@ pkgs.stdenv.mkDerivation {
     vulkan-memory-allocator
     vulkan-utility-libraries
     shaderc
+    typst
   ];
   NIX_ENFORCE_NO_NATIVE=0;
 }

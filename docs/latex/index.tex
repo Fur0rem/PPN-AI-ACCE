@@ -19,11 +19,15 @@ Done/\+To do\+:
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyChecked] Implement the AI model
-\item[\DoxyUnchecked] Improve accuracy of the AI model
 \end{DoxyItemize}
 \begin{DoxyItemize}
-\item[\DoxyUnchecked] Improve speed of the AI model
-\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md2}
+\item[\DoxyChecked] Improve accuracy of the AI model
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Improve speed of the AI model
+\end{DoxyItemize}
+
+Project is now finished.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
 \item C++17
@@ -44,17 +48,21 @@ Done/\+To do\+:
 \end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Project structure}{Project structure}}\label{index_autotoc_md4}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{├──\ benchmarks\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ benchmarks\ to\ generate\ the\ data}
+\DoxyCodeLine{├──\ benchmarks\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Benchmarking\ the\ neural\ network}
+\DoxyCodeLine{│\ \ \ ├──\ bench.cpp\ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ code\ to\ benchmark\ the\ neural\ network}
+\DoxyCodeLine{├──\ codelets\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ kernels\ to\ generate\ the\ data}
 \DoxyCodeLine{│\ \ \ └──\ op.cpp}
 \DoxyCodeLine{├──\ bin\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ compiled\ files\ (including\ the\ tests\ and\ benchmarks)}
 \DoxyCodeLine{├──\ dataset\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ training\ data}
 \DoxyCodeLine{│\ \ \ ├──\ bench\_bins\ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ binaries\ of\ the\ benchmarks\ along\ with\ the\ cycles\ count}
-\DoxyCodeLine{│\ \ \ ├──\ bench\_srcs\_small\ \ \ \ \#\ Contains\ a\ small\ subset\ of\ the\ benchmarks\ binaries\ for\ testing}
+\DoxyCodeLine{│\ \ \ ├──\ bench\_bins\_small\ \ \ \ \#\ Contains\ a\ small\ subset\ of\ the\ benchmarks\ binaries\ for\ testing}
 \DoxyCodeLine{├──\ docs\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ documentation}
 \DoxyCodeLine{├──\ nanobench\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ nanobench\ submodule}
 \DoxyCodeLine{├──\ experiments\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ several\ experiments\ using\ pre-\/made\ frameworks\ we\ did\ not\ related\ to\ the\ main\ project}
 \DoxyCodeLine{├──\ include\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ header\ files}
 \DoxyCodeLine{│\ \ \ └──\ x.hpp}
+\DoxyCodeLine{├──\ rapport\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ report\ of\ the\ project}
+\DoxyCodeLine{├──\ results\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ results\ of\ the\ experiments}
 \DoxyCodeLine{├──\ src\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ source\ code}
 \DoxyCodeLine{│\ \ \ └──\ x.cpp}
 \DoxyCodeLine{├──\ tests\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contains\ the\ tests\ source\ code}

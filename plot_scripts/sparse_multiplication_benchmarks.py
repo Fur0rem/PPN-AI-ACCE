@@ -1,11 +1,3 @@
-# Naive Multiplication, Min: 3.03209s, Max: 3.03602s, Med: 3.03258s
-# Sparse Multiplication, Min: 0.811475s, Max: 0.812206s, Med: 0.811583s
-# Blocked-8 Sparse Multiplication, Min: 1.34089s, Max: 1.35019s, Med: 1.34465s
-# Blocked-16 Sparse Multiplication, Min: 1.13534s, Max: 1.13805s, Med: 1.1362s
-# Blocked-32 Sparse Multiplication, Min: 1.06327s, Max: 1.06684s, Med: 1.06522s
-# Eigen Sparse Multiplication, Min: 1.2649s, Max: 1.44142s, Med: 1.38434s
-# Eigen Multiplication, Min: 0.0171376s, Max: 0.0176137s, Med: 0.0175167s
-
 results = {
 	"Naive Dense": {
 		"Min": 3.03209,

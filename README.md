@@ -10,8 +10,10 @@ Done/To do:
 - [x] Add parsing of the assembly code
 - [x] Get data to train the AI model
 - [x] Implement the AI model
-- [ ] Improve accuracy of the AI model
-- [ ] Improve speed of the AI model
+- [x] Improve accuracy of the AI model
+- [x] Improve speed of the AI model
+
+Project is now finished.
 
 ## Dependencies
 
@@ -38,17 +40,21 @@ Done/To do:
 ## Project structure
 
 ```r
-├── benchmarks              # Contains the benchmarks to generate the data
+├── benchmarks              # Benchmarking the neural network
+│   ├── bench.cpp           # Contains the code to benchmark the neural network
+├── codelets                # Contains the kernels to generate the data
 │   └── op.cpp
 ├── bin                     # Contains the compiled files (including the tests and benchmarks)
 ├── dataset                 # Contains the training data
 │   ├── bench_bins          # Contains the binaries of the benchmarks along with the cycles count
-│   ├── bench_srcs_small    # Contains a small subset of the benchmarks binaries for testing
+│   ├── bench_bins_small    # Contains a small subset of the benchmarks binaries for testing
 ├── docs                    # Contains the documentation
 ├── nanobench               # Contains the nanobench submodule
 ├── experiments             # Contains several experiments using pre-made frameworks we did not related to the main project
 ├── include                 # Contains the header files
 │   └── x.hpp
+├── rapport                 # Contains the report of the project
+├── results                 # Contains the results of the experiments
 ├── src                     # Contains the source code
 │   └── x.cpp
 ├── tests                   # Contains the tests source code
