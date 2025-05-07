@@ -11,10 +11,10 @@ results = {
 		"Median": 42.1552,
 	},
 	# Train, Min: 36.1232s, Max: 36.51s, Med: 36.2672s
-	"Mini-Batch": {
-		"Min": 33.1232,
-		"Max": 33.51,
-		"Median": 33.2672,
+	"Mini-Batch + Adam": {
+		"Min": 36.1232,
+		"Max": 36.51,
+		"Median": 36.2672,
 	},
 	# Train, Min: 27.1807s, Max: 27.3425s, Med: 27.2616s
 	"Evolved Topology": {
@@ -160,4 +160,4 @@ def plot_comparaison(all_names: list[str]):
 # plot_before_after("Parallel Optimisers", "Sparse Computation")
 # plot_before_after("Sparse Computation", "Mathemetical Approximations")
 
-plot_comparaison(["Baseline", "Mini-Batch", "Evolved Topology", "Memory Acceses", "Parallel Matrix Multiplication", "Parallel Optimisers", "Sparse Computation", "Mathemetical Approximations"])
+plot_comparaison(["Baseline", "Mini-Batch + Adam", "Evolved Topology", "Memory Acceses", "Parallel Matrix Multiplication", "Parallel Optimisers", "Sparse Computation", "Mathemetical Approximations"])

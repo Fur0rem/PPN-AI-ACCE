@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['backward_0',['backward',['../classNeuralNetwork.html#abc20c216225113fe5ed400c8a61d4134',1,'NeuralNetwork']]],
-  ['based_20assembly_20code_20cycles_20estimator_1',['Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)',['../index.html',1,'']]],
-  ['benchmarkresult_2',['BenchmarkResult',['../structBenchmarkResult.html',1,'']]],
-  ['binary_5ffrom_5fhexadecimal_3',['binary_from_hexadecimal',['../tests_2asm__parser_8cpp.html#acd878c1d88b0e5bbe0331ca11ff9a466',1,'binary_from_hexadecimal(std::vector&lt; uint8_t &gt; &amp;&amp;hex):&#160;asm_parser.cpp'],['../tests_2binary__parser_8cpp.html#acd878c1d88b0e5bbe0331ca11ff9a466',1,'binary_from_hexadecimal(std::vector&lt; uint8_t &gt; &amp;&amp;hex):&#160;binary_parser.cpp'],['../tests_2binary__with__split__parser_8cpp.html#acd878c1d88b0e5bbe0331ca11ff9a466',1,'binary_from_hexadecimal(std::vector&lt; uint8_t &gt; &amp;&amp;hex):&#160;binary_with_split_parser.cpp']]],
-  ['binary_5fparser_2ecpp_4',['binary_parser.cpp',['../src_2parsing_2binary__parser_8cpp.html',1,'(Global Namespace)'],['../tests_2binary__parser_8cpp.html',1,'(Global Namespace)']]],
-  ['binary_5fparser_2ehpp_5',['binary_parser.hpp',['../binary__parser_8hpp.html',1,'']]],
-  ['binary_5fto_5fhexadecimal_6',['binary_to_hexadecimal',['../tests_2asm__parser_8cpp.html#a053f7be4bed0dc985cb3e571f62c05b8',1,'asm_parser.cpp']]],
-  ['binary_5fwith_5fsplit_5fparser_2ecpp_7',['binary_with_split_parser.cpp',['../src_2parsing_2binary__with__split__parser_8cpp.html',1,'(Global Namespace)'],['../tests_2binary__with__split__parser_8cpp.html',1,'(Global Namespace)']]],
-  ['binary_5fwith_5fsplit_5fparser_2ehpp_8',['binary_with_split_parser.hpp',['../binary__with__split__parser_8hpp.html',1,'']]],
-  ['binaryparser_9',['BinaryParser',['../classBinaryParser.html',1,'BinaryParser'],['../classBinaryParser.html#a5f007b25b06f99b7c074558e564c01de',1,'BinaryParser::BinaryParser()']]],
-  ['binarywithsplitparser_10',['BinaryWithSplitParser',['../classBinaryWithSplitParser.html',1,'BinaryWithSplitParser'],['../classBinaryWithSplitParser.html#a66b43a97c643dbf393bdda9469e7cd90',1,'BinaryWithSplitParser::BinaryWithSplitParser()']]]
+  ['candidate_0',['Candidate',['../classCandidate.html',1,'Candidate'],['../classCandidate.html#adfc1d6748155d4ca8a4e1da9c1ac1fb5',1,'Candidate::Candidate(std::vector&lt; size_t &gt; topology)'],['../classCandidate.html#aa2747741fb662af5e8f3d01d1d1a43b6',1,'Candidate::Candidate()'],['../classCandidate.html#a0fb37586703fceb9cfe1cea2e4624ecf',1,'Candidate::Candidate(const Candidate &amp;other)']]],
+  ['cross_5fentropy_5floss_1',['cross_entropy_loss',['../gradients_8cpp.html#a2e3f905a8a91d2da58ee1586e2106022',1,'cross_entropy_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#a2e3f905a8a91d2da58ee1586e2106022',1,'cross_entropy_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
+  ['cross_5fentropy_5floss_5fderivative_2',['cross_entropy_loss_derivative',['../gradients_8cpp.html#a50903a9c68b4915c479d1774e1db2585',1,'cross_entropy_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#a50903a9c68b4915c479d1774e1db2585',1,'cross_entropy_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
+  ['cycles_5fencoders_2ecpp_3',['cycles_encoders.cpp',['../tests_2cycles__encoders_8cpp.html',1,'']]],
+  ['cycles_5fencoders_2ehpp_4',['cycles_encoders.hpp',['../cycles__encoders_8hpp.html',1,'']]],
+  ['cyclesboundednormaliserencoder_5',['CyclesBoundedNormaliserEncoder',['../classCyclesBoundedNormaliserEncoder.html',1,'']]],
+  ['cycleslogencoder_6',['CyclesLogEncoder',['../classCyclesLogEncoder.html',1,'CyclesLogEncoder'],['../classCyclesLogEncoder.html#a2764839326c16cc4e2c9eb9dc08bd5fc',1,'CyclesLogEncoder::CyclesLogEncoder()']]],
+  ['cyclesnormaliserencoder_7',['CyclesNormaliserEncoder',['../classCyclesNormaliserEncoder.html',1,'']]],
+  ['cyclessplitterencoder_8',['CyclesSplitterEncoder',['../classCyclesSplitterEncoder.html',1,'']]],
+  ['cyclessqrtencoder_9',['CyclesSqrtEncoder',['../classCyclesSqrtEncoder.html',1,'CyclesSqrtEncoder'],['../classCyclesSqrtEncoder.html#ad5580c548f56a7f1fad40e80150846c5',1,'CyclesSqrtEncoder::CyclesSqrtEncoder()']]]
 ];

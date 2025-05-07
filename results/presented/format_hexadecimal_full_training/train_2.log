@@ -998,7 +998,7 @@ Epoch: 996:	Training loss (MRSE): 0.417682	,Validation loss (MRSE): 0.835517	,Tr
 Epoch: 997:	Training loss (MRSE): 0.417619	,Validation loss (MRSE): 0.83543	,Training loss (MSE): 1.44466e+11	,Validation loss (MSE): 2.39832e+17	,Training accuracy (MAE): -212771	,Validation accuracy (MAE): -1.2456e+08	,Training accuracy (MRAE): 0.498903	,Validation accuracy (MRAE): 0.100921
 Epoch: 998:	Training loss (MRSE): 0.417553	,Validation loss (MRSE): 0.835345	,Training loss (MSE): 1.44708e+11	,Validation loss (MSE): 2.39836e+17	,Training accuracy (MAE): -213291	,Validation accuracy (MAE): -1.24569e+08	,Training accuracy (MRAE): 0.498915	,Validation accuracy (MRAE): 0.100983
 Epoch: 999:	Training loss (MRSE): 0.417481	,Validation loss (MRSE): 0.835262	,Training loss (MSE): 1.44967e+11	,Validation loss (MSE): 2.39841e+17	,Training accuracy (MAE): -213839	,Validation accuracy (MAE): -1.24577e+08	,Training accuracy (MRAE): 0.498934	,Validation accuracy (MRAE): 0.101043
-Training time: 3890.784s
+Training time: 3990.784s
 
 Final results:
 Training data:

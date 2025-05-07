@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AI-ACCE: Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator)</title>
+<title>AI-ACCE: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,81 +84,10 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div><div class="header">
-  <div class="headertitle"><div class="title">Repository for the course PPN (Projet de Programmation Numérique): AI-ACCE (AI based Assembly Code Cycles Estimator) </div></div>
+<div class="header">
+  <div class="headertitle"><div class="title">AI-ACCE Documentation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<p>Link : <a href="https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator">https://academic.liparad.uvsq.fr/m1chps/ppn/projets.html#ai-acce-ai-based-assembly-code-cycles-estimator</a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Current status of the project</h1>
-<p>Done/To do:</p>
-<ul class="check">
-<li class="checked">Set up the project</li>
-</ul>
-<ul class="check">
-<li class="checked">Add parsing of the assembly code</li>
-</ul>
-<ul class="check">
-<li class="checked">Get data to train the AI model</li>
-</ul>
-<ul class="check">
-<li class="checked">Implement the AI model</li>
-</ul>
-<ul class="check">
-<li class="checked">Improve accuracy of the AI model</li>
-</ul>
-<ul class="check">
-<li class="checked">Improve speed of the AI model</li>
-</ul>
-<p>Project is now finished.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Dependencies</h1>
-<ul>
-<li>C++17</li>
-<li>CMake</li>
-<li>GTest</li>
-<li>clang-format and clang-tidy</li>
-<li>Doxygen (if you want to generate the documentation)</li>
-<li>nanobench (already included in the project as a submodule)</li>
-<li>eigen</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
-How to run the project</h1>
-<ul>
-<li>Clone the repository with submodules: <code>git clone --recurse-submodules</code></li>
-<li><code>Build it with CMake: -</code>mkdir build<code> -</code>cd build<code> -</code>cmake ..<code> -</code>make<code></code></li>
-<li><code>Now you can run the tests with</code>make check<code></code></li>
-<li><code>You can extract the data with</code>$/build/&gt; ./extract_data<code></code></li>
-<li><code>You can run the AI model with</code>$/&gt; ./main`</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Project structure</h1>
-<div class="fragment"><div class="line">├── benchmarks              # Benchmarking the neural network</div>
-<div class="line">│   ├── bench.cpp           # Contains the code to benchmark the neural network</div>
-<div class="line">├── codelets                # Contains the kernels to generate the data</div>
-<div class="line">│   └── op.cpp</div>
-<div class="line">├── bin                     # Contains the compiled files (including the tests and benchmarks)</div>
-<div class="line">├── dataset                 # Contains the training data</div>
-<div class="line">│   ├── bench_bins          # Contains the binaries of the benchmarks along with the cycles count</div>
-<div class="line">│   ├── bench_bins_small    # Contains a small subset of the benchmarks binaries for testing</div>
-<div class="line">├── docs                    # Contains the documentation</div>
-<div class="line">├── nanobench               # Contains the nanobench submodule</div>
-<div class="line">├── experiments             # Contains several experiments using pre-made frameworks we did not related to the main project</div>
-<div class="line">├── include                 # Contains the header files</div>
-<div class="line">│   └── x.hpp</div>
-<div class="line">├── rapport                 # Contains the report of the project</div>
-<div class="line">├── results                 # Contains the results of the experiments</div>
-<div class="line">├── src                     # Contains the source code</div>
-<div class="line">│   └── x.cpp</div>
-<div class="line">├── tests                   # Contains the tests source code</div>
-<div class="line">│   └── test_x.cpp</div>
-<div class="line">├── CMakeLists.txt          # To compile the project</div>
-<div class="line">├── default.nix             # Nix file to create a development environment</div>
-<div class="line">├── Doxyfile                # Doxygen configuration file</div>
-<div class="line">└── .clang files            # Contains the clang files for formatting and linting like .clang-format, .clang-tidy and .clangd</div>
-</div><!-- fragment --><p>Move the pre-commit.sh file to .git/hooks/pre-commit to make the project automatically format, test and generate the documentation when committing. </p>
-</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 <!-- start footer part -->

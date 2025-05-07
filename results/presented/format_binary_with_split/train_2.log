@@ -398,7 +398,7 @@ Epoch: 396, Training loss (MRSE): 0.5615, Validation loss (MRSE): 0.6572, Traini
 Epoch: 397, Training loss (MRSE): 0.5555, Validation loss (MRSE): 0.6525, Training loss (MSE): 74388724514816.0000, Validation loss (MSE): 52222381522944.0000, Training accuracy (MAE): -1862067.7500, Validation accuracy (MAE): -3660216.0000, Training accuracy (MRAE): 0.3586, Validation accuracy (MRAE): 0.3573
 Epoch: 398, Training loss (MRSE): 0.5301, Validation loss (MRSE): 0.6463, Training loss (MSE): 67987772014592.0000, Validation loss (MSE): 52174029586432.0000, Training accuracy (MAE): -1785731.1250, Validation accuracy (MAE): -3646203.0000, Training accuracy (MRAE): 0.3628, Validation accuracy (MRAE): 0.3578
 Epoch: 399, Training loss (MRSE): 0.5105, Validation loss (MRSE): 0.6438, Training loss (MSE): 60953508970496.0000, Validation loss (MSE): 52018009866240.0000, Training accuracy (MAE): -1703126.7500, Validation accuracy (MAE): -3625732.0000, Training accuracy (MRAE): 0.4425, Validation accuracy (MRAE): 0.3324
-Training time: 38529.10068s
+Training time: 38805.10068s
 Final results:
 Training data:
 For benchmark_array_min____f32_min_simd256_164,	Prediction,	Prediction: 	366119, Target: 	164 

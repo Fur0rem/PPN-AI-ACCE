@@ -1,35 +1,22 @@
-training = ""
-reference = ""
+new_training = ""
+ref_training = ""
 
 import sys
 
 if (len(sys.argv) < 2):
-    print("Use: python3 training_results.py [New result directory] [Reference result directory] (Optional)")
+    print("Use: python3 training_results.py [New result directory] [New name] [Reference result directory] [Reference name], or python3 training_results.py [New result directory] [New name]")
     exit()
 
-training = sys.argv[1]
-name1 = None
-name2 = None  
-if (len(sys.argv) > 2):
-    reference = sys.argv[2]
-
-    name1 = sys.argv[3]
-    name2 = sys.argv[4]
+new_training = sys.argv[1]
+new_name = sys.argv[2]
+ref_training = None
+ref_name = None  
+if (len(sys.argv) > 3):
+    ref_training = sys.argv[3]
+    ref_name = sys.argv[4]
     
-    print(f'\n {name1}  {name2} \n ')
+    print(f"Labeling {new_training} as {new_name} and {ref_training} as {ref_name}\n")
 
-
-# If there are two arguments, the first one is the training directory and the second one is for name
-if (len(sys.argv) == 3):
-    training = sys.argv[1]
-    name1 = sys.argv[2]
-
-# If there are 4 arguments, the first one is the training directory, the second one is the reference directory and the third and fourth are for name
-if (len(sys.argv) == 5):
-    training = sys.argv[1]
-    reference = sys.argv[2]
-    name1 = sys.argv[3]
-    name2 = sys.argv[4]    
 
 # Read the training results
 from matplotlib import pyplot as plt
@@ -74,10 +61,10 @@ def load_results(directory: str) -> tuple[list[dict], list[float]]:
 
     return results, training_times
     
-new_results = load_results(training)
+new_results = load_results(new_training)
 reference_results = None
-if reference:
-    reference_results = load_results(reference)
+if ref_training:
+    reference_results = load_results(ref_training)
 
 # print(new_results[0][0][-1])
 # print(reference_results[0][0][-1])
@@ -141,25 +128,23 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     # Plot (top section)
     ax_plot = fig.add_subplot(gs[0])
     ax_plot.set_ylim(0, 1)
+    ax_plot.set_xlim(0, new_train_acc["Epoch"].max())
 
     # Plot training accuracy
-    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label=name2 + " Training Accuracy",color="blue")
+    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label = new_name + " Training Accuracy",color="blue")
     ax_plot.fill_between(new_train_acc["Epoch"], new_train_acc["Min"], new_train_acc["Max"], color="blue", alpha=0.33)
 
     # Plot validation accuracy
-    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label=name2 + " Validation Accuracy" ,color="orange")
+    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label = new_name + " Validation Accuracy" ,color="orange")
     ax_plot.fill_between(new_valid_acc["Epoch"], new_valid_acc["Min"], new_valid_acc["Max"], color="orange", alpha=0.33)
 
     # Add reference lines
-    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-." , label=name1 + " Training Accuracy") 
-    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-." ,label=name1 + " Validation Accuracy")
-
-    training_name = os.path.basename(training)
-    reference_name = os.path.basename(reference) if reference else "N/A"
+    ax_plot.axhline(y=ref_train_acc_last, color="#1e66a3", linestyle="-." , label= ref_name + " Training Accuracy") 
+    ax_plot.axhline(y=ref_valid_acc_last, color="#bb5e0d", linestyle="-." ,label= ref_name + " Validation Accuracy")
 
     # Print the time of new and ref
-    print(f"Training time for {name1}: {training_times_avg:.2f}s ± {training_times_std:.2f}s")
-    print(f"Training time for {name2}: {reference_times_avg:.2f}s ± {reference_times_std:.2f}s")
+    print(f"Training time for {new_name}: {training_times_avg:.2f}s ± {training_times_std:.2f}s")
+    print(f"Training time for {ref_name}: {reference_times_avg:.2f}s ± {reference_times_std:.2f}s")
 
     # Add text labels manually
 
@@ -170,32 +155,31 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
     train_y = new_train_acc["Mean"].iloc[-1]
     valid_y = new_valid_acc["Mean"].iloc[-1]
     
-    decalage_train_new = 0
-    decalage_validation_new = 0
+    decalage_train_new = 0.01
+    decalage_validation_new = 0.01
 
-    decalage_train_ref = 0
-    decalage_validation_ref = 0
+    decalage_train_ref = -0.0
+    decalage_validation_ref = -0.0
     
 
     # Place labels near the curve
-    # ax_plot.text(last_epoch*0.8, train_y+ 0.1, "New Training Accuracy", color="blue", fontsize=9, va='bottom', ha='left')
-    # ax_plot.text(last_epoch*0.8, valid_y+ 0.1, "New Validation Accuracy", color="orange", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, train_y + decalage_train_new, name1 + " Training", color="blue", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, valid_y + decalage_validation_new, name1 + " Validation", color="orange", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch * 1.005, train_y + decalage_train_new - 0.02, new_name, color="blue", fontsize=14, va='bottom', ha='left')
+    ax_plot.text(last_epoch * 1.005, valid_y + decalage_validation_new - 0.02, new_name, color="orange", fontsize=14, va='bottom', ha='left')
 
     # For reference lines
-    ax_plot.text(last_epoch*1.075, ref_train_acc_last + decalage_train_ref, name2 + " Training", color="#1e66a3", fontsize=9, va='bottom', ha='left')
-    ax_plot.text(last_epoch*1.075, ref_valid_acc_last + decalage_validation_ref, name2 + " Validation", color="#bb5e0d", fontsize=9, va='bottom', ha='left')
+    ax_plot.text(last_epoch * 1.005, ref_train_acc_last + decalage_train_ref - 0.02, ref_name, color="#1e66a3", fontsize=14, va='bottom', ha='left')
+    ax_plot.text(last_epoch * 1.005, ref_valid_acc_last + decalage_validation_ref - 0.02, ref_name, color="#bb5e0d", fontsize=14, va='bottom', ha='left')
 
 
     # Add labels, title, and legend
-    ax_plot.set_xlabel("Epoch")
-    ax_plot.set_ylabel("Accuracy (MRAE)")
-    ax_plot.set_title(f"Training and Validation accuracy over epochs for {name1} and {name2} models")
-    # ax_plot.set_title("Training and Validation accuracy over epochs for Old and New Topologies")
-    ax_plot.legend()
-    # Remove the corner legend
-    ax_plot.legend()
+    ax_plot.set_xlabel("Epoch", fontsize=14)
+    ax_plot.set_ylabel("Accuracy", fontsize=14)
+    # Set label size
+    ax_plot.tick_params(axis='both', which='major', labelsize=12)
+    ax_plot.set_title(f"Accuracy evolution over epochs for {new_name} model compared to {ref_name}", fontsize=13)
+    ax_plot.grid(axis='y', linestyle="--", alpha=0.5)
+
+    ax_plot.legend(loc="upper left", fontsize=11)
 
     # Table (bottom section)
     ax_table = fig.add_subplot(gs[1])
@@ -204,7 +188,7 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
 
     # Table data
     table_data = [
-        ["Metric", name1, name2, "Difference"],
+        ["Metric", new_name, ref_name, "Difference"],
         ["Training time", f"{training_times_avg:.2f}s ± {training_times_std:.2f}s", f"{reference_times_avg:.2f}s ± {reference_times_std:.2f}s", f"{times_diff:+.2f}s"],
         ["Training accuracy", f"{train_train_acc_last:.2f}", f"{ref_train_acc_last:.2f}", f"{train_acc_diff:+.2f}"],
         ["Validation accuracy", f"{train_valid_acc_last:.2f}", f"{ref_valid_acc_last:.2f}", f"{valid_acc_diff:+.2f}"],
@@ -250,7 +234,8 @@ def plot_accuracy_over_epochs(new_train_acc: pd.DataFrame, new_valid_acc: pd.Dat
 
     # Adjust layout and show the plot
     plt.tight_layout()
-    plt.savefig(f"{name1}_{name2}_training_results.svg", dpi=300)
+    print(f"Saving {new_name}_{ref_name}_training_results.svg")
+    plt.savefig(f"{new_name}_{ref_name}_training_results.svg", dpi=300)
     plt.show()
 
 # Alone, no reference
@@ -272,24 +257,26 @@ def plot_accuracy_over_epochs_no_ref(new_train_acc: pd.DataFrame, new_valid_acc:
     # Plot (top section)
     ax_plot = fig.add_subplot(gs[0])
     ax_plot.set_ylim(0, 1)
+    ax_plot.set_xlim(0, new_train_acc["Epoch"].max())
 
     # Plot training accuracy
-    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label = name1 + " Training Accuracy",color="blue")
+    ax_plot.plot(new_train_acc["Epoch"], new_train_acc["Mean"], label="Training Accuracy", color="blue")
     ax_plot.fill_between(new_train_acc["Epoch"], new_train_acc["Min"], new_train_acc["Max"], color="blue", alpha=0.33)
 
     # Plot validation accuracy
-    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label= name1 + " Validation Accuracy" ,color="orange")
+    ax_plot.plot(new_valid_acc["Epoch"], new_valid_acc["Mean"],label="Validation Accuracy", color="orange")
     ax_plot.fill_between(new_valid_acc["Epoch"], new_valid_acc["Min"], new_valid_acc["Max"], color="orange", alpha=0.33)
 
-    training_name = os.path.basename(training)
-
     # Add labels and title
-    ax_plot.set_xlabel("Epoch")
-    ax_plot.set_ylabel("Accuracy (MRAE)")
-    ax_plot.set_title(f"Training and Validation accuracy over epochs for {name1} model")
+    ax_plot.set_xlabel("Epoch", fontsize=14)
+    ax_plot.set_ylabel("Accuracy", fontsize=14)
+    # Set label size
+    ax_plot.tick_params(axis='both', which='major', labelsize=12)
+
+    ax_plot.set_title(f"Accuracy evolution over epochs for {new_name} model", fontsize=15)
 
     # Add labels, title, and legend
-    ax_plot.legend()
+    ax_plot.legend(loc="upper left", fontsize=11)
 
     # Table (bottom section)
     ax_table = fig.add_subplot(gs[1])
@@ -297,7 +284,7 @@ def plot_accuracy_over_epochs_no_ref(new_train_acc: pd.DataFrame, new_valid_acc:
 
 
     table_data = [
-        ["Metric", f"{name1}"],
+        ["Metric", f"{new_name}"],
         ["Training time", f"{training_times_avg:.2f}s ± {training_times_std:.2f}s"],
         ["Training accuracy", f"{train_train_acc_last:.2f}"],
         ["Validation accuracy", f"{train_valid_acc_last:.2f}"],
@@ -329,7 +316,8 @@ def plot_accuracy_over_epochs_no_ref(new_train_acc: pd.DataFrame, new_valid_acc:
 
     plt.tight_layout()
     # Save the plot
-    plt.savefig(f"{name1}_training_results.svg", dpi=300)
+    print(f"Saving {new_name}_training_results.svg")
+    plt.savefig(f"{new_name}_training_results.svg", dpi=300)
     plt.show()
 
 if reference_results:

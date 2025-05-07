@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['mae_5floss_0',['mae_loss',['../gradients_8cpp.html#ac3c180b5a9b3222e4e95da13ff7ca740',1,'mae_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#ac3c180b5a9b3222e4e95da13ff7ca740',1,'mae_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['mae_5floss_5fderivative_1',['mae_loss_derivative',['../gradients_8cpp.html#ade8b26b3dda22c01d7c239634559bd55',1,'mae_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#ade8b26b3dda22c01d7c239634559bd55',1,'mae_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['main_2',['main',['../topology__finder_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'topology_finder.cpp']]],
-  ['max_5fcycles_3',['MAX_CYCLES',['../cycles__encoders_8hpp.html#a87fd18e17edcd3b78d02d63325c798ba',1,'cycles_encoders.hpp']]],
-  ['max_5ftokens_5fnn_4',['MAX_TOKENS_NN',['../size__encoder_8hpp.html#ac3c8ef52a65b17b370b8014b0f0c1c37',1,'size_encoder.hpp']]],
-  ['metrics_5',['Metrics',['../structMetrics.html',1,'']]],
-  ['momentum_6',['Momentum',['../classMomentum.html',1,'Momentum'],['../classMomentum.html#a5525e6805c17ccc2b46975889eb241e2',1,'Momentum::Momentum()']]],
-  ['mse_5floss_7',['mse_loss',['../gradients_8cpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#aee2b89f53baf239d17a14390cd64d6b0',1,'mse_loss(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['mse_5floss_5fderivative_8',['mse_loss_derivative',['../gradients_8cpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp'],['../gradients_8hpp.html#a7cdfd06ad316fa8cb513bc9b0b505fb8',1,'mse_loss_derivative(const Eigen::MatrixXf &amp;prediction, const Eigen::MatrixXf &amp;target):&#160;gradients.cpp']]],
-  ['mutate_9',['mutate',['../classCandidate.html#a57606a7a50209cb00c6c7b7f1ceadc23',1,'Candidate']]]
+  ['naive_5fmultiplication_0',['naive_multiplication',['../src_2neural__network_2sparse__multiplication_8cpp.html#aef135e50c97cf9b962b46849c3780735',1,'naive_multiplication(const Eigen::MatrixXf &amp;sparse_matrix, const Eigen::MatrixXf &amp;dense_matrix):&#160;sparse_multiplication.cpp'],['../sparse__multiplication_8hpp.html#aef135e50c97cf9b962b46849c3780735',1,'naive_multiplication(const Eigen::MatrixXf &amp;sparse_matrix, const Eigen::MatrixXf &amp;dense_matrix):&#160;sparse_multiplication.cpp']]],
+  ['neural_5fnetwork_2ecpp_1',['neural_network.cpp',['../neural__network_8cpp.html',1,'']]],
+  ['neural_5fnetwork_2ehpp_2',['neural_network.hpp',['../neural__network_8hpp.html',1,'']]],
+  ['neuralnetwork_3',['NeuralNetwork',['../classNeuralNetwork.html',1,'NeuralNetwork'],['../classNeuralNetwork.html#ac12a81e6cb73e864e63eab78e9d3df8b',1,'NeuralNetwork::NeuralNetwork()']]],
+  ['no_5fmore_5fvalue_4',['NO_MORE_VALUE',['../size__encoder_8hpp.html#a84e92db2ecca96cc2a0a0b52e641b741',1,'size_encoder.hpp']]],
+  ['non_5fencoder_2ecpp_5',['non_encoder.cpp',['../non__encoder_8cpp.html',1,'']]],
+  ['non_5fencoder_2ehpp_6',['non_encoder.hpp',['../non__encoder_8hpp.html',1,'']]],
+  ['none_7',['none',['../classTrainingNoise.html#af8116529c85172388500224074bc70f9',1,'TrainingNoise']]],
+  ['nonencoder_8',['NonEncoder',['../classNonEncoder.html',1,'']]]
 ];

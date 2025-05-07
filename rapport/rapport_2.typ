@@ -46,10 +46,10 @@
 	], 
 	footer: [
 		#set align(right)
-		#counter(page).display("1") / #locate(loc => {
-			let lastpage = counter(page).final(loc)
-			[#lastpage.at(0)]
-		})
+		#context counter(page).display(
+			"1 / 1",
+			both: true,
+		)
 	],
 	// fill: gradient.conic(..color.map.rainbow),
 )
@@ -74,8 +74,8 @@
 		),
 	),
 	abstract: [
-		Notre projet consiste à construire un réseau de neurones dont le but va être de prédire la performance de noyaux de calcul en nombre de cycles CPU.
-		Lors du premier semestre, nous avons établi les bases de notre réseau de neurones, avec un ensemble de données réduit.
+		Notre projet consiste à construire un réseau de neurones dont le but va être de prédire la performance de noyaux de calcul en nombre de cycles CPU. \
+		Lors du premier semestre, nous avons établi les bases de notre réseau de neurones, avec un ensemble de données réduit. \
 		Pour ce second semestre, nous avons comme but d'entrainer ce réseau sur un ensemble plus complet, d'en améliorer sa précision, d'améliorer sa performance en temps de calcul, et de le paralléliser.
 	]
 
@@ -86,20 +86,23 @@
 
 = Introduction
 
-Dans ce rapport, nous allons dans un premier temps faire quelques rappels brefs sur les réseaux de neurones, et introduire certains termes, afin de bien pouvoir comprendre certains notions abbordées,
-et aussi présenter un schéma pour un entrainement afin de vous aidez à interpréter nos résultats.
+Dans ce rapport, nous allons dans un premier temps faire quelques rappels brefs sur les réseaux de neurones, et introduire certains termes, afin de bien pouvoir comprendre certains notions abbordées.\
 Aussi, nous allons parler brièvement de notre jeu de données, ainsi que de son extraction.
+(Vous pouvez passer ces parties si vous avez déjà lu le rapport du semestre dernier).
+
+Et aussi, nous allons présenter un schéma pour un entrainement afin de vous aidez à interpréter nos résultats.
 
 Ensuite, nous allons parler des différentes approches que nous avons utilisé pour améliorer notre modèle. \
 Par amélioration, nous pouvons parler de la précision du modèle, de la performance en temps de calcul, ou de la parallélisation des calculs. \
 Nous allons d'abord nous focaliser sur l'amélioration de la précision, puis sur l'amélioration de la performance et de la parallélisation des calculs. \
 Comme certaines approches peuvent améliorer plusieurs aspects en même temps, nous avons indiqué pour chaque approche quel(s) aspect(s) elle améliore(nt).
 
-Pour finir, nous allons présenter nos résultats, en discuter, et les comparer à d'autres modèles de l'état de l'art.
-
+Pour finir, nous allons présenter nos résultats, et en discuter. \
 Puis nous ferons une conclusion sur ce projet tout au long de l'année.
 
 = Quelques rappels sur les réseaux de neurones
+
+Si vous avez déjà lu le rapport du semestre dernier, vous pouvez passer cette partie.
 
 == Principe
 
@@ -134,7 +137,8 @@ Et on répète ce processus avec l'entrée de la prochaine couche qui est mainte
 
 == Quelques termes
 
-Voici quelques termes que nous allons utiliser tout au long de ce rapport, et qui peuvent être un peu obscurs.
+Voici quelques termes que nous allons utiliser tout au long de ce rapport.
+
 - Topologie du réseau de neurones
 La topologie d'un réseau de neurones est la suite des tailles de ses différentes couches.
 Par exemple, le réseau de neurones suivant :
@@ -145,32 +149,15 @@ Par exemple, le réseau de neurones suivant :
 )
 possède une topologie de (2, 5, 1), c'est à dire qu'il a 2 neurones en entrée, une couche cachée de 5 neurones, et 1 neurone en sortie.
 
-
-
-
 - Fonction d'activation
 Une fonction d'activation est une fonction mathématique qui est appliquée à chaque neurone d'un réseau de neurones artificiels.
 Elle permet de décider de la valeur de sortie du neurone.
 Si cette fonction est non linéaire, elle permet de rendre le réseau de neurones non linéaire, et donc de prédire des patterns plus complexes.
 On la note souvent #sym.sigma\(x)
 
-- Fonction de coût et précision
-La fonction de coût est une fonction qui mesure l'erreur entre la prédiction du réseau de neurones et la valeur réelle.
-Une valeur proche de 0 pour la fonction de coût signifie que le réseau de neurones arrive à bien prédire la valeur réelle.
-Donc cette fonction de coût est ce que nous allons essayer de minimiser durant l'entrainement du réseau de neurones.
-
-Pour la fonction de coût, nous avons utilisé la fonction d'erreur quadratique moyenne relative, pour favoriser un modèle bon un peu partout qu'un modèle très bon sur une partie des données et mauvais sur d'autres.
-$ E = 1 - (1/n * sum_(i=1)^n (("cycles"_"prédits" ("entrée"_i) - "cycles"_"réels" ("entrée"_i))^2 / max("cycles"_"réels" ("entrée"_i), "cycles"_"prédits" ("entrée"_i))^2)) $
-
-La précision est l'inverse : elle mesure la qualité de la prédiction du réseau de neurones.
-Une valeur proche de 1 pour la précision signifie que le réseau de neurones arrive à bien prédire la valeur réelle.
-Nous utiliserons celle-ci pour présenter nos résultats, car elle est plus facile à interpréter pour les humains.
-$ E = 1/n * sum_(i=1)^n (abs("cycles"_"prédits" ("entrée"_i) - "cycles"_"réels" ("entrée"_i)) / max("cycles"_"réels" ("entrée"_i), "cycles"_"prédits" ("entrée"_i))) $
-Par exemple, une précision de 0.9 signifie que notre modèle est en moyenne à #sym.plus.minus 10% de la réalité.
-
-Vous pouvez voir que nous avons utiliser une échelle multiplicative plutôt qu'additive, car prédire 100 au lieu de 200 (2 fois moins de cycles) est aussi grave que prédire 400 au lieu de 200 (2 fois plus de cycles)
-
 = Le jeu de données
+
+Si vous avez déjà lu le rapport du semestre dernier, vous pouvez passer cette partie.
 
 == Description
 
@@ -224,12 +211,6 @@ Par exemple, voici les résultats d'un benchmark sur l'addition de 2 vecteurs :
 Les 2 colonnes qui nous intéressent sont cyc/op, qui est le nombre de cycles CPU moyen que prend le noyau de calcul à s'exécuter, et err%, qui est l'erreur relative de la mesure, afin de savoir si la mesure est fiable. \
 Pour tous nos noyaux, l'erreur maximale était de 1%, qui est assez précis pour nous.
 
-Ici, nous pouvons travailler de 2 manières sur ces données :
-	- Traitement par texte du code source
-	- Traitement du code binaire/assembleur généré depuis ce code source
-
-Le traitement du code binaire semblant plus simple et moins gourmande en calculs, nous avons choisie cette approche. 
-
 == Extraction des noyaux
 
 Maintenant, il faut extraire les codes assembleurs des noyaux qu'on vient de benchmarké.
@@ -260,11 +241,15 @@ Nous avons donc automatisé le processus en ajoutant quelques macros afin de met
 , caption: "Exemple d'assembleur pour le noyau d'addition de 2 vecteurs"
 )
 
-#pagebreak()
-
 = Entrainement type
 
-Avant de commencer, voici comment nous avons entrainé et mesuré la précision de notre modèle.
+Avant de commencer, voici comment nous avons entrainé et mesuré la précision de notre modèle, c'est-à-dire la qualité de la prédiction du réseau de neurones. \
+On cherche à la maximiser, avec une valeur proche de 1 signifie que le réseau de neurones arrive à bien prédire la valeur réelle, et 0 pas du tout, voici sa formule: \
+$ P = 1/n * sum_(i=1)^n (abs("cycles"_"prédits" ("entrée"_i) - "cycles"_"réels" ("entrée"_i)) / max("cycles"_"réels" ("entrée"_i), "cycles"_"prédits" ("entrée"_i))) $
+
+Vous pouvez voir que nous avons utiliser une échelle relative multiplicative plutôt qu'additive, car prédire 100 au lieu de 200 (2 fois moins de cycles) est aussi grave que prédire 400 au lieu de 200 (2 fois plus de cycles), et prédire 1000 au lieu de 100, est aussi grave que prédire 100 au lieu de 10.
+Par exemple, une précision de 0.9 signifie que notre modèle est en moyenne à #sym.plus.minus 10% de la réalité.
+
 
 Nous avons 2 ensemble de données : un ensemble d'entrainement et un ensemble de validation.
 L'ensemble d'entrainement est utilisé pour ajuster les poids du réseau de neurones, tandis que l'ensemble de validation est utilisé pour évaluer la précision du modèle sur des données qu'il n'a jamais vu.
@@ -272,6 +257,9 @@ L'ensemble d'entrainement est utilisé pour ajuster les poids du réseau de neur
 Notre but principal est de minimiser la précision de l'ensemble de validation, mais une amélioration sur l'ensemble d'entrainement reste non négligeable.
 
 Dû à la nature stochastique de l'entrainement de réseaux de neurones, nous avons fait tourner chaque modèle 3 fois, et nous présentons à chaque époque, la moyenne des 3 modèles, ainsi que le pire et le meilleur modèle, afin d'avoir une tranche de précisions que nous pouvons attendre à un instant donné.
+
+#pagebreak()
+
 Voici un exemple d'un résultat:
 
 #figure(
@@ -290,6 +278,9 @@ De plus, nous avons une barre qui représente ce qu'avait atteint le modèle de 
 Aussi, il y a un tableau récapitulatif des résultats, avec les 2 précisions, le temps d'entrainement, et montre les changements positifs et négatifs par rapport au modèle de référence.
 
 = Amélioration de la précision
+
+À la fin du 1er semestre, nous avions déjà un code de réseau de neurones, capable de faire des prédictions, et de corriger ses erreurs avec de la descente de gradient @gradient_descent, avec Eigen @eigen en backend d'algèbre linéaire.
+Mais nous n'avions pas assez de données pour l'entrainer correctement, et donc nous n'avons pas de résultat de référence.
 
 == Formats [Précision, Performance]
 
@@ -351,14 +342,11 @@ grid(
 )
 
 
-
 Les formats en octets ont cependant un avantage non négligeable : ils sont plus compacts. \
 En effet, la taille de chaque couche du réseau de neurones peut être donc divisée par 8 (un peu moins pour les formats avec marqueurs), ce qui permet de réduire aussi la taille du réseau de neurones, et donc le temps d'entrainement.
 
 Nous avons donc testé ces 4 formats différents, cependant les formats binaires étant moins compact, le temps d'entrainement est plus long, et pour notre ensemble de données, on a estimé le temps d'un entrainement complet à 58h. \
 Pour quand même pouvoir comparer les résultats, nous avons fait tourner les modèles sur une petite partie des données. 
-
-#pagebreak()
 
 Voici les résultats d'entrainement de ces différents formats:
 
@@ -376,18 +364,18 @@ Voici les résultats d'entrainement de ces différents formats:
 		caption: "Résultats d'entrainement du format héxadécimal",
 	),
 	figure(
-		image("images2/Binary Format With Marker_training_results.svg"),
+		image("images2/Binary with marker Format_training_results.svg"),
 		caption: "Résultats d'entrainement du format binaire avec marqueur",
 	),
 	figure(
-		image("images2/Hexadecimal Format With Marker_training_results.svg"),
+		image("images2/Hexadecimal with marker Format_training_results.svg"),
 		caption: "Résultats d'entrainement du format héxadécimal avec marqueur",
 	)
 )
 
-Ici, nous voyons que le format binaire n'a pas d'avantage de précision, donc on va rester sur le format héxadécimal.
+Ici, nous voyons que le format binaire est bien plus chaotique que le format héxadécimal, mais n'a pas d'avantage de précision, donc on va rester sur le format héxadécimal.
 
-Maintenant, nous allons tester le format hexadécimal avec et sans marqueur sur le jeu de données complet.
+Le format avec marqueur pour l'héxadécimal semble être meilleur que la version sans, sur le petit jeu de données, mais pour être sûr, nous allons tester les 2 sur le jeu de données complet.
 
 #grid(
 	rows: 1,
@@ -395,16 +383,17 @@ Maintenant, nous allons tester le format hexadécimal avec et sans marqueur sur 
 	row-gutter: 1cm,
 	column-gutter: 1cm,
 	figure(
-		image("images2/Hexadecimal Format - Full Train_training_results.svg"),
+		image("images2/Hexadecimal Format (Full Dataset)_training_results.svg"),
 		caption: "Résultats d'entrainement du format héxadécimal sans marqueur",
 	),
 	figure(
-		image("images2/Hexadecimal With Split Format - Full Train_training_results.svg"),
+		image("images2/Hexadecimal with marker Format (Full Dataset)_training_results.svg"),
 		caption: "Résultats d'entrainement du format héxadécimal avec marqueur",
 	)
 )
 
-Le format héxadécimal sans marqueur semble donc bien être le plus adapté, car le réseau n'apprend plus rien avec le marqueur, même si cela est étrange que le marqueur baisse la précision sur le jeu de données complet, alors qu'il l'augmente sur le petit jeu de données.
+Surprenamment, sur le jeu de données complet, c'est l'inverse, le format sans marqueur est meilleur que le format avec marqueur. \
+Nous avons donc décidé de garder le format héxadécimal sans marqueur pour la suite.
 
 == Encodage du nombre de cycles [Précision]
 
@@ -429,7 +418,7 @@ Voici les résultats d'entrainement de ces différentes normalisations :
 	row-gutter: 1cm,
 	column-gutter: 1cm,
 	figure(
-		image("images2/Interval [0.15, 0.85]_No Encoding_training_results.svg"),
+		image("images2/[0.15, 0.85]_No Encoding_training_results.svg"),
 		caption: "Résultats d'entrainement avec normalisation sur [0.15, 0.85]",
 	),
 	figure(
@@ -450,9 +439,7 @@ Nous observons que normaliser sur un autre interval est pire, et en observant le
 Diviser les différentes unités a aussi empiré la prédiction. \
 Pour les différentes échelles, log2 a réussi à améliorer la précision, contrairement à la racine carrée.
 
-Pour les échelles logarithmes, nous avons aussi essayé d'ajouter un terme constant, ou de change de base, mais cela n'a fait que baisser la prédiction de notre modèle, donc nous utiliserons la transformation $ f(x) = (log_2 (x)) / (log_2(4*10^9)) $ pour la suite.
-
-#pagebreak()
+Après, pour les échelles logarithmes, nous avons aussi essayé d'ajouter un terme constant, ou de change de base, mais cela n'a fait que baisser la prédiction de notre modèle, donc nous utiliserons la transformation $ f(x) = (log_2 (x)) / (log_2(4*10^9)) $ pour la suite.
 
 == Descentes de gradient, mini-batch et optimiseurs [Précision, Performance, Parallélisation]
 
@@ -482,7 +469,7 @@ Maintenant, comparons les résultats d'entrainement du modèle avec mini-batch. 
 Ici le pas choisi µ est de 0.05, et la taille du batch est de 16. Car ce sont les valeurs qui ont donné les meilleurs résultats.
 
 #figure(
-	image("images2/Mini-Batch_No batching_training_results.svg",
+	image("images2/Mini-Batch_No Batching_training_results.svg",
 		width: 80%,
 	),
 	caption: "Résultats d'entrainement du modèle avec mini-batch",
@@ -496,9 +483,9 @@ Cela s'explique car la descente de gradient est une opération très coûteuse, 
 	image("images2/perf_train.svg"),
 	caption: "Temps de calcul de la descente de gradient",
 )
-Dans ce flamegraph, on peut voir la proportion de temps passé dans backpropagation, alors que le temps passé dans la passe avant est négligeable.
+Dans ce flamegraph, on peut voir la proportion de temps passé dans la descente de gradient (backpropagation), alors que le temps passé dans la passe avant est négligeable.
 
-Pour garder cette optimisation par batch, sans pour autant perdre en précision, il existe des outils appelés "optimiseurs". \
+Pour garder cette optimisation par batch, sans pour autant perdre en précision, il existe des outils appelés "optimiseurs" @optimisers. \
 Les optimiseurs sont des algorithmes qui changent la manière de descendre le long du gradient, afin de trouver le maximum de précision et de converger, plus rapidement ou plus stablement.
 
 En soit, la descente de gradient par batch est un optimiseur (appelé SGD pour Stochastic Gradient Descent), mais il en existe d'autres qui sont plus performants.
@@ -524,7 +511,7 @@ AMSGrad est une variante d'Adam qui impose des bornes sur le taux d'apprentissag
 Cela permet d'éviter que le taux d'apprentissage ne devienne trop petit, ou trop grand, et donc de mieux converger.
 Cependant, il est plus coûteux en calculs, car il doit garder en mémoire les valeurs précédentes des gradients, ainsi que les valeurs des bornes.
 
-Nous avons testé ces 4 optimiseurs, avec plusieurs valeurs de pas µ, pour une taille de batch 16.
+Nous avons testé ces 4 optimiseurs, pour une taille de batch de 16.
 Voici les meilleurs résultats obtenus :
 
 #grid(
@@ -565,14 +552,14 @@ Nous avons tester 2 manières d'ajouter du bruit :
 *Passe avant perturbée*: durant la passe avant, on ajoute du bruit sur les valeurs des neurones de la forme \
 $alpha times "valeur" + beta$. \
 
-*Dropout*: Durant l'entrainement, on tue des neurones aléatoirement.
+*Dropout* @dropout: Durant l'entrainement, on tue des neurones aléatoirement.
 A chaque époque, on fait un masque de neurones à tuer, c'est à dire qu'on met à 0 la valeur de certains neurones, ce qui empêche le réseau d'avoir des dépendances trop fortes, et d'avoir des neurones plus importants pour la prédiction que d'autres. \
 
 Malheuresement, ces techniques sont plus efficaces lors d'un cas de sur-apprentissage, ce qui n'est pas notre cas, et donc le bruit ajouté n'a fait que de perturber le réseau de neurones, et de le faire descendre en précision. \
 
 === Facteur de régularisation L2
 
-Le facteur de régularisation L2 est une technique qui permet de réduire le sur-apprentissage en ajoutant un terme à la fonction de coût, visant à pénaliser les poids trop grands. \
+Le facteur de régularisation L2 est une technique assez utilisée dans l'état de l'art @l2, qui permet de réduire le sur-apprentissage en ajoutant un terme à la fonction de coût, visant à pénaliser les poids trop grands. \
 Cela permet d'éviter que le réseau se fie trop à certaines relations entre les neurones, et de le forcer à généraliser. \
 
 Comme pour le bruit, augmenter le facteur de régularisation L2 n'a eu que des effets négatifs sur la précision du modèle, et a fait baisser la précision de l'ensemble d'entrainement.
@@ -763,22 +750,24 @@ Ici, nous allons lister brièvement les modifications que nous avons essayé, ma
 = Amélioration des performances et de la parallélisation
 
 Maintenant que nous avons un modèle assez bon, nous allons essayer d'améliorer le temps d'entrainement de notre modèle, et de le paralléliser. \
+Ici, nous allons nous focaliser uniquement sur l'entrainement, car le temps de chargement des données est négligeable.
+
 Pour mesurer les gains de performance, nous allons utiliser le temps pris pour faire 20 époques, et en déduire le nombre d'époques par seconde que notre modèle est capable de faire. \
 Pour référence, le modèle actuel est capable de faire 20 époques en \~27.26s, soit \~0.73 époques/s.
 
 D'abord, il faut anaylser les goulots d'étranglement de notre code, et voir où nous pouvons gagner du temps. \
 #figure(
 	image(
-		"images2/perf_train_batch.svg",
+		"images2/flamegraph.png",
 		width: 60%,
 	),
 	caption: "Flamegraph d'un entrainement actuel"
 )
 
-Nous pouvons voir déjà qu'il y a pas mal de temps dans des appels à Eigen, ce qui est normal car quasiment tout le code est basé dessus. \
-Ensuite, on peut voir la fonction de backpropagation et de mise à jour des poids, qui prennent pas mal de temps. \
+Dans l'entrainement, on peut voir que la passe arrière (backward) prend beaucoup de temps, notamment à cause de l'optimiseur. \
+Parmi forward et backward, on peut remarquer qu'il y a beaucoup de temps passé dans des appels à Eigen, ce qui est attendu car les calculs matriciels sont très coûteux. \
 
-Clairement, le plus gros des calculs se passent dans les manipulations des matrices, et donc cela va être notre axe d'optimisation principal. \
+Clairement, le plus gros des calculs se passent dans les manipulations des matrices et des optimiseurs, et donc ceux-ci vont être nos axes d'optimisations principaux. \
 
 
 == Optimisation des accès mémoire [Performance]
@@ -799,7 +788,7 @@ Rien que cela nous a permis d'avoir un speedup de \~1.2x, ce qui est déjà un b
 
 == Parallélisation des calculs matriciels [Performance, Parallélisation]
 
-Jusqu'à présent, nous sommes restés sur 1 seul thread, mais Eigen nous permet de paralléliser les calculs matriciels grâce à OpenMP. Juste en rajoutant un appel à ```Eigen::setNbThreads(x)``` au début de notre programme. \
+Jusqu'à présent, nous sommes restés sur 1 seul thread, mais Eigen nous permet de paralléliser les calculs matriciels grâce à OpenMP @openmp. Juste en rajoutant un appel à ```Eigen::setNbThreads(x)``` au début de notre programme. \
 De plus, comme nous avions écrit notre algorithme de mini-batch et de descente de gradient par calcul matriciel, au lieu de le faire vecteur par vecteur, nous avons pu bénificier de cette parallélisation sans modifier notre code. \
 
 #figure(
@@ -957,7 +946,7 @@ D'après le théorème de Taylor-Young, il est possible d'approximer n'importe q
 Pour l'exponentielle: $e^x = 1 + x + (x^2)/(2) + (x^3)/(6) + ... + (x^n)/(n!)$
 La suite infinie donne la fonction exacte, mais on peut s'arrêter à un certain degré arbitraire pour obtenir une approximation de l'exponentielle.
 
-- Approximations par limite tronquée
+- Approximations par produit tronqué
 L'exponentielle peut être formulée comme $e^x = lim_(n->inf) (1 + x/n)^n$
 
 Comme pour l'approximation polynomiale, on peut s'arrêter à un certain n pour obtenir une approximation de l'exponentielle.
@@ -993,8 +982,8 @@ Cela est dû à la nature de la série de Taylor, qui est une approximation au v
 Les autres approximations sont toutes très proches de la fonction réelle, mais celle de Schraudolph semble être la plus précise.
 
 Analysons les plus en détails, et comparons leurs performances. \
-Pour la précision, nous avons calculé les valeurs sur l'intervalle $[-100, 100]$, avec un pas de $0.001$, et nous avons calculé l'écart type des différences absolues entre l'approximation et l'implémentation standard de C++ pour chaque valeur. \
-Pour la performance, nous avons mesuré le temps d'exécution total pour chaque valeur de l'intervalle, ce qui fait 200'000 values à calculer, répété 5 fois. \
+Pour la précision, nous avons calculé les valeurs sur la fonction Sigmoid et sa dérivée, sur l'intervalle $[-100, 100]$, avec un pas de $0.001$, et nous avons calculé l'écart type des différences absolues entre l'approximation et l'implémentation standard de C++ pour chaque valeur. \
+Pour la performance, nous avons mesuré le temps d'exécution de Sigmoid et de sa dérivée, total pour chaque valeur de l'intervalle, ce qui fait 200'000 values à calculer, répété 5 fois. \
 Le but va être d'avoir une fonction qui soit la plus précise possible, mais aussi la plus rapide possible. \
 
 #figure(
@@ -1043,11 +1032,11 @@ Maintenant, comparons les performances de la version CPU et GPU, pour des matric
 	caption: "Comparaison des performances entre la version CPU et GPU"
 )
 
-Pour la version CPU, nous obtenons une courbe quadratique, ce qui est normal, car la multiplication de matrices est un algorithme de complexité $O(n^3)$.
+Pour la version CPU, nous obtenons une courbe polynomiale, ce qui est normal, car la multiplication de matrices est un algorithme de complexité $O(n^3)$.
 
 Pour la version GPU, nous avons 2 phases. \
 Entre *100x100* et *800x800*, nous avons un plateau, dû à la latence d'envoi des données au GPU, qui est plus importante que le temps de calcul. \
-Entre *800x800* et *1500x1500*, nous avons aussi une courbe quadratique, mais avec un meilleur scaling que la version CPU, car on peut faire plus de calculs en parallèle sur le GPU. D'ailleurs l'implémentation GPU réussit à battre la version CPU pour 1500x1500.
+Entre *800x800* et *1500x1500*, nous avons aussi une courbe polynomiale, mais avec un meilleur scaling que la version CPU, car on peut faire plus de calculs en parallèle sur le GPU. D'ailleurs l'implémentation GPU réussit à battre la version CPU pour 1500x1500.
 
 Le portage GPU pourrait donc apporter des gains, mais nos matrices sont trop petites pour que l'overhead d'envoi des données soit amorti par le temps de calcul. \
 
@@ -1104,7 +1093,6 @@ Même si cela ne semble pas énorme, il faut garder en tête que nous avons un j
 )
 
 Comparé à notre toute première version, nous avons réussi à avoir un speedup de \~2.51x, en considérant que la plupart des calculs sont de l'algèbre linéaire, qui a déjà été optimisée depuis fort longtemps, nous sommes assez satisfaits de ce résultat. \
-Les plus gros gains viennent principalement du Mini-Batch parallélisé, et de la topologie trouvée par évolution.
 
 = Critiques, perspectives, et conclusion
 
@@ -1141,7 +1129,8 @@ De plus, il propose des fonctionnalités que nous n'avons vu nulle part ailleurs
 )
 
 Ordinateur portable, processeur Intel Core i5 9ème génération à 4 cœurs, avec 8 threads, 8Go de RAM, et une carte graphique intégrée NVIDIA GeForce GTX 1050. \
-Compilateur: gcc 13.2.0 \
+Compilateur: gcc 13.2.1 \
+OpenMP: 4.5 \
 OS: Linux, Fedora 39 \
 
 #bibliography("references2.bib")

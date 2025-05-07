@@ -998,7 +998,7 @@ Epoch: 1992	,Training loss (MRSE): 0.0506779	,Validation loss (MRSE): 0.790654	,
 Epoch: 1994	,Training loss (MRSE): 0.0220897	,Validation loss (MRSE): 0.784222	,Training loss (MSE): 5.71475e+15	,Validation loss (MSE): 1.93003e+17	,Training accuracy (MAE): -7.43312e+06	,Validation accuracy (MAE): -7.49453e+07	,Training accuracy (MRAE): 0.907976	,Validation accuracy (MRAE): 0.149905
 Epoch: 1996	,Training loss (MRSE): 0.0155519	,Validation loss (MRSE): 0.780164	,Training loss (MSE): 4.88402e+15	,Validation loss (MSE): 1.93008e+17	,Training accuracy (MAE): -7.22333e+06	,Validation accuracy (MAE): -7.4945e+07	,Training accuracy (MRAE): 0.928225	,Validation accuracy (MRAE): 0.162559
 Epoch: 1998	,Training loss (MRSE): 0.0164399	,Validation loss (MRSE): 0.77891	,Training loss (MSE): 4.78712e+15	,Validation loss (MSE): 1.93001e+17	,Training accuracy (MAE): -7.71608e+06	,Validation accuracy (MAE): -7.48928e+07	,Training accuracy (MRAE): 0.918835	,Validation accuracy (MRAE): 0.157955
-Training time: 3423.44s
+Training time: 4623.44s
 
 Final results:
 Training data:
