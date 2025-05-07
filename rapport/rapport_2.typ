@@ -538,7 +538,7 @@ Voici les meilleurs résultats obtenus :
 )
 
 A part Momentum qui n'a pas réussi à converger, les autres optimiseurs ont tous réussi à augmenter la précision de l'ensemble d'entrainement à plus de 85%. Même s'il n'y a pas de progrès réel sur l'ensemble de validation. \
-Adam semble être le meilleur optimiseur, avec une précision légèrement supérieure à 90%, avec le temps d'entrainement le plus court parmis les 3. (3637s pour Adam, contre 4059s pour AMSGrad, et 4315s pour RMSProp) \
+Adam semble être le meilleur optimiseur, avec une précision légèrement supérieure à 90%, avec le temps d'entrainement le plus court parmis les 3. (3637s pour Adam, contre 4659s pour AMSGrad, et 4315s pour RMSProp) \
 Nous allons donc utiliser Adam pour la suite.
 
 == Améliorer la généralisation [Précision]
